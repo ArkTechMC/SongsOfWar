@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "sow",
+  "version": "${version}",
+
+  "name": "Songs Of War",
+  "description": "The Songs of War Animation Mod",
+  "authors": [],
+  "contact": {},
+
+  "license": "All Rights Reserved",
+  "icon": "icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.iafenvoy.sow.fabric.SongsOfWarFabric"
+    ],
+    "client": [
+      "com.iafenvoy.sow.fabric.SongsOfWarFabricClient"
+    ]
+  },
+  "mixins": [
+    "songs_of_war.mixins.json",
+    "sow.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": ">=1.20.1"
+  }
+}
