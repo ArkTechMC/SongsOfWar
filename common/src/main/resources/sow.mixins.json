@@ -1,11 +1,13 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.iafenvoy.songs_of_war.mixin",
+  "package": "com.iafenvoy.sow.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
   ],
   "client": [
+    "BufferBuilderStorageMixin",
+    "ItemRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
