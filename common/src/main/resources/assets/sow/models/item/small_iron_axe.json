@@ -1,0 +1,28 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "sow:item/small_iron_axe"
+  },
+      "display": {
+        "thirdperson_righthand": {
+            "rotation": [ -20, 90, 55 ],
+            "translation": [ 0, 4.5, 0.5 ],
+            "scale": [ 1.115625, 1.115625, 1.115625 ]
+        },
+        "thirdperson_lefthand": {
+            "rotation": [ -20, -90, -55 ],
+            "translation": [ 0, 4.5, 0.5 ],
+            "scale": [ 1.115625, 1.115625, 1.115625 ]
+        },
+        "firstperson_righthand": {
+            "rotation": [ 30, 90, 25 ],
+            "translation": [ 1.13, 3.2, 2.13 ],
+            "scale": [ 0.8925, 0.8925, 0.8925 ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [ 30, -90, -25 ],
+            "translation": [ 1.13, 3.2, 2.13 ],
+            "scale": [ 0.8925, 0.8925, 0.8925 ]
+        }
+    }
+}

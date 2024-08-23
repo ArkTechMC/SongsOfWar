@@ -1,0 +1,6 @@
+{
+  "parent": "sow:custom/wither_staff",
+  "textures": {
+    "0": "sow:block/wither_staff"
+  }
+}

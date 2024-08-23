@@ -11,7 +11,7 @@ public class SongCubeBlock extends AbstractGlassBlock {
     }
 
     public CubeType getType() {
-        return type;
+        return this.type;
     }
 
     public enum CubeType {

@@ -1,0 +1,28 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "sow:item/armblade"
+  },
+      "display": {
+        "thirdperson_righthand": {
+            "rotation": [ 180, -90, 55 ],
+            "translation": [ 0, -3, 10 ],
+            "scale": [ 1.59375, 1.59375, 0.74375 ]
+        },
+        "thirdperson_lefthand": {
+            "rotation": [ 180, 90, -55 ],
+            "translation": [ 0, -3, 10 ],
+            "scale": [ 1.59375, 1.59375, 0.74375 ]
+        },
+        "firstperson_righthand": {
+            "rotation": [ 0, -90, 25 ],
+            "translation": [ 1.13, 3.2, 2.13 ],
+            "scale": [ 1.275, 1.275, 0.595 ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [ 0, 90, -25 ],
+            "translation": [ 1.13, 3.2, 2.13 ],
+            "scale": [ 1.275, 1.275, 0.595 ]
+        }
+    }
+}

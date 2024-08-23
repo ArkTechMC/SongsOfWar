@@ -1,0 +1,28 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "sow:item/blunt_diamond_spear"
+  },
+      "display": {
+        "thirdperson_righthand": {
+            "rotation": [ 0, -90, 55 ],
+            "translation": [ 0, 4.5, 0.5 ],
+            "scale": [ 1.38125, 1.38125, 1.38125 ]
+        },
+        "thirdperson_lefthand": {
+            "rotation": [ 0, 90, -55 ],
+            "translation": [ 0, 4.5, 0.5 ],
+            "scale": [ 1.38125, 1.38125, 1.38125 ]
+        },
+        "firstperson_righthand": {
+            "rotation": [ 0, -90, 25 ],
+            "translation": [ 1.13, 3.2, 2.13 ],
+            "scale": [ 1.105, 1.105, 1.105 ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [ 0, 90, -25 ],
+            "translation": [ 1.13, 3.2, 2.13 ],
+            "scale": [ 1.105, 1.105, 1.105 ]
+        }
+    }
+}
