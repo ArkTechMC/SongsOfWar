@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "sow:item/armblade"
+    "layer0": "sow:item/arm_blade"
   },
       "display": {
         "thirdperson_righthand": {

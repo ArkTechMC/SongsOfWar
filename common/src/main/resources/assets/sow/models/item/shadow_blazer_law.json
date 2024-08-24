@@ -1,1 +1,6 @@
-{"parent":"minecraft:item/handheld","textures":{"layer0":"sow:item/shadow_blazer_law"}}
+{
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "sow:item/shadow_blazer_law"
+	}
+}
