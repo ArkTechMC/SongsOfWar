@@ -37,7 +37,7 @@ public class ItemRendererMixin {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/item/ItemRenderer;getDirectItemGlintConsumer(Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/client/render/RenderLayer;ZZ)Lnet/minecraft/client/render/VertexConsumer;"))
     private VertexConsumer onGetDirectItemGlintConsumer(VertexConsumerProvider provider, RenderLayer layer, boolean solid, boolean glint) {
         if (!songsOfWar$temp.isEmpty() && songsOfWar$temp.getNbt() != null && songsOfWar$temp.getNbt().contains(GlintManager.GLINT_KEY) && songsOfWar$temp.getOrCreateNbt().get(GlintManager.GLINT_KEY).getType() == NbtElement.STRING_TYPE)
-            return GlintLayerManager.getConsumerById(provider, layer, glint, songsOfWar$temp.getOrCreateNbt().getString(GlintManager.GLINT_KEY));
+            return GlintLayerManager.getConsumerById(provider, layer, glint || songsOfWar$temp.getNbt().getBoolean(GlintManager.GLINT_ALWAYS_KEY), songsOfWar$temp.getOrCreateNbt().getString(GlintManager.GLINT_KEY));
         return GlintLayerManager.getConsumerByStack(provider, layer, songsOfWar$temp, glint);
     }
 }

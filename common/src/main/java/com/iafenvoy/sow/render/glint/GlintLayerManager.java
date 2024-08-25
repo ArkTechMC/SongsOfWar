@@ -17,7 +17,7 @@ public class GlintLayerManager {
     @ApiStatus.Internal
     public static void registerAll(SortedMap<RenderLayer, BufferBuilder> map) {
         for (GlintManager.GlintHolder holder : GlintManager.HOLDERS) {
-            if (holder.texture() == null) return;
+            if (holder.texture() == null) continue;
             RenderLayer layer = RenderLayer.of("glint_" + holder.id(),
                     VertexFormats.POSITION_TEXTURE,
                     VertexFormat.DrawMode.QUADS,

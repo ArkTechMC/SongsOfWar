@@ -12,6 +12,7 @@ import java.util.function.Predicate;
 
 public class GlintManager {
     public static final String GLINT_KEY = "glint";
+    public static final String GLINT_ALWAYS_KEY = "glint_always";
     public static final List<GlintHolder> HOLDERS = new ArrayList<>();
     public static final Map<String, GlintHolder> BY_ID = new HashMap<>();
 
@@ -21,10 +22,14 @@ public class GlintManager {
     public static final GlintHolder BLUE = new GlintHolder("blue", new Identifier(SongsOfWar.MOD_ID, "textures/misc/glint_item_blue.png"));
     public static final GlintHolder ORANGE = new GlintHolder("orange", new Identifier(SongsOfWar.MOD_ID, "textures/misc/glint_item_orange.png"));
     public static final GlintHolder GREEN = new GlintHolder("green", new Identifier(SongsOfWar.MOD_ID, "textures/misc/glint_item_green.png"));
+    public static final GlintHolder PURPLE = new GlintHolder("purple", new Identifier(SongsOfWar.MOD_ID, "textures/misc/glint_item_purple.png"));
     public static final GlintHolder WHITE = new GlintHolder("white", new Identifier(SongsOfWar.MOD_ID, "textures/misc/glint_item_white.png"));
+    public static final GlintHolder PINK = new GlintHolder("purple", new Identifier(SongsOfWar.MOD_ID, "textures/misc/glint_item_pink.png"));
+    public static final GlintHolder AQUA = new GlintHolder("white", new Identifier(SongsOfWar.MOD_ID, "textures/misc/glint_item_aqua.png"));
 
     public static void removeGlint(ItemStack stack) {
         stack.getOrCreateNbt().remove(GLINT_KEY);
+        stack.getOrCreateNbt().remove(GLINT_ALWAYS_KEY);
     }
 
     public record GlintHolder(String id, Identifier texture, PredicateHolder predicates) {
@@ -34,9 +39,9 @@ public class GlintManager {
             BY_ID.put(this.id, this);
         }
 
-        public ItemStack apply(ItemStack stack) {
+        public void apply(ItemStack stack, boolean always) {
             stack.getOrCreateNbt().putString(GLINT_KEY, this.id);
-            return stack;
+            stack.getOrCreateNbt().putBoolean(GLINT_ALWAYS_KEY, always);
         }
 
         public void addPredicate(Predicate<ItemStack> stackPredicate) {

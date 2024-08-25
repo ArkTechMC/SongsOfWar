@@ -13,10 +13,10 @@ public class SongsOfWar {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public static void init() {
+        SowItemGroups.REGISTRY.register();
         SowBlocks.REGISTRY.register();
         SowItems.REGISTRY.register();
         SowWeapons.REGISTRY.register();
-        SowItemGroups.REGISTRY.register();
     }
 
     public static void process() {
