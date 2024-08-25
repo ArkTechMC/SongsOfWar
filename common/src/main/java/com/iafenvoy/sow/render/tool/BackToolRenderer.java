@@ -1,5 +1,6 @@
 package com.iafenvoy.sow.render.tool;
 
+import com.iafenvoy.neptune.render.armor.IArmorRenderHelper;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
@@ -8,40 +9,50 @@ import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.feature.HeldItemFeatureRenderer;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.minecraft.client.render.item.HeldItemRenderer;
+import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.util.math.RotationAxis;
+
+import java.util.Map;
 
 @Environment(EnvType.CLIENT)
 public class BackToolRenderer extends HeldItemFeatureRenderer<AbstractClientPlayerEntity, PlayerEntityModel<AbstractClientPlayerEntity>> {
+    private final HeldItemRenderer heldItemRenderer;
+
     public BackToolRenderer(FeatureRendererContext<AbstractClientPlayerEntity, PlayerEntityModel<AbstractClientPlayerEntity>> context, HeldItemRenderer heldItemRenderer) {
         super(context, heldItemRenderer);
+        this.heldItemRenderer = heldItemRenderer;
     }
 
     @Override
     public void render(MatrixStack matrices, VertexConsumerProvider provider, int i, AbstractClientPlayerEntity entity, float f, float g, float h, float j, float k, float l) {
-//        if (entity != null) {
-//            if (entity.getName().asString().equals(ClientUtil.getRenderPlayer())) {
-//                if (entity.getEquippedStack(EquipmentSlot.CHEST).getItem() == Items.ELYTRA)
-//                    return;
-//                if (ToolInfo.leftBackTool.shouldRender())
-//                    renderItem(ToolInfo.leftBackTool, matrices, provider, i, entity);
-//                if (ToolInfo.rightBackTool.shouldRender())
-//                    renderItem(ToolInfo.rightBackTool, matrices, provider, i, entity);
-//            }
-//        }
+        Map<BackBeltToolManager.Place, ItemStack> stacks = BackBeltToolManager.getAllEquipped(entity);
+
+        if (entity.getEquippedStack(EquipmentSlot.CHEST).getItem() == Items.ELYTRA)
+            return;
+        if (stacks.containsKey(BackBeltToolManager.Place.BACK_LEFT))
+            this.renderItem(stacks.get(BackBeltToolManager.Place.BACK_LEFT), matrices, provider, i, entity, true);
+        if (stacks.containsKey(BackBeltToolManager.Place.BACK_RIGHT))
+            this.renderItem(stacks.get(BackBeltToolManager.Place.BACK_RIGHT), matrices, provider, i, entity, false);
     }
 
-    private void renderItem(ItemStack stack, MatrixStack matrices, VertexConsumerProvider provider, int i, AbstractClientPlayerEntity entity) {
-//        matrices.push();
-//        ModelPart modelPart = this.getContextModel().body;
-//        modelPart.rotate(matrices);
-//        ItemStack backSlotItem = ClientUtil.GetItemFromName(info.getItem(), info.isEnchanted());
-//        matrices.translate(info.getOffsetX(), info.getOffsetY(), info.getOffsetZ() + 0.22D);
-//        matrices.scale(info.getSize(), info.getSize(), info.getSize());
-//        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(info.getRotateZ()));
-//        matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion(info.getRotateX()));
-//        matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(info.getRotateY()));
-//        MinecraftClient.getInstance().getHeldItemRenderer().renderItem(entity, backSlotItem, ModelTransformation.Mode.GROUND, false, matrices, provider, i);
-//        matrices.pop();
+    private void renderItem(ItemStack stack, MatrixStack matrices, VertexConsumerProvider provider, int i, AbstractClientPlayerEntity entity, boolean left) {
+        matrices.push();
+        IArmorRenderHelper.translateToChest(matrices, this.getContextModel(), entity);
+        if(!entity.getEquippedStack(EquipmentSlot.CHEST).isEmpty())
+            matrices.translate(0, 0, 0.05);
+        if(left) {
+            matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(90));
+            matrices.translate(-0.1, 0.1, 0.05);
+        }
+        matrices.translate(0, -0.3, 0.32);
+        matrices.scale(1.5f, 1.5f, 1.5f);
+        BackBeltToolManager.BackHolder holder = BackBeltToolManager.getBack(stack.getItem());
+        if (holder != null) holder.transformer().accept(matrices, left);
+        this.heldItemRenderer.renderItem(entity, stack, ModelTransformationMode.GROUND, false, matrices, provider, i);
+        matrices.pop();
     }
 }

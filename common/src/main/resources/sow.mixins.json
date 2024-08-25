@@ -7,7 +7,8 @@
   ],
   "client": [
     "BufferBuilderStorageMixin",
-    "ItemRendererMixin"
+    "ItemRendererMixin",
+    "PlayerEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,6 +1,8 @@
 package com.iafenvoy.sow.mixin;
 
-import com.iafenvoy.sow.render.glint.GlintManager;
+import com.iafenvoy.sow.render.glint.GlintLayerManager;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.BufferBuilder;
 import net.minecraft.client.render.BufferBuilderStorage;
 import net.minecraft.client.render.RenderLayer;
@@ -13,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.SortedMap;
 
+@Environment(EnvType.CLIENT)
 @Mixin(BufferBuilderStorage.class)
 public class BufferBuilderStorageMixin {
     @Shadow
@@ -21,6 +24,6 @@ public class BufferBuilderStorageMixin {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void registerGlints(CallbackInfo ci) {
-        GlintManager.registerAll(this.entityBuilders);
+        GlintLayerManager.registerAll(this.entityBuilders);
     }
 }
