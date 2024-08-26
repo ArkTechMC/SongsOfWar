@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "sow:song_stone_red",
+    "sow:song_stone_yellow",
+    "song_stone_blue",
+    "song_stone_orange",
+    "song_stone_green",
+    "song_stone_purple",
+    "song_stone_white",
+    "song_stone_pink",
+    "song_stone_aqua"
+  ]
+}

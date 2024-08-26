@@ -7,8 +7,6 @@
     "AnvilScreenHandlerMixin"
   ],
   "client": [
-    "BufferBuilderStorageMixin",
-    "ItemRendererMixin",
     "PlayerEntityRendererMixin"
   ],
   "injectors": {

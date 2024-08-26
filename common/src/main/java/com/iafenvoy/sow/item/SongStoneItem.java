@@ -9,7 +9,7 @@ public class SongStoneItem extends Item {
     private final SongStoneInfo info;
 
     public SongStoneItem(SongStoneInfo.Builder info, Settings settings) {
-        super(settings.maxCount(4).arch$tab(SowItemGroups.ITEMS.get()));
+        super(settings.maxCount(4).arch$tab(SowItemGroups.ITEMS));
         this.info = info.build();
     }
 

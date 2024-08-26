@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:item/handheld",
 	"textures": {
-		"layer0": "sow:item/auratimpson_lade_damond"
+		"layer0": "sow:item/auratimpson_lade_diamond"
 	},
 	"display": {
 		"thirdperson_righthand": {

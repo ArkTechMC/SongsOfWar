@@ -1,6 +1,6 @@
 package com.iafenvoy.sow.data;
 
-import com.iafenvoy.sow.render.glint.GlintManager;
+import com.iafenvoy.neptune.render.glint.GlintManager;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.ItemStack;
@@ -20,7 +20,7 @@ public class SongStoneInfo {
         this.levelCost = builder.levelCost;
     }
 
-    public void apply(ItemStack stack) {
+    public ItemStack apply(ItemStack stack) {
         this.glint.apply(stack, true);
         if (this.damageBonus != 0)
             stack.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier("song_stone", this.damageBonus, EntityAttributeModifier.Operation.ADDITION), null);
@@ -28,6 +28,7 @@ public class SongStoneInfo {
             stack.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier("song_stone", this.speedBonus, EntityAttributeModifier.Operation.ADDITION), null);
         if (this.knockbackBonus != 0)
             stack.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, new EntityAttributeModifier("song_stone", this.knockbackBonus, EntityAttributeModifier.Operation.ADDITION), null);
+        return stack;
     }
 
     public int getLevelCost() {

@@ -1,7 +1,7 @@
 package com.iafenvoy.sow.mixin;
 
+import com.iafenvoy.neptune.render.glint.GlintManager;
 import com.iafenvoy.sow.item.SongStoneItem;
-import com.iafenvoy.sow.render.glint.GlintManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.AxeItem;
