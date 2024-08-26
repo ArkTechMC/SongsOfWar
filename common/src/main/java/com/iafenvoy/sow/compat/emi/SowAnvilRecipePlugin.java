@@ -3,7 +3,6 @@ package com.iafenvoy.sow.compat.emi;
 import com.iafenvoy.neptune.util.RandomHelper;
 import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.item.SongStoneItem;
-import com.iafenvoy.sow.registry.SowItems;
 import dev.emi.emi.EmiUtil;
 import dev.emi.emi.api.EmiEntrypoint;
 import dev.emi.emi.api.EmiPlugin;
@@ -24,18 +23,25 @@ import java.util.List;
 
 @EmiEntrypoint
 public class SowAnvilRecipePlugin implements EmiPlugin {
+    private static final List<Item> allWeapons = Registries.ITEM.stream().filter(x -> x instanceof SwordItem || x instanceof AxeItem).toList();
+    private static final List<SongStoneItem> allStones = Registries.ITEM.stream().filter(x -> x instanceof SongStoneItem).map(x -> (SongStoneItem) x).toList();
+
     @Override
     public void register(EmiRegistry registry) {
-        registry.addRecipe(new SowAnvilRecipe());
+        for (SongStoneItem songStone : allStones)
+            registry.addRecipe(new SowAnvilRecipe(songStone));
     }
 
-    public static class SowAnvilRecipe implements EmiRecipe {
-        private static final List<Item> allWeapons = Registries.ITEM.stream().filter(x -> x instanceof SwordItem || x instanceof AxeItem).toList();
-        private static final List<SongStoneItem> allStones = Registries.ITEM.stream().filter(x -> x instanceof SongStoneItem).map(x -> (SongStoneItem) x).toList();
-        private final Identifier id = new Identifier(SongsOfWar.MOD_ID, "sow_anvil");
+    private static class SowAnvilRecipe implements EmiRecipe {
+        private final Identifier id;
+        private final SongStoneItem songStone;
         private final int unique = EmiUtil.RANDOM.nextInt();
         private Item lastWeapon = Items.AIR;
-        private SongStoneItem lastIngredient = (SongStoneItem) SowItems.SONG_STONE_RED.get();
+
+        private SowAnvilRecipe(SongStoneItem songStone) {
+            this.id = new Identifier(SongsOfWar.MOD_ID, "sow_anvil_" + songStone.getInfo().getId());
+            this.songStone = songStone;
+        }
 
         @Override
         public EmiRecipeCategory getCategory() {
@@ -49,7 +55,7 @@ public class SowAnvilRecipePlugin implements EmiPlugin {
 
         @Override
         public List<EmiIngredient> getInputs() {
-            return List.of(EmiIngredient.of(allWeapons.stream().map(Ingredient::ofItems).map(EmiIngredient::of).toList()), EmiIngredient.of(allStones.stream().map(Ingredient::ofItems).map(EmiIngredient::of).toList()));
+            return List.of(EmiIngredient.of(allWeapons.stream().map(Ingredient::ofItems).map(EmiIngredient::of).toList()), EmiIngredient.of(Ingredient.ofItems(this.songStone)));
         }
 
         @Override
@@ -77,8 +83,8 @@ public class SowAnvilRecipePlugin implements EmiPlugin {
             widgets.addTexture(EmiTexture.PLUS, 27, 3);
             widgets.addTexture(EmiTexture.EMPTY_ARROW, 75, 1);
             widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofItems(this.lastWeapon = RandomHelper.randomOne(r, allWeapons))), this.unique, 0, 0);
-            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofItems(this.lastIngredient = RandomHelper.randomOne(r, allStones))), this.unique, 49, 0);
-            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(this.lastIngredient.getInfo().apply(new ItemStack(this.lastWeapon)))), this.unique, 107, 0).recipeContext(this);
+            widgets.addSlot(EmiIngredient.of(Ingredient.ofItems(this.songStone)), 49, 0);
+            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(this.songStone.getInfo().apply(new ItemStack(this.lastWeapon)))), this.unique, 107, 0).recipeContext(this);
         }
     }
 }

@@ -35,6 +35,10 @@ public class SongStoneInfo {
         return this.levelCost;
     }
 
+    public String getId() {
+        return this.glint.id();
+    }
+
     public static class Builder {
         private GlintManager.GlintHolder glint;
         private double damageBonus = 0;
