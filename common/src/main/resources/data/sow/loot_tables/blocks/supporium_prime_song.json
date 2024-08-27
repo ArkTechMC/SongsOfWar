@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "sow:protisium_cube"
+          "name": "sow:supporium_prime_song"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "sow:blocks/protisium_cube"
+  "random_sequence": "sow:blocks/supporium_prime_song"
 }

@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Environment(EnvType.CLIENT)
-public class BackBeltToolManagerImpl extends BackBeltToolManager{
+public class BackBeltToolManagerImpl extends BackBeltToolManager {
     public static Map<BackBeltToolManager.Place, ItemStack> getAllEquipped(PlayerEntity player) {
         Optional<TrinketComponent> optional = TrinketsApi.getTrinketComponent(player);
         Map<BackBeltToolManager.Place, ItemStack> map = new HashMap<>();

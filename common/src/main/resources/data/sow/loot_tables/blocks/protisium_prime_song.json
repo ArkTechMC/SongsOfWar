@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "sow:aggressium_cube"
+          "name": "sow:protisium_prime_song"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "sow:blocks/aggressium_cube"
+  "random_sequence": "sow:blocks/protisium_prime_song"
 }

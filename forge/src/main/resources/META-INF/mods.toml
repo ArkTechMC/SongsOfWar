@@ -6,7 +6,7 @@ issueTrackerURL = "https://github.com/ArkTechMC/SongsOfWar/issues"
 modId = "sow"
 version = "${version}"
 displayName = "Songs Of War"
-#logoFile = "icon.png"
+logoFile = "logo.jpg"
 authors = "IAFEnvoy"
 description = '''
 The Songs of War Animation Mod

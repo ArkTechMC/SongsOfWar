@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "sow:supporium_cube"
+          "name": "sow:mobilium_prime_song"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "sow:blocks/supporium_cube"
+  "random_sequence": "sow:blocks/mobilium_prime_song"
 }

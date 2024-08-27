@@ -1,6 +1,6 @@
 {
    "parent": "block/cube_all",
    "textures": {
-       "all": "sow:block/songs/supporium_cube"
+       "all": "sow:block/songs/aggressium_prime_song"
    }
 }
