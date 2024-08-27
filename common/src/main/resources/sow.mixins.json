@@ -4,7 +4,8 @@
   "package": "com.iafenvoy.sow.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "AnvilScreenHandlerMixin"
+    "AnvilScreenHandlerMixin",
+    "GrindstoneScreenHandlerMixin"
   ],
   "client": [
   ],
