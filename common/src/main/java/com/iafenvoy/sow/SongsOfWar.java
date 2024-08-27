@@ -19,5 +19,6 @@ public class SongsOfWar {
     }
 
     public static void process() {
+        SowItems.init();
     }
 }

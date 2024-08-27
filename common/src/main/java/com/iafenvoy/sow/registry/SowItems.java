@@ -4,6 +4,7 @@ import com.iafenvoy.neptune.render.glint.GlintManager;
 import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.data.SongStoneInfo;
 import com.iafenvoy.sow.item.SongStoneItem;
+import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.item.Item;
@@ -25,4 +26,21 @@ public final class SowItems {
     public static final RegistrySupplier<Item> SONG_STONE_AQUA = REGISTRY.register("song_stone_aqua", () -> new SongStoneItem(SongStoneInfo.of(GlintManager.AQUA, 1), new Item.Settings()));
 
     public static final RegistrySupplier<Item> WITHER_STAFF = REGISTRY.register("wither_staff", () -> new Item(new Item.Settings().fireproof().rarity(Rarity.UNCOMMON).arch$tab(SowItemGroups.ITEMS)));
+
+    public static void init() {
+        CreativeTabRegistry.appendStack(SowItemGroups.ITEMS,
+                SowBanners.CONCHORD,
+                SowBanners.CONCHORD_SIMPLE,
+                SowBanners.CROWN_PEAK,
+                SowBanners.CYDONIA,
+                SowBanners.CYDONIA_SIMPLE,
+                SowBanners.FELDEN,
+                SowBanners.FELDEN_SIMPLE,
+                SowBanners.HYDRAPHEL,
+                SowBanners.HYDRAPHEL_SIMPLE,
+                SowBanners.K_ARTHEN,
+                SowBanners.K_ARTHEN_SIMPLE,
+                SowBanners.NORTHWIND,
+                SowBanners.NORTHWIND_SIMPLE);
+    }
 }
