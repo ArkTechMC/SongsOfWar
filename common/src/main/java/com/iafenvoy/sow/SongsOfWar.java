@@ -4,7 +4,6 @@ import com.iafenvoy.sow.registry.SowBlocks;
 import com.iafenvoy.sow.registry.SowItemGroups;
 import com.iafenvoy.sow.registry.SowItems;
 import com.iafenvoy.sow.registry.SowWeapons;
-import com.iafenvoy.sow.render.tool.BackBeltToolManager;
 import com.mojang.logging.LogUtils;
 import org.slf4j.Logger;
 

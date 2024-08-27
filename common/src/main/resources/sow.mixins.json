@@ -7,7 +7,6 @@
     "AnvilScreenHandlerMixin"
   ],
   "client": [
-    "PlayerEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

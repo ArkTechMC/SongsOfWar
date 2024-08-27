@@ -9,7 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,17 +19,15 @@ import static net.minecraft.item.ItemStack.MODIFIER_FORMAT;
 public class SongStoneInfo {
     private final GlintManager.GlintHolder glint;
     private final Map<EntityAttribute, Double> MODIFIERS = new HashMap<>();
-    private final Formatting color;
     private final int levelCost;
 
-    protected SongStoneInfo(GlintManager.GlintHolder glint, Formatting color, int levelCost) {
+    protected SongStoneInfo(GlintManager.GlintHolder glint, int levelCost) {
         this.glint = glint;
-        this.color = color;
         this.levelCost = levelCost;
     }
 
-    public static SongStoneInfo of(GlintManager.GlintHolder glint, Formatting color, int levelCost) {
-        return new SongStoneInfo(glint, color, levelCost);
+    public static SongStoneInfo of(GlintManager.GlintHolder glint, int levelCost) {
+        return new SongStoneInfo(glint, levelCost);
     }
 
     public SongStoneInfo dmg(double damageBonus) {
@@ -57,7 +54,7 @@ public class SongStoneInfo {
             if (entry.getValue() != 0)
                 stack.addAttributeModifier(entry.getKey(), new EntityAttributeModifier("song_stone", entry.getValue(), EntityAttributeModifier.Operation.ADDITION), null);
         if (stack.getName() instanceof MutableText mutableText)
-            stack.setCustomName(mutableText.fillStyle(Style.EMPTY.withItalic(false)).formatted(this.color));//TODO: Bad code, should mixin renderer
+            stack.setCustomName(mutableText.fillStyle(Style.EMPTY.withItalic(false)).formatted(this.glint.textColor()));//TODO: Bad code, should mixin renderer
         //TODO: Config
         stack.addHideFlag(ItemStack.TooltipSection.MODIFIERS);
         return stack;
@@ -69,7 +66,7 @@ public class SongStoneInfo {
     }
 
     public void applyTooltip(SongStoneItem item, List<Text> tooltips) {
-        tooltips.add(Text.translatable(item.getTranslationKey() + "." + this.getId()).formatted(this.color));
+        tooltips.add(Text.translatable(item.getTranslationKey() + "." + this.getId()).formatted(this.glint.textColor()));
         for (Map.Entry<EntityAttribute, Double> entry : this.MODIFIERS.entrySet())
             if (entry.getValue() != 0)
                 tooltips.add(Text.literal(formatNumber(entry.getValue()) + " ").append(Text.translatable(entry.getKey().getTranslationKey())));
