@@ -34,10 +34,8 @@ public class ArdoniMarkerGenerator {
     private static void fill(NativeImage image, int offsetX, int offsetY, boolean[][] map) {
         for (int i = 0; i < map.length; i++)
             for (int j = 0; j < map[i].length; j++)
-                if (map[i][j])
-                    image.setColor(offsetX + i, offsetY + j, -1);
-                else
-                    image.setColor(offsetX + i, offsetY + j, 0);
+                if (map[i][j]) image.setColor(offsetX + i, offsetY + j, -1);
+                else image.setColor(offsetX + i, offsetY + j, 0);
     }
 
     public Identifier generate() {

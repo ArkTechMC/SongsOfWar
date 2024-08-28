@@ -1,13 +1,18 @@
 package com.iafenvoy.sow.entity;
 
 import com.iafenvoy.neptune.object.entity.MonsterEntityBase;
+import com.iafenvoy.sow.data.ArdoniType;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.ApiStatus;
 
 public class AbstractArdoniEntity extends MonsterEntityBase {
     public AbstractArdoniEntity(EntityType<? extends HostileEntity> entityType, World world) {
