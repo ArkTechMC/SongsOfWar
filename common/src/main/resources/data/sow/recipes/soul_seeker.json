@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "sow:soul_seeker_single"
+    },
+    {
+      "item": "sow:soul_seeker_single"
+    }
+  ],
+  "result": {
+    "item": "sow:soul_seeker"
+  }
+}

@@ -32,4 +32,4 @@ Better render for prime song.
 
 Since this mod's assets from official, all assets are freely to use since they are already in public. **But all code are All Right Reserved**.
 
-You can freely use this mod in your modpack if you credit it somewhere.
+You can freely use this mod in your modpack if you credit us somewhere.

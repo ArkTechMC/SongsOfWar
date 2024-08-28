@@ -102,7 +102,7 @@ public final class SowWeapons {
     public static final RegistrySupplier<SowSwordItem> SCYTHE_DIAMOND = register("scythe_diamond", () -> new SowSwordItem(ToolMaterialUtil.of(1000, 10, 4, 4, 10), 1, 1, s -> s));
     public static final RegistrySupplier<SowSwordItem> SCYTHE_IRON = register("scythe_iron", () -> new SowSwordItem(ToolMaterialUtil.of(1000, 10, 4, 4, 10), 1, 1, s -> s));
     public static final RegistrySupplier<SowSwordItem> SENDAR = register("sendar", () -> new SowSwordItem(ToolMaterialUtil.of(1000, 10, 4, 4, 10), 1, 1, s -> s));
-    public static final RegistrySupplier<SowSwordItem> SHADOW_BLAZER_LAW = register("shadow_blazer_law", () -> new SowSwordItem(ToolMaterialUtil.of(1000, 10, 4, 4, 10), 1, 1, s -> s));
+    public static final RegistrySupplier<SowSwordItem> SHADOW_BLAZER_CLAW = register("shadow_blazer_claw", () -> new SowSwordItem(ToolMaterialUtil.of(1000, 10, 4, 4, 10), 1, 1, s -> s));
     public static final RegistrySupplier<SowSwordItem> SHADOW_SPEAR_DIAMOND = register("shadow_spear_diamond", () -> new SowSwordItem(ToolMaterialUtil.of(1000, 10, 4, 4, 10), 1, 1, s -> s));
     public static final RegistrySupplier<SowSwordItem> SHADOW_SPEAR_IRON = register("shadow_spear_iron", () -> new SowSwordItem(ToolMaterialUtil.of(1000, 10, 4, 4, 10), 1, 1, s -> s));
     public static final RegistrySupplier<SowSwordItem> SHINING_DIAMOND_SWORD = register("shining_diamond_sword", () -> new SowSwordItem(ToolMaterialUtil.of(1000, 10, 4, 4, 10), 1, 1, s -> s));

@@ -1,0 +1,13 @@
+{
+  "type": "neptune:weapon_desk",
+  "material": {
+    "item": "minecraft:iron_ingot"
+  },
+  "stick": {
+    "item": "minecraft:stick",
+    "count": 3
+  },
+  "result": {
+    "item": "sow:blunt_iron_spear"
+  }
+}

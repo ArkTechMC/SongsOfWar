@@ -1,0 +1,13 @@
+{
+  "type": "neptune:weapon_desk",
+  "material": {
+    "item": "minecraft:diamond",
+    "count": 2
+  },
+  "stick": {
+    "item": "minecraft:stick"
+  },
+  "result": {
+    "item": "sow:sword_diamond_14"
+  }
+}

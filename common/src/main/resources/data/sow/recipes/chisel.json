@@ -1,0 +1,12 @@
+{
+  "type": "neptune:weapon_desk",
+  "material": {
+    "item": "minecraft:iron_ingot"
+  },
+  "stick": {
+    "item": "minecraft:stick"
+  },
+  "result": {
+    "item": "sow:chisel"
+  }
+}
