@@ -16,7 +16,7 @@ This is a mod to add elements from [Songs of War Animation](https://youtu.be/Uc7
 
 <div align=center><img src="/img/2.webp" style="width:400px;text-align:center;" alt=""></img></div>
 
-**Upgrading Stone** Song Stone forging system allow you to upgrade your weapon.
+**Upgrading Stone** Song Stone forging system allow you to upgrade your weapon and will receive colorful glint.
 
 <div align=center><img src="/img/3.webp" style="width:400px;text-align:center;" alt=""></img></div>
 
