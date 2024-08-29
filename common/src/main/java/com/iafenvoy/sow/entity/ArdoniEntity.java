@@ -1,74 +1,121 @@
 package com.iafenvoy.sow.entity;
 
-import com.iafenvoy.neptune.network.PacketBufferUtils;
 import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.data.ArdoniType;
-import dev.architectury.networking.NetworkManager;
+import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 public class ArdoniEntity extends AbstractArdoniEntity {
     public static final Identifier UPDATE_DATA = new Identifier(SongsOfWar.MOD_ID, "update_marker_seed");
-    private long markerSeed;
-    private ArdoniType ardoniType;
+    private static final TrackedData<Long> MARKER_SEED = DataTracker.registerData(ArdoniEntity.class, TrackedDataHandlerRegistry.LONG);
+    private static final TrackedData<String> ARDONI_TYPE = DataTracker.registerData(ArdoniEntity.class, TrackedDataHandlerRegistry.STRING);
+    private static final TrackedData<Boolean> CHILD = DataTracker.registerData(ArdoniEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
-    public ArdoniEntity(EntityType<? extends HostileEntity> entityType, World world) {
+    public ArdoniEntity(EntityType<? extends ArdoniEntity> entityType, World world) {
         super(entityType, world);
-        this.markerSeed = System.nanoTime();
-        this.ardoniType = ArdoniType.random();
+    }
+
+    @Override
+    protected void initGoals() {
+        super.initGoals();
+        this.getNavigation().getNodeMaker().setCanOpenDoors(true);
+        this.goalSelector.add(1, new MeleeAttackGoal(this, 1.2, false) {
+            protected double getSquaredMaxAttackDistance(LivingEntity entity) {
+                return this.mob.getWidth() * this.mob.getWidth() + entity.getWidth();
+            }
+        });
+        this.goalSelector.add(2, new WanderAroundGoal(this, 1.0));
+        this.targetSelector.add(3, new RevengeGoal(this));
+        this.goalSelector.add(4, new LongDoorInteractGoal(this, false));
+        this.goalSelector.add(5, new LongDoorInteractGoal(this, true));
+        this.goalSelector.add(6, new BreakDoorGoal(this, e -> true));
+        this.goalSelector.add(7, new LookAroundGoal(this));
+        this.goalSelector.add(8, new SwimGoal(this));
     }
 
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
+        this.dataTracker.startTracking(MARKER_SEED, 0L);
+        this.dataTracker.startTracking(ARDONI_TYPE, "");
+        this.dataTracker.startTracking(CHILD, false);
     }
 
     @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
-        nbt.putLong("markerSeed", this.markerSeed);
-        nbt.putString("ardoniType", this.ardoniType.id());
+        nbt.putLong("markerSeed", this.getMarkerSeed());
+        nbt.putString("ardoniType", this.getArdoniTypeString());
+        nbt.putBoolean("child", this.isChild());
+    }
+
+    public void setDefaultData() {
+        this.setMarkerSeed(System.nanoTime());
+        this.setArdoniType(ArdoniType.random());
+        this.setChild(this.random.nextInt(5) == 0);
     }
 
     @Override
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
-        if (nbt.contains("markerSeed")) this.markerSeed = nbt.getLong("markerSeed");
-        if (nbt.contains("ardoniType")) this.ardoniType = ArdoniType.byId(nbt.getString("ardoniType"));
+        this.setDefaultData();
+        if (nbt.contains("markerSeed")) this.setMarkerSeed(nbt.getLong("markerSeed"));
+        if (nbt.contains("ardoniType")) this.setArdoniType(nbt.getString("ardoniType"));
+        if (nbt.contains("child")) this.setChild(nbt.getBoolean("child"));
+    }
+
+    @Nullable
+    @Override
+    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
+        EntityData data = super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
+        this.setDefaultData();
+        if (entityNbt != null && entityNbt.contains("ardoniType"))
+            this.setArdoniType(entityNbt.getString("ardoniType"));
+        return data;
     }
 
     public void setMarkerSeed(long markerSeed) {
-        this.markerSeed = markerSeed;
+        this.dataTracker.set(MARKER_SEED, markerSeed);
     }
 
     public long getMarkerSeed() {
-        return this.markerSeed;
+        return this.dataTracker.get(MARKER_SEED);
+    }
+
+    public String getArdoniTypeString() {
+        return this.dataTracker.get(ARDONI_TYPE);
     }
 
     public ArdoniType getArdoniType() {
-        return this.ardoniType;
+        return ArdoniType.byId(this.getArdoniTypeString());
     }
 
     public void setArdoniType(String type) {
-        this.setArdoniType(ArdoniType.byId(type));
+        this.dataTracker.set(ARDONI_TYPE, type);
     }
 
     public void setArdoniType(ArdoniType ardoniType) {
-        this.ardoniType = ardoniType;
+        this.setArdoniType(ardoniType.id());
     }
 
-    @Override
-    public void onSpawnPacket(EntitySpawnS2CPacket packet) {
-        super.onSpawnPacket(packet);
-        PacketByteBuf buf = PacketBufferUtils.create();
-        buf.writeInt(this.getId());
-        assert this.getWorld().getServer() != null;
-        NetworkManager.sendToServer(UPDATE_DATA, buf);
+    public boolean isChild() {
+        return this.dataTracker.get(CHILD);
+    }
+
+    public void setChild(boolean child) {
+        this.dataTracker.set(CHILD, child);
     }
 
     @Override

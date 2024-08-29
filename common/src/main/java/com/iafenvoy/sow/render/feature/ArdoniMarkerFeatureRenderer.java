@@ -1,7 +1,7 @@
 package com.iafenvoy.sow.render.feature;
 
-import com.iafenvoy.sow.data.ArdoniType;
 import com.iafenvoy.sow.entity.ArdoniEntity;
+import com.iafenvoy.sow.render.ArdoniEntityRenderer;
 import com.iafenvoy.sow.render.ArdoniMarkerGenerator;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
@@ -20,7 +20,7 @@ public class ArdoniMarkerFeatureRenderer extends FeatureRenderer<ArdoniEntity, B
     public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, ArdoniEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
         ArdoniMarkerGenerator generator = ArdoniMarkerGenerator.getOrCreate(entity.getMarkerSeed());
         BipedEntityModel<ArdoniEntity> model = this.getContextModel();
-        ArdoniType type = entity.getArdoniType();
-        model.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityCutout(generator.generate())), light, OverlayTexture.DEFAULT_UV, type.r(), type.g(), type.b(), 1);
+        float[] color = ArdoniEntityRenderer.resolveColor(entity);
+        model.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityTranslucentEmissive(generator.generate())), light, OverlayTexture.DEFAULT_UV, color[0], color[1], color[2], 1);
     }
 }

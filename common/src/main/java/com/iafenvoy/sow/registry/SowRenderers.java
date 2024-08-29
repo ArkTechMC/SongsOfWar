@@ -8,7 +8,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.render.RenderLayer;
 
 @Environment(EnvType.CLIENT)
-public class SowRenderers {
+public final class SowRenderers {
     public static void registerBlockRenderers() {
         RenderTypeRegistry.register(RenderLayer.getCutout(), SowBlocks.AGGRESSIUM_PRIME_SONG.get(), SowBlocks.MOBILIUM_PRIME_SONG.get(), SowBlocks.PROTISIUM_PRIME_SONG.get(), SowBlocks.SUPPORIUM_PRIME_SONG.get());
     }

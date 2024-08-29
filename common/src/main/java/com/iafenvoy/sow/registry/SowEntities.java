@@ -13,7 +13,7 @@ import net.minecraft.registry.RegistryKeys;
 
 import java.util.function.Supplier;
 
-public class SowEntities {
+public final class SowEntities {
     public static final DeferredRegister<EntityType<?>> REGISTRY = DeferredRegister.create(SongsOfWar.MOD_ID, RegistryKeys.ENTITY_TYPE);
 
     public static final RegistrySupplier<EntityType<ArdoniEntity>> ARDONI = build("ardoni", ArdoniEntity::new, SpawnGroup.MONSTER, 64, 3, false, 0.6F, 1.8F);

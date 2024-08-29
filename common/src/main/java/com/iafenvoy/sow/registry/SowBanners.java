@@ -8,7 +8,7 @@ import net.minecraft.item.Items;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Pair;
 
-public class SowBanners {
+public final class SowBanners {
     public static final ItemStack CONCHORD = BannerUtil.create("banner." + SongsOfWar.MOD_ID + ".conchord", Items.GREEN_BANNER,
             new Pair<>(BannerPatterns.TRIANGLE_TOP, DyeColor.BROWN),
             new Pair<>(BannerPatterns.TRIANGLE_BOTTOM, DyeColor.BROWN),

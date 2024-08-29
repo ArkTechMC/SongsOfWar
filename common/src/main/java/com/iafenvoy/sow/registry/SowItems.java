@@ -2,6 +2,7 @@ package com.iafenvoy.sow.registry;
 
 import com.iafenvoy.neptune.render.glint.GlintManager;
 import com.iafenvoy.sow.SongsOfWar;
+import com.iafenvoy.sow.data.ArdoniType;
 import com.iafenvoy.sow.data.SongStoneInfo;
 import com.iafenvoy.sow.item.SongStoneItem;
 import dev.architectury.registry.CreativeTabRegistry;
@@ -26,6 +27,13 @@ public final class SowItems {
     public static final RegistrySupplier<Item> SONG_STONE_AQUA = REGISTRY.register("song_stone_aqua", () -> new SongStoneItem(SongStoneInfo.of(GlintManager.AQUA, 1).kb(2).luck(3), new Item.Settings()));
 
     public static final RegistrySupplier<Item> WITHER_STAFF = REGISTRY.register("wither_staff", () -> new Item(new Item.Settings().fireproof().rarity(Rarity.UNCOMMON).arch$tab(SowItemGroups.ITEMS)));
+
+    public static final RegistrySupplier<Item> NONE_ARDONI_SPAWN_EGG = REGISTRY.register("none_ardoni_spawn_egg", ArdoniType.NONE::createSpawnEgg);
+    public static final RegistrySupplier<Item> VOLTARIS_ARDONI_SPAWN_EGG = REGISTRY.register("voltaris_ardoni_spawn_egg", ArdoniType.VOLTARIS::createSpawnEgg);
+    public static final RegistrySupplier<Item> SENDARIS_ARDONI_SPAWN_EGG = REGISTRY.register("sendaris_ardoni_spawn_egg", ArdoniType.SENDARIS::createSpawnEgg);
+    public static final RegistrySupplier<Item> NESTORIS_ARDONI_SPAWN_EGG = REGISTRY.register("nestoris_ardoni_spawn_egg", ArdoniType.NESTORIS::createSpawnEgg);
+    public static final RegistrySupplier<Item> KALTARIS_ARDONI_SPAWN_EGG = REGISTRY.register("kaltaris_ardoni_spawn_egg", ArdoniType.KALTARIS::createSpawnEgg);
+    public static final RegistrySupplier<Item> MENDORIS_ARDONI_SPAWN_EGG = REGISTRY.register("mendoris_ardoni_spawn_egg", ArdoniType.MENDORIS::createSpawnEgg);
 
     public static void init() {
         CreativeTabRegistry.appendStack(SowItemGroups.ITEMS,

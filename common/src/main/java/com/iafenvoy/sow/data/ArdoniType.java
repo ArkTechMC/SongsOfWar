@@ -2,8 +2,11 @@ package com.iafenvoy.sow.data;
 
 import com.iafenvoy.neptune.util.RandomHelper;
 import com.iafenvoy.sow.entity.ArdoniEntity;
+import com.iafenvoy.sow.item.ArdoniSpawnEggItem;
+import com.iafenvoy.sow.registry.SowEntities;
+import com.iafenvoy.sow.registry.SowItemGroups;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
 import java.util.HashMap;
@@ -27,10 +30,14 @@ public record ArdoniType(String id, float r, float g, float b) {
         BY_ID.put(id, this);
     }
 
-    public ArdoniEntity create(EntityType<? extends HostileEntity> entityType, World world) {
+    public ArdoniEntity create(EntityType<? extends ArdoniEntity> entityType, World world) {
         ArdoniEntity ardoni = new ArdoniEntity(entityType, world);
         ardoni.setArdoniType(this);
         return ardoni;
+    }
+
+    public ArdoniSpawnEggItem createSpawnEgg() {
+        return new ArdoniSpawnEggItem(SowEntities.ARDONI, this, new Item.Settings().arch$tab(SowItemGroups.ITEMS));
     }
 
     public static ArdoniType byId(String id) {
@@ -39,5 +46,9 @@ public record ArdoniType(String id, float r, float g, float b) {
 
     public static ArdoniType random() {
         return RandomHelper.randomOne(BY_ID.values().stream().toList());
+    }
+
+    public float[] toColorArray() {
+        return new float[]{this.r, this.g, this.b};
     }
 }

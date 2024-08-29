@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "sow:item/spawn_egg/voltaris_ardoni_spawn_egg"
+  }
+}

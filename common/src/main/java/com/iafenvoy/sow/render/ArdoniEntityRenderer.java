@@ -12,6 +12,8 @@ import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
+import java.awt.*;
+
 public class ArdoniEntityRenderer extends BipedEntityRenderer<ArdoniEntity, BipedEntityModel<ArdoniEntity>> {
     public ArdoniEntityRenderer(EntityRendererFactory.Context ctx) {
         super(ctx, new BipedEntityModel<>(ctx.getPart(EntityModelLayers.PLAYER)), 0.5F);
@@ -26,6 +28,14 @@ public class ArdoniEntityRenderer extends BipedEntityRenderer<ArdoniEntity, Bipe
 
     @Override
     public Identifier getTexture(ArdoniEntity entity) {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni_base.png");
+        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/ardoni_base.png");
+    }
+
+    public static float[] resolveColor(ArdoniEntity entity) {
+        if (entity.hasCustomName() && entity.getName().getString().equals("jeb_")) {
+            Color c = Color.getHSBColor((entity.age + entity.getId()) / 100.0f, 1, 1);
+            return new float[]{c.getRed() / 255.0f, c.getGreen() / 255.0f, c.getBlue() / 255.0f};
+        }
+        return entity.getArdoniType().toColorArray();
     }
 }
