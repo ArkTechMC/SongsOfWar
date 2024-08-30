@@ -1,6 +1,5 @@
 package com.iafenvoy.sow;
 
-import com.iafenvoy.sow.network.ServerNetworkHelper;
 import com.iafenvoy.sow.registry.*;
 import com.mojang.logging.LogUtils;
 import org.slf4j.Logger;
@@ -20,6 +19,5 @@ public class SongsOfWar {
 
     public static void process() {
         SowItems.init();
-        ServerNetworkHelper.init();
     }
 }

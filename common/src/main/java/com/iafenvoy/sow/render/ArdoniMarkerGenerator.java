@@ -1,11 +1,9 @@
 package com.iafenvoy.sow.render;
 
+import com.iafenvoy.neptune.render.SimpleTexture;
 import com.iafenvoy.sow.SongsOfWar;
-import com.mojang.blaze3d.platform.TextureUtil;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.texture.AbstractTexture;
 import net.minecraft.client.texture.NativeImage;
-import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
 
 import java.util.*;
@@ -44,7 +42,7 @@ public class ArdoniMarkerGenerator {
             NativeImage image = new NativeImage(64, 64, true);
             fill(image, BODY_OFFSET_X, BODY_OFFSET_Y, this.body.generate());
             fill(image, LEGS_OFFSET_X, LEGS_OFFSET_Y, this.legs.generate());
-            ArdoniSkinTexture texture = new ArdoniSkinTexture(image);
+            SimpleTexture texture = new SimpleTexture(image);
             texture.upload(false, false);
             MinecraftClient.getInstance().getTextureManager().registerTexture(this.id, texture);
         }
@@ -119,23 +117,6 @@ public class ArdoniMarkerGenerator {
         }
 
         public record PointHolder(int x, int y, int size, int dir) {
-        }
-    }
-
-    public static class ArdoniSkinTexture extends AbstractTexture {
-        private final NativeImage nativeImage;
-
-        public ArdoniSkinTexture(NativeImage nativeImage) {
-            this.nativeImage = nativeImage;
-        }
-
-        public void upload(boolean blur, boolean clamp) {
-            TextureUtil.prepareImage(this.getGlId(), 0, this.nativeImage.getWidth(), this.nativeImage.getHeight());
-            this.nativeImage.upload(0, 0, 0, 0, 0, this.nativeImage.getWidth(), this.nativeImage.getHeight(), blur, clamp, false, true);
-        }
-
-        @Override
-        public void load(ResourceManager manager) {
         }
     }
 }

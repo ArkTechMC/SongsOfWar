@@ -1,6 +1,5 @@
 package com.iafenvoy.sow;
 
-import com.iafenvoy.sow.network.ClientNetworkHelper;
 import com.iafenvoy.sow.registry.SowRenderers;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -13,6 +12,5 @@ public class SongsOfWarClient {
 
     public static void process() {
         SowRenderers.registerBlockRenderers();
-        ClientNetworkHelper.init();
     }
 }

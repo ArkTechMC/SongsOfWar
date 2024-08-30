@@ -34,7 +34,7 @@ public class ArdoniSpawnEggItem extends ArchitecturySpawnEggItem {
     private final ArdoniType type;
 
     public ArdoniSpawnEggItem(RegistrySupplier<? extends EntityType<? extends MobEntity>> entityType, ArdoniType type, Settings properties) {
-        super(entityType, -10066330, -1, properties);
+        super(entityType, -1, -1, properties);
         this.type = type;
     }
 
