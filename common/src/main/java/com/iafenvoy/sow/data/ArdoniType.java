@@ -12,22 +12,26 @@ import net.minecraft.world.World;
 import java.util.HashMap;
 import java.util.Map;
 
-public record ArdoniType(String id, float r, float g, float b) {
+public record ArdoniType(String id, int r, int g, int b) {
     private static final Map<String, ArdoniType> BY_ID = new HashMap<>();
 
-    public static final ArdoniType NONE = new ArdoniType("none", 1, 1, 1);
-    public static final ArdoniType VOLTARIS = new ArdoniType("voltaris", 1, 0, 0);
-    public static final ArdoniType SENDARIS = new ArdoniType("sendaris", 0, 0, 1);
-    public static final ArdoniType NESTORIS = new ArdoniType("nestoris", 1, 1, 0);
-    public static final ArdoniType KALTARIS = new ArdoniType("kaltaris", 0, 1, 0);
-    public static final ArdoniType MENDORIS = new ArdoniType("mendoris", 1, 0, 1);
+    public static final ArdoniType NONE = new ArdoniType("none", 255, 255, 255);
+    public static final ArdoniType VOLTARIS = new ArdoniType("voltaris", 255, 0, 0);
+    public static final ArdoniType SENDARIS = new ArdoniType("sendaris", 0, 0, 255);
+    public static final ArdoniType NESTORIS = new ArdoniType("nestoris", 255, 255, 0);
+    public static final ArdoniType KALTARIS = new ArdoniType("kaltaris", 0, 255, 0);
+    public static final ArdoniType MENDORIS = new ArdoniType("mendoris", 160, 32, 240);
 
-    public ArdoniType(String id, float r, float g, float b) {
+    public ArdoniType(String id, int r, int g, int b) {
         this.id = id;
         this.r = r;
         this.g = g;
         this.b = b;
         BY_ID.put(id, this);
+    }
+
+    public int getColor() {
+        return 0xFF << 24 | this.r << 16 | this.g << 8 | this.b;
     }
 
     public ArdoniEntity create(EntityType<? extends ArdoniEntity> entityType, World world) {
@@ -49,6 +53,6 @@ public record ArdoniType(String id, float r, float g, float b) {
     }
 
     public float[] toColorArray() {
-        return new float[]{this.r, this.g, this.b};
+        return new float[]{this.r / 255.0f, this.g / 255.0f, this.b / 255.0f};
     }
 }

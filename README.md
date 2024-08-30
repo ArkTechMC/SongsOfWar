@@ -20,9 +20,11 @@ This is a mod to add elements from [Songs of War Animation](https://youtu.be/Uc7
 
 <div align=center><img src="/img/3.webp" style="width:400px;text-align:center;" alt=""></img></div>
 
-### TODO:
+**Randomize Ardoni Entity** Every ardoni have their own class and markers.
 
-Entities such as `Ardoni`
+<div align=center><img src="/img/4.webp" style="width:400px;text-align:center;" alt=""></img></div>
+
+### TODO:
 
 Song Ability
 
@@ -33,3 +35,7 @@ Better render for prime song.
 Since this mod's assets from official, all assets are freely to use since they are already in public. **But all code are All Right Reserved**.
 
 You can freely use this mod in your modpack if you credit us somewhere.
+
+## Any Questions?
+
+Join our Discord: https://discord.gg/NDzz2upqAk

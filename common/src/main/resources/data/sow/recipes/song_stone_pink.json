@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MMM",
+    "MNM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:end_crystal"
+    },
+    "N": {
+      "item": "minecraft:netherite_block"
+    }
+  },
+  "result": {
+    "item": "sow:song_stone_pink"
+  }
+}

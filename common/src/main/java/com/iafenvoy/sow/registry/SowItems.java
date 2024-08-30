@@ -21,7 +21,7 @@ public final class SowItems {
     public static final RegistrySupplier<Item> SONG_STONE_BLUE = REGISTRY.register("song_stone_blue", () -> new SongStoneItem(SongStoneInfo.of(GlintManager.BLUE, 1).spd(5), new Item.Settings()));
     public static final RegistrySupplier<Item> SONG_STONE_ORANGE = REGISTRY.register("song_stone_orange", () -> new SongStoneItem(SongStoneInfo.of(GlintManager.ORANGE, 1).dmg(3).kb(2), new Item.Settings()));
     public static final RegistrySupplier<Item> SONG_STONE_GREEN = REGISTRY.register("song_stone_green", () -> new SongStoneItem(SongStoneInfo.of(GlintManager.GREEN, 1).luck(5), new Item.Settings()));
-    public static final RegistrySupplier<Item> SONG_STONE_PURPLE = REGISTRY.register("song_stone_purple", () -> new SongStoneItem(SongStoneInfo.of(GlintManager.PURPLE, 1).dmg(4).spd(2), new Item.Settings()));
+    public static final RegistrySupplier<Item> SONG_STONE_PURPLE = REGISTRY.register("song_stone_purple", () -> new SongStoneItem(SongStoneInfo.of(GlintManager.PURPLE, 1).dmg(2).spd(2), new Item.Settings()));
     public static final RegistrySupplier<Item> SONG_STONE_WHITE = REGISTRY.register("song_stone_white", () -> new SongStoneItem(SongStoneInfo.of(GlintManager.WHITE, 1).dmg(2).kb(1).spd(1).luck(1), new Item.Settings()));
     public static final RegistrySupplier<Item> SONG_STONE_PINK = REGISTRY.register("song_stone_pink", () -> new SongStoneItem(SongStoneInfo.of(GlintManager.PINK, 1).spd(2).luck(3), new Item.Settings()));
     public static final RegistrySupplier<Item> SONG_STONE_AQUA = REGISTRY.register("song_stone_aqua", () -> new SongStoneItem(SongStoneInfo.of(GlintManager.AQUA, 1).kb(2).luck(3), new Item.Settings()));
