@@ -1,7 +1,8 @@
 package com.iafenvoy.sow.data;
 
+import com.iafenvoy.neptune.util.Color4i;
 import com.iafenvoy.neptune.util.RandomHelper;
-import com.iafenvoy.sow.entity.ArdoniEntity;
+import com.iafenvoy.sow.entity.ardoni.ArdoniEntity;
 import com.iafenvoy.sow.item.ArdoniSpawnEggItem;
 import com.iafenvoy.sow.registry.SowEntities;
 import com.iafenvoy.sow.registry.SowItemGroups;
@@ -12,7 +13,7 @@ import net.minecraft.world.World;
 import java.util.HashMap;
 import java.util.Map;
 
-public record ArdoniType(String id, int r, int g, int b) {
+public record ArdoniType(String id, Color4i color) {
     private static final Map<String, ArdoniType> BY_ID = new HashMap<>();
 
     public static final ArdoniType NONE = new ArdoniType("none", 255, 255, 255);
@@ -23,15 +24,8 @@ public record ArdoniType(String id, int r, int g, int b) {
     public static final ArdoniType MENDORIS = new ArdoniType("mendoris", 160, 32, 240);
 
     public ArdoniType(String id, int r, int g, int b) {
-        this.id = id;
-        this.r = r;
-        this.g = g;
-        this.b = b;
+        this(id, new Color4i(r, g, b, 255));
         BY_ID.put(id, this);
-    }
-
-    public int getColor() {
-        return 0xFF << 24 | this.r << 16 | this.g << 8 | this.b;
     }
 
     public ArdoniEntity create(EntityType<? extends ArdoniEntity> entityType, World world) {
@@ -50,9 +44,5 @@ public record ArdoniType(String id, int r, int g, int b) {
 
     public static ArdoniType random() {
         return RandomHelper.randomOne(BY_ID.values().stream().toList());
-    }
-
-    public float[] toColorArray() {
-        return new float[]{this.r / 255.0f, this.g / 255.0f, this.b / 255.0f};
     }
 }

@@ -10,8 +10,6 @@
     "sow:blunt_diamond_spear",
     "sow:blunt_iron_spear",
     "sow:chipped_iron_sword",
-    "sow:double_halberd_diamond",
-    "sow:double_halberd_iron",
     "sow:zeru_halberd_diamond",
     "sow:zeru_halberd_iron",
     "sow:great_axe_iron",
@@ -71,6 +69,8 @@
     "sow:staff_ardoni_honor_iron",
     "sow:sendar",
     "sow:voltar",
-    "sow:voltar_disguised"
+    "sow:nestor",
+    "sow:mendor",
+    "sow:kaltar"
   ]
 }

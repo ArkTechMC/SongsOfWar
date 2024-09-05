@@ -8,8 +8,6 @@
     "sow:blade_staff_iron",
     "sow:blunt_diamond_spear",
     "sow:blunt_iron_spear",
-    "sow:double_halberd_diamond",
-    "sow:double_halberd_iron",
     "sow:zeru_halberd_diamond",
     "sow:zeru_halberd_iron",
     "sow:halberd_diamond",
@@ -79,7 +77,6 @@
     "sow:sword_iron_6",
     "sow:sword_iron_7",
     "sow:sword_iron_8",
-    "sow:voltar",
-    "sow:voltar_disguised"
+    "sow:voltar"
   ]
 }

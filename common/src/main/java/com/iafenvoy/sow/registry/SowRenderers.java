@@ -1,11 +1,16 @@
 package com.iafenvoy.sow.registry;
 
+import com.iafenvoy.sow.SongsOfWar;
+import com.iafenvoy.sow.item.CanActiveSwordItem;
 import com.iafenvoy.sow.render.ArdoniEntityRenderer;
+import com.iafenvoy.sow.render.CommonPlayerLikeEntityRenderer;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.client.rendering.RenderTypeRegistry;
+import dev.architectury.registry.item.ItemPropertiesRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public final class SowRenderers {
@@ -15,6 +20,12 @@ public final class SowRenderers {
 
     public static void registerEntityRenderers() {
         EntityRendererRegistry.register(SowEntities.ARDONI, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.ENDER_KNIGHT, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.TIDE_SINGER, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.DEATH_SINGER, ArdoniEntityRenderer::new);
     }
 
+    public static void registerModelPredicates() {
+        ItemPropertiesRegistry.registerGeneric(new Identifier(SongsOfWar.MOD_ID, CanActiveSwordItem.ACTIVE_KEY), (stack, world, entity, seed) -> stack.getNbt() != null && stack.getNbt().getBoolean(CanActiveSwordItem.ACTIVE_KEY) ? 1 : 0);
+    }
 }

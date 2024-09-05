@@ -2,18 +2,18 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:item/handheld",
 	"textures": {
-		"layer0": "sow:item/double_hook_extended_diamond"
+		"layer0": "sow:item/staff_tide_singer_active"
 	},
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [0, -90, 55],
-			"translation": [0, -1, 0.5],
-			"scale": [1.5, 1.5, 1]
+			"translation": [0, -2.5, 1.5],
+			"scale": [2, 2, 1]
 		},
 		"thirdperson_lefthand": {
 			"rotation": [0, 90, -55],
-			"translation": [0, -1, 0.5],
-			"scale": [1.5, 1.5, 1]
+			"translation": [0, -2.5, 1.5],
+			"scale": [2, 2, 1]
 		},
 		"firstperson_righthand": {
 			"rotation": [0, -90, 25],
@@ -24,9 +24,6 @@
 			"rotation": [0, 90, -25],
 			"translation": [1.13, 3.2, 1.13],
 			"scale": [0.68, 0.68, 0.68]
-		},
-		"fixed": {
-			"rotation": [0, 180, 0]
 		}
 	}
 }

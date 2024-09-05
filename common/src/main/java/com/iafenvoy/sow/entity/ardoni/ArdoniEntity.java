@@ -1,12 +1,11 @@
-package com.iafenvoy.sow.entity;
+package com.iafenvoy.sow.entity.ardoni;
 
+import com.iafenvoy.neptune.util.Color4i;
 import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.data.ArdoniType;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
@@ -17,8 +16,9 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
+
 public class ArdoniEntity extends AbstractArdoniEntity {
-    public static final Identifier UPDATE_DATA = new Identifier(SongsOfWar.MOD_ID, "update_marker_seed");
     private static final TrackedData<Long> MARKER_SEED = DataTracker.registerData(ArdoniEntity.class, TrackedDataHandlerRegistry.LONG);
     private static final TrackedData<String> ARDONI_TYPE = DataTracker.registerData(ArdoniEntity.class, TrackedDataHandlerRegistry.STRING);
     private static final TrackedData<Boolean> CHILD = DataTracker.registerData(ArdoniEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
@@ -28,21 +28,20 @@ public class ArdoniEntity extends AbstractArdoniEntity {
     }
 
     @Override
-    protected void initGoals() {
-        super.initGoals();
-        this.getNavigation().getNodeMaker().setCanOpenDoors(true);
-        this.goalSelector.add(1, new MeleeAttackGoal(this, 1.2, false) {
-            protected double getSquaredMaxAttackDistance(LivingEntity entity) {
-                return this.mob.getWidth() * this.mob.getWidth() + entity.getWidth();
-            }
-        });
-        this.goalSelector.add(2, new WanderAroundGoal(this, 1.0));
-        this.targetSelector.add(3, new RevengeGoal(this));
-        this.goalSelector.add(4, new LongDoorInteractGoal(this, false));
-        this.goalSelector.add(5, new LongDoorInteractGoal(this, true));
-        this.goalSelector.add(6, new BreakDoorGoal(this, e -> true));
-        this.goalSelector.add(7, new LookAroundGoal(this));
-        this.goalSelector.add(8, new SwimGoal(this));
+    public Optional<Identifier> getMarkerTexture() {
+        return Optional.empty();
+    }
+
+    @Override
+    public Color4i getColor() {
+        if (this.hasCustomName() && this.getName().getString().equals("jeb_"))
+            return Color4i.fromHSV((this.age + this.getId()) / 100.0f, 1, 1);
+        return this.getArdoniType().color();
+    }
+
+    @Override
+    public Identifier getSkinTexture() {
+        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/ardoni_base.png");
     }
 
     @Override

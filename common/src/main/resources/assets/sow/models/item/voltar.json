@@ -25,5 +25,13 @@
 			"translation": [1.13, 3.2, 1.13],
 			"scale": [0.68, 0.68, 0.68]
 		}
-	}
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"sow:active": 1.0
+			},
+			"model": "sow:item/voltar_active"
+		}
+	]
 }

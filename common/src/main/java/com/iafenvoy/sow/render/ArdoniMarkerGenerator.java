@@ -2,12 +2,15 @@ package com.iafenvoy.sow.render;
 
 import com.iafenvoy.neptune.render.SimpleTexture;
 import com.iafenvoy.sow.SongsOfWar;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.texture.NativeImage;
 import net.minecraft.util.Identifier;
 
 import java.util.*;
 
+@Environment(EnvType.CLIENT)
 public class ArdoniMarkerGenerator {
     private static final Map<Long, ArdoniMarkerGenerator> GENERATOR = new HashMap<>();
     private static final int BODY_OFFSET_X = 0, BODY_OFFSET_Y = 20;

@@ -5,6 +5,7 @@ import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.data.ArdoniType;
 import com.iafenvoy.sow.data.SongStoneInfo;
 import com.iafenvoy.sow.item.SongStoneItem;
+import dev.architectury.core.item.ArchitecturySpawnEggItem;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -34,6 +35,9 @@ public final class SowItems {
     public static final RegistrySupplier<Item> NESTORIS_ARDONI_SPAWN_EGG = REGISTRY.register("nestoris_ardoni_spawn_egg", ArdoniType.NESTORIS::createSpawnEgg);
     public static final RegistrySupplier<Item> KALTARIS_ARDONI_SPAWN_EGG = REGISTRY.register("kaltaris_ardoni_spawn_egg", ArdoniType.KALTARIS::createSpawnEgg);
     public static final RegistrySupplier<Item> MENDORIS_ARDONI_SPAWN_EGG = REGISTRY.register("mendoris_ardoni_spawn_egg", ArdoniType.MENDORIS::createSpawnEgg);
+
+    public static final RegistrySupplier<Item> TIDE_SINGER_SPAWN_EGG = REGISTRY.register("tide_singer_spawn_egg", () -> new ArchitecturySpawnEggItem(SowEntities.TIDE_SINGER, 0xFF888888, 0xFFFFFF00, new Item.Settings().arch$tab(SowItemGroups.ITEMS)));
+    public static final RegistrySupplier<Item> DEATH_SINGER_SPAWN_EGG = REGISTRY.register("death_singer_spawn_egg", () -> new ArchitecturySpawnEggItem(SowEntities.DEATH_SINGER, 0xFF888888, 0xFFFF0000, new Item.Settings().arch$tab(SowItemGroups.ITEMS)));
 
     public static void init() {
         CreativeTabRegistry.appendStack(SowItemGroups.ITEMS,

@@ -1,6 +1,7 @@
 package com.iafenvoy.sow.registry;
 
 import com.iafenvoy.sow.SongsOfWar;
+import com.iafenvoy.sow.item.CanActiveSwordItem;
 import com.iafenvoy.sow.item.SowAxeItem;
 import com.iafenvoy.sow.item.SowSwordItem;
 import com.iafenvoy.sow.item.SowWeapon;
@@ -33,12 +34,6 @@ public final class SowWeapons {
             new SowSwordItem(ToolMaterials.DIAMOND, -1, -1, s -> s));
     public static final RegistrySupplier<SowSwordItem> DAGGER_DIAMOND = register("dagger_diamond", () ->
             new SowSwordItem(ToolMaterials.DIAMOND, 1, 0, s -> s));
-    public static final RegistrySupplier<SowSwordItem> DOUBLE_HALBERD_DIAMOND = register("double_halberd_diamond", () ->
-            new SowSwordItem(ToolMaterials.DIAMOND, 3, -1.5f, s -> s));
-    public static final RegistrySupplier<SowSwordItem> DOUBLE_HOOK_DIAMOND = register("double_hook_diamond", () ->
-            new SowSwordItem(ToolMaterials.DIAMOND, 3, -1, s -> s));
-    public static final RegistrySupplier<SowSwordItem> DOUBLE_HOOK_EXTENDED_DIAMOND = register("double_hook_extended_diamond", () ->
-            new SowSwordItem(ToolMaterials.DIAMOND, 4, -1, s -> s));
     public static final RegistrySupplier<SowSwordItem> ZERU_HALBERD_DIAMOND = register("zeru_halberd_diamond", () ->
             new SowSwordItem(ToolMaterials.DIAMOND, 2, -0.5f, s -> s));
     public static final RegistrySupplier<SowSwordItem> ZERU_LONG_SWORD_DIAMOND = register("zeru_long_sword_diamond", () ->
@@ -105,8 +100,6 @@ public final class SowWeapons {
             new SowSwordItem(ToolMaterials.DIAMOND, 1, 0, s -> s));
     public static final RegistrySupplier<SowSwordItem> SPEAR_LIGHT_DIAMOND = register("spear_light_diamond", () ->
             new SowSwordItem(ToolMaterials.DIAMOND, -1, 1, s -> s));
-    public static final RegistrySupplier<SowSwordItem> SPLIT_IRON_SWORD = register("split_iron_sword", () ->
-            new SowSwordItem(ToolMaterials.IRON, 2, 0, s -> s));
     public static final RegistrySupplier<SowSwordItem> STAFF_DIAMOND = register("staff_diamond", () ->
             new SowSwordItem(ToolMaterials.DIAMOND, -1, 1, s -> s));
     public static final RegistrySupplier<SowSwordItem> STAFF_DIAMOND_2 = register("staff_diamond_2", () ->
@@ -132,13 +125,11 @@ public final class SowWeapons {
     public static final RegistrySupplier<SowSwordItem> SWORD_HALLEOUS = register("sword_halleous", () ->
             new SowSwordItem(ToolMaterials.DIAMOND, 4, 1, s -> s));
     public static final RegistrySupplier<SowSwordItem> STAFF_TIDE_SINGER = register("staff_tide_singer", () ->
-            new SowSwordItem(ToolMaterials.DIAMOND, 4, 1, s -> s));
+            new CanActiveSwordItem(ToolMaterials.DIAMOND, 4, 1, s -> s));
     public static final RegistrySupplier<SowSwordItem> STAFF_ARDONI_HONOR_DIAMOND = register("staff_ardoni_honor_diamond", () ->
             new SowSwordItem(ToolMaterials.DIAMOND, -1, 1, s -> s));
     public static final RegistrySupplier<SowSwordItem> VOLTAR = register("voltar", () ->
-            new SowSwordItem(ToolMaterials.DIAMOND, 1, 1, s -> s));
-    public static final RegistrySupplier<SowSwordItem> VOLTAR_DISGUISED = register("voltar_disguised", () ->
-            new SowSwordItem(ToolMaterials.DIAMOND, 1, 1, s -> s));
+            new CanActiveSwordItem(ToolMaterials.DIAMOND, 1, 1, s -> s));
 
     //iron weapons
     public static final RegistrySupplier<SowSwordItem> ARM_BLADE = register("arm_blade", () ->
@@ -170,8 +161,6 @@ public final class SowWeapons {
     public static final RegistrySupplier<SowSwordItem> CLAW_IRON = register("claw_iron", () ->
             new SowSwordItem(ToolMaterials.IRON, 2, -3, s -> s));
     public static final RegistrySupplier<SowSwordItem> DAGGER_IRON = register("dagger_iron", () ->
-            new SowSwordItem(ToolMaterials.IRON, 1, 0, s -> s));
-    public static final RegistrySupplier<SowSwordItem> DOUBLE_HALBERD_IRON = register("double_halberd_iron", () ->
             new SowSwordItem(ToolMaterials.IRON, 1, 0, s -> s));
     public static final RegistrySupplier<SowSwordItem> ZERU_HALBERD_IRON = register("zeru_halberd_iron", () ->
             new SowSwordItem(ToolMaterials.IRON, 1, 0, s -> s));
@@ -257,6 +246,8 @@ public final class SowWeapons {
             new SowSwordItem(ToolMaterials.IRON, -1, 1, s -> s));
     public static final RegistrySupplier<SowSwordItem> SPEAR_LIGHT_IRON = register("spear_light_iron", () ->
             new SowSwordItem(ToolMaterials.IRON, -1, 1, s -> s));
+    public static final RegistrySupplier<SowSwordItem> SPLIT_IRON_SWORD = register("split_iron_sword", () ->
+            new SowSwordItem(ToolMaterials.IRON, 2, 0, s -> s));
     public static final RegistrySupplier<SowSwordItem> STAFF_HONOR_GUARD_IRON = register("staff_honor_guard_iron", () ->
             new SowSwordItem(ToolMaterials.IRON, -1, 1, s -> s));
     public static final RegistrySupplier<SowSwordItem> STAFF_IRON = register("staff_iron", () ->

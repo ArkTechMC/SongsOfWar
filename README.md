@@ -2,6 +2,8 @@
 
 This is a mod to add elements from [Songs of War Animation](https://youtu.be/Uc7YMW3AKpg?t=1152).
 
+~~Put me into the washing machine like the logo if you meet any bugs.~~
+
 ## Credit
 
 **Squared Media (Black Plasma Studio)**: Animation author and assets.

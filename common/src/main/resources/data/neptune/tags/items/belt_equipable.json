@@ -22,8 +22,6 @@
     "sow:dagger_diamond",
     "sow:dagger_iron",
     "sow:dagger_stone",
-    "sow:double_halberd_diamond",
-    "sow:double_halberd_iron",
     "sow:ender_blade",
     "sow:ender_sword",
     "sow:zeru_halberd_diamond",
@@ -160,7 +158,6 @@
     "sow:sword_stone_1",
     "sow:sword_stone_2",
     "sow:voltar",
-    "sow:voltar_disguised",
     "sow:axe_stubby"
   ]
 }

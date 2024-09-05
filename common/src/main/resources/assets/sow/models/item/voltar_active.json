@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:item/handheld",
 	"textures": {
-		"layer0": "sow:item/voltar_disguised"
+		"layer0": "sow:item/voltar_active"
 	},
 	"display": {
 		"thirdperson_righthand": {
