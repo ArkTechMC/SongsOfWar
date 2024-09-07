@@ -24,7 +24,7 @@ public class ArdoniMarkerGenerator {
         Random random = new Random(seed);
         this.body = new ArdoniLikeBooleanMapGenerator(56, 12, random.nextLong());
         this.legs = new ArdoniLikeBooleanMapGenerator(32, 12, random.nextLong());
-        this.id = new Identifier(SongsOfWar.MOD_ID, "ardoni_skin_overlay_" + seed);
+        this.id = new Identifier(SongsOfWar.MOD_ID, "ardoni_skin_marker_" + seed);
     }
 
     public static ArdoniMarkerGenerator getOrCreate(long seed) {

@@ -5,7 +5,7 @@ import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.data.ArdoniType;
 import com.iafenvoy.sow.data.SongStoneInfo;
 import com.iafenvoy.sow.item.SongStoneItem;
-import dev.architectury.core.item.ArchitecturySpawnEggItem;
+import com.iafenvoy.sow.item.SowSpawnEggItem;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -28,16 +28,29 @@ public final class SowItems {
     public static final RegistrySupplier<Item> SONG_STONE_AQUA = REGISTRY.register("song_stone_aqua", () -> new SongStoneItem(SongStoneInfo.of(GlintManager.AQUA, 1).kb(2).luck(3), new Item.Settings()));
 
     public static final RegistrySupplier<Item> WITHER_STAFF = REGISTRY.register("wither_staff", () -> new Item(new Item.Settings().fireproof().rarity(Rarity.UNCOMMON).arch$tab(SowItemGroups.ITEMS)));
-
+    //Spawn Egg
+    //Misc
     public static final RegistrySupplier<Item> NONE_ARDONI_SPAWN_EGG = REGISTRY.register("none_ardoni_spawn_egg", ArdoniType.NONE::createSpawnEgg);
     public static final RegistrySupplier<Item> VOLTARIS_ARDONI_SPAWN_EGG = REGISTRY.register("voltaris_ardoni_spawn_egg", ArdoniType.VOLTARIS::createSpawnEgg);
     public static final RegistrySupplier<Item> SENDARIS_ARDONI_SPAWN_EGG = REGISTRY.register("sendaris_ardoni_spawn_egg", ArdoniType.SENDARIS::createSpawnEgg);
     public static final RegistrySupplier<Item> NESTORIS_ARDONI_SPAWN_EGG = REGISTRY.register("nestoris_ardoni_spawn_egg", ArdoniType.NESTORIS::createSpawnEgg);
     public static final RegistrySupplier<Item> KALTARIS_ARDONI_SPAWN_EGG = REGISTRY.register("kaltaris_ardoni_spawn_egg", ArdoniType.KALTARIS::createSpawnEgg);
     public static final RegistrySupplier<Item> MENDORIS_ARDONI_SPAWN_EGG = REGISTRY.register("mendoris_ardoni_spawn_egg", ArdoniType.MENDORIS::createSpawnEgg);
-
-    public static final RegistrySupplier<Item> TIDE_SINGER_SPAWN_EGG = REGISTRY.register("tide_singer_spawn_egg", () -> new ArchitecturySpawnEggItem(SowEntities.TIDE_SINGER, 0xFF888888, 0xFFFFFF00, new Item.Settings().arch$tab(SowItemGroups.ITEMS)));
-    public static final RegistrySupplier<Item> DEATH_SINGER_SPAWN_EGG = REGISTRY.register("death_singer_spawn_egg", () -> new ArchitecturySpawnEggItem(SowEntities.DEATH_SINGER, 0xFF888888, 0xFFFF0000, new Item.Settings().arch$tab(SowItemGroups.ITEMS)));
+    public static final RegistrySupplier<Item> ENDER_KNIGHT_SPAWN_EGG = REGISTRY.register("ender_knight_spawn_egg", SowSpawnEggItem.create(SowEntities.ENDER_KNIGHT, 0xFF000000, 0xFF800080));
+    //Ardoni
+    public static final RegistrySupplier<Item> TIDE_SINGER_SPAWN_EGG = REGISTRY.register("tide_singer_spawn_egg", SowSpawnEggItem.create(SowEntities.TIDE_SINGER, 0xFF888888, 0xFFFFFF00));
+    public static final RegistrySupplier<Item> DEATH_SINGER_SPAWN_EGG = REGISTRY.register("death_singer_spawn_egg", SowSpawnEggItem.create(SowEntities.DEATH_SINGER, 0xFF888888, 0xFFFF0000));
+    public static final RegistrySupplier<Item> AEGUS_SPAWN_EGG = REGISTRY.register("aegus_spawn_egg", SowSpawnEggItem.create(SowEntities.AEGUS, 0xFF888888, 0xFFFFFF00));
+    public static final RegistrySupplier<Item> KALTARIS_MASTER_SPAWN_EGG = REGISTRY.register("kaltaris_master_spawn_egg", SowSpawnEggItem.create(SowEntities.KALTARIS_MASTER, 0xFF888888, 0xFF00FF00));
+    public static final RegistrySupplier<Item> MENDORIS_MASTER_SPAWN_EGG = REGISTRY.register("mendoris_master_spawn_egg", SowSpawnEggItem.create(SowEntities.MENDORIS_MASTER, 0xFF888888, 0xFF800080));
+    public static final RegistrySupplier<Item> SENDARIS_MASTER_SPAWN_EGG = REGISTRY.register("sendaris_master_spawn_egg", SowSpawnEggItem.create(SowEntities.SENDARIS_MASTER, 0xFF888888, 0xFF00FFFF));
+    //Felina
+    public static final RegistrySupplier<Item> FELDEN_SPAWN_EGG = REGISTRY.register("felden_spawn_egg", SowSpawnEggItem.create(SowEntities.FELDEN, 0xFF444444, 0xFFf9d4c9));
+    public static final RegistrySupplier<Item> KIYOSHI_SPAWN_EGG = REGISTRY.register("kiyoshi_spawn_egg", SowSpawnEggItem.create(SowEntities.KIYOSHI, 0xFF006400, 0xFFf9d4c9));
+    public static final RegistrySupplier<Item> NIIKA_SPAWN_EGG = REGISTRY.register("niika_spawn_egg", SowSpawnEggItem.create(SowEntities.NIIKA, 0xFF444444, 0xFFa52a2a));
+    //Human
+    public static final RegistrySupplier<Item> ABBIGAIL_SPAWN_EGG = REGISTRY.register("abbigail_spawn_egg", SowSpawnEggItem.create(SowEntities.ABBIGAIL, 0xFFa52a2a, 0xFF301934));
+    public static final RegistrySupplier<Item> ALEC_SPAWN_EGG = REGISTRY.register("alec_spawn_egg", SowSpawnEggItem.create(SowEntities.ALEC, 0xFF444444, 0xFFf9d4c9));
 
     public static void init() {
         CreativeTabRegistry.appendStack(SowItemGroups.ITEMS,

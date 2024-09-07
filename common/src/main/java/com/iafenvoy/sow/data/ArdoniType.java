@@ -5,26 +5,25 @@ import com.iafenvoy.neptune.util.RandomHelper;
 import com.iafenvoy.sow.entity.ardoni.ArdoniEntity;
 import com.iafenvoy.sow.item.ArdoniSpawnEggItem;
 import com.iafenvoy.sow.registry.SowEntities;
-import com.iafenvoy.sow.registry.SowItemGroups;
 import net.minecraft.entity.EntityType;
-import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public record ArdoniType(String id, Color4i color) {
+public record ArdoniType(String id, Color4i color, boolean dark) {
     private static final Map<String, ArdoniType> BY_ID = new HashMap<>();
 
-    public static final ArdoniType NONE = new ArdoniType("none", 255, 255, 255);
-    public static final ArdoniType VOLTARIS = new ArdoniType("voltaris", 255, 0, 0);
-    public static final ArdoniType SENDARIS = new ArdoniType("sendaris", 0, 0, 255);
-    public static final ArdoniType NESTORIS = new ArdoniType("nestoris", 255, 255, 0);
-    public static final ArdoniType KALTARIS = new ArdoniType("kaltaris", 0, 255, 0);
-    public static final ArdoniType MENDORIS = new ArdoniType("mendoris", 160, 32, 240);
+    public static final ArdoniType NONE = new ArdoniType("none", 255, 255, 255, false);
+    public static final ArdoniType VOLTARIS = new ArdoniType("voltaris", 255, 0, 0, true);
+    public static final ArdoniType SENDARIS = new ArdoniType("sendaris", 0, 0, 255, false);
+    public static final ArdoniType NESTORIS = new ArdoniType("nestoris", 255, 255, 0, false);
+    public static final ArdoniType KALTARIS = new ArdoniType("kaltaris", 0, 255, 0, false);
+    public static final ArdoniType MENDORIS = new ArdoniType("mendoris", 160, 32, 240, false);
 
-    public ArdoniType(String id, int r, int g, int b) {
-        this(id, new Color4i(r, g, b, 255));
+    public ArdoniType(String id, int r, int g, int b, boolean dark) {
+        this(id, new Color4i(r, g, b, 255), dark);
         BY_ID.put(id, this);
     }
 
@@ -35,7 +34,7 @@ public record ArdoniType(String id, Color4i color) {
     }
 
     public ArdoniSpawnEggItem createSpawnEgg() {
-        return new ArdoniSpawnEggItem(SowEntities.ARDONI, this, new Item.Settings().arch$tab(SowItemGroups.ITEMS));
+        return new ArdoniSpawnEggItem(SowEntities.ARDONI, this);
     }
 
     public static ArdoniType byId(String id) {
@@ -43,6 +42,6 @@ public record ArdoniType(String id, Color4i color) {
     }
 
     public static ArdoniType random() {
-        return RandomHelper.randomOne(BY_ID.values().stream().toList());
+        return RandomHelper.randomOne(new ArrayList<>(BY_ID.values()));
     }
 }

@@ -1,7 +1,6 @@
 package com.iafenvoy.sow.item;
 
 import com.iafenvoy.sow.data.ArdoniType;
-import dev.architectury.core.item.ArchitecturySpawnEggItem;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -30,11 +29,11 @@ import net.minecraft.world.event.GameEvent;
 
 import java.util.Objects;
 
-public class ArdoniSpawnEggItem extends ArchitecturySpawnEggItem {
+public class ArdoniSpawnEggItem extends SowSpawnEggItem {
     private final ArdoniType type;
 
-    public ArdoniSpawnEggItem(RegistrySupplier<? extends EntityType<? extends MobEntity>> entityType, ArdoniType type, Settings properties) {
-        super(entityType, -1, -1, properties);
+    public ArdoniSpawnEggItem(RegistrySupplier<? extends EntityType<? extends MobEntity>> entityType, ArdoniType type) {
+        super(entityType, -1, -1);
         this.type = type;
     }
 

@@ -32,7 +32,7 @@ dependencies {
     modImplementation "top.theillusivec4.curios:curios-forge:${curios_version}"
 
     // Neptune cross-platform library
-    modImplementation "maven.modrinth:neptune:Fdps9xDA"
+    modRuntimeOnly "maven.modrinth:neptune:TAJ9TIie"
 
     // Optional
     // EMI

@@ -1,10 +1,12 @@
-package com.iafenvoy.sow.entity;
+package com.iafenvoy.sow.entity.felina;
 
 import com.iafenvoy.neptune.object.entity.MonsterEntityBase;
+import com.iafenvoy.neptune.render.EntityTextureProvider;
 import com.iafenvoy.neptune.util.RandomHelper;
 import com.iafenvoy.sow.SongsOfWar;
-import com.iafenvoy.neptune.render.EntityTextureProvider;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityGroup;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -14,15 +16,12 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
-public class EnderKnightEntity extends MonsterEntityBase implements EntityTextureProvider {
-    private static final TrackedData<Integer> KNIGHT_TYPE = DataTracker.registerData(EnderKnightEntity.class, TrackedDataHandlerRegistry.INTEGER);
+public class FeldenEntity extends MonsterEntityBase implements EntityTextureProvider {
+    private static final TrackedData<Integer> VARIANT = DataTracker.registerData(FeldenEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
-    public EnderKnightEntity(EntityType<? extends HostileEntity> entityType, World world) {
+    public FeldenEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world, EntityGroup.DEFAULT);
     }
 
@@ -47,36 +46,28 @@ public class EnderKnightEntity extends MonsterEntityBase implements EntityTextur
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
-        this.dataTracker.startTracking(KNIGHT_TYPE, 1);
+        this.dataTracker.startTracking(VARIANT, 1);
     }
 
-    public int getKnightType() {
-        return this.dataTracker.get(KNIGHT_TYPE);
+    public int getVariant() {
+        return this.dataTracker.get(VARIANT);
     }
 
-    public void setKnightType(int type) {
-        this.dataTracker.set(KNIGHT_TYPE, type);
+    public void setVariant(int type) {
+        this.dataTracker.set(VARIANT, type);
     }
 
     @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
-        nbt.putInt("knightType", this.getKnightType());
+        nbt.putInt("variant", this.getVariant());
     }
 
     @Override
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
-        if (nbt.contains("knightType")) this.setKnightType(nbt.getInt("knightType"));
-        else this.setKnightType(RandomHelper.nextInt(1, 6));
-    }
-
-    @Nullable
-    @Override
-    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-        EntityData data = super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
-        this.setKnightType(RandomHelper.nextInt(1, 6));
-        return data;
+        if (nbt.contains("variant")) this.setVariant(nbt.getInt("variant"));
+        else this.setVariant(RandomHelper.nextInt(1, 3));
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {
@@ -91,6 +82,6 @@ public class EnderKnightEntity extends MonsterEntityBase implements EntityTextur
 
     @Override
     public Identifier getTextureId() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/ender_knight/ender_knight_" + this.getKnightType() + ".png");
+        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/felina/felden_" + this.getVariant() + ".png");
     }
 }

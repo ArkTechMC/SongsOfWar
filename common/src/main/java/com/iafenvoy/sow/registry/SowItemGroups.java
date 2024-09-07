@@ -19,4 +19,5 @@ public final class SowItemGroups {
         GlintManager.RED.apply(stack, true);
         return stack;
     }));
+    public static final RegistrySupplier<ItemGroup> MOBS = REGISTRY.register("mobs", () -> CreativeTabRegistry.create(Text.translatable("itemGroup." + SongsOfWar.MOD_ID + ".mobs"), () -> new ItemStack(SowItems.NONE_ARDONI_SPAWN_EGG.get())));
 }
