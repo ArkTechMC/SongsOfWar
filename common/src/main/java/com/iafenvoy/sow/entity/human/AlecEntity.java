@@ -27,7 +27,7 @@ public class AlecEntity extends MonsterEntityBase implements EntityTextureProvid
                 return this.mob.getWidth() * this.mob.getWidth() + entity.getWidth();
             }
         });
-        this.goalSelector.add(2, new WanderAroundGoal(this, 0.65));
+        this.goalSelector.add(2, new WanderAroundGoal(this, 0.5));
         this.targetSelector.add(3, new RevengeGoal(this));
         this.goalSelector.add(4, new LongDoorInteractGoal(this, false));
         this.goalSelector.add(5, new LongDoorInteractGoal(this, true));

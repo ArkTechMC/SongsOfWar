@@ -1,8 +1,10 @@
-package com.iafenvoy.sow.entity.human;
+package com.iafenvoy.sow.entity;
 
 import com.iafenvoy.neptune.object.entity.MonsterEntityBase;
-import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.neptune.render.EntityTextureProvider;
+import com.iafenvoy.neptune.render.glint.GlintManager;
+import com.iafenvoy.sow.SongsOfWar;
+import com.iafenvoy.sow.registry.SowWeapons;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -10,12 +12,15 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
-public class AbbigailEntity extends MonsterEntityBase implements EntityTextureProvider {
-    public AbbigailEntity(EntityType<? extends HostileEntity> entityType, World world) {
+public class GrimEntity extends MonsterEntityBase implements EntityTextureProvider {
+    public GrimEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world, EntityGroup.DEFAULT);
+        this.setStackInHand(Hand.MAIN_HAND, GlintManager.BLUE.apply(new ItemStack(SowWeapons.SCYTHE_IRON.get()), true));
     }
 
     @Override
@@ -48,6 +53,6 @@ public class AbbigailEntity extends MonsterEntityBase implements EntityTexturePr
 
     @Override
     public Identifier getTextureId() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/abbigail.png");
+        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/grim.png");
     }
 }

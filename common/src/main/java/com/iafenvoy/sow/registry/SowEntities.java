@@ -24,6 +24,7 @@ public final class SowEntities {
     //Misc
     public static final RegistrySupplier<EntityType<ArdoniEntity>> ARDONI = build("ardoni", ArdoniEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<EnderKnightEntity>> ENDER_KNIGHT = build("ender_knight", EnderKnightEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<GrimEntity>> GRIM = build("grim", GrimEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     //Ardoni
     public static final RegistrySupplier<EntityType<TideSingerArdoniEntity>> TIDE_SINGER = build("tide_singer", TideSingerArdoniEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<DeathSingerArdoniEntity>> DEATH_SINGER = build("death_singer", DeathSingerArdoniEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
@@ -54,6 +55,7 @@ public final class SowEntities {
     public static void init() {
         EntityAttributeRegistry.register(ARDONI, AbstractArdoniEntity::createAttributes);
         EntityAttributeRegistry.register(ENDER_KNIGHT, EnderKnightEntity::createAttributes);
+        EntityAttributeRegistry.register(GRIM, GrimEntity::createAttributes);
         EntityAttributeRegistry.register(TIDE_SINGER, AbstractArdoniEntity::createAttributes);
         EntityAttributeRegistry.register(DEATH_SINGER, AbstractArdoniEntity::createAttributes);
         EntityAttributeRegistry.register(AEGUS, AegusEntity::createAttributes);

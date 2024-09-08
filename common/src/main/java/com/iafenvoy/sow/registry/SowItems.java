@@ -37,6 +37,7 @@ public final class SowItems {
     public static final RegistrySupplier<Item> KALTARIS_ARDONI_SPAWN_EGG = REGISTRY.register("kaltaris_ardoni_spawn_egg", ArdoniType.KALTARIS::createSpawnEgg);
     public static final RegistrySupplier<Item> MENDORIS_ARDONI_SPAWN_EGG = REGISTRY.register("mendoris_ardoni_spawn_egg", ArdoniType.MENDORIS::createSpawnEgg);
     public static final RegistrySupplier<Item> ENDER_KNIGHT_SPAWN_EGG = REGISTRY.register("ender_knight_spawn_egg", SowSpawnEggItem.create(SowEntities.ENDER_KNIGHT, 0xFF000000, 0xFF800080));
+    public static final RegistrySupplier<Item> GRIM_SPAWN_EGG = REGISTRY.register("grim_spawn_egg", SowSpawnEggItem.create(SowEntities.GRIM, 0xFF444444, 0xFF00FFFF));
     //Ardoni
     public static final RegistrySupplier<Item> TIDE_SINGER_SPAWN_EGG = REGISTRY.register("tide_singer_spawn_egg", SowSpawnEggItem.create(SowEntities.TIDE_SINGER, 0xFF888888, 0xFFFFFF00));
     public static final RegistrySupplier<Item> DEATH_SINGER_SPAWN_EGG = REGISTRY.register("death_singer_spawn_egg", SowSpawnEggItem.create(SowEntities.DEATH_SINGER, 0xFF888888, 0xFFFF0000));

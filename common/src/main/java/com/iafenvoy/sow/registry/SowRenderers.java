@@ -21,6 +21,7 @@ public final class SowRenderers {
     public static void registerEntityRenderers() {
         EntityRendererRegistry.register(SowEntities.ARDONI, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.ENDER_KNIGHT, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.GRIM, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.TIDE_SINGER, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.DEATH_SINGER, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.AEGUS, ArdoniEntityRenderer::new);

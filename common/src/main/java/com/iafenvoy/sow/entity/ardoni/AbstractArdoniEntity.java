@@ -8,6 +8,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
@@ -28,7 +30,7 @@ public abstract class AbstractArdoniEntity extends MonsterEntityBase {
                 return this.mob.getWidth() * this.mob.getWidth() + entity.getWidth();
             }
         });
-        this.goalSelector.add(2, new WanderAroundGoal(this, 0.65));
+        this.goalSelector.add(2, new WanderAroundGoal(this, 0.5));
         this.targetSelector.add(3, new RevengeGoal(this));
         this.goalSelector.add(4, new LongDoorInteractGoal(this, false));
         this.goalSelector.add(5, new LongDoorInteractGoal(this, true));
@@ -45,6 +47,13 @@ public abstract class AbstractArdoniEntity extends MonsterEntityBase {
         builder = builder.add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0);
         builder = builder.add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.0);
         return builder;
+    }
+
+    @Override
+    public boolean isInvulnerableTo(DamageSource damageSource) {
+        if (damageSource.isOf(DamageTypes.DRAGON_BREATH) || damageSource.isOf(DamageTypes.MAGIC))
+            return true;
+        return super.isInvulnerableTo(damageSource);
     }
 
     public abstract Identifier getSkinTexture();
