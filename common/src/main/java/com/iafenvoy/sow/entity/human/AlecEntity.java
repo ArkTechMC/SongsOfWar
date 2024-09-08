@@ -10,6 +10,7 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
@@ -37,7 +38,7 @@ public class AlecEntity extends MonsterEntityBase implements EntityTextureProvid
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {
-        DefaultAttributeContainer.Builder builder = createMobAttributes();
+        DefaultAttributeContainer.Builder builder = MobEntity.createMobAttributes();
         builder = builder.add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0);
         builder = builder.add(EntityAttributes.GENERIC_ARMOR, 10.0);
         builder = builder.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0);

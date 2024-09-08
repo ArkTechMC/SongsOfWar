@@ -12,6 +12,7 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.LocalDifficulty;
@@ -80,7 +81,7 @@ public class EnderKnightEntity extends MonsterEntityBase implements EntityTextur
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {
-        DefaultAttributeContainer.Builder builder = createMobAttributes();
+        DefaultAttributeContainer.Builder builder = MobEntity.createMobAttributes();
         builder = builder.add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0);
         builder = builder.add(EntityAttributes.GENERIC_ARMOR, 10.0);
         builder = builder.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0);
