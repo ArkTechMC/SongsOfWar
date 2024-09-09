@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public record ArdoniType(String id, Color4i color, boolean dark) {
@@ -43,5 +44,10 @@ public record ArdoniType(String id, Color4i color, boolean dark) {
 
     public static ArdoniType random() {
         return RandomHelper.randomOne(new ArrayList<>(BY_ID.values()));
+    }
+
+    public String getFormattedName() {
+        if (this.id.isEmpty()) return "";
+        return this.id.substring(0, 1).toUpperCase(Locale.ROOT) + this.id.substring(1);
     }
 }

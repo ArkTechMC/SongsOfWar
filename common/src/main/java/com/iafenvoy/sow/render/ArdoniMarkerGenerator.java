@@ -17,13 +17,14 @@ public class ArdoniMarkerGenerator {
     private static final int LEGS_OFFSET_X = 16, LEGS_OFFSET_Y = 52;
     private final ArdoniLikeBooleanMapGenerator body;
     private final ArdoniLikeBooleanMapGenerator legs;
+    private final Random random;
     private final Identifier id;
     private boolean present = false;
 
     private ArdoniMarkerGenerator(long seed) {
-        Random random = new Random(seed);
-        this.body = new ArdoniLikeBooleanMapGenerator(56, 12, random.nextLong());
-        this.legs = new ArdoniLikeBooleanMapGenerator(32, 12, random.nextLong());
+        this.random = new Random(seed);
+        this.body = new ArdoniLikeBooleanMapGenerator(56, 12, this.random.nextLong());
+        this.legs = new ArdoniLikeBooleanMapGenerator(32, 12, this.random.nextLong());
         this.id = new Identifier(SongsOfWar.MOD_ID, "ardoni_skin_marker_" + seed);
     }
 
@@ -32,10 +33,15 @@ public class ArdoniMarkerGenerator {
         return GENERATOR.get(seed);
     }
 
-    private static void fill(NativeImage image, int offsetX, int offsetY, boolean[][] map) {
+    private static int generateColor(Random random) {
+        int r = random.nextInt(0xCF, 0x100);
+        return 0xFF << 24 | r << 16 | r << 8 | r;
+    }
+
+    private static void fill(Random random, NativeImage image, int offsetX, int offsetY, boolean[][] map) {
         for (int i = 0; i < map.length; i++)
             for (int j = 0; j < map[i].length; j++)
-                if (map[i][j]) image.setColor(offsetX + i, offsetY + j, -1);
+                if (map[i][j]) image.setColor(offsetX + i, offsetY + j, generateColor(random));
                 else image.setColor(offsetX + i, offsetY + j, 0);
     }
 
@@ -43,8 +49,8 @@ public class ArdoniMarkerGenerator {
         if (!this.present) {
             this.present = true;
             NativeImage image = new NativeImage(64, 64, true);
-            fill(image, BODY_OFFSET_X, BODY_OFFSET_Y, this.body.generate());
-            fill(image, LEGS_OFFSET_X, LEGS_OFFSET_Y, this.legs.generate());
+            fill(this.random, image, BODY_OFFSET_X, BODY_OFFSET_Y, this.body.generate());
+            fill(this.random, image, LEGS_OFFSET_X, LEGS_OFFSET_Y, this.legs.generate());
             SimpleTexture texture = new SimpleTexture(image);
             texture.upload(false, false);
             MinecraftClient.getInstance().getTextureManager().registerTexture(this.id, texture);

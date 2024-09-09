@@ -18,8 +18,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import static net.minecraft.item.ItemStack.MODIFIER_FORMAT;
-
 public class SongStoneInfo {
     private static final UUID MODIFIER_UUID = UUID.fromString("72e1b659-d5b8-4472-91e2-085bba5ac696");
     private final GlintManager.GlintHolder glint;
@@ -75,8 +73,8 @@ public class SongStoneInfo {
     }
 
     private static String formatNumber(double number) {
-        if (number > 0) return "+" + MODIFIER_FORMAT.format(number);
-        return "-" + MODIFIER_FORMAT.format(-number);
+        if (number > 0) return "+" + ItemStack.MODIFIER_FORMAT.format(number);
+        return "-" + ItemStack.MODIFIER_FORMAT.format(-number);
     }
 
     public void applyTooltip(SongStoneItem item, List<Text> tooltips) {

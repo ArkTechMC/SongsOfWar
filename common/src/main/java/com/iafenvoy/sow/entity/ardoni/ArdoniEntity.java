@@ -2,6 +2,7 @@ package com.iafenvoy.sow.entity.ardoni;
 
 import com.iafenvoy.neptune.util.Color4i;
 import com.iafenvoy.sow.SongsOfWar;
+import com.iafenvoy.sow.data.ArdoniName;
 import com.iafenvoy.sow.data.ArdoniType;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
@@ -10,6 +11,7 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
@@ -82,6 +84,7 @@ public class ArdoniEntity extends AbstractArdoniEntity {
         this.setDefaultData();
         if (entityNbt != null && entityNbt.contains("ardoniType"))
             this.setArdoniType(entityNbt.getString("ardoniType"));
+        this.setCustomName(Text.literal(String.format("%s %s", ArdoniName.randomName(), this.getArdoniType().getFormattedName())));
         return data;
     }
 
@@ -97,6 +100,7 @@ public class ArdoniEntity extends AbstractArdoniEntity {
         return this.dataTracker.get(ARDONI_TYPE);
     }
 
+    @Override
     public ArdoniType getArdoniType() {
         return ArdoniType.byId(this.getArdoniTypeString());
     }

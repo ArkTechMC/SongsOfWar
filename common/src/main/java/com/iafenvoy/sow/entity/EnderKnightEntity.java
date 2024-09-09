@@ -69,14 +69,14 @@ public class EnderKnightEntity extends MonsterEntityBase implements EntityTextur
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
         if (nbt.contains("knightType")) this.setKnightType(nbt.getInt("knightType"));
-        else this.setKnightType(RandomHelper.nextInt(1, 6));
+        else this.setKnightType(RandomHelper.nextInt(1, 5));
     }
 
     @Nullable
     @Override
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
         EntityData data = super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
-        this.setKnightType(RandomHelper.nextInt(1, 6));
+        this.setKnightType(RandomHelper.nextInt(1, 5));
         return data;
     }
 

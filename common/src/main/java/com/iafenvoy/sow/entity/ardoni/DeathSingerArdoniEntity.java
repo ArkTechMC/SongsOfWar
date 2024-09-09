@@ -3,6 +3,7 @@ package com.iafenvoy.sow.entity.ardoni;
 import com.iafenvoy.neptune.render.glint.GlintManager;
 import com.iafenvoy.neptune.util.Color4i;
 import com.iafenvoy.sow.SongsOfWar;
+import com.iafenvoy.sow.data.ArdoniType;
 import com.iafenvoy.sow.registry.SowWeapons;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.HostileEntity;
@@ -33,5 +34,10 @@ public class DeathSingerArdoniEntity extends AbstractArdoniEntity {
     @Override
     public Color4i getColor() {
         return new Color4i(255, 0, 0, 255);
+    }
+
+    @Override
+    public ArdoniType getArdoniType() {
+        return ArdoniType.VOLTARIS;
     }
 }

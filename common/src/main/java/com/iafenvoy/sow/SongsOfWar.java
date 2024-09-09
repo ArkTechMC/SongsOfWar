@@ -1,7 +1,11 @@
 package com.iafenvoy.sow;
 
+import com.iafenvoy.sow.data.ArdoniName;
 import com.iafenvoy.sow.registry.*;
 import com.mojang.logging.LogUtils;
+import dev.architectury.registry.ReloadListenerRegistry;
+import net.minecraft.resource.ResourceType;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 
 public class SongsOfWar {
@@ -19,5 +23,6 @@ public class SongsOfWar {
 
     public static void process() {
         SowItems.init();
+        ReloadListenerRegistry.register(ResourceType.SERVER_DATA, new ArdoniName(), new Identifier(MOD_ID, "ardoni_name"));
     }
 }

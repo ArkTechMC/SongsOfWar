@@ -29,7 +29,7 @@
 	"overrides": [
 		{
 			"predicate": {
-				"sow:active": 1.0
+				"neptune:active": 1.0
 			},
 			"model": "sow:item/voltar_active"
 		}

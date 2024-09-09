@@ -2,6 +2,7 @@ package com.iafenvoy.sow.entity.ardoni;
 
 import com.iafenvoy.neptune.object.entity.MonsterEntityBase;
 import com.iafenvoy.neptune.util.Color4i;
+import com.iafenvoy.sow.data.ArdoniType;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -62,4 +63,6 @@ public abstract class AbstractArdoniEntity extends MonsterEntityBase {
     public abstract Optional<Identifier> getMarkerTexture();
 
     public abstract Color4i getColor();
+
+    public abstract ArdoniType getArdoniType();
 }

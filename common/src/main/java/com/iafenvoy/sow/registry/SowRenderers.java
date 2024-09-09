@@ -1,16 +1,13 @@
 package com.iafenvoy.sow.registry;
 
 import com.iafenvoy.neptune.render.CommonPlayerLikeEntityRenderer;
-import com.iafenvoy.sow.SongsOfWar;
-import com.iafenvoy.sow.item.CanActiveSwordItem;
 import com.iafenvoy.sow.render.ArdoniEntityRenderer;
+import com.iafenvoy.sow.render.NetheranEntityRenderer;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.client.rendering.RenderTypeRegistry;
-import dev.architectury.registry.item.ItemPropertiesRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public final class SowRenderers {
@@ -22,20 +19,38 @@ public final class SowRenderers {
         EntityRendererRegistry.register(SowEntities.ARDONI, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.ENDER_KNIGHT, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.GRIM, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.IGNEOUS, CommonPlayerLikeEntityRenderer::new);
+
         EntityRendererRegistry.register(SowEntities.TIDE_SINGER, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.DEATH_SINGER, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.AEGUS, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.KALTARIS_MASTER, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.MENDORIS_MASTER, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.SENDARIS_MASTER, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.HUBRIS, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.RIA, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.THALLEOUS, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.GALLEOUS, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.SENN, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.ZULIUS, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.TYGREN, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.OSIVIAN, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.LUCIDIUS, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.ZINAIDA, ArdoniEntityRenderer::new);
+
         EntityRendererRegistry.register(SowEntities.FELDEN, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.KIYOSHI, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.NIIKA, CommonPlayerLikeEntityRenderer::new);
+
         EntityRendererRegistry.register(SowEntities.ABBIGAIL, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.ALEC, CommonPlayerLikeEntityRenderer::new);
-    }
+        EntityRendererRegistry.register(SowEntities.BIGGERTON_BARTENDER, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.BIGGERTON_CIVILIAN, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.DARLENE, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.EDDY, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.HAWKEN, CommonPlayerLikeEntityRenderer::new);
 
-    public static void registerModelPredicates() {
-        ItemPropertiesRegistry.registerGeneric(new Identifier(SongsOfWar.MOD_ID, CanActiveSwordItem.ACTIVE_KEY), (stack, world, entity, seed) -> stack.getNbt() != null && stack.getNbt().getBoolean(CanActiveSwordItem.ACTIVE_KEY) ? 1 : 0);
+        EntityRendererRegistry.register(SowEntities.CHRONOS, NetheranEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.PYTHUS, NetheranEntityRenderer::new);
     }
 }

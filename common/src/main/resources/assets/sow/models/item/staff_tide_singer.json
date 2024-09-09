@@ -5,7 +5,7 @@
 		"layer0": "sow:item/staff_tide_singer"
 	},
 	"overrides": [
-		{"predicate": {"sow:active": 1}, "model": "sow:item/staff_tide_singer_active"}
+		{"predicate": {"neptune:active": 1.0}, "model": "sow:item/staff_tide_singer_active"}
 	],
 	"display": {
 		"thirdperson_righthand": {
