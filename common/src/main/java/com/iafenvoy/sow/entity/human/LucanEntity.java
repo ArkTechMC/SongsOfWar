@@ -47,8 +47,8 @@ public class LucanEntity extends AbstractHumanEntity {
     @Override
     public Identifier getTextureId() {
         if (this.getState() == 0) {
-            if (this.getHealth() * 2 <= this.getMaxHealth())
-                new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/lucan/lucan_bandaged.png");
+            if (this.getHealth() <= this.getMaxHealth() / 2)
+                return new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/lucan/lucan_bandaged.png");
             return new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/lucan/lucan.png");
         } else if (this.getState() == 1)
             return new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/lucan/lucan_necro.png");

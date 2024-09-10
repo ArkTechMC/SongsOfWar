@@ -1,7 +1,6 @@
 package com.iafenvoy.sow.entity.netheran;
 
 import com.iafenvoy.neptune.object.entity.MonsterEntityBase;
-import com.iafenvoy.neptune.render.EntityTextureProvider;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;

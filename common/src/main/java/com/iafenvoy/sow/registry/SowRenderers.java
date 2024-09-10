@@ -3,6 +3,7 @@ package com.iafenvoy.sow.registry;
 import com.iafenvoy.neptune.render.CommonPlayerLikeEntityRenderer;
 import com.iafenvoy.sow.render.ArdoniEntityRenderer;
 import com.iafenvoy.sow.render.NetheranEntityRenderer;
+import com.iafenvoy.sow.render.SowZombieEntityRenderer;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.client.rendering.RenderTypeRegistry;
 import net.fabricmc.api.EnvType;
@@ -61,5 +62,9 @@ public final class SowRenderers {
 
         EntityRendererRegistry.register(SowEntities.CHRONOS, NetheranEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.PYTHUS, NetheranEntityRenderer::new);
+
+        EntityRendererRegistry.register(SowEntities.HUSK, SowZombieEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.STRAY, SowZombieEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.ZOMBIE, SowZombieEntityRenderer::new);
     }
 }

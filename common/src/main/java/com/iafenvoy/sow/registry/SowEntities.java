@@ -1,7 +1,9 @@
 package com.iafenvoy.sow.registry;
 
 import com.iafenvoy.sow.SongsOfWar;
-import com.iafenvoy.sow.entity.*;
+import com.iafenvoy.sow.entity.EnderKnightEntity;
+import com.iafenvoy.sow.entity.GrimEntity;
+import com.iafenvoy.sow.entity.IgneousEntity;
 import com.iafenvoy.sow.entity.ardoni.*;
 import com.iafenvoy.sow.entity.felina.AbstractFelinaEntity;
 import com.iafenvoy.sow.entity.felina.FeldenEntity;
@@ -12,6 +14,9 @@ import com.iafenvoy.sow.entity.necromancer.NecrolordEntity;
 import com.iafenvoy.sow.entity.necromancer.XariaEntity;
 import com.iafenvoy.sow.entity.netheran.ChronosEntity;
 import com.iafenvoy.sow.entity.netheran.PythusEntity;
+import com.iafenvoy.sow.entity.zombie.SowHuskEntity;
+import com.iafenvoy.sow.entity.zombie.SowStrayEntity;
+import com.iafenvoy.sow.entity.zombie.SowZombieEntity;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -71,6 +76,10 @@ public final class SowEntities {
     //Netheran
     public static final RegistrySupplier<EntityType<ChronosEntity>> CHRONOS = build("chronos", ChronosEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<PythusEntity>> PYTHUS = build("pythus", PythusEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    //Zombie
+    public static final RegistrySupplier<EntityType<SowHuskEntity>> HUSK = build("husk", SowHuskEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<SowStrayEntity>> STRAY = build("stray", SowStrayEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<SowZombieEntity>> ZOMBIE = build("zombie", SowZombieEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
 
     private static <T extends Entity> RegistrySupplier<EntityType<T>> build(String name, EntityType.EntityFactory<T> constructor, SpawnGroup category, int trackingRange, int updateInterval, boolean fireImmune, float sizeX, float sizeY) {
         return register(name, () -> {
@@ -130,5 +139,9 @@ public final class SowEntities {
 
         EntityAttributeRegistry.register(CHRONOS, ChronosEntity::createAttributes);
         EntityAttributeRegistry.register(PYTHUS, PythusEntity::createAttributes);
+
+        EntityAttributeRegistry.register(HUSK, SowHuskEntity::createZombieAttributes);
+        EntityAttributeRegistry.register(STRAY, SowStrayEntity::createZombieAttributes);
+        EntityAttributeRegistry.register(ZOMBIE, SowZombieEntity::createZombieAttributes);
     }
 }
