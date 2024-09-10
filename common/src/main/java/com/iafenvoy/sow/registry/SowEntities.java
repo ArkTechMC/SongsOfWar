@@ -8,6 +8,8 @@ import com.iafenvoy.sow.entity.felina.FeldenEntity;
 import com.iafenvoy.sow.entity.felina.KiyoshiEntity;
 import com.iafenvoy.sow.entity.felina.NiikaEntity;
 import com.iafenvoy.sow.entity.human.*;
+import com.iafenvoy.sow.entity.necromancer.NecrolordEntity;
+import com.iafenvoy.sow.entity.necromancer.XariaEntity;
 import com.iafenvoy.sow.entity.netheran.ChronosEntity;
 import com.iafenvoy.sow.entity.netheran.PythusEntity;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
@@ -52,11 +54,20 @@ public final class SowEntities {
     //Human
     public static final RegistrySupplier<EntityType<AbbigailEntity>> ABBIGAIL = build("abbigail", AbbigailEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<AlecEntity>> ALEC = build("alec", AlecEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
-    public static final RegistrySupplier<EntityType<BiggertonBartenderEntity>> BIGGERTON_BARTENDER = build("biggerton_bartender", BiggertonBartenderEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
-    public static final RegistrySupplier<EntityType<BiggertonCivilianEntity>> BIGGERTON_CIVILIAN = build("biggerton_civilian", BiggertonCivilianEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<BartenderEntity>> BARTENDER = build("bartender", BartenderEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<CivilianEntity>> CIVILIAN = build("civilian", CivilianEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<DarleneEntity>> DARLENE = build("darlene", DarleneEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<EddyEntity>> EDDY = build("eddy", EddyEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<HawkenEntity>> HAWKEN = build("hawken", HawkenEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<HorseRiderEntity>> HORSE_RIDER = build("horse_rider", HorseRiderEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<LucanEntity>> LUCAN = build("lucan", LucanEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<MarcusEntity>> MARCUS = build("marcus", MarcusEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<MarshallEntity>> MARSHALL = build("marchall", MarshallEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<MrfinchEntity>> MRFINCH = build("mrfinch", MrfinchEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<SullimanEntity>> SULLIMAN = build("sulliman", SullimanEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    //Necromancer
+    public static final RegistrySupplier<EntityType<NecrolordEntity>> NECROLORD = build("necrolord", NecrolordEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<XariaEntity>> XARIA = build("xaria", XariaEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     //Netheran
     public static final RegistrySupplier<EntityType<ChronosEntity>> CHRONOS = build("chronos", ChronosEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<PythusEntity>> PYTHUS = build("pythus", PythusEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
@@ -102,11 +113,20 @@ public final class SowEntities {
 
         EntityAttributeRegistry.register(ABBIGAIL, AbbigailEntity::createAttributes);
         EntityAttributeRegistry.register(ALEC, AlecEntity::createAttributes);
-        EntityAttributeRegistry.register(BIGGERTON_BARTENDER, BiggertonBartenderEntity::createAttributes);
-        EntityAttributeRegistry.register(BIGGERTON_CIVILIAN, BiggertonCivilianEntity::createAttributes);
+        EntityAttributeRegistry.register(BARTENDER, BartenderEntity::createAttributes);
+        EntityAttributeRegistry.register(CIVILIAN, CivilianEntity::createAttributes);
         EntityAttributeRegistry.register(DARLENE, DarleneEntity::createAttributes);
         EntityAttributeRegistry.register(EDDY, EddyEntity::createAttributes);
         EntityAttributeRegistry.register(HAWKEN, HawkenEntity::createAttributes);
+        EntityAttributeRegistry.register(HORSE_RIDER, HorseRiderEntity::createAttributes);
+        EntityAttributeRegistry.register(LUCAN, LucanEntity::createAttributes);
+        EntityAttributeRegistry.register(MARCUS, MarcusEntity::createAttributes);
+        EntityAttributeRegistry.register(MARSHALL, MarshallEntity::createAttributes);
+        EntityAttributeRegistry.register(MRFINCH, MrfinchEntity::createAttributes);
+        EntityAttributeRegistry.register(SULLIMAN, SullimanEntity::createAttributes);
+
+        EntityAttributeRegistry.register(NECROLORD, NecrolordEntity::createAttributes);
+        EntityAttributeRegistry.register(XARIA, XariaEntity::createAttributes);
 
         EntityAttributeRegistry.register(CHRONOS, ChronosEntity::createAttributes);
         EntityAttributeRegistry.register(PYTHUS, PythusEntity::createAttributes);

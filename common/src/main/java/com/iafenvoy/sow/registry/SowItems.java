@@ -63,11 +63,20 @@ public final class SowItems {
     //Human
     public static final RegistrySupplier<Item> ABBIGAIL_SPAWN_EGG = REGISTRY.register("abbigail_spawn_egg", SowSpawnEggItem.create(SowEntities.ABBIGAIL, 0xFFa52a2a, 0xFF301934));
     public static final RegistrySupplier<Item> ALEC_SPAWN_EGG = REGISTRY.register("alec_spawn_egg", SowSpawnEggItem.create(SowEntities.ALEC, 0xFF444444, 0xFFf9d4c9));
-    public static final RegistrySupplier<Item> BIGGERTON_BARTENDER_SPAWN_EGG = REGISTRY.register("biggerton_bartender_spawn_egg", SowSpawnEggItem.create(SowEntities.BIGGERTON_BARTENDER, 0xFF05243e, 0xFF575008));
-    public static final RegistrySupplier<Item> BIGGERTON_CIVILIAN_SPAWN_EGG = REGISTRY.register("biggerton_civilian_spawn_egg", SowSpawnEggItem.create(SowEntities.BIGGERTON_CIVILIAN, 0xFF345758, 0xFFd9d4b2));
+    public static final RegistrySupplier<Item> BARTENDER_SPAWN_EGG = REGISTRY.register("bartender_spawn_egg", SowSpawnEggItem.create(SowEntities.BARTENDER, 0xFF05243e, 0xFF575008));
+    public static final RegistrySupplier<Item> CIVILIAN_SPAWN_EGG = REGISTRY.register("civilian_spawn_egg", SowSpawnEggItem.create(SowEntities.CIVILIAN, 0xFF345758, 0xFFd9d4b2));
     public static final RegistrySupplier<Item> DARLENE_SPAWN_EGG = REGISTRY.register("darlene_spawn_egg", SowSpawnEggItem.create(SowEntities.DARLENE, 0xFF3f2b20, 0xFFe0b476));
     public static final RegistrySupplier<Item> EDDY_SPAWN_EGG = REGISTRY.register("eddy_spawn_egg", SowSpawnEggItem.create(SowEntities.EDDY, 0xFF28231c, 0xFFf2cba8));
     public static final RegistrySupplier<Item> HAWKEN_SPAWN_EGG = REGISTRY.register("hawken_spawn_egg", SowSpawnEggItem.create(SowEntities.HAWKEN, 0xFF53464f, 0xFF3f332b));
+    public static final RegistrySupplier<Item> HORSE_RIDER_SPAWN_EGG = REGISTRY.register("horse_rider_spawn_egg", SowSpawnEggItem.create(SowEntities.HORSE_RIDER, 0xFF152c43, 0xFFb7928c));
+    public static final RegistrySupplier<Item> LUCAN_SPAWN_EGG = REGISTRY.register("lucan_spawn_egg", SowSpawnEggItem.create(SowEntities.LUCAN, 0xFF5e4941, 0xFF2c1308));
+    public static final RegistrySupplier<Item> MARCUS_SPAWN_EGG = REGISTRY.register("marcus_spawn_egg", SowSpawnEggItem.create(SowEntities.LUCAN, 0xFF5e4941, 0xFF2c1308));
+    public static final RegistrySupplier<Item> MARSHALL_SPAWN_EGG = REGISTRY.register("marshall_spawn_egg", SowSpawnEggItem.create(SowEntities.LUCAN, 0xFF5e4941, 0xFF2c1308));
+    public static final RegistrySupplier<Item> MRFINCH_SPAWN_EGG = REGISTRY.register("mrfinch_spawn_egg", SowSpawnEggItem.create(SowEntities.LUCAN, 0xFF5e4941, 0xFF2c1308));
+    public static final RegistrySupplier<Item> SULLIMAN_SPAWN_EGG = REGISTRY.register("sulliman_spawn_egg", SowSpawnEggItem.create(SowEntities.LUCAN, 0xFF5e4941, 0xFF2c1308));
+    //Necromancer
+    public static final RegistrySupplier<Item> NECROLORD_SPAWN_EGG = REGISTRY.register("necrolord_spawn_egg", SowSpawnEggItem.create(SowEntities.NECROLORD, 0xFF222222, 0xFFBBBBBB));
+    public static final RegistrySupplier<Item> XARIA_SPAWN_EGG = REGISTRY.register("xaria_spawn_egg", SowSpawnEggItem.create(SowEntities.XARIA, 0xFF222222, 0xFFBBBBBB));
     //Netheran
     public static final RegistrySupplier<Item> CHRONOS_SPAWN_EGG = REGISTRY.register("chronos_spawn_egg", SowSpawnEggItem.create(SowEntities.CHRONOS, 0xFF222222, 0xFFFF0000));
     public static final RegistrySupplier<Item> PYTHUS_SPAWN_EGG = REGISTRY.register("pythus_spawn_egg", SowSpawnEggItem.create(SowEntities.PYTHUS, 0xFF222222, 0xFFd6350f));

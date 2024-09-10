@@ -6,13 +6,13 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
-public class BiggertonCivilianEntity extends AbstractHumanEntity {
-    public BiggertonCivilianEntity(EntityType<? extends HostileEntity> entityType, World world) {
+public class MrfinchEntity extends AbstractHumanEntity {
+    public MrfinchEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
 
     @Override
     public Identifier getTextureId() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/biggerton_civilian.png");
+        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/mrfinch.png");
     }
 }

@@ -44,11 +44,20 @@ public final class SowRenderers {
 
         EntityRendererRegistry.register(SowEntities.ABBIGAIL, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.ALEC, CommonPlayerLikeEntityRenderer::new);
-        EntityRendererRegistry.register(SowEntities.BIGGERTON_BARTENDER, CommonPlayerLikeEntityRenderer::new);
-        EntityRendererRegistry.register(SowEntities.BIGGERTON_CIVILIAN, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.BARTENDER, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.CIVILIAN, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.DARLENE, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.EDDY, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.HAWKEN, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.HORSE_RIDER, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.LUCAN, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.MARCUS, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.MARSHALL, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.MRFINCH, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.SULLIMAN, CommonPlayerLikeEntityRenderer::new);
+
+        EntityRendererRegistry.register(SowEntities.NECROLORD, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.XARIA, CommonPlayerLikeEntityRenderer::new);
 
         EntityRendererRegistry.register(SowEntities.CHRONOS, NetheranEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.PYTHUS, NetheranEntityRenderer::new);
