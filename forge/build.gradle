@@ -4,7 +4,6 @@ plugins {
 loom {
     forge {
         mixinConfig "sow.mixins.json"
-        mixinConfig "songs_of_war.mixins.json"
     }
 }
 architectury {
@@ -32,7 +31,7 @@ dependencies {
     modImplementation "top.theillusivec4.curios:curios-forge:${curios_version}"
 
     // Neptune cross-platform library
-    modRuntimeOnly "maven.modrinth:neptune:aG0YsQK3"
+    modRuntimeOnly "maven.modrinth:neptune:PZnxjedI"
 
     // Optional
     // EMI

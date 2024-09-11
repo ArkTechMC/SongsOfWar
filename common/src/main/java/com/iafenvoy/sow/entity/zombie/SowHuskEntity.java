@@ -16,6 +16,8 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
+
 public class SowHuskEntity extends AbstractZombieEntity {
     private static final TrackedData<Integer> VARIANT = DataTracker.registerData(SowHuskEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
@@ -59,8 +61,13 @@ public class SowHuskEntity extends AbstractZombieEntity {
     }
 
     @Override
-    public Identifier getTexture() {
+    public Identifier getTextureId() {
         return new Identifier(SongsOfWar.MOD_ID, "textures/entity/zombie/husk_" + this.getVariant() + ".png");
+    }
+
+    @Override
+    public Optional<Identifier> getMarkerTextureId() {
+        return Optional.of(new Identifier(SongsOfWar.MOD_ID, "textures/entity/zombie/eye.png"));
     }
 
     @Override

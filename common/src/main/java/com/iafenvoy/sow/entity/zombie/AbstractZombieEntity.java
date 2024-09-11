@@ -1,13 +1,13 @@
 package com.iafenvoy.sow.entity.zombie;
 
+import com.iafenvoy.neptune.render.EntityWithMarkerTextureProvider;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.mob.ZombieEntity;
-import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
-public abstract class AbstractZombieEntity extends ZombieEntity {
+public abstract class AbstractZombieEntity extends ZombieEntity implements EntityWithMarkerTextureProvider {
     public AbstractZombieEntity(EntityType<? extends ZombieEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -29,6 +29,4 @@ public abstract class AbstractZombieEntity extends ZombieEntity {
         this.goalSelector.add(7, new LookAroundGoal(this));
         this.goalSelector.add(8, new SwimGoal(this));
     }
-
-    public abstract Identifier getTexture();
 }

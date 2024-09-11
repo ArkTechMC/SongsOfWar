@@ -25,7 +25,6 @@
     ]
   },
   "mixins": [
-    "songs_of_war.mixins.json",
     "sow.mixins.json"
   ],
   "depends": {

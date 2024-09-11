@@ -1,6 +1,7 @@
 package com.iafenvoy.sow.entity.netheran;
 
 import com.iafenvoy.neptune.object.entity.MonsterEntityBase;
+import com.iafenvoy.neptune.render.EntityWithMarkerTextureProvider;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -9,12 +10,9 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
-import java.util.Optional;
-
-public abstract class AbstractNetheranEntity extends MonsterEntityBase {
+public abstract class AbstractNetheranEntity extends MonsterEntityBase implements EntityWithMarkerTextureProvider {
     protected AbstractNetheranEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world, EntityGroup.DEFAULT);
     }
@@ -36,10 +34,6 @@ public abstract class AbstractNetheranEntity extends MonsterEntityBase {
         this.goalSelector.add(7, new LookAroundGoal(this));
         this.goalSelector.add(8, new SwimGoal(this));
     }
-
-    public abstract Identifier getSkinTexture();
-
-    public abstract Optional<Identifier> getMarkerTexture();
 
     public static DefaultAttributeContainer.Builder createAttributes() {
         DefaultAttributeContainer.Builder builder = MobEntity.createMobAttributes();

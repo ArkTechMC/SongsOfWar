@@ -14,12 +14,12 @@ public class PythusEntity extends AbstractNetheranEntity {
     }
 
     @Override
-    public Identifier getSkinTexture() {
+    public Identifier getTextureId() {
         return new Identifier(SongsOfWar.MOD_ID, "textures/entity/netheran/pythus.png");
     }
 
     @Override
-    public Optional<Identifier> getMarkerTexture() {
+    public Optional<Identifier> getMarkerTextureId() {
         return Optional.of(new Identifier(SongsOfWar.MOD_ID, "textures/entity/netheran/pythus_marker.png"));
     }
 }

@@ -3,7 +3,6 @@ package com.iafenvoy.sow.registry;
 import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.entity.EnderKnightEntity;
 import com.iafenvoy.sow.entity.GrimEntity;
-import com.iafenvoy.sow.entity.IgneousEntity;
 import com.iafenvoy.sow.entity.ardoni.*;
 import com.iafenvoy.sow.entity.ardoni.random.*;
 import com.iafenvoy.sow.entity.felina.AbstractFelinaEntity;
@@ -13,9 +12,14 @@ import com.iafenvoy.sow.entity.felina.NiikaEntity;
 import com.iafenvoy.sow.entity.human.*;
 import com.iafenvoy.sow.entity.human.guard.*;
 import com.iafenvoy.sow.entity.human.soldier.*;
+import com.iafenvoy.sow.entity.human.townsfolk.*;
+import com.iafenvoy.sow.entity.magnorite.IgneousEntity;
+import com.iafenvoy.sow.entity.magnorite.MagnoriteEntity;
 import com.iafenvoy.sow.entity.necromancer.NecrolordEntity;
+import com.iafenvoy.sow.entity.necromancer.NecromancerEntity;
 import com.iafenvoy.sow.entity.necromancer.XariaEntity;
 import com.iafenvoy.sow.entity.netheran.ChronosEntity;
+import com.iafenvoy.sow.entity.netheran.NetheranEntity;
 import com.iafenvoy.sow.entity.netheran.PythusEntity;
 import com.iafenvoy.sow.entity.zombie.SowHuskEntity;
 import com.iafenvoy.sow.entity.zombie.SowStrayEntity;
@@ -42,7 +46,6 @@ public final class SowEntities {
     public static final RegistrySupplier<EntityType<VoltarisArdoniEntity>> VOLTARIS_ARDONI = build("volatris_ardoni", VoltarisArdoniEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<EnderKnightEntity>> ENDER_KNIGHT = build("ender_knight", EnderKnightEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<GrimEntity>> GRIM = build("grim", GrimEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
-    public static final RegistrySupplier<EntityType<IgneousEntity>> IGNEOUS = build("igneous", IgneousEntity::new, SpawnGroup.CREATURE, 64, 3, true, 0.6F, 1.8F);
     //Ardoni
     public static final RegistrySupplier<EntityType<TideSingerArdoniEntity>> TIDE_SINGER = build("tide_singer", TideSingerArdoniEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<DeathSingerArdoniEntity>> DEATH_SINGER = build("death_singer", DeathSingerArdoniEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
@@ -78,10 +81,15 @@ public final class SowEntities {
     public static final RegistrySupplier<EntityType<MarshallEntity>> MARSHALL = build("marchall", MarshallEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<MrfinchEntity>> MRFINCH = build("mrfinch", MrfinchEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<SullimanEntity>> SULLIMAN = build("sulliman", SullimanEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    //Magnorite
+    public static final RegistrySupplier<EntityType<IgneousEntity>> IGNEOUS = build("igneous", IgneousEntity::new, SpawnGroup.CREATURE, 64, 3, true, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<MagnoriteEntity>> MAGNORITE = build("magnorite", MagnoriteEntity::new, SpawnGroup.CREATURE, 64, 3, true, 0.6F, 1.8F);
     //Necromancer
+    public static final RegistrySupplier<EntityType<NecromancerEntity>> NECROMANCER = build("necromancer", NecromancerEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<NecrolordEntity>> NECROLORD = build("necrolord", NecrolordEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<XariaEntity>> XARIA = build("xaria", XariaEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     //Netheran
+    public static final RegistrySupplier<EntityType<NetheranEntity>> NETHERAN = build("netheran", NetheranEntity::new, SpawnGroup.CREATURE, 64, 3, true, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<ChronosEntity>> CHRONOS = build("chronos", ChronosEntity::new, SpawnGroup.CREATURE, 64, 3, true, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<PythusEntity>> PYTHUS = build("pythus", PythusEntity::new, SpawnGroup.CREATURE, 64, 3, true, 0.6F, 1.8F);
     //Zombie
@@ -90,7 +98,7 @@ public final class SowEntities {
     public static final RegistrySupplier<EntityType<SowZombieEntity>> ZOMBIE = build("zombie", SowZombieEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     //Guard
     public static final RegistrySupplier<EntityType<ConchordGuardEntity>> CONCHORD_GUARD = build("conchord_guard", ConchordGuardEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
-    public static final RegistrySupplier<EntityType<CrownPeakGuardEntity>> CROWN_PEAK_GUARD = build("cworn_peak_guard", CrownPeakGuardEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<CrownPeakGuardEntity>> CROWN_PEAK_GUARD = build("crown_peak_guard", CrownPeakGuardEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<CydoniaGuardEntity>> CYDONIA_GUARD = build("cydonia_guard", CydoniaGuardEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<EthereaGuardEntity>> ETHEREA_GUARD = build("etherea_guard", EthereaGuardEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<FeldenGuardEntity>> FELDEN_GUARD = build("felden_guard", FeldenGuardEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
@@ -100,12 +108,27 @@ public final class SowEntities {
     public static final RegistrySupplier<EntityType<NorthwindGuardEntity>> NORTHWIND_GUARD = build("northwind_guard", NorthwindGuardEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     //Soldier
     public static final RegistrySupplier<EntityType<ConchordSoldierEntity>> CONCHORD_SOLDIER = build("conchord_soldier", ConchordSoldierEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
-    public static final RegistrySupplier<EntityType<CrownPeakSoldierEntity>> CROWN_PEAK_SOLDIER = build("cworn_peak_soldier", CrownPeakSoldierEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<CrownPeakSoldierEntity>> CROWN_PEAK_SOLDIER = build("crown_peak_soldier", CrownPeakSoldierEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<CydoniaSoldierEntity>> CYDONIA_SOLDIER = build("cydonia_soldier", CydoniaSoldierEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<EthereaSoldierEntity>> ETHEREA_SOLDIER = build("etherea_soldier", EthereaSoldierEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<FeldenSoldierEntity>> FELDEN_SOLDIER = build("felden_soldier", FeldenSoldierEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<HydraphelSoldierEntity>> HYDRAPHEL_SOLDIER = build("hydraphel_soldier", HydraphelSoldierEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<NorthwindSoldierEntity>> NORTHWIND_SOLDIER = build("northwind_soldier", NorthwindSoldierEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    //Townsfolk
+    public static final RegistrySupplier<EntityType<AdventurerFolkEntity>> ADVENTURER_FOLK = build("adventurer_folk", AdventurerFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<BlacksmithFolkEntity>> BLACKSMITH_FOLK = build("blacksmith_folk", BlacksmithFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<ChefFolkEntity>> CHEF_FOLK = build("chef_folk", ChefFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<FarmerFolkEntity>> FARMER_FOLK = build("farmer_folk", FarmerFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<FemaleFolkEntity>> FEMALE_FOLK = build("female_folk", FemaleFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<FisherFolkEntity>> FISHER_FOLK = build("fisher_folk", FisherFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<LeatherWorkerFolkEntity>> LEATHER_WORKER_FOLK = build("leather_worker_folk", LeatherWorkerFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<MaleFolkEntity>> MALE_FOLK = build("male_folk", MaleFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<MerchantFolkEntity>> MERCHANT_FOLK = build("merchant_folk", MerchantFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<MinerFolkEntity>> MINER_FOLK = build("miner_folk", MinerFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<OldFolkEntity>> OLD_FOLK = build("old_folk", OldFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<PoorFolkEntity>> POOR_FOLK = build("poor_folk", PoorFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<SailorFolkEntity>> SAILOR_FOLK = build("sailor_folk", SailorFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<ScholarFolkEntity>> SCHOLAR_FOLK = build("scholar_folk", ScholarFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
 
     private static <T extends Entity> RegistrySupplier<EntityType<T>> build(String name, EntityType.EntityFactory<T> constructor, SpawnGroup category, int trackingRange, int updateInterval, boolean fireImmune, float sizeX, float sizeY) {
         return register(name, () -> {
@@ -128,7 +151,6 @@ public final class SowEntities {
         EntityAttributeRegistry.register(VOLTARIS_ARDONI, VoltarisArdoniEntity::createAttributes);
         EntityAttributeRegistry.register(ENDER_KNIGHT, EnderKnightEntity::createAttributes);
         EntityAttributeRegistry.register(GRIM, GrimEntity::createAttributes);
-        EntityAttributeRegistry.register(IGNEOUS, IgneousEntity::createAttributes);
 
         EntityAttributeRegistry.register(TIDE_SINGER, TideSingerArdoniEntity::createAttributes);
         EntityAttributeRegistry.register(DEATH_SINGER, DeathSingerArdoniEntity::createAttributes);
@@ -165,9 +187,14 @@ public final class SowEntities {
         EntityAttributeRegistry.register(MRFINCH, MrfinchEntity::createAttributes);
         EntityAttributeRegistry.register(SULLIMAN, SullimanEntity::createAttributes);
 
+        EntityAttributeRegistry.register(IGNEOUS, IgneousEntity::createAttributes);
+        EntityAttributeRegistry.register(MAGNORITE, MagnoriteEntity::createAttributes);
+
+        EntityAttributeRegistry.register(NECROMANCER, NecrolordEntity::createAttributes);
         EntityAttributeRegistry.register(NECROLORD, NecrolordEntity::createAttributes);
         EntityAttributeRegistry.register(XARIA, XariaEntity::createAttributes);
 
+        EntityAttributeRegistry.register(NETHERAN, NetheranEntity::createAttributes);
         EntityAttributeRegistry.register(CHRONOS, ChronosEntity::createAttributes);
         EntityAttributeRegistry.register(PYTHUS, PythusEntity::createAttributes);
 
@@ -192,5 +219,20 @@ public final class SowEntities {
         EntityAttributeRegistry.register(FELDEN_SOLDIER, FeldenSoldierEntity::createAttributes);
         EntityAttributeRegistry.register(HYDRAPHEL_SOLDIER, HydraphelSoldierEntity::createAttributes);
         EntityAttributeRegistry.register(NORTHWIND_SOLDIER, NorthwindSoldierEntity::createAttributes);
+
+        EntityAttributeRegistry.register(ADVENTURER_FOLK, AdventurerFolkEntity::createAttributes);
+        EntityAttributeRegistry.register(BLACKSMITH_FOLK, BlacksmithFolkEntity::createAttributes);
+        EntityAttributeRegistry.register(CHEF_FOLK, ChefFolkEntity::createAttributes);
+        EntityAttributeRegistry.register(FARMER_FOLK, FarmerFolkEntity::createAttributes);
+        EntityAttributeRegistry.register(FEMALE_FOLK, FemaleFolkEntity::createAttributes);
+        EntityAttributeRegistry.register(FISHER_FOLK, FisherFolkEntity::createAttributes);
+        EntityAttributeRegistry.register(LEATHER_WORKER_FOLK, LeatherWorkerFolkEntity::createAttributes);
+        EntityAttributeRegistry.register(MALE_FOLK, MaleFolkEntity::createAttributes);
+        EntityAttributeRegistry.register(MERCHANT_FOLK, MerchantFolkEntity::createAttributes);
+        EntityAttributeRegistry.register(MINER_FOLK, MinerFolkEntity::createAttributes);
+        EntityAttributeRegistry.register(OLD_FOLK, OldFolkEntity::createAttributes);
+        EntityAttributeRegistry.register(POOR_FOLK, PoorFolkEntity::createAttributes);
+        EntityAttributeRegistry.register(SAILOR_FOLK, SailorFolkEntity::createAttributes);
+        EntityAttributeRegistry.register(SCHOLAR_FOLK, ScholarFolkEntity::createAttributes);
     }
 }
