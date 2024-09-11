@@ -5,6 +5,7 @@ import com.iafenvoy.sow.entity.EnderKnightEntity;
 import com.iafenvoy.sow.entity.GrimEntity;
 import com.iafenvoy.sow.entity.ardoni.*;
 import com.iafenvoy.sow.entity.ardoni.random.*;
+import com.iafenvoy.sow.entity.author.PixelZnimationEntity;
 import com.iafenvoy.sow.entity.felina.AbstractFelinaEntity;
 import com.iafenvoy.sow.entity.felina.FeldenEntity;
 import com.iafenvoy.sow.entity.felina.KiyoshiEntity;
@@ -129,6 +130,8 @@ public final class SowEntities {
     public static final RegistrySupplier<EntityType<PoorFolkEntity>> POOR_FOLK = build("poor_folk", PoorFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<SailorFolkEntity>> SAILOR_FOLK = build("sailor_folk", SailorFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<ScholarFolkEntity>> SCHOLAR_FOLK = build("scholar_folk", ScholarFolkEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
+    //Author
+    public static final RegistrySupplier<EntityType<PixelZnimationEntity>> PIXEL_ZNIMATION = build("pixel_znimation", PixelZnimationEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
 
     private static <T extends Entity> RegistrySupplier<EntityType<T>> build(String name, EntityType.EntityFactory<T> constructor, SpawnGroup category, int trackingRange, int updateInterval, boolean fireImmune, float sizeX, float sizeY) {
         return register(name, () -> {
@@ -234,5 +237,7 @@ public final class SowEntities {
         EntityAttributeRegistry.register(POOR_FOLK, PoorFolkEntity::createAttributes);
         EntityAttributeRegistry.register(SAILOR_FOLK, SailorFolkEntity::createAttributes);
         EntityAttributeRegistry.register(SCHOLAR_FOLK, ScholarFolkEntity::createAttributes);
+
+        EntityAttributeRegistry.register(PIXEL_ZNIMATION, PixelZnimationEntity::createAttributes);
     }
 }

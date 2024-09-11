@@ -107,5 +107,7 @@ public final class SowRenderers {
         EntityRendererRegistry.register(SowEntities.POOR_FOLK, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.SAILOR_FOLK, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.SCHOLAR_FOLK, CommonPlayerLikeEntityRenderer::new);
+
+        EntityRendererRegistry.register(SowEntities.PIXEL_ZNIMATION, CommonPlayerLikeEntityRenderer::new);
     }
 }

@@ -16,6 +16,6 @@ public class FemaleFolkEntity extends AbstractTownsFolkEntity {
 
     @Override
     public int getVariantCount() {
-        return 36;
+        return 43;
     }
 }
