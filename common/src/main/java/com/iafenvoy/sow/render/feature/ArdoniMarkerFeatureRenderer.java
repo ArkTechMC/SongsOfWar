@@ -2,8 +2,8 @@ package com.iafenvoy.sow.render.feature;
 
 import com.iafenvoy.neptune.util.Color4i;
 import com.iafenvoy.sow.entity.ardoni.AbstractArdoniEntity;
-import com.iafenvoy.sow.entity.ardoni.ArdoniEntity;
-import com.iafenvoy.sow.render.ArdoniMarkerGenerator;
+import com.iafenvoy.sow.entity.ardoni.random.ArdoniEntity;
+import com.iafenvoy.sow.render.util.ArdoniMarkerGenerator;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.OverlayTexture;

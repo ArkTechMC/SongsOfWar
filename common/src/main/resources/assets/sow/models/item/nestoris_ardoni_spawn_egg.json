@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "sow:item/spawn_egg/nestoris_ardoni_spawn_egg"
-  }
+  "parent": "minecraft:item/template_spawn_egg"
 }

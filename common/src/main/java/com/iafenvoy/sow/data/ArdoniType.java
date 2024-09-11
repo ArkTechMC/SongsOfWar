@@ -2,11 +2,10 @@ package com.iafenvoy.sow.data;
 
 import com.iafenvoy.neptune.util.Color4i;
 import com.iafenvoy.neptune.util.RandomHelper;
-import com.iafenvoy.sow.entity.ardoni.ArdoniEntity;
-import com.iafenvoy.sow.item.ArdoniSpawnEggItem;
-import com.iafenvoy.sow.registry.SowEntities;
+import com.iafenvoy.sow.item.SowSpawnEggItem;
+import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.entity.EntityType;
-import net.minecraft.world.World;
+import net.minecraft.entity.mob.MobEntity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,14 +27,8 @@ public record ArdoniType(String id, Color4i color, boolean dark) {
         BY_ID.put(id, this);
     }
 
-    public ArdoniEntity create(EntityType<? extends ArdoniEntity> entityType, World world) {
-        ArdoniEntity ardoni = new ArdoniEntity(entityType, world);
-        ardoni.setArdoniType(this);
-        return ardoni;
-    }
-
-    public ArdoniSpawnEggItem createSpawnEgg() {
-        return new ArdoniSpawnEggItem(SowEntities.ARDONI, this);
+    public SowSpawnEggItem createSpawnEgg(RegistrySupplier<? extends EntityType<? extends MobEntity>> type) {
+        return new SowSpawnEggItem(type, 0xFF888888, this.color.getIntValue());
     }
 
     public static ArdoniType byId(String id) {

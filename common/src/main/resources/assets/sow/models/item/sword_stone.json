@@ -1,1 +1,12 @@
-{"parent":"minecraft:item/handheld","textures":{"layer0":"sow:item/sword_stone"}}
+{
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "sow:item/sword_stone"
+	},
+	"display": {
+		"gui": {
+			"scale": [1.5, 1.5, 1]
+		}
+	}
+}

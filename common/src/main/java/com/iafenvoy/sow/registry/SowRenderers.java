@@ -17,7 +17,12 @@ public final class SowRenderers {
     }
 
     public static void registerEntityRenderers() {
-        EntityRendererRegistry.register(SowEntities.ARDONI, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.NONE_TYPE_ARDONI, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.VOLTARIS_ARDONI, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.SENDARIS_ARDONI, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.MENDORIS_ARDONI, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.NESTORIS_ARDONI, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.KALTARIS_ARDONI, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.ENDER_KNIGHT, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.GRIM, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.IGNEOUS, CommonPlayerLikeEntityRenderer::new);
@@ -66,5 +71,23 @@ public final class SowRenderers {
         EntityRendererRegistry.register(SowEntities.HUSK, SowZombieEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.STRAY, SowZombieEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.ZOMBIE, SowZombieEntityRenderer::new);
+
+        EntityRendererRegistry.register(SowEntities.CONCHORD_GUARD, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.CROWN_PEAK_GUARD, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.CYDONIA_GUARD, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.ETHEREA_GUARD, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.FELDEN_GUARD, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.GENERAL_GUARD, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.HYDRAPHEL_GUARD, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.KARTHEN_GUARD, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.NORTHWIND_GUARD, CommonPlayerLikeEntityRenderer::new);
+
+        EntityRendererRegistry.register(SowEntities.CONCHORD_SOLDIER, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.CROWN_PEAK_SOLDIER, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.CYDONIA_SOLDIER, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.ETHEREA_SOLDIER, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.FELDEN_SOLDIER, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.HYDRAPHEL_SOLDIER, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.NORTHWIND_SOLDIER, CommonPlayerLikeEntityRenderer::new);
     }
 }

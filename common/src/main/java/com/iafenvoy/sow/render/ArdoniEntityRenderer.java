@@ -1,7 +1,7 @@
 package com.iafenvoy.sow.render;
 
 import com.iafenvoy.sow.entity.ardoni.AbstractArdoniEntity;
-import com.iafenvoy.sow.entity.ardoni.ArdoniEntity;
+import com.iafenvoy.sow.entity.ardoni.random.ArdoniEntity;
 import com.iafenvoy.sow.render.feature.ArdoniEyeHairFeatureRenderer;
 import com.iafenvoy.sow.render.feature.ArdoniMarkerFeatureRenderer;
 import com.mojang.blaze3d.systems.RenderSystem;

@@ -58,7 +58,7 @@ public final class SowBanners {
             new Pair<>(BannerPatterns.STRIPE_TOP, DyeColor.WHITE),
             new Pair<>(BannerPatterns.STRIPE_BOTTOM, DyeColor.GRAY)
     );
-    public static final ItemStack K_ARTHEN = BannerUtil.create("banner." + SongsOfWar.MOD_ID + ".k_arthen", Items.RED_BANNER,
+    public static final ItemStack KARTHEN = BannerUtil.create("banner." + SongsOfWar.MOD_ID + ".karthen", Items.RED_BANNER,
             new Pair<>(BannerPatterns.TRIANGLE_TOP, DyeColor.BLACK),
             new Pair<>(BannerPatterns.TRIANGLE_BOTTOM, DyeColor.BLACK),
             new Pair<>(BannerPatterns.TRIANGLES_TOP, DyeColor.GRAY),
@@ -66,7 +66,7 @@ public final class SowBanners {
             new Pair<>(BannerPatterns.CURLY_BORDER, DyeColor.BLACK),
             new Pair<>(BannerPatterns.RHOMBUS, DyeColor.GRAY)
     );
-    public static final ItemStack K_ARTHEN_SIMPLE = BannerUtil.create("banner." + SongsOfWar.MOD_ID + ".k_arthen_simple", Items.RED_BANNER,
+    public static final ItemStack KARTHEN_SIMPLE = BannerUtil.create("banner." + SongsOfWar.MOD_ID + ".karthen_simple", Items.RED_BANNER,
             new Pair<>(BannerPatterns.STRIPE_TOP, DyeColor.GRAY),
             new Pair<>(BannerPatterns.STRIPE_BOTTOM, DyeColor.BLACK)
     );
