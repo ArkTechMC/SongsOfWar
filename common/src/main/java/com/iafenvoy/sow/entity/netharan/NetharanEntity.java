@@ -1,4 +1,4 @@
-package com.iafenvoy.sow.entity.netheran;
+package com.iafenvoy.sow.entity.netharan;
 
 import com.iafenvoy.neptune.util.RandomHelper;
 import com.iafenvoy.sow.SongsOfWar;
@@ -18,10 +18,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class NetheranEntity extends AbstractNetheranEntity {
-    private static final TrackedData<Integer> VARIANT = DataTracker.registerData(NetheranEntity.class, TrackedDataHandlerRegistry.INTEGER);
+public class NetharanEntity extends AbstractNetheranEntity {
+    private static final TrackedData<Integer> VARIANT = DataTracker.registerData(NetharanEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
-    public NetheranEntity(EntityType<? extends HostileEntity> entityType, World world) {
+    public NetharanEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
 
@@ -62,11 +62,11 @@ public class NetheranEntity extends AbstractNetheranEntity {
 
     @Override
     public Identifier getTextureId() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/netheran/netheran_" + this.getVariant() + ".png");
+        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/netharan/netharan_" + this.getVariant() + ".png");
     }
 
     @Override
     public Optional<Identifier> getMarkerTextureId() {
-        return Optional.of(new Identifier(SongsOfWar.MOD_ID, "textures/entity/netheran/netheran_" + this.getVariant() + "_marker.png"));
+        return Optional.of(new Identifier(SongsOfWar.MOD_ID, "textures/entity/netharan/netharan_" + this.getVariant() + "_marker.png"));
     }
 }

@@ -1,4 +1,4 @@
-package com.iafenvoy.sow.entity.netheran;
+package com.iafenvoy.sow.entity.netharan;
 
 import com.iafenvoy.neptune.object.entity.MonsterEntityBase;
 import com.iafenvoy.neptune.render.EntityWithMarkerTextureProvider;

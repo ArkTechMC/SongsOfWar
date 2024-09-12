@@ -19,9 +19,9 @@ import com.iafenvoy.sow.entity.magnorite.MagnoriteEntity;
 import com.iafenvoy.sow.entity.necromancer.NecrolordEntity;
 import com.iafenvoy.sow.entity.necromancer.NecromancerEntity;
 import com.iafenvoy.sow.entity.necromancer.XariaEntity;
-import com.iafenvoy.sow.entity.netheran.ChronosEntity;
-import com.iafenvoy.sow.entity.netheran.NetheranEntity;
-import com.iafenvoy.sow.entity.netheran.PythusEntity;
+import com.iafenvoy.sow.entity.netharan.ChronosEntity;
+import com.iafenvoy.sow.entity.netharan.NetharanEntity;
+import com.iafenvoy.sow.entity.netharan.PythusEntity;
 import com.iafenvoy.sow.entity.zombie.SowHuskEntity;
 import com.iafenvoy.sow.entity.zombie.SowStrayEntity;
 import com.iafenvoy.sow.entity.zombie.SowZombieEntity;
@@ -90,7 +90,7 @@ public final class SowEntities {
     public static final RegistrySupplier<EntityType<NecrolordEntity>> NECROLORD = build("necrolord", NecrolordEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<XariaEntity>> XARIA = build("xaria", XariaEntity::new, SpawnGroup.CREATURE, 64, 3, false, 0.6F, 1.8F);
     //Netheran
-    public static final RegistrySupplier<EntityType<NetheranEntity>> NETHERAN = build("netheran", NetheranEntity::new, SpawnGroup.CREATURE, 64, 3, true, 0.6F, 1.8F);
+    public static final RegistrySupplier<EntityType<NetharanEntity>> NETHARAN = build("netharan", NetharanEntity::new, SpawnGroup.CREATURE, 64, 3, true, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<ChronosEntity>> CHRONOS = build("chronos", ChronosEntity::new, SpawnGroup.CREATURE, 64, 3, true, 0.6F, 1.8F);
     public static final RegistrySupplier<EntityType<PythusEntity>> PYTHUS = build("pythus", PythusEntity::new, SpawnGroup.CREATURE, 64, 3, true, 0.6F, 1.8F);
     //Zombie
@@ -197,7 +197,7 @@ public final class SowEntities {
         EntityAttributeRegistry.register(NECROLORD, NecrolordEntity::createAttributes);
         EntityAttributeRegistry.register(XARIA, XariaEntity::createAttributes);
 
-        EntityAttributeRegistry.register(NETHERAN, NetheranEntity::createAttributes);
+        EntityAttributeRegistry.register(NETHARAN, NetharanEntity::createAttributes);
         EntityAttributeRegistry.register(CHRONOS, ChronosEntity::createAttributes);
         EntityAttributeRegistry.register(PYTHUS, PythusEntity::createAttributes);
 

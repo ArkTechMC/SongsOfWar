@@ -81,7 +81,7 @@ public final class SowItems {
     public static final RegistrySupplier<Item> NECROLORD_SPAWN_EGG = REGISTRY.register("necrolord_spawn_egg", SowSpawnEggItem.create(SowEntities.NECROLORD, 0xFF222222, 0xFFBBBBBB));
     public static final RegistrySupplier<Item> XARIA_SPAWN_EGG = REGISTRY.register("xaria_spawn_egg", SowSpawnEggItem.create(SowEntities.XARIA, 0xFF222222, 0xFFBBBBBB));
     //Netheran
-    public static final RegistrySupplier<Item> NETHERAN_SPAWN_EGG = REGISTRY.register("netheran_spawn_egg", SowSpawnEggItem.create(SowEntities.NETHERAN, 0xFF222222, 0xFFFF0000));
+    public static final RegistrySupplier<Item> NETHARAN_SPAWN_EGG = REGISTRY.register("netharan_spawn_egg", SowSpawnEggItem.create(SowEntities.NETHARAN, 0xFF222222, 0xFFFF0000));
     public static final RegistrySupplier<Item> CHRONOS_SPAWN_EGG = REGISTRY.register("chronos_spawn_egg", SowSpawnEggItem.create(SowEntities.CHRONOS, 0xFF222222, 0xFFFF0000));
     public static final RegistrySupplier<Item> PYTHUS_SPAWN_EGG = REGISTRY.register("pythus_spawn_egg", SowSpawnEggItem.create(SowEntities.PYTHUS, 0xFF222222, 0xFFd6350f));
     //Zombie

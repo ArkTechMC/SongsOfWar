@@ -67,7 +67,7 @@ public final class SowRenderers {
         EntityRendererRegistry.register(SowEntities.NECROLORD, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.XARIA, CommonPlayerLikeEntityRenderer::new);
 
-        EntityRendererRegistry.register(SowEntities.NETHERAN, CommonPlayerLikeWithMarkerEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.NETHARAN, CommonPlayerLikeWithMarkerEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.CHRONOS, CommonPlayerLikeWithMarkerEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.PYTHUS, CommonPlayerLikeWithMarkerEntityRenderer::new);
 
