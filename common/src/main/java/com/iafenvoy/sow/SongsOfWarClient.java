@@ -11,6 +11,5 @@ public class SongsOfWarClient {
     }
 
     public static void process() {
-        SowRenderers.registerBlockRenderers();
     }
 }

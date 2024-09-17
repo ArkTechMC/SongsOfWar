@@ -36,8 +36,9 @@ public abstract class ArdoniEntity extends AbstractArdoniEntity {
 
     @Override
     public Color4i getColor() {
-        if (this.hasCustomName() && this.getName().getString().equals("jeb_"))
-            return Color4i.fromHSV((this.age + this.getId()) / 100.0f, 1, 1);
+        //TODO: Remap failure
+//        if (this.hasCustomName() && this.getName().getString().equals("jeb_"))
+//            return Color4i.fromHSV((this.age + this.getId()) / 100.0f, 1, 1);
         return this.getArdoniType().color();
     }
 

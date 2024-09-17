@@ -1,6 +1,0 @@
-{
-   "parent": "block/cube_all",
-   "textures": {
-       "all": "sow:block/songs/mobilium_prime_song"
-   }
-}
