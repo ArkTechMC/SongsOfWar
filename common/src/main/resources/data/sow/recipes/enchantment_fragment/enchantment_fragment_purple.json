@@ -7,13 +7,13 @@
   ],
   "key": {
     "M": {
-      "item": "minecraft:copper_block"
+      "item": "minecraft:amethyst_block"
     },
     "N": {
       "item": "minecraft:netherite_block"
     }
   },
   "result": {
-    "item": "sow:song_stone_orange"
+    "item": "sow:enchantment_fragment_purple"
   }
 }

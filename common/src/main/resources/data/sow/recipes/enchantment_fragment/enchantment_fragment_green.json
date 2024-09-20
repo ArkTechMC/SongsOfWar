@@ -7,13 +7,13 @@
   ],
   "key": {
     "M": {
-      "item": "minecraft:gold_block"
+      "item": "minecraft:emerald_block"
     },
     "N": {
       "item": "minecraft:netherite_block"
     }
   },
   "result": {
-    "item": "sow:song_stone_yellow"
+    "item": "sow:enchantment_fragment_green"
   }
 }

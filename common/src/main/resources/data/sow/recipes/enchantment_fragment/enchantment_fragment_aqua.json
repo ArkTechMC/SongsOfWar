@@ -7,13 +7,13 @@
   ],
   "key": {
     "M": {
-      "item": "minecraft:iron_block"
+      "item": "minecraft:diamond_block"
     },
     "N": {
       "item": "minecraft:netherite_block"
     }
   },
   "result": {
-    "item": "sow:song_stone_white"
+    "item": "sow:enchantment_fragment_aqua"
   }
 }
