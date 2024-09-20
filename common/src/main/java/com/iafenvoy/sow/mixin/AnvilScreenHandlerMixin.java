@@ -1,7 +1,6 @@
 package com.iafenvoy.sow.mixin;
 
-import com.iafenvoy.neptune.render.glint.GlintManager;
-import com.iafenvoy.sow.item.SongStoneItem;
+import com.iafenvoy.sow.item.EnchantmentFragmentItem;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.AxeItem;
@@ -33,12 +32,12 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
     @Inject(method = "updateResult", at = @At("HEAD"), cancellable = true)
     private void addSongStoneRecipe(CallbackInfo ci) {
         ItemStack weapon = this.input.getStack(0), stone = this.input.getStack(1);
-        if (weapon.getNbt() != null && weapon.getNbt().contains(GlintManager.GLINT_KEY)) return;
-        if ((weapon.getItem() instanceof SwordItem || weapon.getItem() instanceof AxeItem) && stone.getItem() instanceof SongStoneItem songStone) {
+        if (weapon.getNbt() != null && weapon.getNbt().contains("enchantment_fragment")) return;
+        if ((weapon.getItem() instanceof SwordItem || weapon.getItem() instanceof AxeItem) && stone.getItem() instanceof EnchantmentFragmentItem fragment) {
             this.repairItemUsage = 1;
-            this.levelCost.set(songStone.getInfo().getLevelCost());
+            this.levelCost.set(fragment.getInfo().getLevelCost());
             ItemStack result = weapon.copy();
-            songStone.getInfo().apply(result);
+            fragment.getInfo().apply(result);
             this.output.setStack(0, result);
             ci.cancel();
         }
@@ -47,7 +46,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
     @Inject(method = "canTakeOutput", at = @At("HEAD"), cancellable = true)
     private void onTakeOutput(PlayerEntity player, boolean present, CallbackInfoReturnable<Boolean> cir) {
         ItemStack stone = this.input.getStack(1);
-        if (stone.getItem() instanceof SongStoneItem)
+        if (stone.getItem() instanceof EnchantmentFragmentItem)
             cir.setReturnValue(player.getAbilities().creativeMode || player.experienceLevel >= this.levelCost.get());
     }
 }

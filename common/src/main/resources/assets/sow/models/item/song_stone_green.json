@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "sow:item/stone/song_stone_green"
-  }
-}

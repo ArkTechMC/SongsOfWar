@@ -2,7 +2,7 @@ package com.iafenvoy.sow.compat.emi;
 
 import com.iafenvoy.neptune.util.RandomHelper;
 import com.iafenvoy.sow.SongsOfWar;
-import com.iafenvoy.sow.item.SongStoneItem;
+import com.iafenvoy.sow.item.EnchantmentFragmentItem;
 import dev.emi.emi.EmiUtil;
 import dev.emi.emi.api.EmiEntrypoint;
 import dev.emi.emi.api.EmiPlugin;
@@ -24,25 +24,25 @@ import java.util.List;
 @EmiEntrypoint
 public class SowSongStoneRecipePlugin implements EmiPlugin {
     private static final List<Item> allWeapons = Registries.ITEM.stream().filter(x -> x instanceof SwordItem || x instanceof AxeItem).toList();
-    private static final List<SongStoneItem> allStones = Registries.ITEM.stream().filter(x -> x instanceof SongStoneItem).map(x -> (SongStoneItem) x).toList();
+    private static final List<EnchantmentFragmentItem> allStones = Registries.ITEM.stream().filter(x -> x instanceof EnchantmentFragmentItem).map(x -> (EnchantmentFragmentItem) x).toList();
 
     @Override
     public void register(EmiRegistry registry) {
-        for (SongStoneItem songStone : allStones) {
-            registry.addRecipe(new SowAnvilRecipe(songStone));
-            registry.addRecipe(new SowGrindstoneRecipe(songStone));
+        for (EnchantmentFragmentItem fragment : allStones) {
+            registry.addRecipe(new SowAnvilRecipe(fragment));
+            registry.addRecipe(new SowGrindstoneRecipe(fragment));
         }
     }
 
     private static class SowAnvilRecipe implements EmiRecipe {
         private final Identifier id;
-        private final SongStoneItem songStone;
+        private final EnchantmentFragmentItem fragment;
         private final int unique = EmiUtil.RANDOM.nextInt();
         private Item lastWeapon = Items.AIR;
 
-        private SowAnvilRecipe(SongStoneItem songStone) {
-            this.id = new Identifier(SongsOfWar.MOD_ID, "sow_anvil_" + songStone.getInfo().getId());
-            this.songStone = songStone;
+        private SowAnvilRecipe(EnchantmentFragmentItem fragment) {
+            this.id = new Identifier(SongsOfWar.MOD_ID, "sow_anvil_" + fragment.getInfo().getId());
+            this.fragment = fragment;
         }
 
         @Override
@@ -57,7 +57,7 @@ public class SowSongStoneRecipePlugin implements EmiPlugin {
 
         @Override
         public List<EmiIngredient> getInputs() {
-            return List.of(EmiIngredient.of(allWeapons.stream().map(Ingredient::ofItems).map(EmiIngredient::of).toList()), EmiIngredient.of(Ingredient.ofItems(this.songStone)));
+            return List.of(EmiIngredient.of(allWeapons.stream().map(Ingredient::ofItems).map(EmiIngredient::of).toList()), EmiIngredient.of(Ingredient.ofItems(this.fragment)));
         }
 
         @Override
@@ -85,21 +85,21 @@ public class SowSongStoneRecipePlugin implements EmiPlugin {
             widgets.addTexture(EmiTexture.PLUS, 27, 3);
             widgets.addTexture(EmiTexture.EMPTY_ARROW, 75, 1);
             widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofItems(this.lastWeapon = RandomHelper.randomOne(r, allWeapons))), this.unique, 0, 0);
-            widgets.addSlot(EmiIngredient.of(Ingredient.ofItems(this.songStone)), 49, 0);
-            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(this.songStone.getInfo().apply(new ItemStack(this.lastWeapon)))), this.unique, 107, 0).recipeContext(this);
+            widgets.addSlot(EmiIngredient.of(Ingredient.ofItems(this.fragment)), 49, 0);
+            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(this.fragment.getInfo().apply(new ItemStack(this.lastWeapon)))), this.unique, 107, 0).recipeContext(this);
         }
     }
 
     private static class SowGrindstoneRecipe implements EmiRecipe {
         private static final Identifier BACKGROUND = new Identifier("minecraft", "textures/gui/container/grindstone.png");
         private final int unique = EmiUtil.RANDOM.nextInt();
-        private final SongStoneItem songStone;
+        private final EnchantmentFragmentItem fragment;
         private final Identifier id;
         private Item lastWeapon = Items.AIR;
 
-        public SowGrindstoneRecipe(SongStoneItem songStone) {
-            this.songStone = songStone;
-            this.id = new Identifier(SongsOfWar.MOD_ID, "sow_grindstone_" + songStone.getInfo().getId());
+        public SowGrindstoneRecipe(EnchantmentFragmentItem fragment) {
+            this.fragment = fragment;
+            this.id = new Identifier(SongsOfWar.MOD_ID, "sow_grindstone_" + fragment.getInfo().getId());
         }
 
         @Override
@@ -140,7 +140,7 @@ public class SowSongStoneRecipePlugin implements EmiPlugin {
         @Override
         public void addWidgets(WidgetHolder widgets) {
             widgets.addTexture(BACKGROUND, 0, 0, 116, 56, 30, 15);
-            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(this.songStone.getInfo().apply(new ItemStack(this.lastWeapon = RandomHelper.randomOne(r, allWeapons))))), this.unique, 18, 3).drawBack(false);
+            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(this.fragment.getInfo().apply(new ItemStack(this.lastWeapon = RandomHelper.randomOne(r, allWeapons))))), this.unique, 18, 3).drawBack(false);
             widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(new ItemStack(this.lastWeapon))), this.unique, 98, 18).drawBack(false).recipeContext(this);
         }
     }

@@ -26,12 +26,6 @@ This is a mod to add elements from [Songs of War Animation](https://youtu.be/Uc7
 
 <div align=center><img src="/img/4.webp" style="width:400px;text-align:center;" alt=""></img></div>
 
-### TODO:
-
-Song Ability
-
-Better render for prime song.
-
 ## License
 
 Since this mod's assets from official, all assets are freely to use since they are already in public. **But all code are All Right Reserved**.
