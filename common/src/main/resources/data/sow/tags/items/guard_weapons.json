@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:iron_sword",
+    "sow:spear_heavy_iron",
+    "sow:spear_iron",
+    "sow:spear_iron_1",
+    "sow:spear_iron_3",
+    "sow:spear_iron_4",
+    "sow:spear_light_iron"
+  ]
+}

@@ -5,7 +5,7 @@ import com.iafenvoy.neptune.render.glint.GlintManager;
 import com.iafenvoy.sow.item.EnchantmentFragmentItem;
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
-import it.unimi.dsi.fastutil.objects.ObjectSet;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -16,7 +16,6 @@ import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 public class EnchantmentFragmentInfo {
@@ -57,6 +56,7 @@ public class EnchantmentFragmentInfo {
 
     public ItemStack apply(ItemStack stack) {
         this.glint.apply(stack, true);
+        stack.addEnchantment(Enchantments.UNBREAKING, 3);
         stack.getOrCreateNbt().putString("enchantment_fragment", this.getId());
         Multimap<EntityAttribute, EntityAttributeModifier> attributes = stack.getItem().getAttributeModifiers(EquipmentSlot.MAINHAND);
         this.buildByAttribute(stack, EntityAttributes.GENERIC_ATTACK_DAMAGE, attributes);
@@ -84,6 +84,7 @@ public class EnchantmentFragmentInfo {
 
     public static ItemStack unapply(ItemStack stack) {
         GlintManager.removeGlint(stack);
+        stack.getOrCreateNbt().remove("Enchantments");
         stack.getOrCreateNbt().remove("AttributeModifiers");
         stack.getOrCreateNbt().remove("enchantment_fragment");
         stack.removeCustomName();

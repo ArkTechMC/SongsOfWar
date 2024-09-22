@@ -31,7 +31,7 @@ public class EnderKnightEntity extends MonsterEntityBase implements EntityTextur
     protected void initGoals() {
         super.initGoals();
         this.getNavigation().getNodeMaker().setCanOpenDoors(true);
-        this.goalSelector.add(1, new MeleeAttackGoal(this, 1.2, false) {
+        this.goalSelector.add(1, new MeleeAttackGoal(this, 1, false) {
             protected double getSquaredMaxAttackDistance(LivingEntity entity) {
                 return this.mob.getWidth() * this.mob.getWidth() + entity.getWidth();
             }
