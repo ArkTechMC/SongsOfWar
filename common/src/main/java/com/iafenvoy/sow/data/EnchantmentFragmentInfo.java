@@ -56,7 +56,7 @@ public class EnchantmentFragmentInfo {
 
     public ItemStack apply(ItemStack stack) {
         this.glint.apply(stack, true);
-        stack.addEnchantment(Enchantments.UNBREAKING, 3);
+        stack.addEnchantment(Enchantments.UNBREAKING, 1);
         stack.getOrCreateNbt().putString("enchantment_fragment", this.getId());
         Multimap<EntityAttribute, EntityAttributeModifier> attributes = stack.getItem().getAttributeModifiers(EquipmentSlot.MAINHAND);
         this.buildByAttribute(stack, EntityAttributes.GENERIC_ATTACK_DAMAGE, attributes);
