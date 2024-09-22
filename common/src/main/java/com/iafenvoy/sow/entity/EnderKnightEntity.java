@@ -1,9 +1,9 @@
 package com.iafenvoy.sow.entity;
 
 import com.iafenvoy.neptune.object.entity.MonsterEntityBase;
+import com.iafenvoy.neptune.render.EntityTextureProvider;
 import com.iafenvoy.neptune.util.RandomHelper;
 import com.iafenvoy.sow.SongsOfWar;
-import com.iafenvoy.neptune.render.EntityTextureProvider;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -81,17 +81,21 @@ public class EnderKnightEntity extends MonsterEntityBase implements EntityTextur
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {
-        DefaultAttributeContainer.Builder builder = MobEntity.createMobAttributes();
-        builder = builder.add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0);
-        builder = builder.add(EntityAttributes.GENERIC_ARMOR, 10.0);
-        builder = builder.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0);
-        builder = builder.add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0);
-        builder = builder.add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.0);
-        return builder;
+        return MobEntity.createMobAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0)
+                .add(EntityAttributes.GENERIC_ARMOR, 10.0)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0)
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.0);
     }
 
     @Override
     public Identifier getTextureId() {
         return new Identifier(SongsOfWar.MOD_ID, "textures/entity/ender_knight/ender_knight_" + this.getKnightType() + ".png");
+    }
+
+    @Override
+    public boolean canImmediatelyDespawn(double distanceSquared) {
+        return false;
     }
 }

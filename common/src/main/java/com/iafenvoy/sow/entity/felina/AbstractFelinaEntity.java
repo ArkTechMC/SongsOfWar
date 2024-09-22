@@ -35,13 +35,17 @@ public abstract class AbstractFelinaEntity extends MonsterEntityBase implements 
         this.goalSelector.add(8, new SwimGoal(this));
     }
 
+    @Override
+    public boolean canImmediatelyDespawn(double distanceSquared) {
+        return false;
+    }
+
     public static DefaultAttributeContainer.Builder createAttributes() {
-        DefaultAttributeContainer.Builder builder = MobEntity.createMobAttributes();
-        builder = builder.add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0);
-        builder = builder.add(EntityAttributes.GENERIC_ARMOR, 10.0);
-        builder = builder.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0);
-        builder = builder.add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0);
-        builder = builder.add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.0);
-        return builder;
+        return MobEntity.createMobAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0)
+                .add(EntityAttributes.GENERIC_ARMOR, 10.0)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0)
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.0);
     }
 }

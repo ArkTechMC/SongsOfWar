@@ -18,4 +18,9 @@ public class NiikaEntity extends AbstractFelinaEntity {
     public Identifier getTextureId() {
         return new Identifier(SongsOfWar.MOD_ID, "textures/entity/felina/niika.png");
     }
+
+    @Override
+    public float getScale() {
+        return 0.95f;
+    }
 }

@@ -19,4 +19,9 @@ public class FeldenSoldierEntity extends AbstractSoldierEntity {
     public int getVariantCount() {
         return 35;
     }
+
+    @Override
+    public float getScale() {
+        return 1.05f;
+    }
 }

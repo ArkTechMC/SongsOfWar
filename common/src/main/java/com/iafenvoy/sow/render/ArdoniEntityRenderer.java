@@ -25,10 +25,13 @@ public class ArdoniEntityRenderer extends BipedEntityRenderer<AbstractArdoniEnti
 
     @Override
     public void render(AbstractArdoniEntity mobEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
+        matrixStack.push();
+        matrixStack.scale(1.1f, 1.1f, 1.1f);
         if (mobEntity instanceof ArdoniEntity ardoni && ardoni.getArdoniType().dark())
             RenderSystem.setShaderColor(0.7f, 0.7f, 0.7f, 1);
         super.render(mobEntity, f, g, matrixStack, vertexConsumerProvider, i);
         RenderSystem.setShaderColor(1, 1, 1, 1);
+        matrixStack.pop();
     }
 
     @Override

@@ -13,6 +13,11 @@ public abstract class AbstractZombieEntity extends ZombieEntity implements Entit
     }
 
     @Override
+    public boolean canImmediatelyDespawn(double distanceSquared) {
+        return false;
+    }
+
+    @Override
     protected void initGoals() {
         super.initGoals();
         this.getNavigation().getNodeMaker().setCanOpenDoors(true);

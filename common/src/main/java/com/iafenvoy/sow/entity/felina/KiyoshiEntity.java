@@ -18,4 +18,9 @@ public class KiyoshiEntity extends AbstractFelinaEntity {
     public Identifier getTextureId() {
         return new Identifier(SongsOfWar.MOD_ID, "textures/entity/felina/kiyoshi.png");
     }
+
+    @Override
+    public float getScale() {
+        return 1.05f;
+    }
 }

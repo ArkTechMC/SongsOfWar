@@ -1,8 +1,6 @@
 package com.iafenvoy.sow.entity.necromancer;
 
-import com.iafenvoy.neptune.object.entity.MonsterEntityBase;
-import com.iafenvoy.neptune.render.EntityTextureProvider;
-import net.minecraft.entity.EntityGroup;
+import com.iafenvoy.sow.entity.human.AbstractHumanEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
@@ -12,9 +10,9 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.world.World;
 
-public abstract class AbstractNecromancerEntity extends MonsterEntityBase implements EntityTextureProvider {
+public abstract class AbstractNecromancerEntity extends AbstractHumanEntity {
     protected AbstractNecromancerEntity(EntityType<? extends HostileEntity> entityType, World world) {
-        super(entityType, world, EntityGroup.DEFAULT);
+        super(entityType, world);
     }
 
     @Override
@@ -36,12 +34,11 @@ public abstract class AbstractNecromancerEntity extends MonsterEntityBase implem
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {
-        DefaultAttributeContainer.Builder builder = MobEntity.createMobAttributes();
-        builder = builder.add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0);
-        builder = builder.add(EntityAttributes.GENERIC_ARMOR, 10.0);
-        builder = builder.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0);
-        builder = builder.add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0);
-        builder = builder.add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.0);
-        return builder;
+        return MobEntity.createMobAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0)
+                .add(EntityAttributes.GENERIC_ARMOR, 10.0)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0)
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.0);
     }
 }

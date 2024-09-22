@@ -49,4 +49,9 @@ public class FeldenEntity extends AbstractFelinaEntity {
     public Identifier getTextureId() {
         return new Identifier(SongsOfWar.MOD_ID, "textures/entity/felina/felden_" + this.getVariant() + ".png");
     }
+
+    @Override
+    public float getScale() {
+        return 1.05f;
+    }
 }

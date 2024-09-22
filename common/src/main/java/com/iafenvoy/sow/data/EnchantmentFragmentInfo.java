@@ -5,6 +5,7 @@ import com.iafenvoy.neptune.render.glint.GlintManager;
 import com.iafenvoy.sow.item.EnchantmentFragmentItem;
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
+import it.unimi.dsi.fastutil.objects.ObjectSet;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -60,11 +61,11 @@ public class EnchantmentFragmentInfo {
         Multimap<EntityAttribute, EntityAttributeModifier> attributes = stack.getItem().getAttributeModifiers(EquipmentSlot.MAINHAND);
         this.buildByAttribute(stack, EntityAttributes.GENERIC_ATTACK_DAMAGE, attributes);
         this.buildByAttribute(stack, EntityAttributes.GENERIC_ATTACK_SPEED, attributes);
-        for (Map.Entry<EntityAttribute, Double> entry : this.modifiers.object2DoubleEntrySet()) {
+        for (Object2DoubleMap.Entry<EntityAttribute> entry : this.modifiers.object2DoubleEntrySet()) {
             EntityAttribute attribute = entry.getKey();
             if (attribute == EntityAttributes.GENERIC_ATTACK_DAMAGE || attribute == EntityAttributes.GENERIC_ATTACK_SPEED)
                 continue;
-            stack.addAttributeModifier(attribute, new EntityAttributeModifier(MODIFIER_UUID, "enchantment_fragment", entry.getValue(), EntityAttributeModifier.Operation.ADDITION), EquipmentSlot.MAINHAND);
+            stack.addAttributeModifier(attribute, new EntityAttributeModifier(MODIFIER_UUID, "enchantment_fragment", entry.getDoubleValue(), EntityAttributeModifier.Operation.ADDITION), EquipmentSlot.MAINHAND);
         }
         if (stack.getName() instanceof MutableText mutableText)
             stack.setCustomName(mutableText.fillStyle(Style.EMPTY.withItalic(false)).formatted(this.glint.textColor()));//TODO: Bad code, should mixin renderer
@@ -96,9 +97,9 @@ public class EnchantmentFragmentInfo {
 
     public void applyTooltip(EnchantmentFragmentItem item, List<Text> tooltips) {
         tooltips.add(Text.translatable(item.getTranslationKey() + "." + this.getId()).formatted(this.glint.textColor()));
-        for (Map.Entry<EntityAttribute, Double> entry : this.modifiers.object2DoubleEntrySet())
-            if (entry.getValue() != 0)
-                tooltips.add(Text.literal(formatNumber(entry.getValue()) + " ").append(Text.translatable(entry.getKey().getTranslationKey())));
+        for (Object2DoubleMap.Entry<EntityAttribute> entry : this.modifiers.object2DoubleEntrySet())
+            if (entry.getDoubleValue() != 0)
+                tooltips.add(Text.literal(formatNumber(entry.getDoubleValue()) + " ").append(Text.translatable(entry.getKey().getTranslationKey())));
     }
 
     public int getLevelCost() {

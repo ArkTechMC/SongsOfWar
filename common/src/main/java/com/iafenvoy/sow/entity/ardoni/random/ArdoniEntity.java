@@ -104,9 +104,4 @@ public abstract class ArdoniEntity extends AbstractArdoniEntity {
     public void setChild(boolean child) {
         this.dataTracker.set(CHILD, child);
     }
-
-    @Override
-    public boolean canImmediatelyDespawn(double distanceSquared) {
-        return false;
-    }
 }

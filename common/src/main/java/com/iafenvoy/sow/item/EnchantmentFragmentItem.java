@@ -16,8 +16,8 @@ import java.util.List;
 public class EnchantmentFragmentItem extends Item {
     private final EnchantmentFragmentInfo info;
 
-    public EnchantmentFragmentItem(EnchantmentFragmentInfo info, Settings settings) {
-        super(settings.maxCount(4).rarity(Rarity.UNCOMMON).arch$tab(SowItemGroups.ITEMS));
+    public EnchantmentFragmentItem(EnchantmentFragmentInfo info) {
+        super(new Settings().maxCount(4).rarity(Rarity.UNCOMMON).arch$tab(SowItemGroups.ITEMS));
         this.info = info;
     }
 

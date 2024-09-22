@@ -19,4 +19,9 @@ public class FeldenGuardEntity extends AbstractGuardEntity{
     public int getVariantCount() {
         return 10;
     }
+
+    @Override
+    public float getScale() {
+        return 1.05f;
+    }
 }

@@ -27,7 +27,7 @@ public class SennEntity extends AbstractArdoniEntity {
 
     @Override
     public Color4i getColor() {
-        return new Color4i(0, 0, 0, 255);
+        return new Color4i(255, 255, 255, 255);
     }
 
     @Override
