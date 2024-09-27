@@ -33,6 +33,25 @@ public class EnchantmentFragmentInfo {
         return new EnchantmentFragmentInfo(glint, levelCost);
     }
 
+    private static EntityAttributeModifier buildByUuid(EntityAttribute attribute, Multimap<EntityAttribute, EntityAttributeModifier> map, double additional) {
+        UUID uuid = map.get(attribute).stream().findFirst().map(EntityAttributeModifier::getId).orElse(MODIFIER_UUID);
+        return new EntityAttributeModifier(uuid, "enchantment_fragment", map.get(attribute).stream().filter(x -> x.getId().equals(uuid)).reduce(additional, (p, c) -> p + c.getValue(), Double::sum), EntityAttributeModifier.Operation.ADDITION);
+    }
+
+    public static ItemStack unapply(ItemStack stack) {
+        GlintManager.removeGlint(stack);
+        stack.getOrCreateNbt().remove("Enchantments");
+        stack.getOrCreateNbt().remove("AttributeModifiers");
+        stack.getOrCreateNbt().remove("enchantment_fragment");
+        stack.removeCustomName();
+        return stack;
+    }
+
+    private static String formatNumber(double number) {
+        if (number > 0) return "+" + ItemStack.MODIFIER_FORMAT.format(number);
+        return "-" + ItemStack.MODIFIER_FORMAT.format(-number);
+    }
+
     public EnchantmentFragmentInfo dmg(double damageBonus) {
         return this.modify(EntityAttributes.GENERIC_ATTACK_DAMAGE, damageBonus);
     }
@@ -75,25 +94,6 @@ public class EnchantmentFragmentInfo {
     private void buildByAttribute(ItemStack stack, EntityAttribute attribute, Multimap<EntityAttribute, EntityAttributeModifier> map) {
         if (map.containsKey(attribute) || this.modifiers.containsKey(attribute))
             stack.addAttributeModifier(attribute, buildByUuid(attribute, map, this.modifiers.getOrDefault(attribute, 0)), EquipmentSlot.MAINHAND);
-    }
-
-    private static EntityAttributeModifier buildByUuid(EntityAttribute attribute, Multimap<EntityAttribute, EntityAttributeModifier> map, double additional) {
-        UUID uuid = map.get(attribute).stream().findFirst().map(EntityAttributeModifier::getId).orElse(MODIFIER_UUID);
-        return new EntityAttributeModifier(uuid, "enchantment_fragment", map.get(attribute).stream().filter(x -> x.getId().equals(uuid)).reduce(additional, (p, c) -> p + c.getValue(), Double::sum), EntityAttributeModifier.Operation.ADDITION);
-    }
-
-    public static ItemStack unapply(ItemStack stack) {
-        GlintManager.removeGlint(stack);
-        stack.getOrCreateNbt().remove("Enchantments");
-        stack.getOrCreateNbt().remove("AttributeModifiers");
-        stack.getOrCreateNbt().remove("enchantment_fragment");
-        stack.removeCustomName();
-        return stack;
-    }
-
-    private static String formatNumber(double number) {
-        if (number > 0) return "+" + ItemStack.MODIFIER_FORMAT.format(number);
-        return "-" + ItemStack.MODIFIER_FORMAT.format(-number);
     }
 
     public void applyTooltip(EnchantmentFragmentItem item, List<Text> tooltips) {

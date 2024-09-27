@@ -8,6 +8,7 @@ import net.minecraft.item.Items;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Pair;
 
+@SuppressWarnings("all")
 public final class SowBanners {
     public static final ItemStack CONCHORD = BannerUtil.create("banner." + SongsOfWar.MOD_ID + ".conchord", Items.GREEN_BANNER,
             new Pair<>(BannerPatterns.TRIANGLE_TOP, DyeColor.BROWN),
@@ -26,7 +27,7 @@ public final class SowBanners {
             new Pair<>(BannerPatterns.RHOMBUS, DyeColor.GRAY),
             new Pair<>(BannerPatterns.CIRCLE, DyeColor.WHITE)
     );
-    public static final ItemStack CYDONIA= BannerUtil.create("banner." + SongsOfWar.MOD_ID + ".cydonia", Items.WHITE_BANNER,
+    public static final ItemStack CYDONIA = BannerUtil.create("banner." + SongsOfWar.MOD_ID + ".cydonia", Items.WHITE_BANNER,
             new Pair<>(BannerPatterns.HALF_HORIZONTAL, DyeColor.GRAY),
             new Pair<>(BannerPatterns.STRIPE_MIDDLE, DyeColor.ORANGE),
             new Pair<>(BannerPatterns.RHOMBUS, DyeColor.ORANGE)

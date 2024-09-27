@@ -17,6 +17,15 @@ public abstract class AbstractNetheranEntity extends MonsterEntityBase implement
         super(entityType, world, EntityGroup.DEFAULT);
     }
 
+    public static DefaultAttributeContainer.Builder createAttributes() {
+        return MobEntity.createMobAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0)
+                .add(EntityAttributes.GENERIC_ARMOR, 10.0)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0)
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.0);
+    }
+
     @Override
     protected void initGoals() {
         super.initGoals();
@@ -43,14 +52,5 @@ public abstract class AbstractNetheranEntity extends MonsterEntityBase implement
     @Override
     public float getScale() {
         return 1.15f;
-    }
-
-    public static DefaultAttributeContainer.Builder createAttributes() {
-        return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0)
-                .add(EntityAttributes.GENERIC_ARMOR, 10.0)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0)
-                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.0);
     }
 }

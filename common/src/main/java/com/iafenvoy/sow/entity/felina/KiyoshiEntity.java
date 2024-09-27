@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class KiyoshiEntity extends AbstractFelinaEntity {
     public KiyoshiEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
-        this.setStackInHand(Hand.MAIN_HAND,new ItemStack(SowWeapons.HALBERD_IRON_2.get()));
+        this.setStackInHand(Hand.MAIN_HAND, new ItemStack(SowWeapons.HALBERD_IRON_2.get()));
     }
 
     @Override

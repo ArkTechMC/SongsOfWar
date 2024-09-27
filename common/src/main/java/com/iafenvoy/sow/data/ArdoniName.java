@@ -15,6 +15,14 @@ import java.util.List;
 public class ArdoniName implements SynchronousResourceReloader {
     private static final List<String> NAMES = new ArrayList<>();
 
+    public static String randomName() throws UnsupportedOperationException {
+        try {
+            return RandomHelper.randomOne(NAMES);
+        } catch (Exception e) {
+            throw new UnsupportedOperationException("Cannot random an ardoni name.", e);
+        }
+    }
+
     @Override
     public void reload(ResourceManager manager) {
         NAMES.clear();
@@ -29,13 +37,5 @@ public class ArdoniName implements SynchronousResourceReloader {
                 throw new RuntimeException(e);
             }
         SongsOfWar.LOGGER.info("Successfully loaded {} ardoni name(s),", NAMES.size());
-    }
-
-    public static String randomName() throws UnsupportedOperationException {
-        try {
-            return RandomHelper.randomOne(NAMES);
-        } catch (Exception e) {
-            throw new UnsupportedOperationException("Cannot random an ardoni name.", e);
-        }
     }
 }

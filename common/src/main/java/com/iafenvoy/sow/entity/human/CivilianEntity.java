@@ -18,6 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class CivilianEntity extends AbstractHumanEntity {
     private static final TrackedData<Integer> VARIANT = DataTracker.registerData(CivilianEntity.class, TrackedDataHandlerRegistry.INTEGER);
+
     public CivilianEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -41,12 +42,12 @@ public class CivilianEntity extends AbstractHumanEntity {
         else this.setVariant(RandomHelper.nextInt(1, 3));
     }
 
-    public void setVariant(int variant) {
-        this.dataTracker.set(VARIANT, variant);
-    }
-
     public int getVariant() {
         return this.dataTracker.get(VARIANT);
+    }
+
+    public void setVariant(int variant) {
+        this.dataTracker.set(VARIANT, variant);
     }
 
     @Nullable

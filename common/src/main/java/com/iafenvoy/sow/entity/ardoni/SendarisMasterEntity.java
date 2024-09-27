@@ -16,7 +16,7 @@ import java.util.Optional;
 public class SendarisMasterEntity extends AbstractArdoniEntity {
     public SendarisMasterEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
-        this.setStackInHand(Hand.MAIN_HAND,new ItemStack(SowWeapons.SENDAR.get()));
+        this.setStackInHand(Hand.MAIN_HAND, new ItemStack(SowWeapons.SENDAR.get()));
     }
 
     @Override

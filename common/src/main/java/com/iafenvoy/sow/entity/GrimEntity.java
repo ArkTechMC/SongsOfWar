@@ -24,6 +24,15 @@ public class GrimEntity extends MonsterEntityBase implements EntityTextureProvid
         this.setStackInHand(Hand.MAIN_HAND, GlintManager.BLUE.apply(new ItemStack(SowWeapons.SCYTHE_IRON.get()), true));
     }
 
+    public static DefaultAttributeContainer.Builder createAttributes() {
+        return MobEntity.createMobAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0)
+                .add(EntityAttributes.GENERIC_ARMOR, 10.0)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0)
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.0);
+    }
+
     @Override
     protected void initGoals() {
         super.initGoals();
@@ -45,15 +54,6 @@ public class GrimEntity extends MonsterEntityBase implements EntityTextureProvid
     @Override
     public boolean canImmediatelyDespawn(double distanceSquared) {
         return false;
-    }
-
-    public static DefaultAttributeContainer.Builder createAttributes() {
-        return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0)
-                .add(EntityAttributes.GENERIC_ARMOR, 10.0)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0)
-                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.0);
     }
 
     @Override

@@ -1,11 +1,10 @@
 package com.iafenvoy.sow.entity.human.guard;
 
 import com.iafenvoy.neptune.util.RandomHelper;
-import com.iafenvoy.neptune.util.function.MemorizeSupplier;
 import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.data.KingdomType;
 import com.iafenvoy.sow.entity.human.AbstractHumanEntity;
-import com.iafenvoy.sow.registry.SowTags;
+import com.iafenvoy.sow.registry.SowWeapons;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
@@ -15,8 +14,8 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.Registries;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.LocalDifficulty;
@@ -25,14 +24,23 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public abstract class AbstractGuardEntity extends AbstractHumanEntity {
-    protected static final MemorizeSupplier<List<Item>> GUARD_WEAPONS = new MemorizeSupplier<>(() -> Registries.ITEM.stream().filter(x -> new ItemStack(x).isIn(SowTags.GUARD_WEAPONS)).toList());
+    protected static final List<Supplier<? extends Item>> GUARD_WEAPONS = List.of(
+            () -> Items.IRON_SWORD,
+            SowWeapons.SPEAR_HEAVY_IRON,
+            SowWeapons.SPEAR_IRON,
+            SowWeapons.SPEAR_IRON_1,
+            SowWeapons.SPEAR_IRON_3,
+            SowWeapons.SPEAR_IRON_4,
+            SowWeapons.SPEAR_LIGHT_IRON
+    );
     private static final TrackedData<Integer> VARIANT = DataTracker.registerData(AbstractGuardEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     protected AbstractGuardEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
-        this.setStackInHand(Hand.MAIN_HAND, new ItemStack(RandomHelper.randomOne(GUARD_WEAPONS.get())));
+        this.setStackInHand(Hand.MAIN_HAND, new ItemStack(RandomHelper.randomOne(GUARD_WEAPONS).get()));
     }
 
     @Override

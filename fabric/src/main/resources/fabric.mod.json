@@ -22,6 +22,9 @@
     ],
     "emi": [
       "com.iafenvoy.sow.compat.emi.SowSongStoneRecipePlugin"
+    ],
+    "modmenu": [
+      "com.iafenvoy.sow.fabric.ModMenu"
     ]
   },
   "mixins": [

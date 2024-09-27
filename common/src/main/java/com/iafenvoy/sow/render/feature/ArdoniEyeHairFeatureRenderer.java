@@ -18,10 +18,6 @@ import net.minecraft.util.Identifier;
 @Environment(EnvType.CLIENT)
 public class ArdoniEyeHairFeatureRenderer extends FeatureRenderer<AbstractArdoniEntity, BipedEntityModel<AbstractArdoniEntity>> {
     private static final Identifier EYE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/ardoni_eye.png");
-    private static final Identifier HAIR = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/ardoni_hair.png");
-    private static final Identifier HAIR_MARKER = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/ardoni_hair_marker.png");
-    private static final Identifier HAIR_SHORT = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/ardoni_hair_short.png");
-    private static final Identifier HAIR_SHORT_MARKER = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/ardoni_hair_short_marker.png");
 
     public ArdoniEyeHairFeatureRenderer(FeatureRendererContext<AbstractArdoniEntity, BipedEntityModel<AbstractArdoniEntity>> context) {
         super(context);
@@ -31,9 +27,11 @@ public class ArdoniEyeHairFeatureRenderer extends FeatureRenderer<AbstractArdoni
     public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, AbstractArdoniEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
         BipedEntityModel<AbstractArdoniEntity> model = this.getContextModel();
         Color4i color = entity.getColor();
-        boolean child = entity instanceof ArdoniEntity ardoni && ardoni.isChild();
-        Identifier hair = child ? HAIR_SHORT : HAIR, hairMarker = child ? HAIR_SHORT_MARKER : HAIR_MARKER;
         model.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityTranslucentEmissive(EYE)), light, OverlayTexture.DEFAULT_UV, color.getR(), color.getG(), color.getB(), 1);
+        if (!(entity instanceof ArdoniEntity ardoni)) return;
+        int age = ardoni.getAge();
+        Identifier hair = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/ardoni_hair_" + age + ".png");
+        Identifier hairMarker = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/ardoni_hair_" + age + "_marker.png");
         if (entity instanceof ArdoniEntity) {
             model.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityCutout(hair)), light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);
             model.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityTranslucentEmissive(hairMarker)), light, OverlayTexture.DEFAULT_UV, color.getR(), color.getG(), color.getB(), 1);

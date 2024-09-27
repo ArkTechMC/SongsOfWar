@@ -1,12 +1,17 @@
 package com.iafenvoy.sow.forge;
 
+import com.iafenvoy.jupiter.screen.ConfigSelectScreen;
 import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.SongsOfWarClient;
+import com.iafenvoy.sow.config.SowConfig;
 import dev.architectury.platform.Platform;
 import dev.architectury.platform.forge.EventBuses;
 import dev.architectury.utils.Env;
+import net.minecraft.text.Text;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -33,6 +38,7 @@ public class SongsOfWarForge {
         @SubscribeEvent
         public static void process(FMLClientSetupEvent event) {
             event.enqueueWork(SongsOfWarClient::process);
+            ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class, () -> new ConfigScreenHandler.ConfigScreenFactory((client, screen) -> new ConfigSelectScreen<>(Text.translatable("config.sow.title"), screen, SowConfig.INSTANCE, null)));
         }
     }
 }

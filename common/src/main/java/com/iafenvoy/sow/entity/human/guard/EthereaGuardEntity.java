@@ -5,7 +5,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.world.World;
 
-public class EthereaGuardEntity extends AbstractGuardEntity{
+public class EthereaGuardEntity extends AbstractGuardEntity {
     public EthereaGuardEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }

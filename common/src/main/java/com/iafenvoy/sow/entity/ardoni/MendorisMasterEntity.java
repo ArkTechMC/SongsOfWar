@@ -16,7 +16,7 @@ import java.util.Optional;
 public class MendorisMasterEntity extends AbstractArdoniEntity {
     public MendorisMasterEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
-        this.setStackInHand(Hand.MAIN_HAND,new ItemStack(SowWeapons.MENDOR.get()));
+        this.setStackInHand(Hand.MAIN_HAND, new ItemStack(SowWeapons.MENDOR.get()));
     }
 
     @Override

@@ -31,11 +31,15 @@ dependencies {
     // Don't need this. Trinkets has embedded version 5.2.0.
 
     // Neptune cross-platform library
-    modImplementation "maven.modrinth:neptune:zoWRcFpj"
+    modImplementation "maven.modrinth:neptune:qhdeY0N0"
+
+    modImplementation "maven.modrinth:jupiter:elRfRGl9"
 
     // Optional
     // EMI
     modImplementation "dev.emi:emi-fabric:${emi_version}"
+
+    modApi "com.terraformersmc:modmenu:7.2.2"
 }
 
 processResources {

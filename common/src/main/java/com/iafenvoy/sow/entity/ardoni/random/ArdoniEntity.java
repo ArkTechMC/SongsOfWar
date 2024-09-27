@@ -1,8 +1,10 @@
 package com.iafenvoy.sow.entity.ardoni.random;
 
 import com.iafenvoy.neptune.util.Color4i;
+import com.iafenvoy.neptune.util.RandomHelper;
 import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.data.ArdoniName;
+import com.iafenvoy.sow.data.ArdoniType;
 import com.iafenvoy.sow.entity.ardoni.AbstractArdoniEntity;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
@@ -22,8 +24,7 @@ import java.util.Optional;
 
 public abstract class ArdoniEntity extends AbstractArdoniEntity {
     private static final TrackedData<Long> MARKER_SEED = DataTracker.registerData(ArdoniEntity.class, TrackedDataHandlerRegistry.LONG);
-    private static final TrackedData<String> ARDONI_TYPE = DataTracker.registerData(ArdoniEntity.class, TrackedDataHandlerRegistry.STRING);
-    private static final TrackedData<Boolean> CHILD = DataTracker.registerData(ArdoniEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    private static final TrackedData<Integer> AGE = DataTracker.registerData(ArdoniEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     public ArdoniEntity(EntityType<? extends ArdoniEntity> entityType, World world) {
         super(entityType, world);
@@ -36,10 +37,9 @@ public abstract class ArdoniEntity extends AbstractArdoniEntity {
 
     @Override
     public Color4i getColor() {
-        //TODO: Remap failure
-//        if (this.hasCustomName() && this.getName().getString().equals("jeb_"))
-//            return Color4i.fromHSV((this.age + this.getId()) / 100.0f, 1, 1);
-        return this.getArdoniType().color();
+        if (this.hasCustomName() && this.getName().getString().equals("jeb_"))
+            return Color4i.fromHSV((this.age + this.getId()) / 100.0f, 1, 1);
+        return this.getArdoniType().getColor(this.getMarkerSeed());
     }
 
     @Override
@@ -51,21 +51,19 @@ public abstract class ArdoniEntity extends AbstractArdoniEntity {
     protected void initDataTracker() {
         super.initDataTracker();
         this.dataTracker.startTracking(MARKER_SEED, 0L);
-        this.dataTracker.startTracking(ARDONI_TYPE, "");
-        this.dataTracker.startTracking(CHILD, false);
+        this.dataTracker.startTracking(AGE, 1);
     }
 
     @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
         nbt.putLong("markerSeed", this.getMarkerSeed());
-        nbt.putString("ardoniType", this.getArdoniTypeString());
-        nbt.putBoolean("child", this.isChild());
+        nbt.putInt("age", this.getAge());
     }
 
     public void setDefaultData() {
         this.setMarkerSeed(System.nanoTime());
-        this.setChild(this.random.nextInt(5) == 0);
+        this.setAge(RandomHelper.nextInt(1, 5));
     }
 
     @Override
@@ -73,7 +71,7 @@ public abstract class ArdoniEntity extends AbstractArdoniEntity {
         super.readCustomDataFromNbt(nbt);
         this.setDefaultData();
         if (nbt.contains("markerSeed")) this.setMarkerSeed(nbt.getLong("markerSeed"));
-        if (nbt.contains("child")) this.setChild(nbt.getBoolean("child"));
+        if (nbt.contains("age")) this.setAge(nbt.getInt("age"));
     }
 
     @Nullable
@@ -81,27 +79,25 @@ public abstract class ArdoniEntity extends AbstractArdoniEntity {
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
         EntityData data = super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
         this.setDefaultData();
-        this.setCustomName(Text.literal(String.format("%s %s", ArdoniName.randomName(), this.getArdoniType().getFormattedName())));
+        if (this.getArdoniType() == ArdoniType.NONE) this.setCustomName(Text.literal(ArdoniName.randomName()));
+        else
+            this.setCustomName(Text.literal(String.format("%s %s", ArdoniName.randomName(), this.getArdoniType().getFormattedName())));
         return data;
-    }
-
-    public void setMarkerSeed(long markerSeed) {
-        this.dataTracker.set(MARKER_SEED, markerSeed);
     }
 
     public long getMarkerSeed() {
         return this.dataTracker.get(MARKER_SEED);
     }
 
-    public String getArdoniTypeString() {
-        return this.dataTracker.get(ARDONI_TYPE);
+    public void setMarkerSeed(long markerSeed) {
+        this.dataTracker.set(MARKER_SEED, markerSeed);
     }
 
-    public boolean isChild() {
-        return this.dataTracker.get(CHILD);
+    public int getAge() {
+        return this.dataTracker.get(AGE);
     }
 
-    public void setChild(boolean child) {
-        this.dataTracker.set(CHILD, child);
+    public void setAge(int age) {
+        this.dataTracker.set(AGE, age);
     }
 }

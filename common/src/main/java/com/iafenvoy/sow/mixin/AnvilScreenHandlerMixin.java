@@ -39,6 +39,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
             ItemStack result = weapon.copy();
             fragment.getInfo().apply(result);
             this.output.setStack(0, result);
+            this.sendContentUpdates();
             ci.cancel();
         }
     }

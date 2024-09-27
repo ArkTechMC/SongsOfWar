@@ -5,7 +5,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.world.World;
 
-public class KarthenGuardEntity extends AbstractGuardEntity{
+public class KarthenGuardEntity extends AbstractGuardEntity {
     public KarthenGuardEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }

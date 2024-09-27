@@ -26,12 +26,12 @@ public class LucanEntity extends AbstractHumanEntity {
         this.dataTracker.startTracking(STATE, 0);
     }
 
-    public void setState(int state) {
-        this.dataTracker.set(STATE, state);
-    }
-
     public int getState() {
         return this.dataTracker.get(STATE);
+    }
+
+    public void setState(int state) {
+        this.dataTracker.set(STATE, state);
     }
 
     @Override

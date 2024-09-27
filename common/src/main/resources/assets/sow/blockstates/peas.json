@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "sow:block/peas_stage_1"
+    },
+    "age=1": {
+      "model": "sow:block/peas_stage_1"
+    },
+    "age=2": {
+      "model": "sow:block/peas_stage_1"
+    },
+    "age=3": {
+      "model": "sow:block/peas_stage_2"
+    },
+    "age=4": {
+      "model": "sow:block/peas_stage_2"
+    },
+    "age=5": {
+      "model": "sow:block/peas_stage_2"
+    },
+    "age=6": {
+      "model": "sow:block/peas_stage_3"
+    },
+    "age=7": {
+      "model": "sow:block/peas_stage_3"
+    }
+  }
+}

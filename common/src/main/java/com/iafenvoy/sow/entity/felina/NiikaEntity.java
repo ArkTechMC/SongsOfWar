@@ -12,8 +12,8 @@ import net.minecraft.world.World;
 public class NiikaEntity extends AbstractFelinaEntity {
     public NiikaEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
-        this.setStackInHand(Hand.MAIN_HAND,new ItemStack(SowWeapons.ZERU_LONG_SWORD_IRON.get()));
-        this.setStackInHand(Hand.OFF_HAND,new ItemStack(SowWeapons.ZERU_LONG_SWORD_IRON_1.get()));
+        this.setStackInHand(Hand.MAIN_HAND, new ItemStack(SowWeapons.ZERU_LONG_SWORD_IRON.get()));
+        this.setStackInHand(Hand.OFF_HAND, new ItemStack(SowWeapons.ZERU_LONG_SWORD_IRON_1.get()));
     }
 
     @Override

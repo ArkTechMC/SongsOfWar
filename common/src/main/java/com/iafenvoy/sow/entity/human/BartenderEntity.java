@@ -42,12 +42,12 @@ public class BartenderEntity extends AbstractHumanEntity {
         else this.setVariant(RandomHelper.nextInt(1, 2));
     }
 
-    public void setVariant(int variant) {
-        this.dataTracker.set(VARIANT, variant);
-    }
-
     public int getVariant() {
         return this.dataTracker.get(VARIANT);
+    }
+
+    public void setVariant(int variant) {
+        this.dataTracker.set(VARIANT, variant);
     }
 
     @Nullable
@@ -60,9 +60,8 @@ public class BartenderEntity extends AbstractHumanEntity {
 
     @Override
     public Identifier getTextureId() {
-        return switch (this.getVariant()) {
-            case 2 -> new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/hogtown_bartender.png");
-            default -> new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/biggerton_bartender.png");
-        };
+        if (this.getVariant() == 2)
+            return new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/hogtown_bartender.png");
+        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/biggerton_bartender.png");
     }
 }
