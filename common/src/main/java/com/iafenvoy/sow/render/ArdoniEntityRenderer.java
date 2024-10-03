@@ -1,5 +1,6 @@
 package com.iafenvoy.sow.render;
 
+import com.iafenvoy.neptune.util.RandomHelper;
 import com.iafenvoy.sow.entity.ardoni.AbstractArdoniEntity;
 import com.iafenvoy.sow.entity.ardoni.random.ArdoniEntity;
 import com.iafenvoy.sow.render.feature.ArdoniEyeHairFeatureRenderer;
@@ -15,6 +16,8 @@ import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
+import java.util.Random;
+
 @Environment(EnvType.CLIENT)
 public class ArdoniEntityRenderer extends BipedEntityRenderer<AbstractArdoniEntity, BipedEntityModel<AbstractArdoniEntity>> {
     public ArdoniEntityRenderer(EntityRendererFactory.Context ctx) {
@@ -27,8 +30,13 @@ public class ArdoniEntityRenderer extends BipedEntityRenderer<AbstractArdoniEnti
     public void render(AbstractArdoniEntity mobEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
         matrixStack.push();
         matrixStack.scale(1.1f, 1.1f, 1.1f);
-        if (mobEntity instanceof ArdoniEntity ardoni && ardoni.getArdoniType().dark())
-            RenderSystem.setShaderColor(0.7f, 0.7f, 0.7f, 1);
+        double darkness = 1;
+        if (mobEntity instanceof ArdoniEntity ardoni)
+            if (ardoni.getArdoniType().dark())
+                darkness = RandomHelper.nextDouble(new Random(ardoni.getMarkerSeed()), 0.65, 0.75);
+            else
+                darkness = RandomHelper.nextDouble(new Random(ardoni.getMarkerSeed()), 0.9, 1);
+        RenderSystem.setShaderColor((float) darkness, (float) darkness, (float) darkness, 1);
         super.render(mobEntity, f, g, matrixStack, vertexConsumerProvider, i);
         RenderSystem.setShaderColor(1, 1, 1, 1);
         matrixStack.pop();

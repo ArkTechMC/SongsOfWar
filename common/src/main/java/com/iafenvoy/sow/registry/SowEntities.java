@@ -63,6 +63,8 @@ public final class SowEntities {
     public static final RegistrySupplier<EntityType<OsivianEntity>> OSIVIAN = build("osivian", OsivianEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
     public static final RegistrySupplier<EntityType<LucidiusEntity>> LUCIDIUS = build("lucidius", LucidiusEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
     public static final RegistrySupplier<EntityType<ZinaidaEntity>> ZINAIDA = build("zinaida", ZinaidaEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
+    public static final RegistrySupplier<EntityType<AureliusEntity>> AURELIUS = build("aurelius", AureliusEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
+    public static final RegistrySupplier<EntityType<HadionEntity>> HADION = build("hadion", HadionEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
     //Felina
     public static final RegistrySupplier<EntityType<FeldenEntity>> FELDEN = build("felden", FeldenEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.05f));
     public static final RegistrySupplier<EntityType<KiyoshiEntity>> KIYOSHI = build("kiyoshi", KiyoshiEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.05f));
@@ -162,6 +164,8 @@ public final class SowEntities {
         EntityAttributeRegistry.register(OSIVIAN, OsivianEntity::createAttributes);
         EntityAttributeRegistry.register(LUCIDIUS, LucidiusEntity::createAttributes);
         EntityAttributeRegistry.register(ZINAIDA, ZinaidaEntity::createAttributes);
+        EntityAttributeRegistry.register(AURELIUS, AureliusEntity::createAttributes);
+        EntityAttributeRegistry.register(HADION, HadionEntity::createAttributes);
 
         EntityAttributeRegistry.register(FELDEN, AbstractFelinaEntity::createAttributes);
         EntityAttributeRegistry.register(KIYOSHI, AbstractFelinaEntity::createAttributes);

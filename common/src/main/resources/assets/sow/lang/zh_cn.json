@@ -360,5 +360,9 @@
   "item.sow.zulius_spawn_egg": "祖里厄斯刷怪蛋",
   "itemGroup.sow.items": "战争之歌：物品",
   "itemGroup.sow.mobs": "战争之歌：生物",
-  "itemGroup.sow.weapons": "战争之歌：武器"
+  "itemGroup.sow.weapons": "战争之歌：武器",
+  "entity.sow.aurelius": "奥勒利乌斯",
+  "entity.sow.hadion": "哈迪恩",
+  "item.sow.aurelius_spawn_egg": "奥勒利乌斯刷怪蛋",
+  "item.sow.hadion_spawn_egg": "哈迪恩刷怪蛋"
 }

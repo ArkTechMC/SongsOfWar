@@ -35,6 +35,8 @@ public final class SowRenderers {
         EntityRendererRegistry.register(SowEntities.OSIVIAN, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.LUCIDIUS, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.ZINAIDA, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.AURELIUS, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.HADION, ArdoniEntityRenderer::new);
 
         EntityRendererRegistry.register(SowEntities.FELDEN, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.KIYOSHI, CommonPlayerLikeEntityRenderer::new);
