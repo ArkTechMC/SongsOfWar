@@ -5,7 +5,6 @@ import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.data.ArdoniType;
 import com.iafenvoy.sow.data.EnchantmentFragmentInfo;
 import com.iafenvoy.sow.item.EnchantmentFragmentItem;
-import com.iafenvoy.sow.item.PeasCanItem;
 import com.iafenvoy.sow.item.SowSpawnEggItem;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
@@ -29,7 +28,6 @@ public final class SowItems {
     public static final RegistrySupplier<Item> ENCHANTMENT_FRAGMENT_AQUA = REGISTRY.register("enchantment_fragment_aqua", () -> new EnchantmentFragmentItem(EnchantmentFragmentInfo.of(GlintManager.AQUA, 1).kb(1).luck(2)));
 
     public static final RegistrySupplier<Item> WITHER_STAFF = REGISTRY.register("wither_staff", () -> new Item(new Item.Settings().fireproof().rarity(Rarity.UNCOMMON).arch$tab(SowItemGroups.ITEMS)));
-    public static final RegistrySupplier<Item> PEAS_CAN = REGISTRY.register("peas_can", PeasCanItem::new);
     //Spawn Egg
     //Misc
     public static final RegistrySupplier<Item> NONE_TYPE_ARDONI_SPAWN_EGG = REGISTRY.register("none_type_ardoni_spawn_egg", () -> ArdoniType.NONE.createSpawnEgg(SowEntities.NONE_TYPE_ARDONI));

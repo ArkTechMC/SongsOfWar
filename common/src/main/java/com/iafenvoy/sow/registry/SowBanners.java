@@ -72,7 +72,7 @@ public final class SowBanners {
             new Pair<>(BannerPatterns.STRIPE_BOTTOM, DyeColor.BLACK)
     );
     public static final ItemStack NORTHWIND = BannerUtil.create("banner." + SongsOfWar.MOD_ID + ".northwind", Items.BLUE_BANNER,
-            new Pair<>(BannerPatterns.GRADIENT, DyeColor.LIGHT_BLUE),
+            new Pair<>(BannerPatterns.GRADIENT_UP, DyeColor.LIGHT_BLUE),
             new Pair<>(BannerPatterns.TRIANGLES_TOP, DyeColor.LIGHT_BLUE),
             new Pair<>(BannerPatterns.TRIANGLES_BOTTOM, DyeColor.WHITE),
             new Pair<>(BannerPatterns.FLOWER, DyeColor.WHITE)
