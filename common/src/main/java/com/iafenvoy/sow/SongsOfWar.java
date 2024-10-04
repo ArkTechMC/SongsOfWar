@@ -4,12 +4,17 @@ import com.iafenvoy.jupiter.ServerConfigManager;
 import com.iafenvoy.jupiter.malilib.config.ConfigManager;
 import com.iafenvoy.sow.config.SowConfig;
 import com.iafenvoy.sow.data.ArdoniName;
+import com.iafenvoy.sow.data.BeaconData;
 import com.iafenvoy.sow.registry.*;
 import com.mojang.logging.LogUtils;
+import dev.architectury.event.EventResult;
+import dev.architectury.event.events.common.BlockEvent;
 import dev.architectury.networking.NetworkManager;
 import dev.architectury.registry.ReloadListenerRegistry;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.resource.ResourceType;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import org.slf4j.Logger;
@@ -32,6 +37,11 @@ public class SongsOfWar {
 
     public static void process() {
         SowItems.init();
+        BlockEvent.BREAK.register((world, pos, state, player, xp) -> {
+            if (state.isOf(Blocks.BEACON) && world instanceof ServerWorld serverWorld)
+                BeaconData.getInstance(serverWorld).remove(pos);
+            return EventResult.pass();
+        });
         ReloadListenerRegistry.register(ResourceType.SERVER_DATA, new ArdoniName(), new Identifier(MOD_ID, "ardoni_name"));
         NetworkManager.registerReceiver(NetworkManager.Side.C2S, Static.BEACON_TELEPORT, (buf, context) -> {
             BlockPos prev = buf.readBlockPos(), now = buf.readBlockPos();

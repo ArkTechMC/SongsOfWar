@@ -14,7 +14,7 @@ public class SowConfig extends AutoInitConfigContainer {
     }
 
     public static class CommonConfig extends AutoInitConfigCategoryBase {
-        public static final ConfigBoolean enableBeaconTp = new ConfigBoolean("config.sow.common.enableBeaconTp", true);
+        public final ConfigBoolean enableBeaconTp = new ConfigBoolean("config.sow.common.enableBeaconTp", true);
 
         public CommonConfig() {
             super("common", "config.sow.category.common");
