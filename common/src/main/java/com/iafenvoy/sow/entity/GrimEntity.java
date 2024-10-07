@@ -19,6 +19,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
 public class GrimEntity extends MonsterEntityBase implements EntityTextureProvider {
+    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/grim.png");
+
     public GrimEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world, EntityGroup.DEFAULT);
         this.setStackInHand(Hand.MAIN_HAND, GlintManager.BLUE.apply(new ItemStack(SowWeapons.SCYTHE_IRON.get()), true));
@@ -58,6 +60,6 @@ public class GrimEntity extends MonsterEntityBase implements EntityTextureProvid
 
     @Override
     public Identifier getTextureId() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/grim.png");
+        return TEXTURE;
     }
 }

@@ -14,6 +14,9 @@ import net.minecraft.world.World;
 import java.util.Optional;
 
 public class AegusEntity extends AbstractArdoniEntity {
+    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/aegus.png");
+    public static final Identifier TEXTURE_MARKER = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/aegus_marker.png");
+
     public AegusEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
         this.setStackInHand(Hand.MAIN_HAND, new ItemStack(SowWeapons.NESTOR.get()));
@@ -21,17 +24,17 @@ public class AegusEntity extends AbstractArdoniEntity {
 
     @Override
     public Identifier getSkinTexture() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/aegus.png");
+        return TEXTURE;
     }
 
     @Override
     public Optional<Identifier> getMarkerTexture() {
-        return Optional.of(new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/aegus_marker.png"));
+        return Optional.of(TEXTURE_MARKER);
     }
 
     @Override
     public Color4i getColor() {
-        return new Color4i(255, 255, 0, 255);
+        return new Color4i(254, 229, 117, 255);
     }
 
     @Override

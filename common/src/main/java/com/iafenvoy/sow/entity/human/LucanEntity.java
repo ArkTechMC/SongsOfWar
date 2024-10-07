@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 
 public class LucanEntity extends AbstractHumanEntity {
     private static final TrackedData<Integer> STATE = DataTracker.registerData(LucanEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/lucan/lucan.png");
 
     public LucanEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
@@ -49,11 +50,11 @@ public class LucanEntity extends AbstractHumanEntity {
         if (this.getState() == 0) {
             if (this.getHealth() <= this.getMaxHealth() / 2)
                 return new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/lucan/lucan_bandaged.png");
-            return new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/lucan/lucan.png");
+            return TEXTURE;
         } else if (this.getState() == 1)
             return new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/lucan/lucan_necro.png");
         else if (this.getState() == 2)
             return new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/lucan/lucan_necro_hoodless.png");
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/lucan/lucan.png");
+        return TEXTURE;
     }
 }

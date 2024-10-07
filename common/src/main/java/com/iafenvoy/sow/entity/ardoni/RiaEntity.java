@@ -15,6 +15,9 @@ import net.minecraft.world.World;
 import java.util.Optional;
 
 public class RiaEntity extends AbstractArdoniEntity {
+    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/ria.png");
+    public static final Identifier TEXTURE_MARKER = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/ria_marker.png");
+
     public RiaEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
         this.setStackInHand(Hand.MAIN_HAND, GlintManager.AQUA.apply(new ItemStack(SowWeapons.SPEAR_IRON_4.get()), true));
@@ -22,17 +25,17 @@ public class RiaEntity extends AbstractArdoniEntity {
 
     @Override
     public Identifier getSkinTexture() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/ria.png");
+        return TEXTURE;
     }
 
     @Override
     public Optional<Identifier> getMarkerTexture() {
-        return Optional.of(new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/ria_marker.png"));
+        return Optional.of(TEXTURE_MARKER);
     }
 
     @Override
     public Color4i getColor() {
-        return new Color4i(0, 255, 255, 255);
+        return new Color4i(136, 241, 255, 255);
     }
 
     @Override

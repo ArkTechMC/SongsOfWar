@@ -11,18 +11,21 @@ import net.minecraft.world.World;
 import java.util.Optional;
 
 public class SennEntity extends AbstractArdoniEntity {
+    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/senn.png");
+    public static final Identifier TEXTURE_MARKER = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/senn_marker.png");
+
     public SennEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
 
     @Override
     public Identifier getSkinTexture() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/senn.png");
+        return TEXTURE;
     }
 
     @Override
     public Optional<Identifier> getMarkerTexture() {
-        return Optional.of(new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/senn_marker.png"));
+        return Optional.of(TEXTURE_MARKER);
     }
 
     @Override

@@ -37,10 +37,14 @@ public final class SowRenderers {
         EntityRendererRegistry.register(SowEntities.ZINAIDA, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.AURELIUS, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.HADION, ArdoniEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.VAL, ArdoniEntityRenderer::new);
 
         EntityRendererRegistry.register(SowEntities.FELDEN, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.KIYOSHI, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.NIIKA, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.MASANI, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.NITSUKE, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.YUJUKI, CommonPlayerLikeEntityRenderer::new);
 
         EntityRendererRegistry.register(SowEntities.ABBIGAIL, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.ALEC, CommonPlayerLikeEntityRenderer::new);
@@ -55,6 +59,11 @@ public final class SowRenderers {
         EntityRendererRegistry.register(SowEntities.MARSHALL, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.MRFINCH, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.SULLIMAN, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.ALLISTER, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.DENNY, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.JALKAR, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.SAXON, CommonPlayerLikeEntityRenderer::new);
+        EntityRendererRegistry.register(SowEntities.TREVOR, CommonPlayerLikeEntityRenderer::new);
 
         EntityRendererRegistry.register(SowEntities.IGNEOUS, CommonPlayerLikeWithMarkerEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.MAGNORITE, CommonPlayerLikeWithMarkerEntityRenderer::new);

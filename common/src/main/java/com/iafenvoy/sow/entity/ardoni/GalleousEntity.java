@@ -11,23 +11,26 @@ import net.minecraft.world.World;
 import java.util.Optional;
 
 public class GalleousEntity extends AbstractArdoniEntity {
+    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/galleous.png");
+    public static final Identifier TEXTURE_MARKER = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/galleous_marker.png");
+
     public GalleousEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
 
     @Override
     public Identifier getSkinTexture() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/galleous.png");
+        return TEXTURE;
     }
 
     @Override
     public Optional<Identifier> getMarkerTexture() {
-        return Optional.of(new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/galleous_marker.png"));
+        return Optional.of(TEXTURE_MARKER);
     }
 
     @Override
     public Color4i getColor() {
-        return new Color4i(0, 255, 255, 255);
+        return new Color4i(0, 162, 232, 255);
     }
 
     @Override

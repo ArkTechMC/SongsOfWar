@@ -10,6 +10,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
 public class KiyoshiEntity extends AbstractFelinaEntity {
+    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/felina/kiyoshi.png");
+
     public KiyoshiEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
         this.setStackInHand(Hand.MAIN_HAND, new ItemStack(SowWeapons.HALBERD_IRON_2.get()));
@@ -17,7 +19,7 @@ public class KiyoshiEntity extends AbstractFelinaEntity {
 
     @Override
     public Identifier getTextureId() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/felina/kiyoshi.png");
+        return TEXTURE;
     }
 
     @Override

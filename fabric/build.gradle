@@ -31,7 +31,7 @@ dependencies {
     // Don't need this. Trinkets has embedded version 5.2.0.
 
     // Neptune cross-platform library
-    modImplementation "maven.modrinth:neptune:qhdeY0N0"
+    modImplementation "maven.modrinth:neptune:zMTlhkbC"
 
     modImplementation "maven.modrinth:jupiter:elRfRGl9"
 

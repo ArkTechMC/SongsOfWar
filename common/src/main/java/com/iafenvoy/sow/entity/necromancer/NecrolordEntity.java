@@ -7,12 +7,14 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
 public class NecrolordEntity extends AbstractNecromancerEntity {
+    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/necromancer/necrolord.png");
+
     public NecrolordEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
 
     @Override
     public Identifier getTextureId() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/necromancer/necrolord.png");
+        return TEXTURE;
     }
 }

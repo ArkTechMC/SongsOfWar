@@ -15,6 +15,9 @@ import net.minecraft.world.World;
 import java.util.Optional;
 
 public class ThalleousEntity extends AbstractArdoniEntity {
+    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/thalleous.png");
+    public static final Identifier TEXTURE_MARKER = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/thalleous_marker.png");
+
     public ThalleousEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
         this.setStackInHand(Hand.MAIN_HAND, GlintManager.BLUE.apply(new ItemStack(SowWeapons.SWORD_HALLEOUS.get()), true));
@@ -22,17 +25,17 @@ public class ThalleousEntity extends AbstractArdoniEntity {
 
     @Override
     public Identifier getSkinTexture() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/thalleous.png");
+        return TEXTURE;
     }
 
     @Override
     public Optional<Identifier> getMarkerTexture() {
-        return Optional.of(new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/thalleous_marker.png"));
+        return Optional.of(TEXTURE_MARKER);
     }
 
     @Override
     public Color4i getColor() {
-        return new Color4i(0, 255, 255, 255);
+        return new Color4i(0, 162, 232, 255);
     }
 
     @Override

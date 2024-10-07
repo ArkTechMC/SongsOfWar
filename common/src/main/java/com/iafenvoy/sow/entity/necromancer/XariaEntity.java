@@ -7,12 +7,14 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
 public class XariaEntity extends AbstractNecromancerEntity {
+    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/necromancer/xaria.png");
+
     public XariaEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
 
     @Override
     public Identifier getTextureId() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/necromancer/xaria.png");
+        return TEXTURE;
     }
 }

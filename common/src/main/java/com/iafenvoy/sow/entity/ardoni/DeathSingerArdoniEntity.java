@@ -19,7 +19,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class DeathSingerArdoniEntity extends AbstractArdoniEntity {
-    protected static final TrackedData<Optional<UUID>> OWNER_UUID = DataTracker.registerData(DeathSingerArdoniEntity.class, TrackedDataHandlerRegistry.OPTIONAL_UUID);
+    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/death_singer.png");
+    public static final Identifier TEXTURE_MARKER = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/death_singer_marker.png");
 
     public DeathSingerArdoniEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
@@ -30,22 +31,21 @@ public class DeathSingerArdoniEntity extends AbstractArdoniEntity {
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
-        this.dataTracker.startTracking(OWNER_UUID, Optional.empty());
     }
 
     @Override
     public Identifier getSkinTexture() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/death_singer.png");
+        return TEXTURE;
     }
 
     @Override
     public Optional<Identifier> getMarkerTexture() {
-        return Optional.of(new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/death_singer_marker.png"));
+        return Optional.of(TEXTURE_MARKER);
     }
 
     @Override
     public Color4i getColor() {
-        return new Color4i(255, 0, 0, 255);
+        return new Color4i(240, 92, 79, 255);
     }
 
     @Override

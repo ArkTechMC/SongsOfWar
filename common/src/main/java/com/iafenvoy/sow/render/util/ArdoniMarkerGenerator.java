@@ -34,7 +34,7 @@ public class ArdoniMarkerGenerator {
     }
 
     private static int generateColor(Random random) {
-        int r = random.nextInt(0xCF, 0x100);
+        int r = random.nextInt(0xC0, 0x100);
         return 0xFF << 24 | r << 16 | r << 8 | r;
     }
 

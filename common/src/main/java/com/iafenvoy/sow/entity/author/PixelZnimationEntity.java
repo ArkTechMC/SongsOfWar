@@ -8,6 +8,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
 public class PixelZnimationEntity extends AbstractAuthorEntity {
+    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/author/pixel_znimation.png");
+
     public PixelZnimationEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
         this.setCustomName(Text.literal("PixelZnimation"));
@@ -15,6 +17,6 @@ public class PixelZnimationEntity extends AbstractAuthorEntity {
 
     @Override
     public Identifier getTextureId() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/author/pixel_znimation.png");
+        return TEXTURE;
     }
 }

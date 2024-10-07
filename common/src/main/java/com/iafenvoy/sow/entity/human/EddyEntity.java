@@ -7,12 +7,14 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
 public class EddyEntity extends AbstractHumanEntity {
+    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/eddy.png");
+
     public EddyEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
 
     @Override
     public Identifier getTextureId() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/human/eddy.png");
+        return TEXTURE;
     }
 }

@@ -14,6 +14,9 @@ import net.minecraft.world.World;
 import java.util.Optional;
 
 public class MendorisMasterEntity extends AbstractArdoniEntity {
+    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/mendoris_master.png");
+    public static final Identifier TEXTURE_MARKER = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/mendoris_master_marker.png");
+
     public MendorisMasterEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
         this.setStackInHand(Hand.MAIN_HAND, new ItemStack(SowWeapons.MENDOR.get()));
@@ -21,12 +24,12 @@ public class MendorisMasterEntity extends AbstractArdoniEntity {
 
     @Override
     public Identifier getSkinTexture() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/mendoris_master.png");
+        return TEXTURE;
     }
 
     @Override
     public Optional<Identifier> getMarkerTexture() {
-        return Optional.of(new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/mendoris_master_marker.png"));
+        return Optional.of(TEXTURE_MARKER);
     }
 
     @Override

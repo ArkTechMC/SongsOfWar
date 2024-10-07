@@ -10,6 +10,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
 public class NiikaEntity extends AbstractFelinaEntity {
+    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/felina/niika.png");
+
     public NiikaEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
         this.setStackInHand(Hand.MAIN_HAND, new ItemStack(SowWeapons.ZERU_LONG_SWORD_IRON.get()));
@@ -18,7 +20,7 @@ public class NiikaEntity extends AbstractFelinaEntity {
 
     @Override
     public Identifier getTextureId() {
-        return new Identifier(SongsOfWar.MOD_ID, "textures/entity/felina/niika.png");
+        return TEXTURE;
     }
 
     @Override

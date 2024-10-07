@@ -7,10 +7,7 @@ import com.iafenvoy.sow.entity.GrimEntity;
 import com.iafenvoy.sow.entity.ardoni.*;
 import com.iafenvoy.sow.entity.ardoni.random.*;
 import com.iafenvoy.sow.entity.author.PixelZnimationEntity;
-import com.iafenvoy.sow.entity.felina.AbstractFelinaEntity;
-import com.iafenvoy.sow.entity.felina.FeldenEntity;
-import com.iafenvoy.sow.entity.felina.KiyoshiEntity;
-import com.iafenvoy.sow.entity.felina.NiikaEntity;
+import com.iafenvoy.sow.entity.felina.*;
 import com.iafenvoy.sow.entity.human.*;
 import com.iafenvoy.sow.entity.human.guard.*;
 import com.iafenvoy.sow.entity.human.soldier.*;
@@ -65,10 +62,14 @@ public final class SowEntities {
     public static final RegistrySupplier<EntityType<ZinaidaEntity>> ZINAIDA = build("zinaida", ZinaidaEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
     public static final RegistrySupplier<EntityType<AureliusEntity>> AURELIUS = build("aurelius", AureliusEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
     public static final RegistrySupplier<EntityType<HadionEntity>> HADION = build("hadion", HadionEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
+    public static final RegistrySupplier<EntityType<ValEntity>> VAL = build("val", ValEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
     //Felina
     public static final RegistrySupplier<EntityType<FeldenEntity>> FELDEN = build("felden", FeldenEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.05f));
     public static final RegistrySupplier<EntityType<KiyoshiEntity>> KIYOSHI = build("kiyoshi", KiyoshiEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.05f));
     public static final RegistrySupplier<EntityType<NiikaEntity>> NIIKA = build("niika", NiikaEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(0.95f));
+    public static final RegistrySupplier<EntityType<MasaniEntity>> MASANI = build("masani", MasaniEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(0.95f));
+    public static final RegistrySupplier<EntityType<NitsukeEntity>> NITSUKE = build("nitsuke", NitsukeEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(0.95f));
+    public static final RegistrySupplier<EntityType<YujukiEntity>> YUJUKI = build("yujuki", YujukiEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(0.95f));
     //Human
     public static final RegistrySupplier<EntityType<AbbigailEntity>> ABBIGAIL = build("abbigail", AbbigailEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER);
     public static final RegistrySupplier<EntityType<AlecEntity>> ALEC = build("alec", AlecEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER);
@@ -83,6 +84,11 @@ public final class SowEntities {
     public static final RegistrySupplier<EntityType<MarshallEntity>> MARSHALL = build("marchall", MarshallEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER);
     public static final RegistrySupplier<EntityType<MrfinchEntity>> MRFINCH = build("mrfinch", MrfinchEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER);
     public static final RegistrySupplier<EntityType<SullimanEntity>> SULLIMAN = build("sulliman", SullimanEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER);
+    public static final RegistrySupplier<EntityType<AllisterEntity>> ALLISTER = build("allister", AllisterEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER);
+    public static final RegistrySupplier<EntityType<DennyEntity>> DENNY = build("denny", DennyEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER);
+    public static final RegistrySupplier<EntityType<JalkarEntity>> JALKAR = build("jalkar", JalkarEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER);
+    public static final RegistrySupplier<EntityType<SaxonEntity>> SAXON = build("saxon", SaxonEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER);
+    public static final RegistrySupplier<EntityType<TrevorEntity>> TREVOR = build("trevor", TrevorEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER);
     //Magnorite
     public static final RegistrySupplier<EntityType<IgneousEntity>> IGNEOUS = build("igneous", IgneousEntity::new, SpawnGroup.CREATURE, 64, 3, true, EntityBuildHelper.PLAYER.scale(1.2f));
     public static final RegistrySupplier<EntityType<MagnoriteEntity>> MAGNORITE = build("magnorite", MagnoriteEntity::new, SpawnGroup.CREATURE, 64, 3, true, EntityBuildHelper.PLAYER.scale(1.2f));
@@ -166,10 +172,14 @@ public final class SowEntities {
         EntityAttributeRegistry.register(ZINAIDA, ZinaidaEntity::createAttributes);
         EntityAttributeRegistry.register(AURELIUS, AureliusEntity::createAttributes);
         EntityAttributeRegistry.register(HADION, HadionEntity::createAttributes);
+        EntityAttributeRegistry.register(VAL, ValEntity::createAttributes);
 
-        EntityAttributeRegistry.register(FELDEN, AbstractFelinaEntity::createAttributes);
-        EntityAttributeRegistry.register(KIYOSHI, AbstractFelinaEntity::createAttributes);
-        EntityAttributeRegistry.register(NIIKA, AbstractFelinaEntity::createAttributes);
+        EntityAttributeRegistry.register(FELDEN, FeldenEntity::createAttributes);
+        EntityAttributeRegistry.register(KIYOSHI, KiyoshiEntity::createAttributes);
+        EntityAttributeRegistry.register(NIIKA, NiikaEntity::createAttributes);
+        EntityAttributeRegistry.register(MASANI, MasaniEntity::createAttributes);
+        EntityAttributeRegistry.register(NITSUKE, NitsukeEntity::createAttributes);
+        EntityAttributeRegistry.register(YUJUKI, YujukiEntity::createAttributes);
 
         EntityAttributeRegistry.register(ABBIGAIL, AbbigailEntity::createAttributes);
         EntityAttributeRegistry.register(ALEC, AlecEntity::createAttributes);
@@ -184,6 +194,11 @@ public final class SowEntities {
         EntityAttributeRegistry.register(MARSHALL, MarshallEntity::createAttributes);
         EntityAttributeRegistry.register(MRFINCH, MrfinchEntity::createAttributes);
         EntityAttributeRegistry.register(SULLIMAN, SullimanEntity::createAttributes);
+        EntityAttributeRegistry.register(ALLISTER, AllisterEntity::createAttributes);
+        EntityAttributeRegistry.register(DENNY, DennyEntity::createAttributes);
+        EntityAttributeRegistry.register(JALKAR, JalkarEntity::createAttributes);
+        EntityAttributeRegistry.register(SAXON, SaxonEntity::createAttributes);
+        EntityAttributeRegistry.register(TREVOR, TrevorEntity::createAttributes);
 
         EntityAttributeRegistry.register(IGNEOUS, IgneousEntity::createAttributes);
         EntityAttributeRegistry.register(MAGNORITE, MagnoriteEntity::createAttributes);
