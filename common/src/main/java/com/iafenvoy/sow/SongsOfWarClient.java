@@ -16,6 +16,7 @@ public class SongsOfWarClient {
     }
 
     public static void process() {
+        SowRenderers.registerSkull();
         NetworkManager.registerReceiver(NetworkManager.Side.S2C, Static.BEACON_TELEPORT, (buf, context) -> {
             BlockPos pos = buf.readBlockPos();
             BeaconData data = BeaconData.readNbt(buf.readNbt());

@@ -27,6 +27,7 @@ public class SongsOfWar {
         ConfigManager.getInstance().registerConfigHandler(SowConfig.INSTANCE);
         ConfigManager.getInstance().registerServerConfig(SowConfig.INSTANCE, ServerConfigManager.PermissionChecker.IS_OPERATOR);
 
+        SowSkulls.init();
         SowBlocks.REGISTRY.register();
         SowItems.REGISTRY.register();
         SowWeapons.REGISTRY.register();

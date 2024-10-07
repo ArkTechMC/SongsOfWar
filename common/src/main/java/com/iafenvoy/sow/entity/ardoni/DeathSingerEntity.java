@@ -14,13 +14,19 @@ import net.minecraft.world.World;
 
 import java.util.Optional;
 
-public class TideSingerArdoniEntity extends AbstractArdoniEntity {
-    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/tide_singer.png");
-    public static final Identifier TEXTURE_MARKER = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/tide_singer_marker.png");
+public class DeathSingerEntity extends AbstractArdoniEntity {
+    public static final Identifier TEXTURE = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/death_singer.png");
+    public static final Identifier TEXTURE_MARKER = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/special/death_singer_marker.png");
 
-    public TideSingerArdoniEntity(EntityType<? extends HostileEntity> entityType, World world) {
+    public DeathSingerEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
-        this.setStackInHand(Hand.MAIN_HAND, GlintManager.YELLOW.apply(new ItemStack(SowWeapons.STAFF_TIDE_SINGER.get()), true));
+        this.setStackInHand(Hand.MAIN_HAND, GlintManager.RED.apply(new ItemStack(SowWeapons.SWORD_DEATH_SINGER.get()), true));
+        this.setStackInHand(Hand.OFF_HAND, new ItemStack(SowWeapons.VOLTAR.get()));
+    }
+
+    @Override
+    protected void initDataTracker() {
+        super.initDataTracker();
     }
 
     @Override
@@ -35,11 +41,11 @@ public class TideSingerArdoniEntity extends AbstractArdoniEntity {
 
     @Override
     public Color4i getColor() {
-        return new Color4i(255, 255, 0, 255);
+        return new Color4i(240, 92, 79, 255);
     }
 
     @Override
     public ArdoniType getArdoniType() {
-        return ArdoniType.NESTORIS;
+        return ArdoniType.VOLTARIS;
     }
 }

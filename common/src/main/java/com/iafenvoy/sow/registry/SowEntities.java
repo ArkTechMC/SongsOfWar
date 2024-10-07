@@ -44,8 +44,8 @@ public final class SowEntities {
     public static final RegistrySupplier<EntityType<EnderKnightEntity>> ENDER_KNIGHT = build("ender_knight", EnderKnightEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER);
     public static final RegistrySupplier<EntityType<GrimEntity>> GRIM = build("grim", GrimEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER);
     //Ardoni
-    public static final RegistrySupplier<EntityType<TideSingerArdoniEntity>> TIDE_SINGER = build("tide_singer", TideSingerArdoniEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
-    public static final RegistrySupplier<EntityType<DeathSingerArdoniEntity>> DEATH_SINGER = build("death_singer", DeathSingerArdoniEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
+    public static final RegistrySupplier<EntityType<TideSingerEntity>> TIDE_SINGER = build("tide_singer", TideSingerEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
+    public static final RegistrySupplier<EntityType<DeathSingerEntity>> DEATH_SINGER = build("death_singer", DeathSingerEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
     public static final RegistrySupplier<EntityType<AegusEntity>> AEGUS = build("aegus", AegusEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
     public static final RegistrySupplier<EntityType<KaltarisMasterEntity>> KALTARIS_MASTER = build("kaltaris_master", KaltarisMasterEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
     public static final RegistrySupplier<EntityType<MendorisMasterEntity>> MENDORIS_MASTER = build("mendoris_master", MendorisMasterEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
@@ -154,8 +154,8 @@ public final class SowEntities {
         EntityAttributeRegistry.register(ENDER_KNIGHT, EnderKnightEntity::createAttributes);
         EntityAttributeRegistry.register(GRIM, GrimEntity::createAttributes);
 
-        EntityAttributeRegistry.register(TIDE_SINGER, TideSingerArdoniEntity::createAttributes);
-        EntityAttributeRegistry.register(DEATH_SINGER, DeathSingerArdoniEntity::createAttributes);
+        EntityAttributeRegistry.register(TIDE_SINGER, TideSingerEntity::createAttributes);
+        EntityAttributeRegistry.register(DEATH_SINGER, DeathSingerEntity::createAttributes);
         EntityAttributeRegistry.register(AEGUS, AegusEntity::createAttributes);
         EntityAttributeRegistry.register(KALTARIS_MASTER, KaltarisMasterEntity::createAttributes);
         EntityAttributeRegistry.register(MENDORIS_MASTER, MendorisMasterEntity::createAttributes);
