@@ -1,6 +1,7 @@
 package com.iafenvoy.sow.render;
 
 import com.iafenvoy.sow.entity.ardoni.AbstractArdoniEntity;
+import com.iafenvoy.sow.entity.util.Flatable;
 import com.iafenvoy.sow.render.feature.ArdoniEyeHairFeatureRenderer;
 import com.iafenvoy.sow.render.feature.ArdoniMarkerFeatureRenderer;
 import com.iafenvoy.sow.render.feature.ArdoniSkinFeatureRenderer;
@@ -27,6 +28,8 @@ public class ArdoniEntityRenderer extends BipedEntityRenderer<AbstractArdoniEnti
     public void render(AbstractArdoniEntity mobEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
         matrixStack.push();
         matrixStack.scale(1.1f, 1.1f, 1.1f);
+        if (mobEntity instanceof Flatable flatable && flatable.isFlat())
+            matrixStack.scale(1, 0.001f, 1);
         super.render(mobEntity, f, g, matrixStack, vertexConsumerProvider, i);
         matrixStack.pop();
     }

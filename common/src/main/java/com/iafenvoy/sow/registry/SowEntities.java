@@ -61,6 +61,7 @@ public final class SowEntities {
     public static final RegistrySupplier<EntityType<AureliusEntity>> AURELIUS = build("aurelius", AureliusEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
     public static final RegistrySupplier<EntityType<HadionEntity>> HADION = build("hadion", HadionEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
     public static final RegistrySupplier<EntityType<ValEntity>> VAL = build("val", ValEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
+    public static final RegistrySupplier<EntityType<SiderianEntity>> SIDERIAN = build("siderian", SiderianEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
     //Felina
     public static final RegistrySupplier<EntityType<FeldenEntity>> FELDEN = build("felden", FeldenEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.05f));
     public static final RegistrySupplier<EntityType<KiyoshiEntity>> KIYOSHI = build("kiyoshi", KiyoshiEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.05f));
@@ -170,6 +171,7 @@ public final class SowEntities {
         EntityAttributeRegistry.register(AURELIUS, AureliusEntity::createAttributes);
         EntityAttributeRegistry.register(HADION, HadionEntity::createAttributes);
         EntityAttributeRegistry.register(VAL, ValEntity::createAttributes);
+        EntityAttributeRegistry.register(SIDERIAN, SiderianEntity::createAttributes);
 
         EntityAttributeRegistry.register(FELDEN, FeldenEntity::createAttributes);
         EntityAttributeRegistry.register(KIYOSHI, KiyoshiEntity::createAttributes);

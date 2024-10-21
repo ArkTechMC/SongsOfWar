@@ -64,6 +64,7 @@ public final class SowItems {
     public static final RegistrySupplier<Item> AURELIUS_SPAWN_EGG = REGISTRY.register("aurelius_spawn_egg", SowSpawnEggItem.create(SowEntities.AURELIUS, 0xFF888888, 0xFFE3BC00));
     public static final RegistrySupplier<Item> HADION_SPAWN_EGG = REGISTRY.register("hadion_spawn_egg", SowSpawnEggItem.create(SowEntities.HADION, 0xFF444444, 0xFFE794FF));
     public static final RegistrySupplier<Item> VAL_SPAWN_EGG = REGISTRY.register("val_spawn_egg", SowSpawnEggItem.create(SowEntities.VAL, 0xFFAAAAAA, 0xFFFFA8F9));
+    public static final RegistrySupplier<Item> SIDERIAN_SPAWN_EGG = REGISTRY.register("siderian_spawn_egg", SowSpawnEggItem.create(SowEntities.SIDERIAN, 0xFF888888, 0xFFcf6fcc));
     //Felina
     public static final RegistrySupplier<Item> FELDEN_SPAWN_EGG = REGISTRY.register("felden_spawn_egg", SowSpawnEggItem.create(SowEntities.FELDEN, 0xFF444444, 0xFFf9d4c9));
     public static final RegistrySupplier<Item> KIYOSHI_SPAWN_EGG = REGISTRY.register("kiyoshi_spawn_egg", SowSpawnEggItem.create(SowEntities.KIYOSHI, 0xFF006400, 0xFFf9d4c9));
