@@ -5,10 +5,12 @@ import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.data.ArdoniType;
 import com.iafenvoy.sow.data.EnchantmentFragmentInfo;
 import com.iafenvoy.sow.item.EnchantmentFragmentItem;
+import com.iafenvoy.sow.item.EnderKnightArmorItem;
 import com.iafenvoy.sow.item.SowSpawnEggItem;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Rarity;
@@ -28,6 +30,11 @@ public final class SowItems {
     public static final RegistrySupplier<Item> ENCHANTMENT_FRAGMENT_AQUA = REGISTRY.register("enchantment_fragment_aqua", () -> new EnchantmentFragmentItem(EnchantmentFragmentInfo.of(GlintManager.AQUA, 1).kb(1).luck(2)));
 
     public static final RegistrySupplier<Item> WITHER_STAFF = REGISTRY.register("wither_staff", () -> new Item(new Item.Settings().fireproof().rarity(Rarity.UNCOMMON).arch$tab(SowItemGroups.ITEMS)));
+
+    public static final RegistrySupplier<Item> ENDER_KNIGHT_HELMET = REGISTRY.register("ender_knight_helmet", () -> new EnderKnightArmorItem(ArmorItem.Type.HELMET));
+    public static final RegistrySupplier<Item> ENDER_KNIGHT_CHESTPLATE = REGISTRY.register("ender_knight_chestplate", () -> new EnderKnightArmorItem(ArmorItem.Type.CHESTPLATE));
+    public static final RegistrySupplier<Item> ENDER_KNIGHT_LEGGINGS = REGISTRY.register("ender_knight_leggings", () -> new EnderKnightArmorItem(ArmorItem.Type.LEGGINGS));
+    public static final RegistrySupplier<Item> ENDER_KNIGHT_BOOTS = REGISTRY.register("ender_knight_boots", () -> new EnderKnightArmorItem(ArmorItem.Type.BOOTS));
     //Spawn Egg
     //Misc
     public static final RegistrySupplier<Item> NONE_TYPE_ARDONI_SPAWN_EGG = REGISTRY.register("none_type_ardoni_spawn_egg", () -> ArdoniType.NONE.createSpawnEgg(SowEntities.NONE_TYPE_ARDONI));
@@ -36,7 +43,6 @@ public final class SowItems {
     public static final RegistrySupplier<Item> NESTORIS_ARDONI_SPAWN_EGG = REGISTRY.register("nestoris_ardoni_spawn_egg", () -> ArdoniType.NESTORIS.createSpawnEgg(SowEntities.NESTORIS_ARDONI));
     public static final RegistrySupplier<Item> KALTARIS_ARDONI_SPAWN_EGG = REGISTRY.register("kaltaris_ardoni_spawn_egg", () -> ArdoniType.KALTARIS.createSpawnEgg(SowEntities.KALTARIS_ARDONI));
     public static final RegistrySupplier<Item> MENDORIS_ARDONI_SPAWN_EGG = REGISTRY.register("mendoris_ardoni_spawn_egg", () -> ArdoniType.MENDORIS.createSpawnEgg(SowEntities.MENDORIS_ARDONI));
-    public static final RegistrySupplier<Item> ENDER_KNIGHT_SPAWN_EGG = REGISTRY.register("ender_knight_spawn_egg", SowSpawnEggItem.create(SowEntities.ENDER_KNIGHT, 0xFF000000, 0xFF800080));
     public static final RegistrySupplier<Item> GRIM_SPAWN_EGG = REGISTRY.register("grim_spawn_egg", SowSpawnEggItem.create(SowEntities.GRIM, 0xFF444444, 0xFF00FFFF));
     //Ardoni
     public static final RegistrySupplier<Item> TIDE_SINGER_SPAWN_EGG = REGISTRY.register("tide_singer_spawn_egg", SowSpawnEggItem.create(SowEntities.TIDE_SINGER, 0xFF888888, 0xFFFFFF00));

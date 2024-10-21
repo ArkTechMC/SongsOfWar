@@ -5,7 +5,6 @@ import com.iafenvoy.neptune.render.CommonPlayerLikeWithMarkerEntityRenderer;
 import com.iafenvoy.neptune.render.SkullRenderRegistry;
 import com.iafenvoy.sow.entity.GrimEntity;
 import com.iafenvoy.sow.entity.ardoni.*;
-import com.iafenvoy.sow.entity.author.PixelZnimationEntity;
 import com.iafenvoy.sow.entity.felina.*;
 import com.iafenvoy.sow.entity.human.*;
 import com.iafenvoy.sow.entity.magnorite.IgneousEntity;
@@ -27,7 +26,6 @@ public final class SowRenderers {
         EntityRendererRegistry.register(SowEntities.MENDORIS_ARDONI, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.NESTORIS_ARDONI, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.KALTARIS_ARDONI, ArdoniEntityRenderer::new);
-        EntityRendererRegistry.register(SowEntities.ENDER_KNIGHT, CommonPlayerLikeEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.GRIM, CommonPlayerLikeEntityRenderer::new);
 
         EntityRendererRegistry.register(SowEntities.TIDE_SINGER, ArdoniEntityRenderer::new);

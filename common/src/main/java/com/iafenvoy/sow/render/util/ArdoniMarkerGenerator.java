@@ -33,6 +33,10 @@ public class ArdoniMarkerGenerator {
         return GENERATOR.get(seed);
     }
 
+    public static void resetAll() {
+        GENERATOR.values().forEach(ArdoniMarkerGenerator::reset);
+    }
+
     private static int generateColor(Random random) {
         int r = random.nextInt(0xC0, 0x100);
         return 0xFF << 24 | r << 16 | r << 8 | r;

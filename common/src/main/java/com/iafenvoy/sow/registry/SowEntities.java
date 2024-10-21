@@ -2,7 +2,6 @@ package com.iafenvoy.sow.registry;
 
 import com.iafenvoy.neptune.util.EntityBuildHelper;
 import com.iafenvoy.sow.SongsOfWar;
-import com.iafenvoy.sow.entity.EnderKnightEntity;
 import com.iafenvoy.sow.entity.GrimEntity;
 import com.iafenvoy.sow.entity.ardoni.*;
 import com.iafenvoy.sow.entity.ardoni.random.*;
@@ -41,7 +40,6 @@ public final class SowEntities {
     public static final RegistrySupplier<EntityType<NestorisArdoniEntity>> NESTORIS_ARDONI = build("nestoris_ardoni", NestorisArdoniEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
     public static final RegistrySupplier<EntityType<SendarisArdoniEntity>> SENDARIS_ARDONI = build("sendaris_ardoni", SendarisArdoniEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
     public static final RegistrySupplier<EntityType<VoltarisArdoniEntity>> VOLTARIS_ARDONI = build("voltaris_ardoni", VoltarisArdoniEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
-    public static final RegistrySupplier<EntityType<EnderKnightEntity>> ENDER_KNIGHT = build("ender_knight", EnderKnightEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER);
     public static final RegistrySupplier<EntityType<GrimEntity>> GRIM = build("grim", GrimEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER);
     //Ardoni
     public static final RegistrySupplier<EntityType<TideSingerEntity>> TIDE_SINGER = build("tide_singer", TideSingerEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
@@ -151,7 +149,6 @@ public final class SowEntities {
         EntityAttributeRegistry.register(NESTORIS_ARDONI, NestorisArdoniEntity::createAttributes);
         EntityAttributeRegistry.register(SENDARIS_ARDONI, SendarisArdoniEntity::createAttributes);
         EntityAttributeRegistry.register(VOLTARIS_ARDONI, VoltarisArdoniEntity::createAttributes);
-        EntityAttributeRegistry.register(ENDER_KNIGHT, EnderKnightEntity::createAttributes);
         EntityAttributeRegistry.register(GRIM, GrimEntity::createAttributes);
 
         EntityAttributeRegistry.register(TIDE_SINGER, TideSingerEntity::createAttributes);
