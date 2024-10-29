@@ -23,8 +23,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public abstract class ArdoniEntity extends AbstractArdoniEntity {
-    private static final TrackedData<Long> MARKER_SEED = DataTracker.registerData(ArdoniEntity.class, TrackedDataHandlerRegistry.LONG);
-    private static final TrackedData<Integer> AGE = DataTracker.registerData(ArdoniEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    protected static final TrackedData<Long> MARKER_SEED = DataTracker.registerData(ArdoniEntity.class, TrackedDataHandlerRegistry.LONG);
+    protected static final TrackedData<Integer> AGE = DataTracker.registerData(ArdoniEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    protected static final TrackedData<Boolean> FEMALE = DataTracker.registerData(ArdoniEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
     public ArdoniEntity(EntityType<? extends ArdoniEntity> entityType, World world) {
         super(entityType, world);
@@ -52,6 +53,7 @@ public abstract class ArdoniEntity extends AbstractArdoniEntity {
         super.initDataTracker();
         this.dataTracker.startTracking(MARKER_SEED, 0L);
         this.dataTracker.startTracking(AGE, 1);
+        this.dataTracker.startTracking(FEMALE, false);
     }
 
     @Override
@@ -59,11 +61,13 @@ public abstract class ArdoniEntity extends AbstractArdoniEntity {
         super.writeCustomDataToNbt(nbt);
         nbt.putLong("markerSeed", this.getMarkerSeed());
         nbt.putInt("age", this.getAge());
+        nbt.putBoolean("female", this.isFemale());
     }
 
     public void setDefaultData() {
         this.setMarkerSeed(System.nanoTime());
         this.setAge(RandomHelper.nextInt(1, 5));
+        this.setGender(RandomHelper.nextInt(0, 5) == 0);
     }
 
     @Override
@@ -72,6 +76,7 @@ public abstract class ArdoniEntity extends AbstractArdoniEntity {
         this.setDefaultData();
         if (nbt.contains("markerSeed")) this.setMarkerSeed(nbt.getLong("markerSeed"));
         if (nbt.contains("age")) this.setAge(nbt.getInt("age"));
+        if (nbt.contains("female")) this.setGender(nbt.getBoolean("female"));
     }
 
     @Nullable
@@ -99,5 +104,14 @@ public abstract class ArdoniEntity extends AbstractArdoniEntity {
 
     public void setAge(int age) {
         this.dataTracker.set(AGE, age);
+    }
+
+    @Override
+    public boolean isFemale() {
+        return this.dataTracker.get(FEMALE);
+    }
+
+    public void setGender(boolean female) {
+        this.dataTracker.set(FEMALE, female);
     }
 }

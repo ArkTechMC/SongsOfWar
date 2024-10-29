@@ -2,7 +2,8 @@ package com.iafenvoy.sow.render;
 
 import com.iafenvoy.sow.entity.ardoni.AbstractArdoniEntity;
 import com.iafenvoy.sow.entity.util.Flatable;
-import com.iafenvoy.sow.render.feature.ArdoniEyeHairFeatureRenderer;
+import com.iafenvoy.sow.render.feature.ArdoniEyeFeatureRenderer;
+import com.iafenvoy.sow.render.feature.ArdoniHairFeatureRenderer;
 import com.iafenvoy.sow.render.feature.ArdoniMarkerFeatureRenderer;
 import com.iafenvoy.sow.render.feature.ArdoniSkinFeatureRenderer;
 import net.fabricmc.api.EnvType;
@@ -20,7 +21,8 @@ public class ArdoniEntityRenderer extends BipedEntityRenderer<AbstractArdoniEnti
     public ArdoniEntityRenderer(EntityRendererFactory.Context ctx) {
         super(ctx, new BipedEntityModel<>(ctx.getPart(EntityModelLayers.PLAYER)), 0.5F);
         this.addFeature(new ArdoniSkinFeatureRenderer(this));
-        this.addFeature(new ArdoniEyeHairFeatureRenderer(this));
+        this.addFeature(new ArdoniEyeFeatureRenderer(this));
+        this.addFeature(new ArdoniHairFeatureRenderer(this));
         this.addFeature(new ArdoniMarkerFeatureRenderer(this));
     }
 

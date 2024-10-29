@@ -42,4 +42,9 @@ public class RiaEntity extends AbstractArdoniEntity {
     public ArdoniType getArdoniType() {
         return ArdoniType.SENDARIS;
     }
+
+    @Override
+    public boolean isFemale() {
+        return true;
+    }
 }

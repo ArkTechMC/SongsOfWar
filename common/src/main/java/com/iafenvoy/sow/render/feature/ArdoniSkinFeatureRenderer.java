@@ -22,13 +22,16 @@ public class ArdoniSkinFeatureRenderer extends FeatureRenderer<AbstractArdoniEnt
 
     @Override
     public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, AbstractArdoniEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
-        double darkness = 1;
-        if (entity instanceof ArdoniEntity ardoni)
-            if (ardoni.getArdoniType().dark())
-                darkness = RandomHelper.nextDouble(new Random(ardoni.getMarkerSeed()), 0.45, 0.65);
-            else
-                darkness = RandomHelper.nextDouble(new Random(ardoni.getMarkerSeed()), 0.8, 1);
+        double darkness = entity instanceof ArdoniEntity ardoni ? getDarkness(ardoni) : 1;
         BipedEntityModel<AbstractArdoniEntity> model = this.getContextModel();
         model.render(matrices, vertexConsumers.getBuffer(model.getLayer(entity.getSkinTexture())), light, LivingEntityRenderer.getOverlay(entity, 0), (float) darkness, (float) darkness, (float) darkness, 1);
+    }
+
+    public static double getDarkness(ArdoniEntity ardoni) {
+        double darkness;
+        if (ardoni.getArdoniType().dark())
+            darkness = RandomHelper.nextDouble(new Random(ardoni.getMarkerSeed()), 0.45, 0.65);
+        else darkness = RandomHelper.nextDouble(new Random(ardoni.getMarkerSeed()), 0.8, 1);
+        return darkness;
     }
 }

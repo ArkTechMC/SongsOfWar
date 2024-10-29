@@ -65,6 +65,10 @@ public abstract class AbstractArdoniEntity extends MonsterEntityBase {
 
     public abstract ArdoniType getArdoniType();
 
+    public boolean isFemale() {
+        return false;
+    }
+
     @Override
     public boolean canImmediatelyDespawn(double distanceSquared) {
         return false;

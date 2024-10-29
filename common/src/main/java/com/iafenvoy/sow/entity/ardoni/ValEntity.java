@@ -42,4 +42,9 @@ public class ValEntity extends AbstractArdoniEntity {
     public ArdoniType getArdoniType() {
         return ArdoniType.MENDORIS;
     }
+
+    @Override
+    public boolean isFemale() {
+        return true;
+    }
 }
