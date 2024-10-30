@@ -1,7 +1,7 @@
 package com.iafenvoy.sow;
 
+import com.iafenvoy.jupiter.ConfigManager;
 import com.iafenvoy.jupiter.ServerConfigManager;
-import com.iafenvoy.jupiter.malilib.config.ConfigManager;
 import com.iafenvoy.sow.config.SowConfig;
 import com.iafenvoy.sow.data.ArdoniName;
 import com.iafenvoy.sow.data.BeaconData;

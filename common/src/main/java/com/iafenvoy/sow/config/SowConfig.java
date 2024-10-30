@@ -1,7 +1,8 @@
 package com.iafenvoy.sow.config;
 
-import com.iafenvoy.jupiter.config.AutoInitConfigContainer;
-import com.iafenvoy.jupiter.malilib.config.options.ConfigBoolean;
+import com.iafenvoy.jupiter.config.container.AutoInitConfigContainer;
+import com.iafenvoy.jupiter.config.entry.BooleanEntry;
+import com.iafenvoy.jupiter.interfaces.IConfigEntry;
 import com.iafenvoy.sow.SongsOfWar;
 import net.minecraft.util.Identifier;
 
@@ -14,7 +15,7 @@ public class SowConfig extends AutoInitConfigContainer {
     }
 
     public static class CommonConfig extends AutoInitConfigCategoryBase {
-        public final ConfigBoolean enableBeaconTp = new ConfigBoolean("config.sow.common.enableBeaconTp", true);
+        public final IConfigEntry<Boolean> enableBeaconTp = new BooleanEntry("config.sow.common.enableBeaconTp", true).json("enableBeaconTp");
 
         public CommonConfig() {
             super("common", "config.sow.category.common");

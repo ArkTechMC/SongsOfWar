@@ -32,7 +32,7 @@ import java.util.Optional;
 public class BeaconBlockMixin {
     @Inject(method = "onUse", at = @At("HEAD"), cancellable = true)
     private void handleUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
-        if (!SowConfig.INSTANCE.common.enableBeaconTp.getBooleanValue()) return;
+        if (!SowConfig.INSTANCE.common.enableBeaconTp.getValue()) return;
         if (!(world instanceof ServerWorld serverWorld) || !(player instanceof ServerPlayerEntity serverPlayer))
             return;
         if (world.getBlockEntity(pos) instanceof BeaconBlockEntity) {
@@ -50,7 +50,7 @@ public class BeaconBlockMixin {
 
     @Inject(method = "onPlaced", at = @At("HEAD"))
     private void handlePlace(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack, CallbackInfo ci) {
-        if (!SowConfig.INSTANCE.common.enableBeaconTp.getBooleanValue()) return;
+        if (!SowConfig.INSTANCE.common.enableBeaconTp.getValue()) return;
         if (itemStack.hasCustomName())
             if (world instanceof ServerWorld serverWorld)
                 BeaconData.getInstance(serverWorld).add(pos, itemStack.getName());

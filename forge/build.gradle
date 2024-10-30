@@ -33,7 +33,7 @@ dependencies {
     // Neptune cross-platform library
     modImplementation "maven.modrinth:neptune:gC9SvvIC"
 
-    modImplementation "maven.modrinth:jupiter:5WrVm4v6"
+    modImplementation "maven.modrinth:jupiter:OKvSISC2"
 
     // Optional
     // EMI
