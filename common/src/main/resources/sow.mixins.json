@@ -6,9 +6,14 @@
   "mixins": [
     "AnvilScreenHandlerMixin",
     "BeaconBlockMixin",
-    "GrindstoneScreenHandlerMixin"
+    "GrindstoneScreenHandlerMixin",
+    "LivingEntityMixin",
+    "ServerPlayerEntityMixin",
+    "StructureTemplateAccessor"
   ],
   "client": [
+    "InGameHudMixin",
+    "PlayerEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

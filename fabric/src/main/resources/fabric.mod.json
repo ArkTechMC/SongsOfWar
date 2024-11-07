@@ -5,7 +5,8 @@
   "name": "Songs Of War",
   "description": "The Songs of War Animation Mod",
   "authors": [
-    "IAFEnvoy"
+    "IAFEnvoy",
+    "HF_ColdWind"
   ],
   "contact": {
     "sources": "https://github.com/ArkTechMC/SongsOfWar"
@@ -25,6 +26,14 @@
     ],
     "modmenu": [
       "com.iafenvoy.sow.fabric.ModMenu"
+    ],
+    "cardinal-components-entity": [
+      "com.iafenvoy.sow.fabric.component.ModComponentEntry"
+    ]
+  },
+  "custom": {
+    "cardinal-components": [
+      "sow:song_power"
     ]
   },
   "mixins": [

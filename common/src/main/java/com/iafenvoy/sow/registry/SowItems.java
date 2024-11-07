@@ -6,7 +6,9 @@ import com.iafenvoy.sow.data.ArdoniType;
 import com.iafenvoy.sow.data.EnchantmentFragmentInfo;
 import com.iafenvoy.sow.item.EnchantmentFragmentItem;
 import com.iafenvoy.sow.item.EnderKnightArmorItem;
+import com.iafenvoy.sow.item.ShrineDebugItem;
 import com.iafenvoy.sow.item.SowSpawnEggItem;
+import com.iafenvoy.sow.item.impl.ProtepointShieldItem;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -35,6 +37,10 @@ public final class SowItems {
     public static final RegistrySupplier<Item> ENDER_KNIGHT_CHESTPLATE = REGISTRY.register("ender_knight_chestplate", () -> new EnderKnightArmorItem(ArmorItem.Type.CHESTPLATE));
     public static final RegistrySupplier<Item> ENDER_KNIGHT_LEGGINGS = REGISTRY.register("ender_knight_leggings", () -> new EnderKnightArmorItem(ArmorItem.Type.LEGGINGS));
     public static final RegistrySupplier<Item> ENDER_KNIGHT_BOOTS = REGISTRY.register("ender_knight_boots", () -> new EnderKnightArmorItem(ArmorItem.Type.BOOTS));
+
+    public static final RegistrySupplier<ShrineDebugItem> SHRINE_DEBUG = REGISTRY.register("shrine_debug", ShrineDebugItem::new);
+    //Fake Items, should not use in game without song power.
+    public static final RegistrySupplier<Item> PROTEPOINT_SHIELD = REGISTRY.register("protepoint_shield", ProtepointShieldItem::create);
     //Spawn Egg
     //Misc
     public static final RegistrySupplier<Item> NONE_TYPE_ARDONI_SPAWN_EGG = REGISTRY.register("none_type_ardoni_spawn_egg", () -> ArdoniType.NONE.createSpawnEgg(SowEntities.NONE_TYPE_ARDONI));
@@ -141,19 +147,6 @@ public final class SowItems {
     public static final RegistrySupplier<Item> SCHOLAR_FOLK_SPAWN_EGG = REGISTRY.register("scholar_folk_spawn_egg", SowSpawnEggItem.create(SowEntities.SCHOLAR_FOLK, 0xff2f0c00, 0xff626262));
 
     public static void init() {
-        CreativeTabRegistry.appendStack(SowItemGroups.ITEMS,
-                SowBanners.CONCHORD,
-                SowBanners.CONCHORD_SIMPLE,
-                SowBanners.CROWN_PEAK,
-                SowBanners.CYDONIA,
-                SowBanners.CYDONIA_SIMPLE,
-                SowBanners.FELDEN,
-                SowBanners.FELDEN_SIMPLE,
-                SowBanners.HYDRAPHEL,
-                SowBanners.HYDRAPHEL_SIMPLE,
-                SowBanners.KARTHEN,
-                SowBanners.KARTHEN_SIMPLE,
-                SowBanners.NORTHWIND,
-                SowBanners.NORTHWIND_SIMPLE);
+        CreativeTabRegistry.append(SowItemGroups.POWER, SHRINE_DEBUG);
     }
 }

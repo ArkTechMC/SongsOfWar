@@ -2,6 +2,7 @@ package com.iafenvoy.sow.registry;
 
 import com.iafenvoy.neptune.object.BannerUtil;
 import com.iafenvoy.sow.SongsOfWar;
+import dev.architectury.registry.CreativeTabRegistry;
 import net.minecraft.block.entity.BannerPatterns;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -81,4 +82,8 @@ public final class SowBanners {
             new Pair<>(BannerPatterns.STRIPE_TOP, DyeColor.LIGHT_BLUE),
             new Pair<>(BannerPatterns.STRIPE_BOTTOM, DyeColor.BLUE)
     );
+
+    public static void init() {
+        CreativeTabRegistry.appendStack(SowItemGroups.ITEMS, CONCHORD, CONCHORD_SIMPLE, CROWN_PEAK, CYDONIA, CYDONIA_SIMPLE, FELDEN, FELDEN_SIMPLE, HYDRAPHEL, HYDRAPHEL_SIMPLE, KARTHEN, KARTHEN_SIMPLE, NORTHWIND, NORTHWIND_SIMPLE);
+    }
 }

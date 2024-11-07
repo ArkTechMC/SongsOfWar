@@ -1,21 +1,26 @@
 package com.iafenvoy.sow.render.feature;
 
 import com.iafenvoy.neptune.util.RandomHelper;
+import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.entity.ardoni.AbstractArdoniEntity;
 import com.iafenvoy.sow.entity.ardoni.random.ArdoniEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.Identifier;
 
 import java.util.Random;
 
 @Environment(EnvType.CLIENT)
 public class ArdoniSkinFeatureRenderer extends FeatureRenderer<AbstractArdoniEntity, BipedEntityModel<AbstractArdoniEntity>> {
+    private static final Identifier ARDONI_SHADOW = new Identifier(SongsOfWar.MOD_ID, "textures/entity/ardoni/ardoni_shadow.png");
+
     public ArdoniSkinFeatureRenderer(FeatureRendererContext<AbstractArdoniEntity, BipedEntityModel<AbstractArdoniEntity>> context) {
         super(context);
     }
@@ -25,6 +30,8 @@ public class ArdoniSkinFeatureRenderer extends FeatureRenderer<AbstractArdoniEnt
         double darkness = entity instanceof ArdoniEntity ardoni ? getDarkness(ardoni) : 1;
         BipedEntityModel<AbstractArdoniEntity> model = this.getContextModel();
         model.render(matrices, vertexConsumers.getBuffer(model.getLayer(entity.getSkinTexture())), light, LivingEntityRenderer.getOverlay(entity, 0), (float) darkness, (float) darkness, (float) darkness, 1);
+        if (entity instanceof ArdoniEntity ardoni && ardoni.getAge() >= 4)
+            model.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityTranslucent(ARDONI_SHADOW)), light, LivingEntityRenderer.getOverlay(entity, 0), (float) darkness, (float) darkness, (float) darkness, 1);
     }
 
     public static double getDarkness(ArdoniEntity ardoni) {

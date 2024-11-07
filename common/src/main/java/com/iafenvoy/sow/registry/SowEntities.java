@@ -19,6 +19,9 @@ import com.iafenvoy.sow.entity.necromancer.XariaEntity;
 import com.iafenvoy.sow.entity.netharan.ChronosEntity;
 import com.iafenvoy.sow.entity.netharan.NetharanEntity;
 import com.iafenvoy.sow.entity.netharan.PythusEntity;
+import com.iafenvoy.sow.entity.power.AggroDetonateEntity;
+import com.iafenvoy.sow.entity.power.AggroShardEntity;
+import com.iafenvoy.sow.entity.power.AggroSphereEntity;
 import com.iafenvoy.sow.entity.zombie.SowHuskEntity;
 import com.iafenvoy.sow.entity.zombie.SowStrayEntity;
 import com.iafenvoy.sow.entity.zombie.SowZombieEntity;
@@ -33,6 +36,9 @@ import net.minecraft.registry.RegistryKeys;
 public final class SowEntities {
     public static final DeferredRegister<EntityType<?>> REGISTRY = DeferredRegister.create(SongsOfWar.MOD_ID, RegistryKeys.ENTITY_TYPE);
 
+    public static final RegistrySupplier<EntityType<AggroSphereEntity>> AGGRO_SPHERE = build("aggro_sphere", AggroSphereEntity::new, SpawnGroup.MISC, 64, 1, false, new EntityBuildHelper.Dimension(0.5F, 0.5F));
+    public static final RegistrySupplier<EntityType<AggroDetonateEntity>> AGGRO_DETONATE = build("aggro_detonate", AggroDetonateEntity::new, SpawnGroup.MISC, 64, 1, false, new EntityBuildHelper.Dimension(0.5F, 0.5F));
+    public static final RegistrySupplier<EntityType<AggroShardEntity>> AGGRO_SHARD = build("aggro_shard", AggroShardEntity::new, SpawnGroup.MISC, 64, 1, false, new EntityBuildHelper.Dimension(0.2F, 0.2F));
     //Misc
     public static final RegistrySupplier<EntityType<NoneTypeArdoniEntity>> NONE_TYPE_ARDONI = build("none_type_ardoni", NoneTypeArdoniEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));
     public static final RegistrySupplier<EntityType<KaltarisArdoniEntity>> KALTARIS_ARDONI = build("kaltaris_ardoni", KaltarisArdoniEntity::new, SpawnGroup.CREATURE, 64, 3, false, EntityBuildHelper.PLAYER.scale(1.1f));

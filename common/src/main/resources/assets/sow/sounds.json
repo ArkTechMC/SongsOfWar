@@ -1,0 +1,122 @@
+{
+  "aggroquake": {
+    "sounds": [
+      {
+        "name": "sow:aggroquake",
+        "stream": false
+      }
+    ]
+  },
+  "aggrosphere": {
+    "sounds": [
+      {
+        "name": "sow:aggrosphere",
+        "stream": false
+      }
+    ]
+  },
+  "aggroshard": {
+    "sounds": [
+      {
+        "name": "sow:aggroshard",
+        "stream": false
+      }
+    ]
+  },
+  "aggrodetonate": {
+    "sounds": [
+      {
+        "name": "sow:aggrodetonate",
+        "stream": false
+      }
+    ]
+  },
+  "mobilibounce": {
+    "sounds": [
+      {
+        "name": "sow:mobilibounce",
+        "stream": false
+      }
+    ]
+  },
+  "mobiliflash": {
+    "sounds": [
+      {
+        "name": "sow:mobiliflash",
+        "stream": false
+      }
+    ]
+  },
+  "protepoint": {
+    "sounds": [
+      {
+        "name": "sow:protepoint",
+        "stream": false
+      }
+    ]
+  },
+  "protearmor": {
+    "sounds": [
+      {
+        "name": "sow:protearmor",
+        "stream": false
+      }
+    ]
+  },
+  "protearmor_unapply": {
+    "sounds": [
+      {
+        "name": "sow:protearmor_unapply",
+        "stream": false
+      }
+    ]
+  },
+  "protesphere": {
+    "sounds": [
+      {
+        "name": "sow:protesphere",
+        "stream": false
+      }
+    ]
+  },
+  "protesphere_unapply": {
+    "sounds": [
+      {
+        "name": "sow:protesphere_unapply",
+        "stream": false
+      }
+    ]
+  },
+  "aggressium": {
+    "sounds": [
+      {
+        "name": "sow:aggressium",
+        "stream": false
+      }
+    ]
+  },
+  "mobilium": {
+    "sounds": [
+      {
+        "name": "sow:mobilium",
+        "stream": false
+      }
+    ]
+  },
+  "protisium": {
+    "sounds": [
+      {
+        "name": "sow:protisium",
+        "stream": false
+      }
+    ]
+  },
+  "supportium": {
+    "sounds": [
+      {
+        "name": "sow:supportium",
+        "stream": false
+      }
+    ]
+  }
+}

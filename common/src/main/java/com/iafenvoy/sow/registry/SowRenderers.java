@@ -12,14 +12,27 @@ import com.iafenvoy.sow.entity.necromancer.NecrolordEntity;
 import com.iafenvoy.sow.entity.necromancer.XariaEntity;
 import com.iafenvoy.sow.entity.netharan.ChronosEntity;
 import com.iafenvoy.sow.entity.netharan.PythusEntity;
+import com.iafenvoy.sow.particle.SongEffectParticle;
+import com.iafenvoy.sow.render.AggroDetonateRenderer;
+import com.iafenvoy.sow.render.AggroSphereRenderer;
+import com.iafenvoy.sow.render.AggroShardRenderer;
 import com.iafenvoy.sow.render.ArdoniEntityRenderer;
+import com.iafenvoy.sow.render.block.SongCubeBlockEntityRenderer;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
+import dev.architectury.registry.client.particle.ParticleProviderRegistry;
+import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
+import dev.architectury.registry.client.rendering.RenderTypeRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.render.RenderLayer;
 
 @Environment(EnvType.CLIENT)
 public final class SowRenderers {
     public static void registerEntityRenderers() {
+        EntityRendererRegistry.register(SowEntities.AGGRO_SPHERE, AggroSphereRenderer::new);
+        EntityRendererRegistry.register(SowEntities.AGGRO_DETONATE, AggroDetonateRenderer::new);
+        EntityRendererRegistry.register(SowEntities.AGGRO_SHARD, AggroShardRenderer::new);
+
         EntityRendererRegistry.register(SowEntities.NONE_TYPE_ARDONI, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.VOLTARIS_ARDONI, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.SENDARIS_ARDONI, ArdoniEntityRenderer::new);
@@ -170,5 +183,20 @@ public final class SowRenderers {
         SkullRenderRegistry.register(SowSkulls.SkullType.YUJUKI, YujukiEntity.TEXTURE, SowSkulls.YUJUKI_HEAD.get(), SowSkulls.YUJUKI_WALL_HEAD.get());
         SkullRenderRegistry.register(SowSkulls.SkullType.ZINAIDA, ZinaidaEntity.TEXTURE, SowSkulls.ZINAIDA_HEAD.get(), SowSkulls.ZINAIDA_WALL_HEAD.get());
         SkullRenderRegistry.register(SowSkulls.SkullType.ZULIUS, ZuliusEntity.TEXTURE, SowSkulls.ZULIUS_HEAD.get(), SowSkulls.ZULIUS_WALL_HEAD.get());
+    }
+
+    public static void registerParticleRenderer() {
+        ParticleProviderRegistry.register(SowParticles.SONG_EFFECT, SongEffectParticle::create);
+    }
+
+    public static void registerBlockEntityRenderer() {
+        BlockEntityRendererRegistry.register(SowBlockEntities.AGGRESSIUM_SONG_TYPE.get(), SongCubeBlockEntityRenderer.AggressiumSongCubeBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.register(SowBlockEntities.MOBILIUM_SONG_TYPE.get(), SongCubeBlockEntityRenderer.MobiliumSongCubeBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.register(SowBlockEntities.PROTISIUM_SONG_TYPE.get(), SongCubeBlockEntityRenderer.ProtisiumSongCubeBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.register(SowBlockEntities.SUPPORTIUM_SONG_TYPE.get(), SongCubeBlockEntityRenderer.SupportiumSongCubeBlockEntityRenderer::new);
+    }
+
+    public static void registerRenderType() {
+        RenderTypeRegistry.register(RenderLayer.getTranslucent(), SowBlocks.MOBILIBOUNCE_PLATFORM.get());
     }
 }
