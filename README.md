@@ -1,6 +1,6 @@
 # Songs of War
 
-This is a mod to add elements from [Songs of War Animation](https://youtu.be/Uc7YMW3AKpg?t=1152).
+This is a mod to add elements from [Songs of War Animation](https://youtu.be/Uc7YMW3AKpg).
 
 ~~Put me into the washing machine like the logo if you meet any bugs.~~
 
@@ -12,19 +12,19 @@ This is a mod to add elements from [Songs of War Animation](https://youtu.be/Uc7
 
 **Various Weapons** All weapons in animation and variant.
 
-<div align=center><img src="/img/1.webp" style="width:400px;text-align:center;" alt=""></img></div>
+<div align=center><img src="https://raw.githubusercontent.com/CodeOfArdonia/SongsOfWar/refs/heads/master/img/1.webp" style="width:400px;text-align:center;" alt=""></img></div>
 
 **Back&Belt Item Render** Most weapon are wearable on back and belt. (Thanks for `Curios` and `Trinkets`)
 
-<div align=center><img src="/img/2.webp" style="width:400px;text-align:center;" alt=""></img></div>
+<div align=center><img src="https://raw.githubusercontent.com/CodeOfArdonia/SongsOfWar/refs/heads/master/img/2.webp" style="width:400px;text-align:center;" alt=""></img></div>
 
 **Upgrading Stone** Song Stone forging system allow you to upgrade your weapon and will receive colorful glint.
 
-<div align=center><img src="/img/3.webp" style="width:400px;text-align:center;" alt=""></img></div>
+<div align=center><img src="https://raw.githubusercontent.com/CodeOfArdonia/SongsOfWar/refs/heads/master/img/3.webp" style="width:400px;text-align:center;" alt=""></img></div>
 
 **Randomize Ardoni Entity** Every ardoni have their own class and markers.
 
-<div align=center><img src="/img/4.webp" style="width:400px;text-align:center;" alt=""></img></div>
+<div align=center><img src="https://raw.githubusercontent.com/CodeOfArdonia/SongsOfWar/refs/heads/master/img/4.webp" style="width:400px;text-align:center;" alt=""></img></div>
 
 **Song Power System** Restore song power in animation.
 
@@ -43,8 +43,8 @@ Then stand on the `chiseled stone bricks`, look at the song cube and sneak for 3
 
 If everything is correct, the song cube will start spawning particles. After an explosion, the combination is completed.
 
-<img src="img/shrine.png" style="width:256px" alt="">
-<img src="img/shrine.gif" style="width:256px" alt="">
+<img src="https://raw.githubusercontent.com/CodeOfArdonia/SongsOfWar/refs/heads/master/img/shrine.png" style="width:256px" alt="">
+<img src="https://raw.githubusercontent.com/CodeOfArdonia/SongsOfWar/refs/heads/master/img/shrine.gif" style="width:256px" alt="">
 
 **Note: 1.The stone bricks and stairs can be any kinds. (mossy/cracked ones, can change through datapack.)**
 
@@ -101,15 +101,13 @@ If everything is correct, the song cube will start spawning particles. After an 
 <details>
 <summary>Added Origins</summary>
 
-## Added Origins
-
-| Origin    | Impact | Advantages                                                                               | Disadvantages             |
-|:----------|:-------|:-----------------------------------------------------------------------------------------|:--------------------------|
-| Ardoni    | High   | +10 Health <br> Use song ability (Require *Songs of Power*) <br> Invulnerable to potions | Cannot use redstone       |
-| Felina    | Medium | Can climb <br> Speed and jump boost <br> Invulnerable to fall                            | Afraid of water           |
-| Magnorite | High   | Invulnerable to fire, lava and fall <br> Faster in lava <br> +10 Defense                 | Very afraid of water&cold |
-| Netharan  | Low    | Invulnerable to fire                                                                     | Afraid of water&cold      |
-| Glacian   | Medium | Invulnerable to powder snow <br> +5 Defense                                              | Afraid of hot             |
+| Origin    | Impact | Advantages                                                               | Disadvantages             |
+|:----------|:-------|:-------------------------------------------------------------------------|:--------------------------|
+| Ardoni    | High   | +10 Health <br> Use song ability <br> Invulnerable to potions            | Cannot use redstone       |
+| Felina    | Medium | Can climb <br> Speed and jump boost <br> Invulnerable to fall            | Afraid of water           |
+| Magnorite | High   | Invulnerable to fire, lava and fall <br> Faster in lava <br> +10 Defense | Very afraid of water&cold |
+| Netharan  | Low    | Invulnerable to fire                                                     | Afraid of water&cold      |
+| Glacian   | Medium | Invulnerable to powder snow <br> +5 Defense                              | Afraid of hot             |
 
 </details>
 
@@ -119,17 +117,6 @@ Since this mod's assets from official, all assets are freely to use since they a
 All Right Reserved**.
 
 You can freely use this mod in your modpack if you credit us somewhere.
-
-## My other works
-
-- *Songs of War*: SoW Main
-  Mod [Curseforge](https://www.curseforge.com/minecraft/mc-mods/songs-of-war) | [Modrinth](https://modrinth.com/mod/songs-of-war)
-- **Songs of Origins**: SoW x
-  Origins [Curseforge](https://www.curseforge.com/minecraft/mc-mods/songs-of-origins) | [Modrinth](https://modrinth.com/mod/songs-of-origins)
-- **Songs of Power**: Song
-  abilities [Curseforge](https://www.curseforge.com/minecraft/mc-mods/songs-of-power) | [Modrinth](https://modrinth.com/mod/songs-of-power)
-- **Songs of War RPG**: SoW RPG
-  Modpack [Curseforge](https://www.curseforge.com/minecraft/modpacks/songs-of-war-rpg) | [Modrinth](https://modrinth.com/modpack/songs-of-war-rpg)
 
 ## Any Questions?
 
