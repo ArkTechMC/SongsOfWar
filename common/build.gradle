@@ -13,6 +13,8 @@ dependencies {
 
     modImplementation "maven.modrinth:jupiter:nhqjUZZy"
 
+    modImplementation "com.github.apace100:origins-fabric:${project.origins_version}"
+
     // Optional
     // EMI
     modImplementation "dev.emi:emi-fabric:${emi_version}"

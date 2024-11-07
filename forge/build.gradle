@@ -32,7 +32,6 @@ dependencies {
 
     // Neptune cross-platform library
     modImplementation "maven.modrinth:neptune:yMH41Byz"
-
     modImplementation "maven.modrinth:jupiter:quscWB5K"
 
     // Optional

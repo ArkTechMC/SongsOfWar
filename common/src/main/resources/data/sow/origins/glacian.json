@@ -1,0 +1,9 @@
+{
+  "powers": [
+    "sow:freeze_invulnerable",
+    "sow:defense_boost_5",
+    "sow:too_hot"
+  ],
+  "icon": "minecraft:ice",
+  "impact": 2
+}

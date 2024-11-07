@@ -1,8 +1,8 @@
 package com.iafenvoy.sow.impl.forge;
 
-import com.iafenvoy.sop.forge.component.SongPowerDataProvider;
-import com.iafenvoy.sop.forge.component.SongPowerDataStorage;
-import com.iafenvoy.sop.power.SongPowerData;
+import com.iafenvoy.sow.forge.component.SongPowerDataProvider;
+import com.iafenvoy.sow.forge.component.SongPowerDataStorage;
+import com.iafenvoy.sow.power.SongPowerData;
 import net.minecraft.entity.player.PlayerEntity;
 
 public class ComponentManagerImpl {

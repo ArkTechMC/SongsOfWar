@@ -9,7 +9,8 @@
     "GrindstoneScreenHandlerMixin",
     "LivingEntityMixin",
     "ServerPlayerEntityMixin",
-    "StructureTemplateAccessor"
+    "StructureTemplateAccessor",
+    "integration.ModPacketsC2SMixin"
   ],
   "client": [
     "InGameHudMixin",

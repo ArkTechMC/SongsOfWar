@@ -1,0 +1,10 @@
+{
+  "powers": [
+    "sow:climbing",
+    "sow:agile",
+    "sow:fall_invulnerable",
+    "sow:afraid_water"
+  ],
+  "icon": "minecraft:cod",
+  "impact": 2
+}

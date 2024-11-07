@@ -1,0 +1,9 @@
+{
+  "powers": [
+    "sow:fire_invulnerable",
+    "sow:afraid_water",
+    "sow:too_cold"
+  ],
+  "icon": "minecraft:netherrack",
+  "impact": 1
+}

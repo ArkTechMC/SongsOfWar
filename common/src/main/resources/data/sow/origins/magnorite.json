@@ -1,0 +1,13 @@
+{
+  "powers": [
+    "sow:fire_invulnerable",
+    "sow:lava_invulnerable",
+    "sow:fall_invulnerable",
+    "sow:defense_boost_10",
+    "sow:lava_speed_boost",
+    "sow:water_wither",
+    "sow:too_cold"
+  ],
+  "icon": "minecraft:magma_block",
+  "impact": 3
+}

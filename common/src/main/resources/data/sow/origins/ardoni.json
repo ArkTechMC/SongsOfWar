@@ -1,0 +1,10 @@
+{
+  "powers": [
+    "sow:songs",
+    "sow:health_boost_10",
+    "sow:potion_invulnerable",
+    "sow:prevent_redstone"
+  ],
+  "icon": "sow:aggressium_song",
+  "impact": 3
+}

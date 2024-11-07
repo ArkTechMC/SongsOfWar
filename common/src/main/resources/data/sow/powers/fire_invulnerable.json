@@ -1,0 +1,17 @@
+{
+  "type": "origins:multiple",
+  "in_fire": {
+    "type": "origins:invulnerability",
+    "damage_condition": {
+      "type": "origins:name",
+      "name": "inFire"
+    }
+  },
+  "on_fire": {
+    "type": "origins:invulnerability",
+    "damage_condition": {
+      "type": "origins:name",
+      "name": "onFire"
+    }
+  }
+}

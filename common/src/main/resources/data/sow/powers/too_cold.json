@@ -1,0 +1,16 @@
+{
+  "type": "origins:damage_over_time",
+  "interval": 20,
+  "onset_delay": 1,
+  "damage": 2,
+  "damage_easy": 1,
+  "damage_type": "minecraft:freeze",
+  "condition": {
+    "type": "origins:biome",
+    "condition": {
+      "type": "origins:temperature",
+      "comparison": "<=",
+      "compare_to": 0.02
+    }
+  }
+}
