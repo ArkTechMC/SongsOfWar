@@ -10,12 +10,14 @@ import dev.architectury.registry.client.keymappings.KeyMappingRegistry;
 import it.unimi.dsi.fastutil.booleans.BooleanConsumer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.network.PacketByteBuf;
 import org.lwjgl.glfw.GLFW;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 @Environment(EnvType.CLIENT)
@@ -26,6 +28,7 @@ public final class SowKeybindings {
     public static final KeyBinding PROTISIUM_POWER = new KeyBinding("key." + SongsOfWar.MOD_ID + ".protisium_power", GLFW.GLFW_KEY_B, CATEGORY);
     public static final KeyBinding SUPPORTIUM_POWER = new KeyBinding("key." + SongsOfWar.MOD_ID + ".supportium_power", GLFW.GLFW_KEY_N, CATEGORY);
     public static final List<KeyBindingHolder> KEY_BINDINGS;
+    public static final KeyBindingHolder JUMP = new KeyBindingHolder(() -> MinecraftClient.getInstance().options.jumpKey);
 
     public static void init() {
         KeyMappingRegistry.register(AGGRESSIUM_POWER);
@@ -33,12 +36,16 @@ public final class SowKeybindings {
         KeyMappingRegistry.register(PROTISIUM_POWER);
         KeyMappingRegistry.register(SUPPORTIUM_POWER);
         ClientTickEvent.CLIENT_POST.register(client -> KEY_BINDINGS.forEach(KeyBindingHolder::tick));
+        ClientTickEvent.CLIENT_POST.register(client -> JUMP.tick());
+        JUMP.registerPressCallback(x -> {
+            if (x) NetworkManager.sendToServer(Static.JUMP_PRESS, PacketBufferUtils.create());
+        });
         for (PowerCategory type : PowerCategory.values())
             KEY_BINDINGS.get(type.ordinal()).registerPressCallback(press -> {
                 if (press) {
                     PacketByteBuf buf = PacketBufferUtils.create();
                     buf.writeEnumConstant(type);
-                    NetworkManager.sendToServer(Static.KEYBINDING_SYNC, buf);
+                    NetworkManager.sendToServer(Static.POWER_KEYBINDING_SYNC, buf);
                 }
             });
     }
@@ -48,11 +55,15 @@ public final class SowKeybindings {
     }
 
     public static class KeyBindingHolder {
-        public final KeyBinding keyBinding;
+        public final Supplier<KeyBinding> keyBinding;
         private final List<BooleanConsumer> callback = new ArrayList<>();
         private boolean pressed;
 
         public KeyBindingHolder(KeyBinding keyBinding) {
+            this.keyBinding = () -> keyBinding;
+        }
+
+        public KeyBindingHolder(Supplier<KeyBinding> keyBinding) {
             this.keyBinding = keyBinding;
         }
 
@@ -61,7 +72,9 @@ public final class SowKeybindings {
         }
 
         public void tick() {
-            boolean curr = this.keyBinding.isPressed();
+            KeyBinding k = this.keyBinding.get();
+            if (k == null) return;
+            boolean curr = k.isPressed();
             if (!this.pressed && curr) this.callback.forEach(x -> x.accept(true));
             if (this.pressed && !curr) this.callback.forEach(x -> x.accept(false));
             this.pressed = curr;

@@ -7,6 +7,7 @@ import com.iafenvoy.sow.data.ArdoniName;
 import com.iafenvoy.sow.data.BeaconData;
 import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.power.SongPowerData;
+import com.iafenvoy.sow.power.component.MobiliWingsComponent;
 import com.iafenvoy.sow.registry.*;
 import com.iafenvoy.sow.world.sound.ServerSongCubeEntityDataHelper;
 import com.mojang.logging.LogUtils;
@@ -67,12 +68,21 @@ public class SongsOfWar {
                 player.requestTeleport(newPos.getX(), newPos.getY(), newPos.getZ());
             });
         });
-        NetworkManager.registerReceiver(NetworkManager.Side.C2S, Static.KEYBINDING_SYNC, (buf, context) -> {
+        NetworkManager.registerReceiver(NetworkManager.Side.C2S, Static.POWER_KEYBINDING_SYNC, (buf, context) -> {
             PlayerEntity player = context.getPlayer();
             PowerCategory type = buf.readEnumConstant(PowerCategory.class);
             SongPowerData data = SongPowerData.byPlayer(player);
             if (!player.isSpectator() && data.isEnabled())
                 context.queue(() -> data.get(type).keyPress());
+        });
+        NetworkManager.registerReceiver(NetworkManager.Side.C2S, Static.JUMP_PRESS, (buf, context) -> {
+            PlayerEntity player = context.getPlayer();
+            SongPowerData data = SongPowerData.byPlayer(player);
+            if (data.powerEnabled(PowerCategory.MOBILIUM, SowPowers.MOBILIWINGS))
+                context.queue(() -> {
+                    if (SongPowerData.byPlayer(player).getComponent(MobiliWingsComponent.ID) instanceof MobiliWingsComponent component)
+                        component.speedUp();
+                });
         });
     }
 }

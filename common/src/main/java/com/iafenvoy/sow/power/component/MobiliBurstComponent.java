@@ -1,10 +1,9 @@
 package com.iafenvoy.sow.power.component;
 
-import com.iafenvoy.sow.Static;
 import com.iafenvoy.sow.power.SongPowerData;
+import com.iafenvoy.sow.util.Serializable;
 import com.iafenvoy.sow.util.SopMath;
 import com.iafenvoy.sow.util.Tickable;
-import com.iafenvoy.sow.util.Serializable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -14,6 +13,7 @@ import net.minecraft.util.math.Vec3d;
 import java.util.List;
 
 public class MobiliBurstComponent implements Serializable, Tickable {
+    public static final String ID = "mobiliburst";
     private final PlayerEntity player;
     private boolean activate;
     private int tick = -1;
@@ -37,11 +37,13 @@ public class MobiliBurstComponent implements Serializable, Tickable {
     @Override
     public void encode(NbtCompound nbt) {
         nbt.putBoolean("activate", this.activate);
+        nbt.putInt("tick", this.tick);
     }
 
     @Override
     public void decode(NbtCompound nbt) {
         this.activate = nbt.getBoolean("activate");
+        this.tick = nbt.getInt("tick");
     }
 
     @Override
@@ -60,7 +62,7 @@ public class MobiliBurstComponent implements Serializable, Tickable {
         }
         if (this.tick == 0) {
             this.activate = false;
-            SongPowerData.byPlayer(this.player).removeComponent(Static.MOBILIBURST);
+            SongPowerData.byPlayer(this.player).removeComponent(ID);
         }
         this.tick--;
     }

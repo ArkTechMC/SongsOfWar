@@ -14,6 +14,7 @@ import com.iafenvoy.sow.entity.power.SupporekesisControllable;
 import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.power.SongPowerData;
 import com.iafenvoy.sow.power.component.MobiliBurstComponent;
+import com.iafenvoy.sow.power.component.MobiliWingsComponent;
 import com.iafenvoy.sow.power.type.*;
 import com.iafenvoy.sow.util.SopMath;
 import com.iafenvoy.sow.util.WorldUtil;
@@ -166,11 +167,16 @@ public final class SowPowers {
     public static final PersistSongPower MOBILIWINGS = new PersistSongPower("mobiliwings", PowerCategory.MOBILIUM)
             .setApplySound(() -> SoundEvents.ITEM_ARMOR_EQUIP_ELYTRA)
             .setExhaustion(holder -> SowConfig.INSTANCE.mobilium.mobiliwingsExhaustion.getValue())
-            .onApply(holder -> holder.getPlayer().startFallFlying())
+            .onApply(holder -> {
+                PlayerEntity player = holder.getPlayer();
+                player.startFallFlying();
+                SongPowerData.byPlayer(player).addComponent(MobiliWingsComponent.ID, new MobiliWingsComponent(player));
+            })
             .onTick(holder -> {
                 PlayerEntity player = holder.getPlayer();
                 if (player.isOnGround() || player.getAbilities().flying) holder.cancel();
-            });
+            })
+            .onUnapply(holder -> SongPowerData.byPlayer(holder.getPlayer()).removeComponent(MobiliWingsComponent.ID));
     public static final PersistSongPower MOBILIGLIDE = new PersistSongPower("mobiliglide", PowerCategory.MOBILIUM)
             .setExhaustion(holder -> SowConfig.INSTANCE.mobilium.mobiliglideExhaustion.getValue())
             .onApply(holder -> {//GRAVITY attribute not available before 1.20.5
@@ -214,7 +220,7 @@ public final class SowPowers {
                 MobiliBurstComponent component = new MobiliBurstComponent(player);
                 component.setActivate(true);
                 component.setMaxTick(SowConfig.INSTANCE.mobilium.mobiliburstPrimaryCooldown.getValue() + 20);
-                SongPowerData.byPlayer(player).addComponent(Static.MOBILIBURST, component);
+                SongPowerData.byPlayer(player).addComponent(MobiliBurstComponent.ID, component);
             });
     //Protisium
     public static final PersistSongPower PROTESPHERE = new PersistSongPower("protesphere", PowerCategory.PROTISIUM)
