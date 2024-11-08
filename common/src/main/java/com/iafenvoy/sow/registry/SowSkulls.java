@@ -11,7 +11,7 @@ import net.minecraft.item.SkullItem;
 import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
-public class SowSkulls {
+public final class SowSkulls {
     public static final RegistrySupplier<Block> ABBIGAIL_HEAD = register("abbigail_head", () -> new SkullBlock(SkullType.ABBIGAIL, AbstractBlock.Settings.create()));
     public static final RegistrySupplier<Block> ABBIGAIL_WALL_HEAD = register("abbigail_wall_head", () -> new WallSkullBlock(SkullType.ABBIGAIL, AbstractBlock.Settings.create()));
     public static final RegistrySupplier<Block> AEGUS_HEAD = register("aegus_head", () -> new SkullBlock(SkullType.AEGUS, AbstractBlock.Settings.create()));

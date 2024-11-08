@@ -41,7 +41,7 @@ public abstract class AbstractSongCubeBlockEntity extends BlockEntity {
     @Override
     public void markRemoved() {
         super.markRemoved();
-        Static.songCubeSoundManager.destroy(pos);
+        Static.songCubeSoundManager.destroy(this.pos);
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, AbstractSongCubeBlockEntity blockEntity) {

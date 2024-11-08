@@ -179,6 +179,6 @@ public sealed abstract class AbstractSongPower<T extends AbstractSongPower<T>> p
     }
 
     protected enum PowerType {
-        INSTANT, INTERVAL, PERSIST, DELAY, DUMMY;
+        INSTANT, INTERVAL, PERSIST, DELAY, DUMMY
     }
 }

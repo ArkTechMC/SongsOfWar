@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 
 @Environment(EnvType.CLIENT)
 public abstract class SongCubeBlockEntityRenderer<T extends AbstractSongCubeBlockEntity> implements BlockEntityRenderer<T> {
-    protected BlockEntityRendererFactory.Context ctx;
+    protected final BlockEntityRendererFactory.Context ctx;
 
     protected SongCubeBlockEntityRenderer(BlockEntityRendererFactory.Context ctx) {
         this.ctx = ctx;

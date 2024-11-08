@@ -51,7 +51,7 @@ public class BeaconTeleportScreen extends Screen {
             this.client.setScreen(new BeaconTeleportScreen(this.beaconData, this.pos, this.page + 1));
         })).visible = this.page < this.maxPage;
         for (int i = 0; i < COUNT_PER_PAGE; i++) {
-            int index = page * COUNT_PER_PAGE + i;
+            int index = this.page * COUNT_PER_PAGE + i;
             if (this.data.size() <= index) break;
             BeaconData.SingleBeaconData d = this.data.get(index);
             this.addDrawableChild(ButtonWidget.builder(d.name(), button -> {

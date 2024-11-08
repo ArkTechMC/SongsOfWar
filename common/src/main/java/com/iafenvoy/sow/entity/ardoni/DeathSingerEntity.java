@@ -25,11 +25,6 @@ public class DeathSingerEntity extends AbstractArdoniEntity {
     }
 
     @Override
-    protected void initDataTracker() {
-        super.initDataTracker();
-    }
-
-    @Override
     public Identifier getSkinTexture() {
         return TEXTURE;
     }

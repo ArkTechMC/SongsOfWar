@@ -73,7 +73,7 @@ If everything is correct, the song cube will start spawning particles. After an 
 **HotKey: V**
 
 - Mobiliflash: Teleport to the direction you see.
-- Mobiliwings: Enable a fake elytra and into sliding mode.
+- Mobiliwings: Enable a fake elytra and into sliding mode. Press `Jump` key to speed up.
 - Mobiliglide: Slow falling.
 - Mobilibounce: Generate a fake platform and disappear in 5s. You can jump 3x higher on it.
 - Mobiliburst: Teleport to the direction you see, also pull every entity on your way away.
