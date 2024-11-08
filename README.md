@@ -10,33 +10,41 @@ This is a mod to add elements from [Songs of War Animation](https://youtu.be/Uc7
 
 ## Features
 
-**Various Weapons** All weapons in animation and variant.
+### Various Weapons
+
+All weapons in animation and variant.
 
 <div align=center><img src="https://raw.githubusercontent.com/CodeOfArdonia/SongsOfWar/refs/heads/master/img/1.webp" style="width:400px;text-align:center;" alt=""></img></div>
 
-**Back&Belt Item Render** Most weapon are wearable on back and belt. (Thanks for `Curios` and `Trinkets`)
+### Back&Belt Item Render
+
+Most weapon are wearable on back and belt. (Thanks for `Curios` and `Trinkets`)
 
 <div align=center><img src="https://raw.githubusercontent.com/CodeOfArdonia/SongsOfWar/refs/heads/master/img/2.webp" style="width:400px;text-align:center;" alt=""></img></div>
 
-**Upgrading Stone** Song Stone forging system allow you to upgrade your weapon and will receive colorful glint.
+### Upgrading Stone
+
+Song Stone forging system allow you to upgrade your weapon and will receive colorful glint.
 
 <div align=center><img src="https://raw.githubusercontent.com/CodeOfArdonia/SongsOfWar/refs/heads/master/img/3.webp" style="width:400px;text-align:center;" alt=""></img></div>
 
-**Randomize Ardoni Entity** Every ardoni have their own class and markers.
+### Various Entities
+
+Add almost all characters in animation. Also, every ardoni have their own class and markers.
 
 <div align=center><img src="https://raw.githubusercontent.com/CodeOfArdonia/SongsOfWar/refs/heads/master/img/4.webp" style="width:400px;text-align:center;" alt=""></img></div>
 
-**Song Power System** Restore song power in animation.
+### Song Power System
+
+Restore song power in animation.
 
 <details> <summary>Usage</summary>
 
-### Admin command (Or single player)
+#### Admin command (Or single player)
 
 `/songpower enable/disable <player>` to enable/disable access to song abilities.
 
-### Combine song cube
-
-#### For 0.4+
+#### Combine song cube
 
 Build a shrine structure below. Put song cube in the hole like how to do in Animation.
 Then stand on the `chiseled stone bricks`, look at the song cube and sneak for 3s.
@@ -50,14 +58,11 @@ If everything is correct, the song cube will start spawning particles. After an 
 
 **2.If you already have one in that category, the previous one will be replaced into the hole.**
 
-#### For 0.4-
-
-`/songpower use/replace` learn ability from song stone in your hand.
 </details>
 
 <details> <summary>Currently Added Songs</summary>
 
-### Aggressium
+#### Aggressium
 
 **HotKey: C**
 
@@ -69,7 +74,7 @@ If everything is correct, the song cube will start spawning particles. After an 
 - Aggroshard: Fire a lot of shards.
 - Aggroblast: Push the entity you are looking at away and give damage.
 
-### Mobilium
+#### Mobilium
 
 **HotKey: V**
 
@@ -79,7 +84,7 @@ If everything is correct, the song cube will start spawning particles. After an 
 - Mobilibounce: Generate a fake platform and disappear in 5s. You can jump 3x higher on it.
 - Mobiliburst: Teleport to the direction you see, also pull every entity on your way away.
 
-### Protisium
+#### Protisium
 
 **HotKey: B**
 
@@ -87,8 +92,9 @@ If everything is correct, the song cube will start spawning particles. After an 
 - Protepoint: Enable a fake shield.
 - Proteheal: Heal 10 times with 1 health each.
 - Protearmor: Add an armor, can reduce up to 20 damage(Configurable) in next damage.
+- Proteclone: Summon a fake player entity, can block damage once.
 
-### Supportium
+#### Supportium
 
 **HotKey: N**
 
@@ -97,7 +103,9 @@ If everything is correct, the song cube will start spawning particles. After an 
 
 </details>
 
-**Origins Support** Add some origins related to the animation.
+### Origins Support
+
+Add some origins related to the animation.
 
 <details>
 <summary>Added Origins</summary>
@@ -114,8 +122,8 @@ If everything is correct, the song cube will start spawning particles. After an 
 
 ## License
 
-Since this mod's assets from official, all assets are freely to use since they are already in public. **But all code are
-All Right Reserved**.
+All official textures from SQM (weapons&entities&sounds) are freely to use since they are already in public. **But all
+other stuff are All Right Reserved**.
 
 You can freely use this mod in your modpack if you credit us somewhere.
 
