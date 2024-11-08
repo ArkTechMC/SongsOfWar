@@ -3,7 +3,7 @@ package com.iafenvoy.sow;
 import com.iafenvoy.sow.data.BeaconData;
 import com.iafenvoy.sow.registry.SowKeybindings;
 import com.iafenvoy.sow.registry.SowRenderers;
-import com.iafenvoy.sow.render.util.ArdoniMarkerReloader;
+import com.iafenvoy.sow.render.entity.util.ArdoniMarkerReloader;
 import com.iafenvoy.sow.screen.BeaconTeleportScreen;
 import com.iafenvoy.sow.world.sound.ClientSongCubeEntityDataHelper;
 import com.iafenvoy.sow.world.sound.ClientSongCubeSoundManager;

@@ -12,6 +12,7 @@ public final class SowDamageTypes {
     public static final RegistryKey<DamageType> AGGROSPHERE = of("aggrosphere");
     public static final RegistryKey<DamageType> AGGROSTORM = of("aggrostorm");
     public static final RegistryKey<DamageType> AGGROSHARD = of("aggroshard");
+    public static final RegistryKey<DamageType> AGGROBLAST = of("aggroblast");
 
     private static RegistryKey<DamageType> of(String id) {
         return RegistryKey.of(RegistryKeys.DAMAGE_TYPE, new Identifier(SongsOfWar.MOD_ID, id));

@@ -28,7 +28,7 @@ public class SowConfig extends AutoInitConfigContainer {
             super("common", "config.sow.category.common");
         }
     }
-    
+
     @SuppressWarnings("unused")
     public static class AggressiumPowerConfig extends AutoInitConfigCategoryBase {
         public final IConfigEntry<Integer> aggrospherePrimaryCooldown = new IntegerEntry("config.sow.power.aggrosphere.cooldown.primary", 10, 0, Integer.MAX_VALUE).json("aggrosphere.cooldown.primary");
@@ -65,6 +65,13 @@ public class SowConfig extends AutoInitConfigContainer {
         public final IConfigEntry<Double> aggroshardDamage = new DoubleEntry("config.sow.power.aggroshard.damage", 1, 0, Integer.MAX_VALUE).json("aggroshard.damage");
         public final IConfigEntry<Double> aggroshardSpeed = new DoubleEntry("config.sow.power.aggroshard.speed", 1.5, 0, Integer.MAX_VALUE).json("aggroshard.speed");
         public final IConfigEntry<Integer> aggroshardCount = new IntegerEntry("config.sow.power.aggroshard.count", 20, 0, Integer.MAX_VALUE).json("aggroshard.count");
+        public final SeparatorEntry s6 = new SeparatorEntry();
+        public final IConfigEntry<Integer> aggroblastPrimaryCooldown = new IntegerEntry("config.sow.power.aggroblast.cooldown.primary", 20, 0, Integer.MAX_VALUE).json("aggroblast.cooldown.primary");
+        public final IConfigEntry<Integer> aggroblastSecondaryCooldown = new IntegerEntry("config.sow.power.aggroblast.cooldown.secondary", 20, 0, Integer.MAX_VALUE).json("aggroblast.cooldown.secondary");
+        public final IConfigEntry<Double> aggroblastExhaustion = new DoubleEntry("config.sow.power.aggroblast.exhaustion", 2, 0, Integer.MAX_VALUE).json("aggroblast.exhaustion");
+        public final IConfigEntry<Double> aggroblastSpeed = new DoubleEntry("config.sow.power.aggroblast.speed", 0.5, 0, Integer.MAX_VALUE).json("aggroblast.speed");
+        public final IConfigEntry<Double> aggroblastRange = new DoubleEntry("config.sow.power.aggroblast.range", 5, 0, Integer.MAX_VALUE).json("aggroblast.range");
+        public final IConfigEntry<Double> aggroblastDamage = new DoubleEntry("config.sow.power.aggroblast.damage", 4, 0, Integer.MAX_VALUE).json("aggroblast.damage");
 
         public AggressiumPowerConfig() {
             super("aggressium", "config.sow.category.power.aggressium");

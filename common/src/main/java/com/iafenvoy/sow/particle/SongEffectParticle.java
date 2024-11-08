@@ -31,8 +31,7 @@ public class SongEffectParticle extends SpriteBillboardParticle {
     @Override
     public void tick() {
         super.tick();
-        if (!this.dead)
-            this.setSprite(this.spriteSet.getSprite(this.age / 2 % 8 + 1, 8));
+        if (!this.dead) this.setSprite(this.spriteSet.getSprite(this.age / 2 % 10, 9));
     }
 
     public static ParticleFactory<DefaultParticleType> create(SpriteProvider sprite) {

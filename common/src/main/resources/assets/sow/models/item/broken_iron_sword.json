@@ -3,26 +3,74 @@
   "textures": {
     "layer0": "sow:item/broken_iron_sword"
   },
-      "display": {
-        "thirdperson_righthand": {
-            "rotation": [ 0, -90, 55 ],
-            "translation": [ 0, 4.5, 0.5 ],
-            "scale": [ 1.009375, 1.009375, 1.009375 ]
-        },
-        "thirdperson_lefthand": {
-            "rotation": [ 0, 90, -55 ],
-            "translation": [ 0, 4.5, 0.5 ],
-            "scale": [ 1.009375, 1.009375, 1.009375 ]
-        },
-        "firstperson_righthand": {
-            "rotation": [ 0, -90, 25 ],
-            "translation": [ 1.13, 3.2, 2.13 ],
-            "scale": [ 0.8075, 0.8075, 0.8075 ]
-        },
-        "firstperson_lefthand": {
-            "rotation": [ 0, 90, -25 ],
-            "translation": [ 1.13, 3.2, 2.13 ],
-            "scale": [ 0.8075, 0.8075, 0.8075 ]
-        }
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        55
+      ],
+      "translation": [
+        0,
+        4.5,
+        0.5
+      ],
+      "scale": [
+        1.009375,
+        1.009375,
+        1.009375
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -55
+      ],
+      "translation": [
+        0,
+        4.5,
+        0.5
+      ],
+      "scale": [
+        1.009375,
+        1.009375,
+        1.009375
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        2.13
+      ],
+      "scale": [
+        0.8075,
+        0.8075,
+        0.8075
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        2.13
+      ],
+      "scale": [
+        0.8075,
+        0.8075,
+        0.8075
+      ]
     }
+  }
 }

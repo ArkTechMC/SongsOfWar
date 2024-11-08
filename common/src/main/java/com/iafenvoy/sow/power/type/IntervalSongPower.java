@@ -33,12 +33,13 @@ public final class IntervalSongPower extends AbstractSongPower<IntervalSongPower
     }
 
     @Override
-    protected void applyInternal(SongPowerDataHolder holder) {
+    protected boolean applyInternal(SongPowerDataHolder holder) {
         playSound(holder, this.applySound);
         this.apply.accept(holder);
-        if (holder.isCancelled()) return;
+        if (holder.isCancelled()) return false;
         holder.cooldown();
         Timeout.create(this.interval.applyAsInt(holder), this.times.applyAsInt(holder), () -> this.apply.accept(holder));
+        return true;
     }
 
     @Override

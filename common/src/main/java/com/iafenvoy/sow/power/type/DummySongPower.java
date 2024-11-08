@@ -6,7 +6,8 @@ import com.iafenvoy.sow.power.SongPowerDataHolder;
 public non-sealed abstract class DummySongPower extends AbstractSongPower<DummySongPower> {
     public static final DummySongPower EMPTY = new DummySongPower("", null) {
         @Override
-        protected void applyInternal(SongPowerDataHolder holder) {
+        protected boolean applyInternal(SongPowerDataHolder holder) {
+            return true;
         }
     };
 

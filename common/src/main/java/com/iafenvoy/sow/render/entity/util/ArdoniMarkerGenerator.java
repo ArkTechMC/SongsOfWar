@@ -1,4 +1,4 @@
-package com.iafenvoy.sow.render.util;
+package com.iafenvoy.sow.render.entity.util;
 
 import com.iafenvoy.neptune.render.SimpleTexture;
 import com.iafenvoy.sow.SongsOfWar;

@@ -1,1 +1,6 @@
-{"parent":"minecraft:item/handheld","textures":{"layer0":"sow:item/reat_sword_diamond"}}
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "sow:item/reat_sword_diamond"
+  }
+}

@@ -1,8 +1,8 @@
 package com.iafenvoy.sow.mixin;
 
-import com.iafenvoy.sow.render.MobiliumElytraFeatureRenderer;
-import com.iafenvoy.sow.render.ProtearmorArmorFeatureRenderer;
-import com.iafenvoy.sow.render.ProtisiumSphereFeatureRenderer;
+import com.iafenvoy.sow.render.power.MobiliumElytraFeatureRenderer;
+import com.iafenvoy.sow.render.power.ProteArmorFeatureRenderer;
+import com.iafenvoy.sow.render.power.ProtisiumSphereFeatureRenderer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
@@ -28,6 +28,6 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<Abs
     private void addCustomRenderer(EntityRendererFactory.Context ctx, boolean slim, CallbackInfo ci) {
         this.addFeature(new MobiliumElytraFeatureRenderer<>(this, ctx.getModelLoader()));
         this.addFeature(new ProtisiumSphereFeatureRenderer<>(this));
-        this.addFeature(new ProtearmorArmorFeatureRenderer<>(this, new ArmorEntityModel<>(ctx.getPart(slim ? EntityModelLayers.PLAYER_SLIM_INNER_ARMOR : EntityModelLayers.PLAYER_INNER_ARMOR))));
+        this.addFeature(new ProteArmorFeatureRenderer<>(this, new ArmorEntityModel<>(ctx.getPart(slim ? EntityModelLayers.PLAYER_SLIM_INNER_ARMOR : EntityModelLayers.PLAYER_INNER_ARMOR))));
     }
 }

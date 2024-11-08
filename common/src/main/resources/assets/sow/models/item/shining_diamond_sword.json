@@ -3,26 +3,74 @@
   "textures": {
     "layer0": "sow:item/shining_diamond_sword"
   },
-      "display": {
-        "thirdperson_righthand": {
-            "rotation": [ 0, -90, 55 ],
-            "translation": [ 0, 4.5, 0.5 ],
-            "scale": [ 1.221875, 1.221875, 1.221875 ]
-        },
-        "thirdperson_lefthand": {
-            "rotation": [ 0, 90, -55 ],
-            "translation": [ 0, 4.5, 0.5 ],
-            "scale": [ 1.221875, 1.221875, 1.221875 ]
-        },
-        "firstperson_righthand": {
-            "rotation": [ 0, -90, 25 ],
-            "translation": [ 1.13, 3.2, 2.13 ],
-            "scale": [ 0.9775, 0.9775, 0.9775 ]
-        },
-        "firstperson_lefthand": {
-            "rotation": [ 0, 90, -25 ],
-            "translation": [ 1.13, 3.2, 2.13 ],
-            "scale": [ 0.9775, 0.9775, 0.9775 ]
-        }
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        55
+      ],
+      "translation": [
+        0,
+        4.5,
+        0.5
+      ],
+      "scale": [
+        1.221875,
+        1.221875,
+        1.221875
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -55
+      ],
+      "translation": [
+        0,
+        4.5,
+        0.5
+      ],
+      "scale": [
+        1.221875,
+        1.221875,
+        1.221875
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        2.13
+      ],
+      "scale": [
+        0.9775,
+        0.9775,
+        0.9775
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        2.13
+      ],
+      "scale": [
+        0.9775,
+        0.9775,
+        0.9775
+      ]
     }
+  }
 }

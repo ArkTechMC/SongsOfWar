@@ -139,12 +139,8 @@ public sealed abstract class AbstractSongPower<T extends AbstractSongPower<T>> p
         return this.getType() == PowerType.PERSIST;
     }
 
-    public boolean cancellable() {
-        return this.getType() == PowerType.INSTANT;
-    }
-
-    public void apply(SongPowerData.SinglePowerData data) {
-        this.applyInternal(new SongPowerDataHolder(data));
+    public boolean apply(SongPowerData.SinglePowerData data) {
+        return this.applyInternal(new SongPowerDataHolder(data));
     }
 
     public void unapply(SongPowerData.SinglePowerData data) {
@@ -155,10 +151,10 @@ public sealed abstract class AbstractSongPower<T extends AbstractSongPower<T>> p
     }
 
     public String getTranslateKey() {
-        return "power." + SongsOfWar.MOD_ID + "." + this.id;
+        return "songPower." + SongsOfWar.MOD_ID + "." + this.id;
     }
 
-    protected abstract void applyInternal(SongPowerDataHolder holder);
+    protected abstract boolean applyInternal(SongPowerDataHolder holder);
 
     protected abstract PowerType getType();
 

@@ -1,7 +1,8 @@
-package com.iafenvoy.sow.render;
+package com.iafenvoy.sow.render.power;
 
 import com.iafenvoy.sow.entity.power.AggroSphereEntity;
-import com.iafenvoy.sow.render.model.SphereModel;
+import com.iafenvoy.sow.render.RenderConstants;
+import com.iafenvoy.sow.render.power.model.SphereModel;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.OverlayTexture;

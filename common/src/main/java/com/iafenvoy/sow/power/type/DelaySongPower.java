@@ -22,10 +22,11 @@ public final class DelaySongPower extends AbstractSongPower<DelaySongPower> {
     }
 
     @Override
-    protected void applyInternal(SongPowerDataHolder holder) {
+    protected boolean applyInternal(SongPowerDataHolder holder) {
         playSound(holder, this.applySound);
         holder.cooldown();
         Timeout.create(this.delay, () -> this.apply.accept(holder));
+        return true;
     }
 
     @Override

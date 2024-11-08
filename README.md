@@ -67,6 +67,7 @@ If everything is correct, the song cube will start spawning particles. After an 
 - Aggrostorm **(Experimental)**: Pull entities to you.
 - Aggrodetonate: Fire an explosive short laser.
 - Aggroshard: Fire a lot of shards.
+- Aggroblast: Push the entity you are looking at away and give damage.
 
 ### Mobilium
 
@@ -91,7 +92,7 @@ If everything is correct, the song cube will start spawning particles. After an 
 
 **HotKey: N**
 
-- Supporolift: Pull an entity you are looking at in 20 blocks.
+- Supporolift: Pull the entity you are looking at in 20 blocks.
 - Supporekesis: Stop all entities related to aggressium songs in 20 blocks and explode them. (No damage)
 
 </details>

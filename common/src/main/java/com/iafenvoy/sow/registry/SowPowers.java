@@ -17,7 +17,7 @@ import com.iafenvoy.sow.power.component.MobiliBurstComponent;
 import com.iafenvoy.sow.power.component.MobiliWingsComponent;
 import com.iafenvoy.sow.power.type.*;
 import com.iafenvoy.sow.util.SopMath;
-import com.iafenvoy.sow.util.WorldUtil;
+import com.iafenvoy.sow.world.WorldUtil;
 import dev.architectury.registry.CreativeTabRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -149,6 +149,26 @@ public final class SowPowers {
                         }
                     });
                 }
+            });
+    public static final InstantSongPower AGGROBLAST = new InstantSongPower("aggroblast", PowerCategory.AGGRESSIUM)
+            .setPrimaryCooldown(holder -> SowConfig.INSTANCE.aggressium.aggroblastPrimaryCooldown.getValue())
+            .setSecondaryCooldown(holder -> SowConfig.INSTANCE.aggressium.aggroblastSecondaryCooldown.getValue())
+            .setExhaustion(holder -> SowConfig.INSTANCE.aggressium.aggroblastExhaustion.getValue())
+            .onApply(holder -> {
+                PlayerEntity player = holder.getPlayer();
+                EntityHitResult result = WorldUtil.raycastEntity(player, SowConfig.INSTANCE.aggressium.aggroblastRange.getValue());
+                if (result != null && result.getEntity() instanceof LivingEntity living) {
+                    double speed = SowConfig.INSTANCE.aggressium.aggroblastSpeed.getValue();
+                    Vec3d dir = living.getPos().subtract(player.getPos()).multiply(speed);
+                    living.setVelocity(dir.add(0, 0.3, 0));
+                    living.velocityModified = true;
+                    if (holder.getWorld() instanceof ServerWorld serverWorld) {
+                        Vec3d d = SopMath.getRotationVector(player.getPitch(), player.getHeadYaw());
+                        for (int i = 0; i < 30; i++)
+                            serverWorld.spawnParticles(SowParticles.AGGROBLAST.get(), player.getX(), player.getY() + 1, player.getZ(), 0, d.x, d.y, d.z, speed);
+                    }
+                    living.damage(DamageUtil.build(player, SowDamageTypes.AGGROBLAST), SowConfig.INSTANCE.aggressium.aggroblastDamage.getValue().floatValue());
+                } else holder.cancel();
             });
     //Mobilium
     public static final DelaySongPower MOBILIFLASH = new DelaySongPower("mobiliflash", PowerCategory.MOBILIUM)

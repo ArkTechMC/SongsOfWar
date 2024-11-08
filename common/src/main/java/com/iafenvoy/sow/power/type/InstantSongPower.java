@@ -9,12 +9,12 @@ public final class InstantSongPower extends AbstractSongPower<InstantSongPower> 
     }
 
     @Override
-    protected void applyInternal(SongPowerDataHolder holder) {
+    protected boolean applyInternal(SongPowerDataHolder holder) {
         this.apply.accept(holder);
-        if (!holder.isCancelled()) {
-            holder.cooldown();
-            playSound(holder, this.applySound);
-        }
+        if (holder.isCancelled()) return false;
+        holder.cooldown();
+        playSound(holder, this.applySound);
+        return true;
     }
 
     @Override

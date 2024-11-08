@@ -1,4 +1,4 @@
-package com.iafenvoy.sow.render;
+package com.iafenvoy.sow.render.power;
 
 import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.power.PowerCategory;

@@ -194,12 +194,12 @@ public class SongPowerData implements Serializable, Tickable {
                 else this.activePower.unapply(this);
             } else {
                 if (this.activePower.isPersist()) this.enable();
-                else {
-                    if (this.getState() == State.RECOVER) {
+                else if (this.getState() != State.DENY) {
+                    boolean bl = this.getState() == State.RECOVER;
+                    if (this.activePower.apply(this) && bl) {
                         this.getPlayer().addExhaustion((float) this.activePower.getExhaustion(this));
                         this.secondaryCooldown = 0;
                     }
-                    if (this.getState() == State.ALLOW) this.activePower.apply(this);
                 }
             }
         }

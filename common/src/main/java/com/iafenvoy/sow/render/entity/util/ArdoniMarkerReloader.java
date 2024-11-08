@@ -1,4 +1,4 @@
-package com.iafenvoy.sow.render.util;
+package com.iafenvoy.sow.render.entity.util;
 
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.resource.SynchronousResourceReloader;

@@ -1,7 +1,8 @@
-package com.iafenvoy.sow.render;
+package com.iafenvoy.sow.render.power;
 
-import com.iafenvoy.sow.entity.power.AggroShardEntity;
-import com.iafenvoy.sow.render.model.ShardModel;
+import com.iafenvoy.sow.entity.power.AggroDetonateEntity;
+import com.iafenvoy.sow.render.RenderConstants;
+import com.iafenvoy.sow.render.power.model.DetonateModel;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.OverlayTexture;
@@ -16,27 +17,28 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RotationAxis;
 
 @Environment(EnvType.CLIENT)
-public class AggroShardRenderer extends EntityRenderer<AggroShardEntity> {
-    private final ShardModel<AggroShardEntity> shardModel;
+public class AggroDetonateRenderer extends EntityRenderer<AggroDetonateEntity> {
+    private final DetonateModel<AggroDetonateEntity> detonateModel;
 
-    public AggroShardRenderer(EntityRendererFactory.Context ctx) {
+    public AggroDetonateRenderer(EntityRendererFactory.Context ctx) {
         super(ctx);
-        this.shardModel = new ShardModel<>(ShardModel.getTexturedModelData().createModel());
+        this.detonateModel = new DetonateModel<>(DetonateModel.getTexturedModelData().createModel());
     }
 
     @Override
-    public void render(AggroShardEntity entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
+    public void render(AggroDetonateEntity entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
         matrices.push();
+        matrices.scale(2, 2, 2);
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevYaw, entity.getYaw()) - 90.0F));
         matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(MathHelper.lerp(tickDelta, entity.prevPitch, entity.getPitch())));
-        matrices.translate(0, 0.1, 0);
+        matrices.translate(-0.125, 0, 0);
         VertexConsumer consumer = vertexConsumers.getBuffer(RenderLayer.getEntityTranslucentEmissive(this.getTexture(entity)));
-        this.shardModel.render(matrices, consumer, light, OverlayTexture.DEFAULT_UV, 1, 0, 0, 0.5f);
+        this.detonateModel.render(matrices, consumer, light, OverlayTexture.DEFAULT_UV, 1, 0, 0, 0.7f);
         matrices.pop();
     }
 
     @Override
-    public Identifier getTexture(AggroShardEntity entity) {
-        return ShardModel.SHARD_TEXTURE_WHITE;
+    public Identifier getTexture(AggroDetonateEntity entity) {
+        return RenderConstants.WHITE_TEXTURE;
     }
 }

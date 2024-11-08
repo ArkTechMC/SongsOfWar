@@ -1,4 +1,4 @@
-package com.iafenvoy.sow.render.model;
+package com.iafenvoy.sow.render.power.model;
 
 import com.iafenvoy.sow.SongsOfWar;
 import net.fabricmc.api.EnvType;

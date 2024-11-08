@@ -1,4 +1,4 @@
-package com.iafenvoy.sow.compat.emi;
+package com.iafenvoy.sow.compat;
 
 import com.iafenvoy.neptune.util.RandomHelper;
 import com.iafenvoy.sow.SongsOfWar;

@@ -1,11 +1,11 @@
-package com.iafenvoy.sow.render;
+package com.iafenvoy.sow.render.entity;
 
 import com.iafenvoy.sow.entity.ardoni.AbstractArdoniEntity;
 import com.iafenvoy.sow.entity.util.Flatable;
-import com.iafenvoy.sow.render.feature.ArdoniEyeFeatureRenderer;
-import com.iafenvoy.sow.render.feature.ArdoniHairFeatureRenderer;
-import com.iafenvoy.sow.render.feature.ArdoniMarkerFeatureRenderer;
-import com.iafenvoy.sow.render.feature.ArdoniSkinFeatureRenderer;
+import com.iafenvoy.sow.render.entity.feature.ArdoniEyeFeatureRenderer;
+import com.iafenvoy.sow.render.entity.feature.ArdoniHairFeatureRenderer;
+import com.iafenvoy.sow.render.entity.feature.ArdoniMarkerFeatureRenderer;
+import com.iafenvoy.sow.render.entity.feature.ArdoniSkinFeatureRenderer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.VertexConsumerProvider;

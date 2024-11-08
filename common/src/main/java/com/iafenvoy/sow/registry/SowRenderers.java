@@ -12,11 +12,12 @@ import com.iafenvoy.sow.entity.necromancer.NecrolordEntity;
 import com.iafenvoy.sow.entity.necromancer.XariaEntity;
 import com.iafenvoy.sow.entity.netharan.ChronosEntity;
 import com.iafenvoy.sow.entity.netharan.PythusEntity;
+import com.iafenvoy.sow.particle.AggroblastParticle;
 import com.iafenvoy.sow.particle.SongEffectParticle;
-import com.iafenvoy.sow.render.AggroDetonateRenderer;
-import com.iafenvoy.sow.render.AggroSphereRenderer;
-import com.iafenvoy.sow.render.AggroShardRenderer;
-import com.iafenvoy.sow.render.ArdoniEntityRenderer;
+import com.iafenvoy.sow.render.power.AggroDetonateRenderer;
+import com.iafenvoy.sow.render.power.AggroSphereRenderer;
+import com.iafenvoy.sow.render.power.AggroShardRenderer;
+import com.iafenvoy.sow.render.entity.ArdoniEntityRenderer;
 import com.iafenvoy.sow.render.block.SongCubeBlockEntityRenderer;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.client.particle.ParticleProviderRegistry;
@@ -187,6 +188,7 @@ public final class SowRenderers {
 
     public static void registerParticleRenderer() {
         ParticleProviderRegistry.register(SowParticles.SONG_EFFECT, SongEffectParticle::create);
+        ParticleProviderRegistry.register(SowParticles.AGGROBLAST, AggroblastParticle::create);
     }
 
     public static void registerBlockEntityRenderer() {

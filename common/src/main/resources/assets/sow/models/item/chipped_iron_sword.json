@@ -3,26 +3,74 @@
   "textures": {
     "layer0": "sow:item/chipped_iron_sword"
   },
-      "display": {
-        "thirdperson_righthand": {
-            "rotation": [ -20, 90, 55 ],
-            "translation": [ 0, 9, 0.5 ],
-            "scale": [ 1.4875, 1.4875, 1.4875 ]
-        },
-        "thirdperson_lefthand": {
-            "rotation": [ -20, -90, -55 ],
-            "translation": [ 0, 9, 0.5 ],
-            "scale": [ 1.4875, 1.4875, 1.4875 ]
-        },
-        "firstperson_righthand": {
-            "rotation": [ 30, 90, 25 ],
-            "translation": [ 1.13, 3.2, 2.13 ],
-            "scale": [ 1.19, 1.19, 1.19 ]
-        },
-        "firstperson_lefthand": {
-            "rotation": [ 30, -90, -25 ],
-            "translation": [ 1.13, 3.2, 2.13 ],
-            "scale": [ 1.19, 1.19, 1.19 ]
-        }
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        -20,
+        90,
+        55
+      ],
+      "translation": [
+        0,
+        9,
+        0.5
+      ],
+      "scale": [
+        1.4875,
+        1.4875,
+        1.4875
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        -20,
+        -90,
+        -55
+      ],
+      "translation": [
+        0,
+        9,
+        0.5
+      ],
+      "scale": [
+        1.4875,
+        1.4875,
+        1.4875
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        30,
+        90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        2.13
+      ],
+      "scale": [
+        1.19,
+        1.19,
+        1.19
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        30,
+        -90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        2.13
+      ],
+      "scale": [
+        1.19,
+        1.19,
+        1.19
+      ]
     }
+  }
 }

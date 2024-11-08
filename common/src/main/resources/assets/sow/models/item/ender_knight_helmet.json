@@ -1,6 +1,6 @@
 {
-	"parent": "minecraft:item/generated",
-	"textures": {
-		"layer0": "sow:item/armor/ender_knight_helmet"
-	}
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "sow:item/armor/ender_knight_helmet"
+  }
 }

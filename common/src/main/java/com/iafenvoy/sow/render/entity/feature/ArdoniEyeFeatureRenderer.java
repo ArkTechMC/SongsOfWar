@@ -1,4 +1,4 @@
-package com.iafenvoy.sow.render.feature;
+package com.iafenvoy.sow.render.entity.feature;
 
 import com.iafenvoy.neptune.util.Color4i;
 import com.iafenvoy.sow.SongsOfWar;

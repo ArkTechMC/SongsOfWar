@@ -51,9 +51,10 @@ public final class PersistSongPower extends AbstractSongPower<PersistSongPower> 
     }
 
     @Override
-    protected void applyInternal(SongPowerDataHolder holder) {
+    protected boolean applyInternal(SongPowerDataHolder holder) {
         playSound(holder, this.applySound);
         this.apply.accept(holder);
+        return true;
     }
 
     @Override

@@ -14,6 +14,8 @@ public final class SowParticles {
 
     public static final RegistrySupplier<DefaultParticleType> SONG_EFFECT = register("song_effect", () -> new DefaultParticleType(false) {
     });
+    public static final RegistrySupplier<DefaultParticleType> AGGROBLAST = register("aggroblast", () -> new DefaultParticleType(false) {
+    });
 
     private static RegistrySupplier<DefaultParticleType> register(String id, Supplier<DefaultParticleType> type) {
         return REGISTRY.register(id, type);
