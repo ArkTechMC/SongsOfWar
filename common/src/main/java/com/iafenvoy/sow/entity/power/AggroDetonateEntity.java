@@ -10,8 +10,8 @@ import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.ExplosionBehavior;
 
-public class AggroDetonateEntity extends SopProjectileEntity {
-    public AggroDetonateEntity(EntityType<? extends SopProjectileEntity> entityType, World world) {
+public class AggroDetonateEntity extends AggroProjectileEntity {
+    public AggroDetonateEntity(EntityType<? extends AggroProjectileEntity> entityType, World world) {
         super(entityType, world);
     }
 

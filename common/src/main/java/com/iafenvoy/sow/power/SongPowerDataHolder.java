@@ -1,6 +1,6 @@
 package com.iafenvoy.sow.power;
 
-import com.iafenvoy.sow.entity.power.SopProjectileEntity;
+import com.iafenvoy.sow.entity.power.AggroProjectileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.SwordItem;
@@ -30,7 +30,7 @@ public class SongPowerDataHolder {
         return this.getPlayer().getMainHandStack().getItem() instanceof SwordItem;
     }
 
-    public void processProjectile(SopProjectileEntity projectile) {
+    public void processProjectile(AggroProjectileEntity projectile) {
         PlayerEntity player = this.getPlayer();
         projectile.setOwner(player);
         projectile.pickupType = PersistentProjectileEntity.PickupPermission.DISALLOWED;

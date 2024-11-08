@@ -69,7 +69,7 @@ public class SowConfig extends AutoInitConfigContainer {
         public final IConfigEntry<Integer> aggroblastPrimaryCooldown = new IntegerEntry("config.sow.power.aggroblast.cooldown.primary", 20, 0, Integer.MAX_VALUE).json("aggroblast.cooldown.primary");
         public final IConfigEntry<Integer> aggroblastSecondaryCooldown = new IntegerEntry("config.sow.power.aggroblast.cooldown.secondary", 20, 0, Integer.MAX_VALUE).json("aggroblast.cooldown.secondary");
         public final IConfigEntry<Double> aggroblastExhaustion = new DoubleEntry("config.sow.power.aggroblast.exhaustion", 2, 0, Integer.MAX_VALUE).json("aggroblast.exhaustion");
-        public final IConfigEntry<Double> aggroblastSpeed = new DoubleEntry("config.sow.power.aggroblast.speed", 0.5, 0, Integer.MAX_VALUE).json("aggroblast.speed");
+        public final IConfigEntry<Double> aggroblastSpeed = new DoubleEntry("config.sow.power.aggroblast.speed", 1, 0, Integer.MAX_VALUE).json("aggroblast.speed");
         public final IConfigEntry<Double> aggroblastRange = new DoubleEntry("config.sow.power.aggroblast.range", 5, 0, Integer.MAX_VALUE).json("aggroblast.range");
         public final IConfigEntry<Double> aggroblastDamage = new DoubleEntry("config.sow.power.aggroblast.damage", 4, 0, Integer.MAX_VALUE).json("aggroblast.damage");
 
@@ -118,6 +118,10 @@ public class SowConfig extends AutoInitConfigContainer {
         public final IConfigEntry<Integer> protearmorSecondaryCooldown = new IntegerEntry("config.sow.power.protearmor.cooldown.secondary", 80, 0, Integer.MAX_VALUE).json("protearmor.cooldown.secondary");
         public final IConfigEntry<Double> protearmorExhaustion = new DoubleEntry("config.sow.power.protearmor.exhaustion", 2.0 / 10, 0, Integer.MAX_VALUE).json("protearmor.exhaustion");
         public final IConfigEntry<Double> protearmorMaxReduceDamage = new DoubleEntry("config.sow.power.protearmor.maxReduceDamage", 20, 0, Integer.MAX_VALUE).json("protearmor.maxReduceDamage");
+        public final SeparatorEntry s4 = new SeparatorEntry();
+        public final IConfigEntry<Integer> proteclonePrimaryCooldown = new IntegerEntry("config.sow.power.proteclone.cooldown.primary", 60, 0, Integer.MAX_VALUE).json("proteclone.cooldown.primary");
+        public final IConfigEntry<Integer> protecloneSecondaryCooldown = new IntegerEntry("config.sow.power.proteclone.cooldown.secondary", 100, 0, Integer.MAX_VALUE).json("proteclone.cooldown.secondary");
+        public final IConfigEntry<Double> protecloneExhaustion = new DoubleEntry("config.sow.power.proteclone.exhaustion", 4, 0, Integer.MAX_VALUE).json("proteclone.exhaustion");
 
         public ProtisiumPowerConfig() {
             super("protisium", "config.sow.category.power.protisium");

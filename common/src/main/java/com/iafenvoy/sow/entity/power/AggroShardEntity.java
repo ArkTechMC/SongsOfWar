@@ -9,8 +9,8 @@ import net.minecraft.entity.ai.TargetPredicate;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 
-public class AggroShardEntity extends SopProjectileEntity {
-    public AggroShardEntity(EntityType<? extends SopProjectileEntity> entityType, World world) {
+public class AggroShardEntity extends AggroProjectileEntity {
+    public AggroShardEntity(EntityType<? extends AggroProjectileEntity> entityType, World world) {
         super(entityType, world);
     }
 

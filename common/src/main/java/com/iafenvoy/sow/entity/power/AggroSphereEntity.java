@@ -12,7 +12,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 
-public class AggroSphereEntity extends SopProjectileEntity {
+public class AggroSphereEntity extends AggroProjectileEntity {
     public AggroSphereEntity(EntityType<? extends AggroSphereEntity> entityType, World world) {
         super(entityType, world);
     }

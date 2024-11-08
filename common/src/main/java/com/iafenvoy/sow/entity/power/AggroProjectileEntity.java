@@ -17,12 +17,12 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 
-public class SopProjectileEntity extends PersistentProjectileEntity implements SupporekesisControllable {
-    private static final TrackedData<Integer> DISAPPEAR_CD = DataTracker.registerData(SopProjectileEntity.class, TrackedDataHandlerRegistry.INTEGER);
-    private static final TrackedData<Boolean> EXPLODE = DataTracker.registerData(SopProjectileEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+public class AggroProjectileEntity extends PersistentProjectileEntity implements SupporekesisControllable {
+    private static final TrackedData<Integer> DISAPPEAR_CD = DataTracker.registerData(AggroProjectileEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final TrackedData<Boolean> EXPLODE = DataTracker.registerData(AggroProjectileEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private float damageMultiplier = 1f;
 
-    protected SopProjectileEntity(EntityType<? extends SopProjectileEntity> entityType, World world) {
+    protected AggroProjectileEntity(EntityType<? extends AggroProjectileEntity> entityType, World world) {
         super(entityType, world);
         this.setNoClip(true);
         this.setNoGravity(true);
@@ -31,7 +31,7 @@ public class SopProjectileEntity extends PersistentProjectileEntity implements S
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
-        this.dataTracker.startTracking(DISAPPEAR_CD, 0);
+        this.dataTracker.startTracking(DISAPPEAR_CD, -1);
         this.dataTracker.startTracking(EXPLODE, false);
     }
 
@@ -68,12 +68,11 @@ public class SopProjectileEntity extends PersistentProjectileEntity implements S
         if (this.getY() > 1000 || this.age > 20 * 60)
             this.remove(RemovalReason.DISCARDED);
         int cd = this.getDisappearCd();
-        if (cd == 1) {
+        if (cd == 0) {
             if (this.getExplode())
                 this.getEntityWorld().createExplosion(this, DamageUtil.build(this.ownerOrSelf(), DamageTypes.EXPLOSION), new FakeExplosionBehavior(), this.getPos(), 0, false, World.ExplosionSourceType.NONE);
             this.remove(RemovalReason.DISCARDED);
-        } else if (cd > 1)
-            this.setDisappearCd(cd - 1);
+        } else if (cd > 0) this.setDisappearCd(cd - 1);
     }
 
     public boolean getExplode() {
@@ -105,7 +104,7 @@ public class SopProjectileEntity extends PersistentProjectileEntity implements S
     public void setDisappearCd(int disappearDelay, boolean explode) {
         this.setVelocity(0, 0, 0);
         this.velocityModified = true;
-        this.setDisappearCd(disappearDelay + 1);
+        this.setDisappearCd(disappearDelay);
         this.setExplode(explode);
     }
 }

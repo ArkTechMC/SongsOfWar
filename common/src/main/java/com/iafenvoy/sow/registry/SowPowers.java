@@ -7,10 +7,7 @@ import com.iafenvoy.neptune.util.RandomHelper;
 import com.iafenvoy.neptune.util.Timeout;
 import com.iafenvoy.sow.Static;
 import com.iafenvoy.sow.config.SowConfig;
-import com.iafenvoy.sow.entity.power.AggroDetonateEntity;
-import com.iafenvoy.sow.entity.power.AggroShardEntity;
-import com.iafenvoy.sow.entity.power.AggroSphereEntity;
-import com.iafenvoy.sow.entity.power.SupporekesisControllable;
+import com.iafenvoy.sow.entity.power.*;
 import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.power.SongPowerData;
 import com.iafenvoy.sow.power.component.MobiliBurstComponent;
@@ -298,6 +295,20 @@ public final class SowPowers {
                 }
                 return amount;
             }));
+    public static final InstantSongPower PROTECLONE = new InstantSongPower("proteclone", PowerCategory.PROTISIUM)
+            .setPrimaryCooldown(holder -> SowConfig.INSTANCE.protisium.proteclonePrimaryCooldown.getValue())
+            .setSecondaryCooldown(holder -> SowConfig.INSTANCE.protisium.protecloneSecondaryCooldown.getValue())
+            .setExhaustion(holder -> SowConfig.INSTANCE.protisium.protecloneExhaustion.getValue())
+            .onApply(holder -> {
+                PlayerEntity player = holder.getPlayer();
+                World world = holder.getWorld();
+                ProteCloneEntity proteClone = SowEntities.PROTE_CLONE.get().create(world);
+                if (proteClone != null) {
+                    proteClone.refreshPositionAndAngles(player.getX(), player.getY(), player.getZ(), player.getYaw(), player.getPitch());
+                    proteClone.setDisappearCd(SowConfig.INSTANCE.protisium.proteclonePrimaryCooldown.getValue());
+                    world.spawnEntity(proteClone);
+                }
+            });
     //Supportium
     public static final InstantSongPower SUPPOROLIFT = new InstantSongPower("supporolift", PowerCategory.SUPPORTIUM)
             .setPrimaryCooldown(holder -> SowConfig.INSTANCE.supportium.supporoliftPrimaryCooldown.getValue())
