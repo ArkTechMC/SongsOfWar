@@ -172,7 +172,7 @@ public final class SowPowers {
                     living.damage(DamageUtil.build(player, SowDamageTypes.AGGROBLAST), SowConfig.INSTANCE.aggressium.aggroblastDamage.getValue().floatValue());
                 } else holder.cancel();
             });
-    public static final PersistSongPower AGGROBEAM = new PersistSongPower("aggrobeam", PowerCategory.AGGRESSIUM)
+    public static final PersistSongPower AGGROBEAM = new PersistSongPower("aggrobeam", PowerCategory.AGGRESSIUM).experimental()
             .setExhaustion(holder -> SowConfig.INSTANCE.aggressium.aggrobeamExhaustion.getValue())
             .onTick(holder -> {
                 PlayerEntity player = holder.getPlayer();

@@ -73,6 +73,7 @@ If everything is correct, the song cube will start spawning particles. After an 
 - Aggrodetonate: Fire an explosive short laser.
 - Aggroshard: Fire a lot of shards.
 - Aggroblast: Push the entity you are looking at away and give damage.
+- Aggrobeam **(Experimental)**: Activate a laser, which can damage targeted entities.
 
 #### Mobilium
 
