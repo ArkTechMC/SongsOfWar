@@ -2,7 +2,7 @@ package com.iafenvoy.sow.util;
 
 import net.minecraft.util.math.Vec3d;
 
-public class SopMath {
+public class SowMath {
     public static Vec3d getRotationVector(float pitch, float yaw) {
         double f = Math.toRadians(pitch);
         double g = -Math.toRadians(yaw);
@@ -11,16 +11,6 @@ public class SopMath {
         double j = Math.cos(f);
         double k = Math.sin(f);
         return new Vec3d(i * j, -k, h * j);
-    }
-
-    public static Vec3d getRotationXYZ(float pitch, float yaw) {
-        double p = Math.toRadians(pitch);
-        double y = Math.toRadians(yaw);
-        double h = Math.sin(p);
-        double d = Math.cos(p);
-        double xd = d * Math.cos(y);
-        double zd = d * Math.sin(y);
-        return new Vec3d(Math.atan(h / xd), y, Math.atan(h / zd));
     }
 
     public static Vec3d getRotationVectorUnit(float pitch, float yaw) {

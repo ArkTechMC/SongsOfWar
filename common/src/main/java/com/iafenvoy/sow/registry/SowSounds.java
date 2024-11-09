@@ -21,6 +21,7 @@ public final class SowSounds {
     public static final RegistrySupplier<SoundEvent> PROTESPHERE_UNAPPLY = register("protesphere_unapply");
     public static final RegistrySupplier<SoundEvent> PROTEARMOR = register("protearmor");
     public static final RegistrySupplier<SoundEvent> PROTEARMOR_UNAPPLY = register("protearmor_unapply");
+    public static final RegistrySupplier<SoundEvent> PROTECLONE = register("proteclone");
 
     public static final RegistrySupplier<SoundEvent> AGGRESSIUM = register("aggressium");
     public static final RegistrySupplier<SoundEvent> MOBILIUM = register("mobilium");

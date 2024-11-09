@@ -71,6 +71,14 @@
       }
     ]
   },
+  "proteclone": {
+    "sounds": [
+      {
+        "name": "sow:proteclone",
+        "stream": false
+      }
+    ]
+  },
   "protesphere": {
     "sounds": [
       {

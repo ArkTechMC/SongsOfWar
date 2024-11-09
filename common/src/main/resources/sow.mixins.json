@@ -15,6 +15,7 @@
     "integration.ModPacketsC2SMixin"
   ],
   "client": [
+    "WorldAccessor",
     "InGameHudMixin",
     "PlayerEntityRendererMixin"
   ],

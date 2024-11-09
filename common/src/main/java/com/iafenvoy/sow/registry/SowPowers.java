@@ -8,12 +8,13 @@ import com.iafenvoy.neptune.util.Timeout;
 import com.iafenvoy.sow.Static;
 import com.iafenvoy.sow.config.SowConfig;
 import com.iafenvoy.sow.entity.power.*;
+import com.iafenvoy.sow.particle.LaserParticleBuilder;
 import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.power.SongPowerData;
 import com.iafenvoy.sow.power.component.MobiliBurstComponent;
 import com.iafenvoy.sow.power.component.MobiliWingsComponent;
 import com.iafenvoy.sow.power.type.*;
-import com.iafenvoy.sow.util.SopMath;
+import com.iafenvoy.sow.util.SowMath;
 import com.iafenvoy.sow.world.WorldUtil;
 import dev.architectury.registry.CreativeTabRegistry;
 import net.minecraft.block.BlockState;
@@ -23,16 +24,20 @@ import net.minecraft.entity.Ownable;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -53,7 +58,7 @@ public final class SowPowers {
                 PlayerEntity player = holder.getPlayer();
                 AggroSphereEntity aggroSphere = SowEntities.AGGRO_SPHERE.get().create(world);
                 if (aggroSphere != null) {
-                    final Vec3d dir = SopMath.getRotationVectorUnit(player.getPitch(), player.getHeadYaw());
+                    final Vec3d dir = SowMath.getRotationVectorUnit(player.getPitch(), player.getHeadYaw());
                     aggroSphere.setVelocity(dir.multiply(SowConfig.INSTANCE.aggressium.aggrosphereSpeed.getValue()));
                     holder.processProjectile(aggroSphere);
                     world.spawnEntity(aggroSphere);
@@ -71,7 +76,7 @@ public final class SowPowers {
                 Vec3d range = new Vec3d(r, r, r);
                 List<LivingEntity> entities = holder.getWorld().getEntitiesByClass(LivingEntity.class, new Box(player.getPos().add(range), player.getPos().subtract(range)), x -> x != player);
                 for (LivingEntity living : entities) {
-                    Vec3d dir = SopMath.reverse(player.getPos().subtract(living.getPos()), r).multiply(-0.5);
+                    Vec3d dir = SowMath.reverse(player.getPos().subtract(living.getPos()), r).multiply(-0.5);
                     living.damage(DamageUtil.build(living, SowDamageTypes.AGGROQUAKE), SowConfig.INSTANCE.aggressium.aggroquakeDamage.getValue().floatValue());
                     living.setVelocity(dir.add(0, 0.5, 0));
                     living.velocityModified = true;
@@ -84,7 +89,7 @@ public final class SowPowers {
             .onApply(holder -> {
                 if (!(holder.getWorld() instanceof ServerWorld serverWorld)) return;
                 PlayerEntity player = holder.getPlayer();
-                final Vec3d dir = SopMath.getRotationVectorUnit(player.getPitch(), player.getHeadYaw());
+                final Vec3d dir = SowMath.getRotationVectorUnit(player.getPitch(), player.getHeadYaw());
                 Vec3d pos = player.getPos();
                 for (int i = 0; i < SowConfig.INSTANCE.aggressium.aggroshockDistance.getValue(); i++) {
                     pos = pos.add(dir);
@@ -100,7 +105,7 @@ public final class SowPowers {
                 List<LivingEntity> entities = holder.getWorld().getEntitiesByClass(LivingEntity.class, new Box(player.getPos().add(range), player.getPos().subtract(range)), x -> x != player);
                 for (LivingEntity living : entities) {
                     Vec3d v = player.getPos().subtract(living.getPos());
-                    Vec3d dir = SopMath.reverse(v, r).multiply(SowConfig.INSTANCE.aggressium.aggrostormStrength.getValue());
+                    Vec3d dir = SowMath.reverse(v, r).multiply(SowConfig.INSTANCE.aggressium.aggrostormStrength.getValue());
                     if (v.length() <= r / 2)
                         living.damage(DamageUtil.build(living, SowDamageTypes.AGGROSTORM), SowConfig.INSTANCE.aggressium.aggrostormDamage.getValue().floatValue() / 20);
                     living.setVelocity(dir);
@@ -118,7 +123,7 @@ public final class SowPowers {
                 PlayerEntity player = holder.getPlayer();
                 AggroDetonateEntity aggroDetonate = SowEntities.AGGRO_DETONATE.get().create(world);
                 if (aggroDetonate != null) {
-                    Vec3d dir = SopMath.getRotationVectorUnit(player.getPitch(), player.getHeadYaw());
+                    Vec3d dir = SowMath.getRotationVectorUnit(player.getPitch(), player.getHeadYaw());
                     aggroDetonate.setVelocity(dir.multiply(SowConfig.INSTANCE.aggressium.aggrodetonateSpeed.getValue()));
                     holder.processProjectile(aggroDetonate);
                     world.spawnEntity(aggroDetonate);
@@ -138,7 +143,7 @@ public final class SowPowers {
                     Timeout.create(random.nextInt(25), () -> {
                         AggroShardEntity aggroShard = SowEntities.AGGRO_SHARD.get().create(world);
                         if (aggroShard != null) {
-                            Vec3d dir = SopMath.getRotationVectorUnit(player.getPitch(), player.getHeadYaw());
+                            Vec3d dir = SowMath.getRotationVectorUnit(player.getPitch(), player.getHeadYaw());
                             final double MUL = 0.2, speed = SowConfig.INSTANCE.aggressium.aggroshardSpeed.getValue();
                             aggroShard.setVelocity(dir.multiply(speed).add(RandomHelper.nextDouble(-speed * MUL, speed * MUL), RandomHelper.nextDouble(-speed * MUL, speed * MUL), RandomHelper.nextDouble(-speed * MUL, speed * MUL)));
                             holder.processProjectile(aggroShard);
@@ -153,19 +158,35 @@ public final class SowPowers {
             .setExhaustion(holder -> SowConfig.INSTANCE.aggressium.aggroblastExhaustion.getValue())
             .onApply(holder -> {
                 PlayerEntity player = holder.getPlayer();
-                EntityHitResult result = WorldUtil.raycastEntity(player, SowConfig.INSTANCE.aggressium.aggroblastRange.getValue());
+                EntityHitResult result = WorldUtil.raycastNearest(player, SowConfig.INSTANCE.aggressium.aggroblastRange.getValue());
                 if (result != null && result.getEntity() instanceof LivingEntity living) {
                     double speed = SowConfig.INSTANCE.aggressium.aggroblastSpeed.getValue();
                     Vec3d dir = living.getPos().subtract(player.getPos()).multiply(speed);
                     living.setVelocity(dir.add(0, 0.3, 0));
                     living.velocityModified = true;
                     if (holder.getWorld() instanceof ServerWorld serverWorld) {
-                        Vec3d d = SopMath.getRotationVector(player.getPitch(), player.getHeadYaw());
+                        Vec3d d = SowMath.getRotationVector(player.getPitch(), player.getHeadYaw());
                         for (int i = 0; i < 30; i++)
                             serverWorld.spawnParticles(SowParticles.AGGROBLAST.get(), player.getX(), player.getY() + 1, player.getZ(), 0, d.x, d.y, d.z, speed);
                     }
                     living.damage(DamageUtil.build(player, SowDamageTypes.AGGROBLAST), SowConfig.INSTANCE.aggressium.aggroblastDamage.getValue().floatValue());
                 } else holder.cancel();
+            });
+    public static final PersistSongPower AGGROBEAM = new PersistSongPower("aggrobeam", PowerCategory.AGGRESSIUM)
+            .setExhaustion(holder -> SowConfig.INSTANCE.aggressium.aggrobeamExhaustion.getValue())
+            .onTick(holder -> {
+                PlayerEntity player = holder.getPlayer();
+                World world = holder.getWorld();
+                double maxDistance = SowConfig.INSTANCE.aggressium.aggrobeamMaxDistance.getValue();
+                Vec3d pos = player.getPos().add(0, 1, 0), end = pos.add(SowMath.getRotationVectorUnit(player.getPitch(), player.getHeadYaw()).multiply(maxDistance));
+                BlockHitResult result = world.raycast(new RaycastContext(pos, end, RaycastContext.ShapeType.VISUAL, RaycastContext.FluidHandling.NONE, player));
+                double d = result.getPos().subtract(pos).length();
+                if (holder.getWorld() instanceof ServerWorld serverWorld)
+                    serverWorld.spawnParticles(new LaserParticleBuilder(player.getUuid(), Vec3d.ZERO, result.getType() == HitResult.Type.BLOCK ? d : maxDistance, 0.1F), player.getX(), player.getY() + 1, player.getZ(), 0, 1, 0, 0, 1);
+                List<EntityHitResult> results = WorldUtil.raycastAll(player, pos, end, new Box(pos, end), entity -> entity instanceof LivingEntity, d * d);
+                DamageSource source = DamageUtil.build(player, SowDamageTypes.AGGROBEAM);
+                for (EntityHitResult r : results)
+                    r.getEntity().damage(source, SowConfig.INSTANCE.aggressium.aggrobeamDamage.getValue().floatValue());
             });
     //Mobilium
     public static final DelaySongPower MOBILIFLASH = new DelaySongPower("mobiliflash", PowerCategory.MOBILIUM)
@@ -177,7 +198,7 @@ public final class SowPowers {
             .onApply(holder -> {
                 World world = holder.getWorld();
                 PlayerEntity player = holder.getPlayer();
-                final Vec3d dir = SopMath.getRotationVectorUnit(MathHelper.clamp(player.getPitch(), -15, 15), player.getHeadYaw());
+                final Vec3d dir = SowMath.getRotationVectorUnit(MathHelper.clamp(player.getPitch(), -15, 15), player.getHeadYaw());
                 player.setVelocity(dir.multiply(SowConfig.INSTANCE.mobilium.mobiliflashSpeed.getValue()));
                 player.velocityModified = true;
             });
@@ -231,7 +252,7 @@ public final class SowPowers {
             .onApply(holder -> {
                 World world = holder.getWorld();
                 PlayerEntity player = holder.getPlayer();
-                final Vec3d dir = SopMath.getRotationVectorUnit(MathHelper.clamp(player.getPitch(), -15, 15), player.getHeadYaw());
+                final Vec3d dir = SowMath.getRotationVectorUnit(MathHelper.clamp(player.getPitch(), -15, 15), player.getHeadYaw());
                 player.setVelocity(dir.multiply(SowConfig.INSTANCE.mobilium.mobiliburstSpeed.getValue()));
                 player.velocityModified = true;
                 MobiliBurstComponent component = new MobiliBurstComponent(player);
@@ -297,7 +318,9 @@ public final class SowPowers {
                 }
                 return amount;
             }));
-    public static final InstantSongPower PROTECLONE = new InstantSongPower("proteclone", PowerCategory.PROTISIUM)
+    public static final DelaySongPower PROTECLONE = new DelaySongPower("proteclone", PowerCategory.PROTISIUM)
+            .setDelay(12)
+            .setApplySound(SowSounds.PROTECLONE)
             .setPrimaryCooldown(holder -> SowConfig.INSTANCE.protisium.proteclonePrimaryCooldown.getValue())
             .setSecondaryCooldown(holder -> SowConfig.INSTANCE.protisium.protecloneSecondaryCooldown.getValue())
             .setExhaustion(holder -> SowConfig.INSTANCE.protisium.protecloneExhaustion.getValue())
@@ -318,7 +341,7 @@ public final class SowPowers {
             .setExhaustion(holder -> SowConfig.INSTANCE.supportium.supporoliftExhaustion.getValue())
             .onApply(holder -> {
                 PlayerEntity player = holder.getPlayer();
-                EntityHitResult result = WorldUtil.raycastEntity(player, SowConfig.INSTANCE.supportium.supporoliftRange.getValue());
+                EntityHitResult result = WorldUtil.raycastNearest(player, SowConfig.INSTANCE.supportium.supporoliftRange.getValue());
                 if (result != null && result.getEntity() instanceof LivingEntity living) {
                     Vec3d dir = player.getPos().subtract(living.getPos()).multiply(0.2);
                     living.setVelocity(dir.add(0, 0.3, 0));

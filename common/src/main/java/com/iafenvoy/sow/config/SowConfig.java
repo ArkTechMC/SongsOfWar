@@ -72,6 +72,10 @@ public class SowConfig extends AutoInitConfigContainer {
         public final IConfigEntry<Double> aggroblastSpeed = new DoubleEntry("config.sow.power.aggroblast.speed", 1, 0, Integer.MAX_VALUE).json("aggroblast.speed");
         public final IConfigEntry<Double> aggroblastRange = new DoubleEntry("config.sow.power.aggroblast.range", 5, 0, Integer.MAX_VALUE).json("aggroblast.range");
         public final IConfigEntry<Double> aggroblastDamage = new DoubleEntry("config.sow.power.aggroblast.damage", 4, 0, Integer.MAX_VALUE).json("aggroblast.damage");
+        public final SeparatorEntry s7 = new SeparatorEntry();
+        public final IConfigEntry<Double> aggrobeamExhaustion = new DoubleEntry("config.sow.power.aggrobeam.exhaustion", 4.0 / 10, 0, Integer.MAX_VALUE).json("aggrobeam.exhaustion");
+        public final IConfigEntry<Double> aggrobeamDamage = new DoubleEntry("config.sow.power.aggrobeam.damage", 2, 0, Integer.MAX_VALUE).json("aggrobeam.damage");
+        public final IConfigEntry<Double> aggrobeamMaxDistance = new DoubleEntry("config.sow.power.aggrobeam.maxDistance", 50, 0, Integer.MAX_VALUE).json("aggrobeam.maxDistance");
 
         public AggressiumPowerConfig() {
             super("aggressium", "config.sow.category.power.aggressium");

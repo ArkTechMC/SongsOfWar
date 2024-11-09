@@ -2,7 +2,7 @@ package com.iafenvoy.sow.power.component;
 
 import com.iafenvoy.sow.power.SongPowerData;
 import com.iafenvoy.sow.util.Serializable;
-import com.iafenvoy.sow.util.SopMath;
+import com.iafenvoy.sow.util.SowMath;
 import com.iafenvoy.sow.util.Tickable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -56,7 +56,7 @@ public class MobiliBurstComponent implements Serializable, Tickable {
             List<Entity> entities = this.player.getWorld().getOtherEntities(this.player, new Box(pos.add(new Vec3d(r, r, r)), pos.subtract(new Vec3d(r, r, r))), entity -> true);
             entities.forEach(entity -> {
                 Vec3d dir = entity.getPos().subtract(this.player.getPos()).add(this.player.getVelocity());
-                entity.setVelocity(SopMath.toUnit(dir.add(0, 0.5, 0)).multiply(this.player.getVelocity().length()));
+                entity.setVelocity(SowMath.toUnit(dir.add(0, 0.5, 0)).multiply(this.player.getVelocity().length()));
                 entity.velocityModified = true;
             });
         }

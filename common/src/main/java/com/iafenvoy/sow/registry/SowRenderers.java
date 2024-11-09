@@ -13,6 +13,7 @@ import com.iafenvoy.sow.entity.necromancer.XariaEntity;
 import com.iafenvoy.sow.entity.netharan.ChronosEntity;
 import com.iafenvoy.sow.entity.netharan.PythusEntity;
 import com.iafenvoy.sow.particle.AggroblastParticle;
+import com.iafenvoy.sow.particle.LaserParticle;
 import com.iafenvoy.sow.particle.SongEffectParticle;
 import com.iafenvoy.sow.render.power.AggroDetonateRenderer;
 import com.iafenvoy.sow.render.power.AggroSphereRenderer;
@@ -191,6 +192,7 @@ public final class SowRenderers {
     public static void registerParticleRenderer() {
         ParticleProviderRegistry.register(SowParticles.SONG_EFFECT, SongEffectParticle::create);
         ParticleProviderRegistry.register(SowParticles.AGGROBLAST, AggroblastParticle::create);
+        ParticleProviderRegistry.register(SowParticles.LASER, LaserParticle::create);
     }
 
     public static void registerBlockEntityRenderer() {
