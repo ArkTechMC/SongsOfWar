@@ -98,6 +98,8 @@ public class SowConfig extends AutoInitConfigContainer {
         public final IConfigEntry<Integer> mobiliburstSecondaryCooldown = new IntegerEntry("config.sow.power.mobiliburst.cooldown.secondary", 80, 0, Integer.MAX_VALUE).json("mobiliburst.cooldown.secondary");
         public final IConfigEntry<Double> mobiliburstExhaustion = new DoubleEntry("config.sow.power.mobiliburst.exhaustion", 4, 0, Integer.MAX_VALUE).json("mobiliburst.exhaustion");
         public final IConfigEntry<Double> mobiliburstSpeed = new DoubleEntry("config.sow.power.mobiliburst.speed", 8, 0, 50).json("mobiliburst.speed");
+        public final SeparatorEntry s5 = new SeparatorEntry();
+        public final IConfigEntry<Double> mobilileapExhaustion = new DoubleEntry("config.sow.power.mobilileap.exhaustion", 2.0 / 10, 0, Integer.MAX_VALUE).json("mobilileap.exhaustion");
 
         public MobiliumPowerConfig() {
             super("mobilium", "config.sow.category.power.mobilium");

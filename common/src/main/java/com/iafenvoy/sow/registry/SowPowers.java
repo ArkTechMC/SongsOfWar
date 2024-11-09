@@ -239,16 +239,18 @@ public final class SowPowers {
                 component.setMaxTick(SowConfig.INSTANCE.mobilium.mobiliburstPrimaryCooldown.getValue() + 20);
                 SongPowerData.byPlayer(player).addComponent(MobiliBurstComponent.ID, component);
             });
+    public static final PersistSongPower MOBILILEAP = new PersistSongPower("mobilileap", PowerCategory.MOBILIUM)
+            .setExhaustion(holder -> SowConfig.INSTANCE.mobilium.mobilileapExhaustion.getValue());
     //Protisium
     public static final PersistSongPower PROTESPHERE = new PersistSongPower("protesphere", PowerCategory.PROTISIUM)
             .setApplySound(SowSounds.PROTESPHERE)
+            .setUnapplySound(SowSounds.PROTESPHERE_UNAPPLY)
             .setExhaustion(holder -> SowConfig.INSTANCE.protisium.protesphereExhaustion.getValue())
             .onApply(holder -> {
                 EntityAttributeInstance instance = holder.getPlayer().getAttributes().getCustomInstance(EntityAttributes.GENERIC_ARMOR);
                 if (instance != null)
                     instance.addTemporaryModifier(new EntityAttributeModifier(Static.PROTESPHERE_UUID, "protesphere", 50, EntityAttributeModifier.Operation.ADDITION));
             })
-            .setUnapplySound(SowSounds.PROTESPHERE_UNAPPLY)
             .onUnapply(holder -> {
                 EntityAttributeInstance instance = holder.getPlayer().getAttributes().getCustomInstance(EntityAttributes.GENERIC_ARMOR);
                 if (instance != null) instance.removeModifier(Static.PROTESPHERE_UUID);

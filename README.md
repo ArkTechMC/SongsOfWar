@@ -83,6 +83,7 @@ If everything is correct, the song cube will start spawning particles. After an 
 - Mobiliglide: Slow falling.
 - Mobilibounce: Generate a fake platform and disappear in 5s. You can jump 3x higher on it.
 - Mobiliburst: Teleport to the direction you see, also pull every entity on your way away.
+- Mobilileap: Jump boost and invulnerable to fall damage.
 
 #### Protisium
 
