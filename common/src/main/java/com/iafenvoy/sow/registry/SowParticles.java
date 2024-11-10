@@ -18,7 +18,7 @@ public final class SowParticles {
     });
     public static final RegistrySupplier<DefaultParticleType> AGGROBLAST = register("aggroblast", () -> new DefaultParticleType(false) {
     });
-    public static final RegistrySupplier<LaserParticleBuilder> LASER = register("laser", () -> new LaserParticleBuilder(null, new Vec3d(0, 0, 0), 1, 1));
+    public static final RegistrySupplier<LaserParticleBuilder> LASER = register("laser", () -> new LaserParticleBuilder(null, 0, 0, 1, 0, 1));
 
     private static <T extends ParticleType<?>> RegistrySupplier<T> register(String id, Supplier<T> type) {
         return REGISTRY.register(id, type);

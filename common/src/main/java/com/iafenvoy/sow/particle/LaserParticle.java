@@ -53,10 +53,10 @@ public class LaserParticle extends SpriteBillboardParticle {
 
     private Vector3f[] getResultVector(Quaternionf quaternion, float newX, float newY, float newZ) {
         Vector3f[] resultVector = {
-                new Vector3f(-this.scale, 0, 0),
-                new Vector3f(-this.scale, (float) this.data.getDistance(), 0),
-                new Vector3f(this.scale, (float) this.data.getDistance(), 0),
-                new Vector3f(this.scale, 0, 0)
+                new Vector3f(-this.scale, (float) -this.data.getOffset(), 0),
+                new Vector3f(-this.scale, (float) (this.data.getDistance() - this.data.getOffset()), 0),
+                new Vector3f(this.scale, (float) (this.data.getDistance() - this.data.getOffset()), 0),
+                new Vector3f(this.scale, (float) -this.data.getOffset(), 0)
         };
         for (Vector3f vec : resultVector) {
             quaternion.transform(vec);

@@ -3,6 +3,7 @@ package com.iafenvoy.sow.particle;
 import com.iafenvoy.neptune.util.function.consumer.Consumer3;
 import com.iafenvoy.sow.mixin.WorldAccessor;
 import com.iafenvoy.sow.registry.SowParticles;
+import com.iafenvoy.sow.util.SowMath;
 import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.serialization.Codec;
@@ -27,40 +28,42 @@ public final class LaserParticleBuilder extends ParticleType<LaserParticleBuilde
         @Override
         public LaserParticleBuilder read(ParticleType<LaserParticleBuilder> type, StringReader reader) throws CommandSyntaxException {
             reader.expect(' ');
-            double rotationX = reader.readDouble();
+            double pitch = reader.readDouble();
             reader.expect(' ');
-            double rotationY = reader.readDouble();
-            reader.expect(' ');
-            double rotationZ = reader.readDouble();
+            double yaw = reader.readDouble();
             reader.expect(' ');
             double distance = reader.readDouble();
             reader.expect(' ');
             float energyScale = reader.readFloat();
-            return new LaserParticleBuilder(null, new Vec3d(rotationX, rotationY, rotationZ), distance, energyScale);
+            return new LaserParticleBuilder(null, Math.toRadians(pitch), Math.toRadians(yaw), distance, 0, energyScale);
         }
 
         @Override
         public LaserParticleBuilder read(ParticleType<LaserParticleBuilder> type, PacketByteBuf buf) {
-            return new LaserParticleBuilder(buf.readBoolean() ? buf.readUuid() : null, new Vec3d(buf.readDouble(), buf.readDouble(), buf.readDouble()), buf.readDouble(), buf.readFloat());
+            return new LaserParticleBuilder(buf.readBoolean() ? buf.readUuid() : null, buf.readDouble(), buf.readDouble(), buf.readDouble(), buf.readDouble(), buf.readFloat());
         }
     };
     public static final Codec<LaserParticleBuilder> CODEC = RecordCodecBuilder.create(val -> val.group(
             Uuids.CODEC.optionalFieldOf("owner", null).forGetter(LaserParticleBuilder::getOwner),
-            Vec3d.CODEC.fieldOf("rotation").forGetter(LaserParticleBuilder::getRotation),
+            Codec.DOUBLE.fieldOf("pitch").forGetter(LaserParticleBuilder::getPitch),
+            Codec.DOUBLE.fieldOf("yaw").forGetter(LaserParticleBuilder::getYaw),
             Codec.DOUBLE.fieldOf("distance").forGetter(LaserParticleBuilder::getDistance),
+            Codec.DOUBLE.fieldOf("offset").forGetter(LaserParticleBuilder::getOffset),
             Codec.FLOAT.fieldOf("energyScale").forGetter(LaserParticleBuilder::getEnergyScale)
     ).apply(val, LaserParticleBuilder::new));
     @Nullable
     private final UUID owner;
-    private Vec3d rotation;
-    private final double distance;
+    private double pitch, yaw;
+    private final double distance, offset;
     private final float energyScale;
 
-    public LaserParticleBuilder(@Nullable UUID owner, Vec3d rotation, double distance, float energyScale) {
+    public LaserParticleBuilder(@Nullable UUID owner, double pitch, double yaw, double distance, double offset, float energyScale) {
         super(true, FACTORY);
         this.owner = owner;
-        this.rotation = rotation;
+        this.pitch = pitch;
+        this.yaw = yaw;
         this.distance = distance;
+        this.offset = offset;
         this.energyScale = energyScale;
     }
 
@@ -76,14 +79,17 @@ public final class LaserParticleBuilder extends ParticleType<LaserParticleBuilde
             buf.writeBoolean(true);
             buf.writeUuid(this.owner);
         } else buf.writeBoolean(false);
+        buf.writeDouble(this.pitch);
+        buf.writeDouble(this.yaw);
         buf.writeDouble(this.distance);
+        buf.writeDouble(this.offset);
         buf.writeFloat(this.energyScale);
     }
 
     @NotNull
     @Override
     public String asString() {
-        return String.format(Locale.ROOT, "%s r=%s d=%.2f s=%.2f", Registries.PARTICLE_TYPE.getId(this.getType()), this.getRotation(), this.distance, this.energyScale);
+        return String.format(Locale.ROOT, "%s p=%.2f y=%.2f d=%.2f s=%.2f", Registries.PARTICLE_TYPE.getId(this.getType()), this.pitch, this.yaw, this.distance, this.energyScale);
     }
 
     @Nullable
@@ -91,28 +97,38 @@ public final class LaserParticleBuilder extends ParticleType<LaserParticleBuilde
         return this.owner;
     }
 
-    public Vec3d getRotation() {
-        return this.rotation;
+    public double getPitch() {
+        return this.pitch;
     }
 
-    public float getEnergyScale() {
-        return this.energyScale;
+    public double getYaw() {
+        return this.yaw;
     }
 
     public double getDistance() {
         return this.distance;
     }
 
+    public double getOffset() {
+        return this.offset;
+    }
+
+    public float getEnergyScale() {
+        return this.energyScale;
+    }
+
     public Quaternionf getRotationQuaternion(World world, Consumer3<Double, Double, Double> positionUpdater) {
         if (this.owner != null && world != null) {
             Entity entity = ((WorldAccessor) world).getEntityLookup().get(this.owner);
             if (entity != null) {
-                Vec3d pos = entity.getPos();
-                this.rotation = new Vec3d(Math.toRadians(entity.getPitch() + 90), Math.toRadians(-entity.getHeadYaw()), 0);
-                positionUpdater.accept(pos.getX(), pos.getY() + 1, pos.getZ());
+                this.pitch = Math.toRadians(entity.getPitch() + 90);
+                this.yaw = Math.toRadians(-entity.getHeadYaw());
+                Vec3d rotation = SowMath.getRotationVectorUnit(entity.getPitch(), entity.getHeadYaw());
+                Vec3d pos = entity.getPos().add(0, 1, 0).add(rotation.multiply(this.offset));
+                positionUpdater.accept(pos.getX(), pos.getY(), pos.getZ());
             }
         }
-        return new Quaternionf().rotateX((float) this.rotation.x).rotateLocalY((float) this.rotation.y);
+        return new Quaternionf().rotateX((float) this.pitch).rotateLocalY((float) this.yaw);
     }
 
     @Override

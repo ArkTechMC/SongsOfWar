@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 public final class SowSounds {
     public static final DeferredRegister<SoundEvent> REGISTRY = DeferredRegister.create(SongsOfWar.MOD_ID, RegistryKeys.SOUND_EVENT);
 
+    public static final RegistrySupplier<SoundEvent> AGGROBEAM = register("aggrobeam");
     public static final RegistrySupplier<SoundEvent> AGGROQUAKE = register("aggroquake");
     public static final RegistrySupplier<SoundEvent> AGGROSPHERE = register("aggrosphere");
     public static final RegistrySupplier<SoundEvent> AGGROSHARD = register("aggroshard");

@@ -173,16 +173,21 @@ public final class SowPowers {
                 } else holder.cancel();
             });
     public static final PersistSongPower AGGROBEAM = new PersistSongPower("aggrobeam", PowerCategory.AGGRESSIUM).experimental()
+            .setApplySound(SowSounds.AGGROBEAM)
             .setExhaustion(holder -> SowConfig.INSTANCE.aggressium.aggrobeamExhaustion.getValue())
             .onTick(holder -> {
                 PlayerEntity player = holder.getPlayer();
                 World world = holder.getWorld();
                 double maxDistance = SowConfig.INSTANCE.aggressium.aggrobeamMaxDistance.getValue();
-                Vec3d pos = player.getPos().add(0, 1, 0), end = pos.add(SowMath.getRotationVectorUnit(player.getPitch(), player.getHeadYaw()).multiply(maxDistance));
+                Vec3d rotation = SowMath.getRotationVectorUnit(player.getPitch(), player.getHeadYaw());
+                Vec3d pos = player.getPos().add(0, 1, 0), end = pos.add(rotation.multiply(maxDistance));
                 BlockHitResult result = world.raycast(new RaycastContext(pos, end, RaycastContext.ShapeType.VISUAL, RaycastContext.FluidHandling.NONE, player));
                 double d = result.getPos().subtract(pos).length();
-                if (holder.getWorld() instanceof ServerWorld serverWorld)
-                    serverWorld.spawnParticles(new LaserParticleBuilder(player.getUuid(), Vec3d.ZERO, result.getType() == HitResult.Type.BLOCK ? d : maxDistance, 0.1F), player.getX(), player.getY() + 1, player.getZ(), 0, 1, 0, 0, 1);
+                if (holder.getWorld() instanceof ServerWorld serverWorld) {
+                    final double OFFSET = 1;
+                    Vec3d p = pos.add(rotation.multiply(OFFSET));
+                    serverWorld.spawnParticles(new LaserParticleBuilder(player.getUuid(), 0, 0, result.getType() == HitResult.Type.BLOCK ? d : maxDistance, OFFSET, 0.1F), p.getX(), p.getY(), p.getZ(), 0, 1, 0, 0, 1);
+                }
                 List<EntityHitResult> results = WorldUtil.raycastAll(player, pos, end, new Box(pos, end), entity -> entity instanceof LivingEntity, d * d);
                 DamageSource source = DamageUtil.build(player, SowDamageTypes.AGGROBEAM);
                 for (EntityHitResult r : results)

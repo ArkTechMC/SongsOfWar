@@ -1,16 +1,32 @@
 {
-  "aggroquake": {
+  "aggressium": {
     "sounds": [
       {
-        "name": "sow:aggroquake",
+        "name": "sow:aggressium",
         "stream": false
       }
     ]
   },
-  "aggrosphere": {
+  "aggrobeam": {
     "sounds": [
       {
-        "name": "sow:aggrosphere",
+        "name": "sow:aggrobeam",
+        "stream": false
+      }
+    ]
+  },
+  "aggrodetonate": {
+    "sounds": [
+      {
+        "name": "sow:aggrodetonate",
+        "stream": false
+      }
+    ]
+  },
+  "aggroquake": {
+    "sounds": [
+      {
+        "name": "sow:aggroquake",
         "stream": false
       }
     ]
@@ -23,10 +39,10 @@
       }
     ]
   },
-  "aggrodetonate": {
+  "aggrosphere": {
     "sounds": [
       {
-        "name": "sow:aggrodetonate",
+        "name": "sow:aggrosphere",
         "stream": false
       }
     ]
@@ -47,10 +63,10 @@
       }
     ]
   },
-  "protepoint": {
+  "mobilium": {
     "sounds": [
       {
-        "name": "sow:protepoint",
+        "name": "sow:mobilium",
         "stream": false
       }
     ]
@@ -79,6 +95,14 @@
       }
     ]
   },
+  "protepoint": {
+    "sounds": [
+      {
+        "name": "sow:protepoint",
+        "stream": false
+      }
+    ]
+  },
   "protesphere": {
     "sounds": [
       {
@@ -91,22 +115,6 @@
     "sounds": [
       {
         "name": "sow:protesphere_unapply",
-        "stream": false
-      }
-    ]
-  },
-  "aggressium": {
-    "sounds": [
-      {
-        "name": "sow:aggressium",
-        "stream": false
-      }
-    ]
-  },
-  "mobilium": {
-    "sounds": [
-      {
-        "name": "sow:mobilium",
         "stream": false
       }
     ]
