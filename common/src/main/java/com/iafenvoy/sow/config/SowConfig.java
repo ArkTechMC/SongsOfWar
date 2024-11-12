@@ -146,6 +146,10 @@ public class SowConfig extends AutoInitConfigContainer {
         public final IConfigEntry<Double> supporekesisExhaustion = new DoubleEntry("config.sow.power.supporekesis.exhaustion", 2, 0, Integer.MAX_VALUE).json("supporekesis.exhaustion");
         public final IConfigEntry<Double> supporekesisRange = new DoubleEntry("config.sow.power.supporekesis.range", 20, 0, 16 * 16).json("supporekesis.range");
         public final IConfigEntry<Boolean> supporekesisControlSelf = new BooleanEntry("config.sow.power.supporekesis.control_self", false).json("supporekesis.control_self");
+        public final SeparatorEntry s2 = new SeparatorEntry();
+        public final IConfigEntry<Integer> supporoformPrimaryCooldown = new IntegerEntry("config.sow.power.supporoform.cooldown.primary", 40, 0, Integer.MAX_VALUE).json("supporoform.cooldown.primary");
+        public final IConfigEntry<Integer> supporoformSecondaryCooldown = new IntegerEntry("config.sow.power.supporoform.cooldown.secondary", 160, 0, Integer.MAX_VALUE).json("supporoform.cooldown.secondary");
+        public final IConfigEntry<Double> supporoformExhaustion = new DoubleEntry("config.sow.power.supporoform.exhaustion", 4, 0, Integer.MAX_VALUE).json("supporoform.exhaustion");
 
         public SupporiumPowerConfig() {
             super("supportium", "config.sow.category.power.supportium");

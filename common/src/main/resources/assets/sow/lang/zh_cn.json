@@ -143,6 +143,9 @@
   "config.sow.power.supporekesis.cooldown.secondary": "念移第二冷却时间",
   "config.sow.power.supporekesis.exhaustion": "念移疲惫度",
   "config.sow.power.supporekesis.range": "念移范围",
+  "config.sow.power.supporoform.cooldown.primary": "塑型第一冷却时间",
+  "config.sow.power.supporoform.cooldown.secondary": "塑型第二冷却时间",
+  "config.sow.power.supporoform.exhaustion": "塑型疲惫度",
   "config.sow.power.supporolift.cooldown.primary": "抬升第一冷却时间",
   "config.sow.power.supporolift.cooldown.secondary": "抬升第二冷却时间",
   "config.sow.power.supporolift.exhaustion": "抬升疲惫度",
@@ -614,5 +617,6 @@
   "songPower.sow.protepoint": "守核",
   "songPower.sow.protesphere": "护罩",
   "songPower.sow.supporekesis": "念移",
+  "songPower.sow.supporoform": "塑型",
   "songPower.sow.supporolift": "抬升"
 }

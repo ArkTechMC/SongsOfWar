@@ -143,6 +143,9 @@
   "config.sow.power.supporekesis.cooldown.secondary": "Supporekesis Secondary Cooldown",
   "config.sow.power.supporekesis.exhaustion": "Supporekesis Exhaustion",
   "config.sow.power.supporekesis.range": "Supporekesis Range",
+  "config.sow.power.supporoform.cooldown.primary": "Supporoform Primary Cooldown",
+  "config.sow.power.supporoform.cooldown.secondary": "Supporoform Secondary Cooldown",
+  "config.sow.power.supporoform.exhaustion": "Supporoform Exhaustion",
   "config.sow.power.supporolift.cooldown.primary": "Supporolift Primary Cooldown",
   "config.sow.power.supporolift.cooldown.secondary": "Supporolift Secondary Cooldown",
   "config.sow.power.supporolift.exhaustion": "Supporolift Exhaustion",
@@ -614,5 +617,6 @@
   "songPower.sow.protepoint": "Protepoint",
   "songPower.sow.protesphere": "Protesphere",
   "songPower.sow.supporekesis": "Supporekesis",
+  "songPower.sow.supporoform": "Supporoform",
   "songPower.sow.supporolift": "Supporolift"
 }

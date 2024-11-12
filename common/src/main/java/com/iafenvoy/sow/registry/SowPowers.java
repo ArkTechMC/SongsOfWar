@@ -14,6 +14,7 @@ import com.iafenvoy.sow.power.SongPowerData;
 import com.iafenvoy.sow.power.component.MobiliBurstComponent;
 import com.iafenvoy.sow.power.component.MobiliWingsComponent;
 import com.iafenvoy.sow.power.type.*;
+import com.iafenvoy.sow.util.RecipeUtils;
 import com.iafenvoy.sow.util.SowMath;
 import com.iafenvoy.sow.world.WorldUtil;
 import dev.architectury.registry.CreativeTabRegistry;
@@ -27,6 +28,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
@@ -367,6 +369,31 @@ public final class SowPowers {
                         continue;
                     if (c instanceof SupporekesisControllable controllable)
                         controllable.setDisappearCd(10, true);
+                }
+            });
+    public static final InstantSongPower SUPPOROFORM = new InstantSongPower("supporoform", PowerCategory.SUPPORTIUM)
+            .setPrimaryCooldown(holder -> SowConfig.INSTANCE.supportium.supporoformPrimaryCooldown.getValue())
+            .setSecondaryCooldown(holder -> SowConfig.INSTANCE.supportium.supporoformSecondaryCooldown.getValue())
+            .setExhaustion(holder -> SowConfig.INSTANCE.supportium.supporoformExhaustion.getValue())
+            .onApply(holder -> {
+                PlayerEntity player = holder.getPlayer();
+                World world = holder.getWorld();
+                if (!(world instanceof ServerWorld serverWorld)) return;
+                final int MAX_CNT = 41;
+                for (int i = 0; i < MAX_CNT; i++) {
+                    ItemStack stack = player.getInventory().getStack(i);
+                    if (stack.isEmpty()) continue;
+                    ItemStack stack1 = ItemStack.EMPTY;
+                    if (stack.isOf(Items.OBSIDIAN))
+                        stack1 = switch (stack.getCount()) {
+                            case 5 -> new ItemStack(SowItems.ENDER_KNIGHT_HELMET.get());
+                            case 8 -> new ItemStack(SowItems.ENDER_KNIGHT_CHESTPLATE.get());
+                            case 7 -> new ItemStack(SowItems.ENDER_KNIGHT_LEGGINGS.get());
+                            case 4 -> new ItemStack(SowItems.ENDER_KNIGHT_BOOTS.get());
+                            default -> ItemStack.EMPTY;
+                        };
+                    if (stack1.isEmpty()) stack1 = RecipeUtils.findSmeltResult(serverWorld, stack, player);
+                    if (!stack1.isEmpty()) player.getInventory().setStack(i, stack1);
                 }
             });
 
