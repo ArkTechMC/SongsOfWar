@@ -23,7 +23,7 @@ import org.joml.Quaternionf;
 import java.util.Locale;
 import java.util.UUID;
 
-public final class LaserParticleBuilder extends ParticleType<LaserParticleBuilder> implements ParticleEffect {
+public class LaserParticleBuilder extends ParticleType<LaserParticleBuilder> implements ParticleEffect {
     public static final Factory<LaserParticleBuilder> FACTORY = new Factory<>() {
         @Override
         public LaserParticleBuilder read(ParticleType<LaserParticleBuilder> type, StringReader reader) throws CommandSyntaxException {
@@ -43,14 +43,14 @@ public final class LaserParticleBuilder extends ParticleType<LaserParticleBuilde
             return new LaserParticleBuilder(buf.readBoolean() ? buf.readUuid() : null, buf.readDouble(), buf.readDouble(), buf.readDouble(), buf.readDouble(), buf.readFloat());
         }
     };
-    public static final Codec<LaserParticleBuilder> CODEC = RecordCodecBuilder.create(val -> val.group(
+    public static final Codec<LaserParticleBuilder> CODEC = RecordCodecBuilder.create(i -> i.group(
             Uuids.CODEC.optionalFieldOf("owner", null).forGetter(LaserParticleBuilder::getOwner),
             Codec.DOUBLE.fieldOf("pitch").forGetter(LaserParticleBuilder::getPitch),
             Codec.DOUBLE.fieldOf("yaw").forGetter(LaserParticleBuilder::getYaw),
             Codec.DOUBLE.fieldOf("distance").forGetter(LaserParticleBuilder::getDistance),
             Codec.DOUBLE.fieldOf("offset").forGetter(LaserParticleBuilder::getOffset),
             Codec.FLOAT.fieldOf("energyScale").forGetter(LaserParticleBuilder::getEnergyScale)
-    ).apply(val, LaserParticleBuilder::new));
+    ).apply(i, LaserParticleBuilder::new));
     @Nullable
     private final UUID owner;
     private double pitch, yaw;
@@ -97,6 +97,25 @@ public final class LaserParticleBuilder extends ParticleType<LaserParticleBuilde
         return this.owner;
     }
 
+    @Override
+    public Codec<LaserParticleBuilder> getCodec() {
+        return CODEC;
+    }
+
+    public Quaternionf getRotationQuaternion(World world, Consumer3<Double, Double, Double> positionUpdater) {
+        if (this.owner != null && world != null) {
+            Entity entity = ((WorldAccessor) world).getEntityLookup().get(this.owner);
+            if (entity != null) {
+                this.pitch = Math.toRadians(entity.getPitch() + 90);
+                this.yaw = Math.toRadians(-entity.getHeadYaw());
+                Vec3d rotation = SowMath.getRotationVectorUnit(entity.getPitch(), entity.getHeadYaw());
+                Vec3d pos = entity.getPos().add(0, 1, 0).add(rotation.multiply(this.offset));
+                positionUpdater.accept(pos.getX(), pos.getY(), pos.getZ());
+            }
+        }
+        return new Quaternionf().rotateX((float) this.pitch).rotateLocalY((float) this.yaw);
+    }
+
     public double getPitch() {
         return this.pitch;
     }
@@ -115,24 +134,5 @@ public final class LaserParticleBuilder extends ParticleType<LaserParticleBuilde
 
     public float getEnergyScale() {
         return this.energyScale;
-    }
-
-    public Quaternionf getRotationQuaternion(World world, Consumer3<Double, Double, Double> positionUpdater) {
-        if (this.owner != null && world != null) {
-            Entity entity = ((WorldAccessor) world).getEntityLookup().get(this.owner);
-            if (entity != null) {
-                this.pitch = Math.toRadians(entity.getPitch() + 90);
-                this.yaw = Math.toRadians(-entity.getHeadYaw());
-                Vec3d rotation = SowMath.getRotationVectorUnit(entity.getPitch(), entity.getHeadYaw());
-                Vec3d pos = entity.getPos().add(0, 1, 0).add(rotation.multiply(this.offset));
-                positionUpdater.accept(pos.getX(), pos.getY(), pos.getZ());
-            }
-        }
-        return new Quaternionf().rotateX((float) this.pitch).rotateLocalY((float) this.yaw);
-    }
-
-    @Override
-    public Codec<LaserParticleBuilder> getCodec() {
-        return CODEC;
     }
 }

@@ -1,6 +1,8 @@
-package com.iafenvoy.sow.particle;
+package com.iafenvoy.sow.render.particle;
 
 import com.iafenvoy.neptune.util.RandomHelper;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.particle.ParticleFactory;
 import net.minecraft.client.particle.ParticleTextureSheet;
 import net.minecraft.client.particle.SpriteBillboardParticle;
@@ -8,6 +10,7 @@ import net.minecraft.client.particle.SpriteProvider;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.DefaultParticleType;
 
+@Environment(EnvType.CLIENT)
 public class SongEffectParticle extends SpriteBillboardParticle {
     private final SpriteProvider spriteSet;
 

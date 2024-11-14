@@ -392,7 +392,7 @@ public final class SowPowers {
                             case 4 -> new ItemStack(SowItems.ENDER_KNIGHT_BOOTS.get());
                             default -> ItemStack.EMPTY;
                         };
-                    if (stack1.isEmpty()) stack1 = RecipeUtils.findSmeltResult(serverWorld, stack, player);
+                    if (stack1.isEmpty()) stack1 = RecipeUtils.findSmeltResult(serverWorld, stack, player).copy();
                     if (!stack1.isEmpty()) player.getInventory().setStack(i, stack1);
                 }
             });

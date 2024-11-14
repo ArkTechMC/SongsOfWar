@@ -1,5 +1,8 @@
-package com.iafenvoy.sow.particle;
+package com.iafenvoy.sow.render.particle;
 
+import com.iafenvoy.sow.particle.LaserParticleBuilder;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.particle.ParticleFactory;
 import net.minecraft.client.particle.ParticleTextureSheet;
@@ -8,12 +11,12 @@ import net.minecraft.client.particle.SpriteProvider;
 import net.minecraft.client.render.Camera;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RotationAxis;
 import net.minecraft.util.math.Vec3d;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
+@Environment(EnvType.CLIENT)
 public class LaserParticle extends SpriteBillboardParticle {
     private static final float RADIAN_45 = (float) Math.toRadians(45);
     private static final float RADIAN_90 = (float) Math.toRadians(90);
@@ -32,9 +35,9 @@ public class LaserParticle extends SpriteBillboardParticle {
     @Override
     public void buildGeometry(VertexConsumer vertexBuilder, Camera renderInfo, float partialTicks) {
         Vec3d view = renderInfo.getPos();
-        float newX = (float) (MathHelper.lerp(partialTicks, this.prevPosX, this.x) - view.x);
-        float newY = (float) (MathHelper.lerp(partialTicks, this.prevPosY, this.y) - view.y);
-        float newZ = (float) (MathHelper.lerp(partialTicks, this.prevPosZ, this.z) - view.z);
+        float newX = (float) (this.x - view.x);
+        float newY = (float) (this.y - view.y);
+        float newZ = (float) (this.z - view.z);
         float uMin = this.getMinU();
         float uMax = this.getMaxU();
         float vMin = this.getMinV();
@@ -46,9 +49,8 @@ public class LaserParticle extends SpriteBillboardParticle {
         });
         quaternion.mul(RotationAxis.POSITIVE_Y.rotation(RADIAN_45));
         this.drawComponent(vertexBuilder, this.getResultVector(quaternion, newX, newY, newZ), uMin, uMax, vMin, vMax);
-        Quaternionf quaternion2 = new Quaternionf(quaternion);
-        quaternion2.mul(RotationAxis.POSITIVE_Y.rotation(RADIAN_90));
-        this.drawComponent(vertexBuilder, this.getResultVector(quaternion2, newX, newY, newZ), uMin, uMax, vMin, vMax);
+        quaternion.mul(RotationAxis.POSITIVE_Y.rotation(RADIAN_90));
+        this.drawComponent(vertexBuilder, this.getResultVector(quaternion, newX, newY, newZ), uMin, uMax, vMin, vMax);
     }
 
     private Vector3f[] getResultVector(Quaternionf quaternion, float newX, float newY, float newZ) {
@@ -79,6 +81,11 @@ public class LaserParticle extends SpriteBillboardParticle {
 
     private void addVertex(VertexConsumer vertexBuilder, Vector3f pos, float u, float v) {
         vertexBuilder.vertex(pos.x(), pos.y(), pos.z()).texture(u, v).color(this.red, this.green, this.blue, this.alpha).light(240, 240).next();
+    }
+
+    @Override
+    public int getBrightness(float partialTick) {
+        return 15728880;
     }
 
     @Override
