@@ -123,6 +123,18 @@ Add some origins related to the animation.
 
 </details>
 
+### Farmer's Delight Support
+
+Peas! Comes from the countryside!
+
+- Peas: Add peas crop which can grow.
+- Peas burger, peas cake and other peas related food.
+- Peas Can: [Meme](https://youtu.be/TmErrDqnBf0?si=MYqYbNtYMQlT5E84&t=10) item.
+
+#### Future plan
+- Add peas wild generate.
+- Placeable :)
+
 ## License
 
 All official textures from SQM (weapons&entities&sounds) are freely to use since they are already in public. **But all

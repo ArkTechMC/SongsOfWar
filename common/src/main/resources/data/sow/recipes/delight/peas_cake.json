@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "farmersdelight:rice"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "sow:peas"
+    }
+  ],
+  "result": {
+    "item": "sow:peas_cake"
+  }
+}

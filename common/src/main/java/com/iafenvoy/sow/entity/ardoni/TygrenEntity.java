@@ -2,6 +2,7 @@ package com.iafenvoy.sow.entity.ardoni;
 
 import com.iafenvoy.neptune.util.Color4i;
 import com.iafenvoy.sow.SongsOfWar;
+import com.iafenvoy.sow.config.Anniversary;
 import com.iafenvoy.sow.data.ArdoniType;
 import com.iafenvoy.sow.entity.util.Flatable;
 import net.minecraft.entity.EntityType;
@@ -30,6 +31,7 @@ public class TygrenEntity extends AbstractArdoniEntity implements Flatable {
     protected void initDataTracker() {
         super.initDataTracker();
         this.dataTracker.startTracking(FLAT, false);
+        if (Anniversary.shouldInvoke()) this.flat();
     }
 
     @Override

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "sow:peas"
+    },
+    {
+      "item": "sow:peas"
+    },
+    {
+      "item": "sow:peas"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "sow:peas_string"
+  }
+}

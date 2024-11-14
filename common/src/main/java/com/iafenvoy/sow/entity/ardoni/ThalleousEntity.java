@@ -3,7 +3,10 @@ package com.iafenvoy.sow.entity.ardoni;
 import com.iafenvoy.neptune.render.glint.GlintManager;
 import com.iafenvoy.neptune.util.Color4i;
 import com.iafenvoy.sow.SongsOfWar;
+import com.iafenvoy.sow.config.Anniversary;
 import com.iafenvoy.sow.data.ArdoniType;
+import com.iafenvoy.sow.registry.SowBlocks;
+import com.iafenvoy.sow.registry.SowDelight;
 import com.iafenvoy.sow.registry.SowWeapons;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.HostileEntity;
@@ -21,6 +24,8 @@ public class ThalleousEntity extends AbstractArdoniEntity {
     public ThalleousEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
         this.setStackInHand(Hand.MAIN_HAND, GlintManager.BLUE.apply(new ItemStack(SowWeapons.SWORD_HALLEOUS.get()), true));
+        if (Anniversary.shouldInvoke())
+            this.setStackInHand(Hand.OFF_HAND, new ItemStack(SowDelight.PEAS_CAN.get()));
     }
 
     @Override

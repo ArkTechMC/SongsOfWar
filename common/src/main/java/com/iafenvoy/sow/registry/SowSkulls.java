@@ -1,5 +1,7 @@
 package com.iafenvoy.sow.registry;
 
+import com.iafenvoy.sow.SongsOfWar;
+import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -7,11 +9,15 @@ import net.minecraft.block.SkullBlock;
 import net.minecraft.block.WallSkullBlock;
 import net.minecraft.item.Item;
 import net.minecraft.item.SkullItem;
+import net.minecraft.registry.RegistryKeys;
 
 import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
 public final class SowSkulls {
+    public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(SongsOfWar.MOD_ID, RegistryKeys.BLOCK);
+    public static final DeferredRegister<Item> ITEM_REGISTRY = DeferredRegister.create(SongsOfWar.MOD_ID, RegistryKeys.ITEM);
+
     public static final RegistrySupplier<Block> ABBIGAIL_HEAD = register("abbigail_head", () -> new SkullBlock(SkullType.ABBIGAIL, AbstractBlock.Settings.create()));
     public static final RegistrySupplier<Block> ABBIGAIL_WALL_HEAD = register("abbigail_wall_head", () -> new WallSkullBlock(SkullType.ABBIGAIL, AbstractBlock.Settings.create()));
     public static final RegistrySupplier<Block> AEGUS_HEAD = register("aegus_head", () -> new SkullBlock(SkullType.AEGUS, AbstractBlock.Settings.create()));
@@ -144,11 +150,11 @@ public final class SowSkulls {
     public static final RegistrySupplier<Item> ZULIUS_HEAD_ITEM = register("zulius", ZULIUS_HEAD, ZULIUS_WALL_HEAD);
 
     private static RegistrySupplier<Block> register(String name, Supplier<Block> block) {
-        return SowBlocks.REGISTRY.register(name, block);
+        return REGISTRY.register(name, block);
     }
 
     private static RegistrySupplier<Item> register(String name, Supplier<Block> head, Supplier<Block> wallHead) {
-        return SowItems.REGISTRY.register(name + "_head", () -> new SkullItem(head.get(), wallHead.get(), new Item.Settings().arch$tab(SowItemGroups.MOBS)));
+        return ITEM_REGISTRY.register(name + "_head", () -> new SkullItem(head.get(), wallHead.get(), new Item.Settings().arch$tab(SowItemGroups.MOBS)));
     }
 
     public static void init() {

@@ -1,11 +1,9 @@
 package com.iafenvoy.sow.config;
 
 import com.iafenvoy.jupiter.config.container.AutoInitConfigContainer;
-import com.iafenvoy.jupiter.config.entry.BooleanEntry;
-import com.iafenvoy.jupiter.config.entry.DoubleEntry;
-import com.iafenvoy.jupiter.config.entry.IntegerEntry;
-import com.iafenvoy.jupiter.config.entry.SeparatorEntry;
+import com.iafenvoy.jupiter.config.entry.*;
 import com.iafenvoy.jupiter.interfaces.IConfigEntry;
+import com.iafenvoy.jupiter.interfaces.IConfigEnumEntry;
 import com.iafenvoy.sow.SongsOfWar;
 import net.minecraft.util.Identifier;
 
@@ -23,6 +21,7 @@ public class SowConfig extends AutoInitConfigContainer {
 
     public static class CommonConfig extends AutoInitConfigCategoryBase {
         public final IConfigEntry<Boolean> enableBeaconTp = new BooleanEntry("config.sow.common.enableBeaconTp", true).json("enableBeaconTp");
+        public final IConfigEntry<IConfigEnumEntry> anniversary = new EnumEntry("???", Anniversary.InvokeType.NORMAL).json("anniversary");
 
         public CommonConfig() {
             super("common", "config.sow.category.common");

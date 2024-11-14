@@ -1,0 +1,22 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "farmersdelight:rice"
+    },
+    {
+      "item": "farmersdelight:rice"
+    },
+    {
+      "item": "sow:peas"
+    },
+    {
+      "item": "sow:peas"
+    }
+  ],
+  "result": {
+    "item": "sow:peas_steamed_stuffed_bun"
+  }
+}

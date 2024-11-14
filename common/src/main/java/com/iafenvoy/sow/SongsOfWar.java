@@ -31,13 +31,17 @@ public class SongsOfWar {
         ConfigManager.getInstance().registerConfigHandler(SowConfig.INSTANCE);
         ConfigManager.getInstance().registerServerConfig(SowConfig.INSTANCE, ServerConfigManager.PermissionChecker.IS_OPERATOR);
 
-        SowSkulls.init();
         SowBlocks.REGISTRY.register();
+        SowBlocks.ITEM_REGISTRY.register();
         SowBlockEntities.REGISTRY.register();
+        SowDelight.REGISTRY.register();
         SowEntities.REGISTRY.register();
-        SowItems.REGISTRY.register();
         SowItemGroups.REGISTRY.register();
+        SowItems.REGISTRY.register();
         SowParticles.REGISTRY.register();
+        SowSpawnEggs.REGISTRY.register();
+        SowSkulls.REGISTRY.register();
+        SowSkulls.ITEM_REGISTRY.register();
         SowSounds.REGISTRY.register();
         SowWeapons.REGISTRY.register();
         SowCommands.init();
@@ -46,8 +50,6 @@ public class SongsOfWar {
 
     public static void process() {
         SowBanners.init();
-        SowItems.init();
-        SowBlocks.init();
         SowPowers.init();
         BlockEvent.BREAK.register((world, pos, state, player, xp) -> {
             if (state.isOf(Blocks.BEACON) && world instanceof ServerWorld serverWorld)

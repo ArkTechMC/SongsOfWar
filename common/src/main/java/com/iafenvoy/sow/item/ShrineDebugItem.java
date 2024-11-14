@@ -1,5 +1,6 @@
 package com.iafenvoy.sow.item;
 
+import com.iafenvoy.sow.registry.SowItemGroups;
 import com.iafenvoy.sow.world.ShrineStructureHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -13,7 +14,7 @@ import net.minecraft.world.World;
 
 public class ShrineDebugItem extends Item {
     public ShrineDebugItem() {
-        super(new Settings().rarity(Rarity.EPIC).maxCount(1));
+        super(new Settings().rarity(Rarity.EPIC).maxCount(1).arch$tab(SowItemGroups.POWER));
     }
 
     @Override
