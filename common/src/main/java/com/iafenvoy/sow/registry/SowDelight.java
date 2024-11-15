@@ -9,10 +9,11 @@ import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 
-public class SowDelight {
+@SuppressWarnings("unused")
+public final class SowDelight {
     public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(SongsOfWar.MOD_ID, RegistryKeys.ITEM);
 
-    public static final RegistrySupplier<Item> PEAS_CAN = REGISTRY.register("peas_can", () -> new PeasCanItem());
+    public static final RegistrySupplier<Item> PEAS_CAN = REGISTRY.register("peas_can", PeasCanItem::new);
     public static final RegistrySupplier<Item> PEAS_BURGER = REGISTRY.register("peas_burger", () -> new PeasDelightItem(p -> p.food(new FoodComponent.Builder().hunger(4).saturationModifier(1).build())));
     public static final RegistrySupplier<Item> PEAS_CAKE = REGISTRY.register("peas_cake", () -> new PeasDelightItem(p -> p.food(new FoodComponent.Builder().hunger(2).saturationModifier(0.75f).build())));
     public static final RegistrySupplier<Item> PEAS_FLOUR_CAKE = REGISTRY.register("peas_flour_cake", () -> new PeasDelightItem(p -> p.food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).build())));

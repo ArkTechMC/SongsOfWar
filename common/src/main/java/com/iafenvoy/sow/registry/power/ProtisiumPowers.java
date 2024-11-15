@@ -21,7 +21,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
 @SuppressWarnings("unused")
-public class ProtisiumPowers {
+public final class ProtisiumPowers {
     public static final PersistSongPower PROTEARMOR = new PersistSongPower("protearmor", PowerCategory.PROTISIUM)
             .setApplySound(SowSounds.PROTEARMOR)
             .setUnapplySound(SowSounds.PROTEARMOR_UNAPPLY)

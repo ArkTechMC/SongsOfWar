@@ -15,13 +15,9 @@ import com.iafenvoy.sow.entity.netharan.PythusEntity;
 import com.iafenvoy.sow.render.block.SongCubeBlockEntityRenderer;
 import com.iafenvoy.sow.render.entity.ArdoniEntityRenderer;
 import com.iafenvoy.sow.render.particle.AggroblastParticle;
-import com.iafenvoy.sow.render.particle.BlockDisplayParticle;
 import com.iafenvoy.sow.render.particle.LaserParticle;
 import com.iafenvoy.sow.render.particle.SongEffectParticle;
-import com.iafenvoy.sow.render.power.AggroDetonateRenderer;
-import com.iafenvoy.sow.render.power.AggroShardRenderer;
-import com.iafenvoy.sow.render.power.AggroSphereRenderer;
-import com.iafenvoy.sow.render.power.ProteCloneRenderer;
+import com.iafenvoy.sow.render.power.*;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.client.particle.ParticleProviderRegistry;
 import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
@@ -37,6 +33,7 @@ public final class SowRenderers {
         EntityRendererRegistry.register(SowEntities.AGGRO_DETONATE, AggroDetonateRenderer::new);
         EntityRendererRegistry.register(SowEntities.AGGRO_SHARD, AggroShardRenderer::new);
         EntityRendererRegistry.register(SowEntities.PROTE_CLONE, ProteCloneRenderer::new);
+        EntityRendererRegistry.register(SowEntities.SUPPORO_SPIKE, SupporoSpikeRenderer::new);
 
         EntityRendererRegistry.register(SowEntities.NONE_TYPE_ARDONI, ArdoniEntityRenderer::new);
         EntityRendererRegistry.register(SowEntities.VOLTARIS_ARDONI, ArdoniEntityRenderer::new);
@@ -194,7 +191,6 @@ public final class SowRenderers {
         ParticleProviderRegistry.register(SowParticles.SONG_EFFECT, SongEffectParticle::create);
         ParticleProviderRegistry.register(SowParticles.AGGROBLAST, AggroblastParticle::create);
         ParticleProviderRegistry.register(SowParticles.LASER, LaserParticle::create);
-        ParticleProviderRegistry.register(SowParticles.BLOCK_DISPLAY, BlockDisplayParticle::create);
     }
 
     public static void registerBlockEntityRenderer() {

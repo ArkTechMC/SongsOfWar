@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 
 @SuppressWarnings("unused")
-public class SowSpawnEggs {
+public final class SowSpawnEggs {
     public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(SongsOfWar.MOD_ID, RegistryKeys.ITEM);
     //Misc
     public static final RegistrySupplier<Item> NONE_TYPE_ARDONI_SPAWN_EGG = REGISTRY.register("none_type_ardoni_spawn_egg", () -> ArdoniType.NONE.createSpawnEgg(SowEntities.NONE_TYPE_ARDONI));

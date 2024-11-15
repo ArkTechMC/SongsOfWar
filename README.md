@@ -1,5 +1,9 @@
 # Songs of War
 
+![forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/forge_vector.svg)
+![fabric](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/fabric_vector.svg)
+![quilt](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/unsupported/quilt_vector.svg)
+
 This is a mod to add elements from [Songs of War Animation](https://youtu.be/Uc7YMW3AKpg).
 
 ~~Put me into the washing machine like the logo if you meet any bugs.~~

@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Random;
 
 @SuppressWarnings("unused")
-public class AggressiumPowers {
+public final class AggressiumPowers {
     public static final PersistSongPower AGGROBEAM = new PersistSongPower("aggrobeam", PowerCategory.AGGRESSIUM).experimental()
             .setApplySound(SowSounds.AGGROBEAM)
             .setExhaustion(holder -> SowConfig.INSTANCE.aggressium.aggrobeamExhaustion.getValue())
