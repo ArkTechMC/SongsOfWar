@@ -29,8 +29,10 @@ public class PeasCanItem extends PeasDelightItem {
 
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-        if (entity instanceof ThalleousEntity thalleous)
+        if (entity instanceof ThalleousEntity thalleous) {
             thalleous.equipStack(EquipmentSlot.HEAD, stack.copyWithCount(1));
+            return ActionResult.SUCCESS;
+        }
         return super.useOnEntity(stack, user, entity, hand);
     }
 }

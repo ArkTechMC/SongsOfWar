@@ -2,7 +2,7 @@ package com.iafenvoy.sow.mixin;
 
 import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.power.SongPowerData;
-import com.iafenvoy.sow.registry.SowPowers;
+import com.iafenvoy.sow.registry.power.MobiliumPowers;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -25,7 +25,7 @@ public abstract class LivingEntityMixin extends Entity {
     private void handleFallFlyingCheck(CallbackInfo ci) {
         LivingEntity entity = (LivingEntity) (Object) this;
         if (!entity.getWorld().isClient && entity instanceof PlayerEntity player && !player.isOnGround() && !player.hasVehicle() && !player.hasStatusEffect(StatusEffects.LEVITATION))
-            if (SongPowerData.byPlayer(player).powerEnabled(PowerCategory.MOBILIUM, SowPowers.MOBILIWINGS)) {
+            if (SongPowerData.byPlayer(player).powerEnabled(PowerCategory.MOBILIUM, MobiliumPowers.MOBILIWINGS)) {
                 this.setFlag(7, true);
                 ci.cancel();
             }
@@ -34,7 +34,7 @@ public abstract class LivingEntityMixin extends Entity {
     @SuppressWarnings("all")
     @ModifyExpressionValue(method = "travel", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;hasStatusEffect(Lnet/minecraft/entity/effect/StatusEffect;)Z", ordinal = 0))
     private boolean handleSlideSpeed(boolean original) {
-        if ((Object) this instanceof PlayerEntity player && SongPowerData.byPlayer(player).powerEnabled(PowerCategory.MOBILIUM, SowPowers.MOBILIGLIDE)) {
+        if ((Object) this instanceof PlayerEntity player && SongPowerData.byPlayer(player).powerEnabled(PowerCategory.MOBILIUM, MobiliumPowers.MOBILIGLIDE)) {
             this.fallDistance = 0;
             return true;
         }

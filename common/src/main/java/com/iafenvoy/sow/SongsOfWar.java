@@ -9,6 +9,8 @@ import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.power.SongPowerData;
 import com.iafenvoy.sow.power.component.MobiliWingsComponent;
 import com.iafenvoy.sow.registry.*;
+import com.iafenvoy.sow.registry.power.MobiliumPowers;
+import com.iafenvoy.sow.registry.power.SowPowers;
 import com.iafenvoy.sow.world.sound.ServerSongCubeEntityDataHelper;
 import com.mojang.logging.LogUtils;
 import dev.architectury.event.EventResult;
@@ -80,7 +82,7 @@ public class SongsOfWar {
         NetworkManager.registerReceiver(NetworkManager.Side.C2S, Static.JUMP_PRESS, (buf, context) -> {
             PlayerEntity player = context.getPlayer();
             SongPowerData data = SongPowerData.byPlayer(player);
-            if (data.powerEnabled(PowerCategory.MOBILIUM, SowPowers.MOBILIWINGS))
+            if (data.powerEnabled(PowerCategory.MOBILIUM, MobiliumPowers.MOBILIWINGS))
                 context.queue(() -> {
                     if (SongPowerData.byPlayer(player).getComponent(MobiliWingsComponent.ID) instanceof MobiliWingsComponent component)
                         component.speedUp();

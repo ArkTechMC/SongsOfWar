@@ -2,7 +2,7 @@ package com.iafenvoy.sow.render.power;
 
 import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.power.SongPowerData;
-import com.iafenvoy.sow.registry.SowPowers;
+import com.iafenvoy.sow.registry.power.ProtisiumPowers;
 import com.iafenvoy.sow.render.RenderConstants;
 import com.iafenvoy.sow.render.power.model.SphereModel;
 import net.fabricmc.api.EnvType;
@@ -28,7 +28,7 @@ public class ProtisiumSphereFeatureRenderer<T extends PlayerEntity, M extends Pl
 
     @Override
     public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, T entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
-        if (SongPowerData.byPlayer(entity).powerEnabled(PowerCategory.PROTISIUM, SowPowers.PROTESPHERE)) {
+        if (SongPowerData.byPlayer(entity).powerEnabled(PowerCategory.PROTISIUM, ProtisiumPowers.PROTESPHERE)) {
             matrices.push();
             matrices.scale(2.5f, 2.5f, 2.5f);
             matrices.translate(0, -0.8, 0);

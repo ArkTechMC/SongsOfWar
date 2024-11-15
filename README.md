@@ -126,7 +126,6 @@ Add some origins related to the animation.
 ### Farmer's Delight Support
 
 Peas! Comes from the countryside!
-
 - Peas: Add peas crop which can grow.
 - Peas burger, peas cake and other peas related food.
 - Peas Can: [Meme](https://youtu.be/TmErrDqnBf0?si=MYqYbNtYMQlT5E84&t=10) item.
@@ -134,6 +133,27 @@ Peas! Comes from the countryside!
 #### Future plan
 - Add peas wild generate.
 - Placeable :)
+
+### Other Things
+
+
+
+## Mods Relations
+
+### Dependencies
+
+- Neptune
+- Jupiter
+
+### Recommended to install
+
+These mods are not mandatory to install, but they are recommended to gain better game experience.
+- Attribute Fix
+- EMI
+- Farmer's Delight (Refabricated)
+- Max Health Fix
+- Origins
+- Tips
 
 ## License
 

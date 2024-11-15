@@ -2,7 +2,7 @@ package com.iafenvoy.sow.mixin;
 
 import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.power.SongPowerData;
-import com.iafenvoy.sow.registry.SowPowers;
+import com.iafenvoy.sow.registry.power.MobiliumPowers;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,7 +15,7 @@ public class EntityMixin {
     @Inject(method = "getJumpVelocityMultiplier", at = @At("RETURN"), cancellable = true)
     private void modifyJumpHeight(CallbackInfoReturnable<Float> cir) {
         Entity self = (Entity) (Object) this;
-        if (self instanceof PlayerEntity player && SongPowerData.byPlayer(player).powerEnabled(PowerCategory.MOBILIUM, SowPowers.MOBILILEAP))
+        if (self instanceof PlayerEntity player && SongPowerData.byPlayer(player).powerEnabled(PowerCategory.MOBILIUM, MobiliumPowers.MOBILILEAP))
             cir.setReturnValue(cir.getReturnValue() * 5);
     }
 }

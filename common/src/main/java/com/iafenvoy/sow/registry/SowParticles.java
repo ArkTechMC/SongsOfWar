@@ -21,7 +21,7 @@ public final class SowParticles {
     public static final RegistrySupplier<DefaultParticleType> AGGROBLAST = register("aggroblast", () -> new DefaultParticleType(false) {
     });
     public static final RegistrySupplier<LaserParticleBuilder> LASER = register("laser", () -> new LaserParticleBuilder(null, 0, 0, 1, 0, 1));
-    public static final RegistrySupplier<BlockDisplayParticleBuilder> BLOCK_DISPLAY = register("block_display", () -> new BlockDisplayParticleBuilder(Blocks.AIR.getDefaultState(), Vec3d.ZERO, 1, 20));
+    public static final RegistrySupplier<BlockDisplayParticleBuilder> BLOCK_DISPLAY = register("block_display", () -> new BlockDisplayParticleBuilder(Blocks.AIR.getDefaultState(), true, Vec3d.ZERO, 1, 20));
 
     private static <T extends ParticleType<?>> RegistrySupplier<T> register(String id, Supplier<T> type) {
         return REGISTRY.register(id, type);
