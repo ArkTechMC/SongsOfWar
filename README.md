@@ -138,10 +138,6 @@ Peas! Comes from the countryside!
 - Add peas wild generate.
 - Placeable :)
 
-### Other Things
-
-
-
 ## Mods Relations
 
 ### Dependencies
