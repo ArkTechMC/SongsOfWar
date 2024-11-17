@@ -133,6 +133,8 @@ Add some origins related to the animation.
 
 Peas! Comes from the countryside!
 
+<div align=center><img src="https://raw.githubusercontent.com/CodeOfArdonia/SongsOfWar/refs/heads/master/img/5.webp" style="width:400px;text-align:center;" alt=""></img></div>
+
 - Peas: Add peas crop which can grow.
 - Peas burger, peas cake and other peas related food.
 - Peas Can: [Meme](https://youtu.be/TmErrDqnBf0?si=MYqYbNtYMQlT5E84&t=10) item.
