@@ -1,9 +1,9 @@
 package com.iafenvoy.sow.item.block.entity;
 
 import com.iafenvoy.sow.Static;
+import com.iafenvoy.sow.network.ClientNetworkHelper;
 import com.iafenvoy.sow.power.type.AbstractSongPower;
 import com.iafenvoy.sow.power.type.DummySongPower;
-import com.iafenvoy.sow.world.sound.ClientSongCubeEntityDataHelper;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -48,7 +48,7 @@ public abstract class AbstractSongCubeBlockEntity extends BlockEntity {
         if (!world.isClient) return;
         //Sound system should only be used on client
         if (blockEntity.power.isEmpty()) {
-            ClientSongCubeEntityDataHelper.request(pos);
+            ClientNetworkHelper.request(pos);
             return;
         }
         if (Static.songCubeSoundManager.nearEnough(pos))

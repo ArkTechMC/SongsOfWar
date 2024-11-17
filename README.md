@@ -50,6 +50,8 @@ Restore song power in animation.
 
 #### Combine song cube
 
+**Mod will also extract a schematic file, you can use it with `Litematica`**
+
 Build a shrine structure below. Put song cube in the hole like how to do in Animation.
 Then stand on the `chiseled stone bricks`, look at the song cube and sneak for 3s.
 
@@ -117,24 +119,26 @@ Add some origins related to the animation.
 <details>
 <summary>Added Origins</summary>
 
-| Origin    | Impact | Advantages                                                               | Disadvantages             |
-|:----------|:-------|:-------------------------------------------------------------------------|:--------------------------|
-| Ardoni    | High   | +10 Health <br> Use song ability <br> Invulnerable to potions            | Cannot use redstone       |
-| Felina    | Medium | Can climb <br> Speed and jump boost <br> Invulnerable to fall            | Afraid of water           |
-| Magnorite | High   | Invulnerable to fire, lava and fall <br> Faster in lava <br> +10 Defense | Very afraid of water&cold |
-| Netharan  | Low    | Invulnerable to fire                                                     | Afraid of water&cold      |
-| Glacian   | Medium | Invulnerable to powder snow <br> +5 Defense                              | Afraid of hot             |
+| Origin    | Impact | Advantages                                                                                   | Disadvantages             |
+|:----------|:-------|:---------------------------------------------------------------------------------------------|:--------------------------|
+| Ardoni    | High   | +10 Health **(Recommend Max Health Fix)** <br> Use song ability <br> Invulnerable to potions | Cannot use redstone       |
+| Felina    | Medium | Can climb <br> Speed and jump boost <br> Invulnerable to fall                                | Afraid of water           |
+| Magnorite | High   | Invulnerable to fire, lava and fall <br> Faster in lava <br> +10 Defense                     | Very afraid of water&cold |
+| Netharan  | Low    | Invulnerable to fire                                                                         | Afraid of water&cold      |
+| Glacian   | Medium | Invulnerable to powder snow <br> +5 Defense                                                  | Afraid of hot             |
 
 </details>
 
 ### Farmer's Delight Support
 
 Peas! Comes from the countryside!
+
 - Peas: Add peas crop which can grow.
 - Peas burger, peas cake and other peas related food.
 - Peas Can: [Meme](https://youtu.be/TmErrDqnBf0?si=MYqYbNtYMQlT5E84&t=10) item.
 
 #### Future plan
+
 - Add peas wild generate.
 - Placeable :)
 
@@ -142,18 +146,20 @@ Peas! Comes from the countryside!
 
 ### Dependencies
 
-- Neptune
-- Jupiter
+- `Neptune`: Provide base utilities.
+- `Jupiter`: Provide config system.
 
 ### Recommended to install
 
 These mods are not mandatory to install, but they are recommended to gain better game experience.
-- Attribute Fix
-- EMI
-- Farmer's Delight (Refabricated)
-- Max Health Fix
-- Origins
-- Tips
+
+- `Attribute Fix`: Fix `Protesphere` armor value leak.
+- `EMI`: Check recipes.
+- `Farmer's Delight (Refabricated)`: Enable crafting recipe for Peas Delight items.
+- `Litematica`: SoW Mod provide shrine schematic for it.
+- `Max Health Fix`: Fix Ardoni Origin health problem.
+- `Origins`: SoW Mod provide new origins for it.
+- `Tips`: SoW Mod provide quotes for it.
 
 ## License
 
