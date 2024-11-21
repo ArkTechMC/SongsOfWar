@@ -55,7 +55,7 @@ public final class AggressiumPowers {
                 List<EntityHitResult> results = WorldUtil.raycastAll(player, pos, end, new Box(pos, end), entity -> entity instanceof LivingEntity, d * d);
                 DamageSource source = DamageUtil.build(player, SowDamageTypes.AGGROBEAM);
                 for (EntityHitResult r : results)
-                    r.getEntity().damage(source, SowConfig.INSTANCE.aggressium.aggrobeamDamage.getValue().floatValue());
+                    r.getEntity().damage(source, holder.processDamage(SowConfig.INSTANCE.aggressium.aggrobeamDamage.getValue().floatValue()));
             });
     public static final InstantSongPower AGGROBLAST = new InstantSongPower("aggroblast", PowerCategory.AGGRESSIUM)
             .setPrimaryCooldown(holder -> SowConfig.INSTANCE.aggressium.aggroblastPrimaryCooldown.getValue())
@@ -74,7 +74,7 @@ public final class AggressiumPowers {
                         for (int i = 0; i < 30; i++)
                             serverWorld.spawnParticles(SowParticles.AGGROBLAST.get(), player.getX(), player.getY() + 1, player.getZ(), 0, d.x, d.y, d.z, speed);
                     }
-                    living.damage(DamageUtil.build(player, SowDamageTypes.AGGROBLAST), SowConfig.INSTANCE.aggressium.aggroblastDamage.getValue().floatValue());
+                    living.damage(DamageUtil.build(player, SowDamageTypes.AGGROBLAST), holder.processDamage(SowConfig.INSTANCE.aggressium.aggroblastDamage.getValue().floatValue()));
                 } else holder.cancel();
             });
     public static final DelaySongPower AGGRODETONATE = new DelaySongPower("aggrodetonate", PowerCategory.AGGRESSIUM)
@@ -107,7 +107,7 @@ public final class AggressiumPowers {
                 List<LivingEntity> entities = holder.getWorld().getEntitiesByClass(LivingEntity.class, new Box(player.getPos().add(range), player.getPos().subtract(range)), x -> x != player);
                 for (LivingEntity living : entities) {
                     Vec3d dir = SowMath.reverse(player.getPos().subtract(living.getPos()), r).multiply(-0.5);
-                    living.damage(DamageUtil.build(living, SowDamageTypes.AGGROQUAKE), SowConfig.INSTANCE.aggressium.aggroquakeDamage.getValue().floatValue());
+                    living.damage(DamageUtil.build(living, SowDamageTypes.AGGROQUAKE), holder.processDamage(SowConfig.INSTANCE.aggressium.aggroquakeDamage.getValue().floatValue()));
                     living.setVelocity(dir.add(0, 0.5, 0));
                     living.velocityModified = true;
                 }
@@ -177,7 +177,7 @@ public final class AggressiumPowers {
                     Vec3d v = player.getPos().subtract(living.getPos());
                     Vec3d dir = SowMath.reverse(v, r).multiply(SowConfig.INSTANCE.aggressium.aggrostormStrength.getValue());
                     if (v.length() <= r / 2)
-                        living.damage(DamageUtil.build(living, SowDamageTypes.AGGROSTORM), SowConfig.INSTANCE.aggressium.aggrostormDamage.getValue().floatValue() / 20);
+                        living.damage(DamageUtil.build(living, SowDamageTypes.AGGROSTORM), holder.processDamage(SowConfig.INSTANCE.aggressium.aggrostormDamage.getValue().floatValue() / 20));
                     living.setVelocity(dir);
                     living.velocityModified = true;
                 }

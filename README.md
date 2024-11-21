@@ -72,43 +72,48 @@ If everything is correct, the song cube will start spawning particles. After an 
 
 **HotKey: C**
 
-- Aggrosphere: Fire a sphere and damage hit entity or create explosion.
-- Aggroquake: Push entities around you away and damage them.
-- Aggroshock **(Experimental)**: Generate lightnings.
-- Aggrostorm **(Experimental)**: Pull entities to you.
-- Aggrodetonate: Fire an explosive short laser.
-- Aggroshard: Fire a lot of shards.
-- Aggroblast: Push the entity you are looking at away and give damage.
+**Damage will be multiple 1.5 when released with a weapon.**
+
 - Aggrobeam **(Experimental)**: Activate a laser, which can damage targeted entities.
+- Aggroblast: Push the entity you are looking at away and give damage.
+- Aggrodetonate: Fire an explosive short laser.
+- Aggroquake: Push entities around you away and damage them.
+- Aggroshard: Fire a lot of shards.
+- Aggroshock **(Experimental)**: Generate lightnings.
+- Aggrosphere: Fire a sphere and damage hit entity or create explosion.
+- Aggrostorm **(Experimental)**: Pull entities to you.
+- Aggrovortex: Not complete yet.
 
 #### Mobilium
 
 **HotKey: V**
 
-- Mobiliflash: Teleport to the direction you see.
-- Mobiliwings: Enable a fake elytra and into sliding mode. Press `Jump` key to speed up.
-- Mobiliglide: Slow falling.
 - Mobilibounce: Generate a fake platform and disappear in 5s. You can jump 3x higher on it.
 - Mobiliburst: Teleport to the direction you see, also pull every entity on your way away.
+- Mobiliflash: Teleport to the direction you see.
+- Mobiliglide: Slow falling.
 - Mobilileap: Jump boost and invulnerable to fall damage.
+- Mobiliwings: Enable a fake elytra and into sliding mode. Press `Jump` key to speed up.
 
 #### Protisium
 
 **HotKey: B**
 
+- Protearmor: Add an armor, can reduce up to 20 damage(Configurable) in next damage.
+- Protebarrier: Summon a large protect shield for 3s(Configurable).
+- Proteclone: Summon a fake player entity, can block damage once.
+- Proteheal: Heal 10 times with 1 health each.
 - Protesphere **(Recommend AttributeFix)**: Enable a protect shield and reduce 80% damage.
 - Protepoint: Enable a fake shield.
-- Proteheal: Heal 10 times with 1 health each.
-- Protearmor: Add an armor, can reduce up to 20 damage(Configurable) in next damage.
-- Proteclone: Summon a fake player entity, can block damage once.
 
 #### Supportium
 
 **HotKey: N**
 
-- Supporolift: Pull the entity you are looking at in 20 blocks.
 - Supporekesis: Stop all entities related to aggressium songs in 20 blocks and explode them. (No damage)
 - Supporoform: Spend experience to smelt items. Also, this is the only way to gain ender knight armors in survival.
+- Supporolift: Pull the entity you are looking at in 20 blocks.
+- Supporospike: Smelt things in inventory with experience. Also this is the only way to obtain obsidian armor.
 
 </details>
 

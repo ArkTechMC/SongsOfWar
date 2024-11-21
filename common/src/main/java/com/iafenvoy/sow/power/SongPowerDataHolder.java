@@ -7,6 +7,7 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.world.World;
 
 public class SongPowerDataHolder {
+    public static final float DAMAGE_MUL = 1.5f;
     private final SongPowerData.SinglePowerData data;
     private boolean cancelled = false;
 
@@ -36,6 +37,10 @@ public class SongPowerDataHolder {
         projectile.pickupType = PersistentProjectileEntity.PickupPermission.DISALLOWED;
         projectile.refreshPositionAndAngles(player.getX(), player.getY() + 1, player.getZ(), 0, 0);
         if (this.usingWeapon()) projectile.setCritical();
+    }
+
+    public float processDamage(float damage) {
+        return damage * (this.usingWeapon() ? DAMAGE_MUL : 1);
     }
 
     public void cancel() {

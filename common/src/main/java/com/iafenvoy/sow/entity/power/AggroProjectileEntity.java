@@ -1,6 +1,7 @@
 package com.iafenvoy.sow.entity.power;
 
 import com.iafenvoy.neptune.object.DamageUtil;
+import com.iafenvoy.sow.power.SongPowerDataHolder;
 import com.iafenvoy.sow.world.FakeExplosionBehavior;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -92,7 +93,7 @@ public class AggroProjectileEntity extends PersistentProjectileEntity implements
     }
 
     public void setCritical() {
-        this.damageMultiplier = 1.5f;
+        this.damageMultiplier = SongPowerDataHolder.DAMAGE_MUL;
     }
 
     @Override
