@@ -11,4 +11,6 @@ public interface SongCubeSoundManager {
     void stopPlaying(BlockPos pos);
 
     void destroy(BlockPos pos);
+
+    void tick();
 }

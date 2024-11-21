@@ -20,4 +20,8 @@ public class ServerSongCubeSoundManager implements SongCubeSoundManager {
     @Override
     public void destroy(BlockPos pos) {
     }
+
+    @Override
+    public void tick() {
+    }
 }

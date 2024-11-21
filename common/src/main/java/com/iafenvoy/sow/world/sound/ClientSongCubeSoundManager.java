@@ -30,6 +30,10 @@ public class ClientSongCubeSoundManager implements SongCubeSoundManager {
     @Override
     public void startPlaying(BlockPos pos, PowerCategory category) {
         if (category == null) return;
+        if (!this.nearEnough(pos)) {
+            this.stopPlaying(pos);
+            return;
+        }
         if (!INSTANCES.containsKey(pos)) INSTANCES.put(pos, new SongCubeSoundInstance(pos, category));
         INSTANCES.get(pos).start();
     }
@@ -44,6 +48,13 @@ public class ClientSongCubeSoundManager implements SongCubeSoundManager {
     public void destroy(BlockPos pos) {
         SongCubeSoundInstance instance = INSTANCES.remove(pos);
         if (instance != null) instance.stop();
+    }
+
+    @Override
+    public void tick() {
+        for (BlockPos pos : INSTANCES.keySet())
+            if (!this.nearEnough(pos))
+                this.stopPlaying(pos);
     }
 
     private static class SongCubeSoundInstance extends AbstractSoundInstance implements TickableSoundInstance {

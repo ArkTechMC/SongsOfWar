@@ -51,8 +51,6 @@ public abstract class AbstractSongCubeBlockEntity extends BlockEntity {
             ClientNetworkHelper.request(pos);
             return;
         }
-        if (Static.songCubeSoundManager.nearEnough(pos))
-            Static.songCubeSoundManager.startPlaying(pos, blockEntity.power.getCategory());
-        else Static.songCubeSoundManager.stopPlaying(pos);
+        Static.songCubeSoundManager.startPlaying(pos, blockEntity.power.getCategory());
     }
 }
