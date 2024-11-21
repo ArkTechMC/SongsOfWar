@@ -1,8 +1,8 @@
 package com.iafenvoy.sow.registry.power;
 
-import com.iafenvoy.neptune.util.Timeout;
 import com.iafenvoy.sow.Static;
 import com.iafenvoy.sow.config.SowConfig;
+import com.iafenvoy.sow.item.block.TemporaryTransparentBlock;
 import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.power.SongPowerData;
 import com.iafenvoy.sow.power.component.MobiliBurstComponent;
@@ -26,7 +26,7 @@ import net.minecraft.world.World;
 
 @SuppressWarnings("unused")
 public final class MobiliumPowers {
-    public static final InstantSongPower MOBILIBOUNCE = new InstantSongPower("mobilibounce", PowerCategory.MOBILIUM).experimental()
+    public static final InstantSongPower MOBILIBOUNCE = new InstantSongPower("mobilibounce", PowerCategory.MOBILIUM)
             .setApplySound(SowSounds.MOBILIBOUNCE)
             .setPrimaryCooldown(holder -> SowConfig.INSTANCE.mobilium.mobilibouncePrimaryCooldown.getValue())
             .setSecondaryCooldown(holder -> SowConfig.INSTANCE.mobilium.mobilibounceSecondaryCooldown.getValue())
@@ -37,10 +37,9 @@ public final class MobiliumPowers {
                 BlockPos below = player.getBlockPos().down();
                 BlockState state = world.getBlockState(below);
                 if (state.isSolidBlock(world, below) || player.isOnGround()) holder.cancel();
-                world.setBlockState(below, SowBlocks.MOBILIBOUNCE_PLATFORM.get().getDefaultState(), 2, 0);
+                TemporaryTransparentBlock.place(world, below, SowBlocks.MOBILIBOUNCE_PLATFORM.get().getDefaultState(), 20 * SowConfig.INSTANCE.mobilium.mobilibounceExistTime.getValue());
                 player.setVelocity(0, 0, 0);
                 player.velocityModified = true;
-                Timeout.create(20 * SowConfig.INSTANCE.mobilium.mobilibounceExistTime.getValue(), () -> world.setBlockState(below, state, 2, 0));
             });
     public static final InstantSongPower MOBILIBURST = new InstantSongPower("mobiliburst", PowerCategory.MOBILIUM)
             .setPrimaryCooldown(holder -> SowConfig.INSTANCE.mobilium.mobiliburstPrimaryCooldown.getValue())

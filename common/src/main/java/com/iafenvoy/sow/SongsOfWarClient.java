@@ -28,7 +28,6 @@ public class SongsOfWarClient {
         SowRenderers.registerBlockEntityRenderer();
         SowRenderers.registerRenderType();
         Static.songCubeSoundManager = new ClientSongCubeSoundManager();
-        RenderTypeRegistry.register(RenderLayer.getCutout(), SowBlocks.PEAS.get());
         ReloadListenerRegistry.register(ResourceType.CLIENT_RESOURCES, new ArdoniMarkerReloader(), new Identifier(SongsOfWar.MOD_ID, "ardoni_marker"));
         ClientNetworkHelper.init();
         LitematicaHelper.extractFile();

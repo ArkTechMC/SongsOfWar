@@ -42,7 +42,7 @@ public class FeldenEntity extends AbstractFelinaEntity {
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
         if (nbt.contains("variant")) this.setVariant(nbt.getInt("variant"));
-        else this.setVariant(RandomHelper.nextInt(1, 3));
+        else this.setVariant(RandomHelper.nextInt(1, 2));
     }
 
     @Override

@@ -4,20 +4,26 @@ import com.iafenvoy.neptune.event.LivingEntityEvents;
 import com.iafenvoy.sow.Static;
 import com.iafenvoy.sow.config.SowConfig;
 import com.iafenvoy.sow.entity.power.ProteCloneEntity;
+import com.iafenvoy.sow.item.block.TemporaryTransparentBlock;
 import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.power.SongPowerData;
 import com.iafenvoy.sow.power.type.DelaySongPower;
+import com.iafenvoy.sow.power.type.InstantSongPower;
 import com.iafenvoy.sow.power.type.IntervalSongPower;
 import com.iafenvoy.sow.power.type.PersistSongPower;
+import com.iafenvoy.sow.registry.SowBlocks;
 import com.iafenvoy.sow.registry.SowEntities;
 import com.iafenvoy.sow.registry.SowItems;
 import com.iafenvoy.sow.registry.SowSounds;
+import com.iafenvoy.sow.util.SowMath;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 @SuppressWarnings("unused")
@@ -38,6 +44,23 @@ public final class ProtisiumPowers {
                 }
                 return amount;
             }));
+    public static final InstantSongPower PROTEBARRIER = new InstantSongPower("protebarrier", PowerCategory.PROTISIUM)
+            .setPrimaryCooldown(holder -> SowConfig.INSTANCE.protisium.protebarrierPrimaryCooldown.getValue())
+            .setSecondaryCooldown(holder -> SowConfig.INSTANCE.protisium.protebarrierSecondaryCooldown.getValue())
+            .setExhaustion(holder -> SowConfig.INSTANCE.protisium.protebarrierExhaustion.getValue())
+            .onApply(holder -> {
+                PlayerEntity player = holder.getPlayer();
+                World world = holder.getWorld();
+                int range = 8;
+                float pitch = player.getPitch(), yaw = player.getHeadYaw();
+                Vec3d origin = player.getPos();
+                for (float i = pitch - 30; i <= pitch + 30; i += 5)
+                    for (float j = yaw - 40; j <= yaw + 40; j += 5) {
+                        BlockPos pos = BlockPos.ofFloored(origin.add(SowMath.getRotationVectorUnit(i, j).multiply(range)));
+                        if (!world.getBlockState(pos).isSolidBlock(world, pos))
+                            TemporaryTransparentBlock.place(world, pos, SowBlocks.PROTE_BARRIER.get().getDefaultState(), 20 * SowConfig.INSTANCE.protisium.protebarrierExistTime.getValue());
+                    }
+            });
     public static final DelaySongPower PROTECLONE = new DelaySongPower("proteclone", PowerCategory.PROTISIUM)
             .setDelay(12)
             .setApplySound(SowSounds.PROTECLONE)

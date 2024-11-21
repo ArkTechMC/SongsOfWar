@@ -6,8 +6,8 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class MobilibouncePlatformBlockItem extends BlockItem {
-    public MobilibouncePlatformBlockItem(Block block) {
+public class TemporaryBlockItem extends BlockItem {
+    public TemporaryBlockItem(Block block) {
         super(block, new Settings());
     }
 

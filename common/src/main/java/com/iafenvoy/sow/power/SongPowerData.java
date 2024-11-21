@@ -131,7 +131,7 @@ public class SongPowerData implements Serializable, Tickable {
         return ComponentManager.getSongPowerData(player);
     }
 
-    public static void stop(MinecraftServer server) {//Song power cache will not save to disk, so we need to clear them
+    public static void stop(MinecraftServer server) {
         for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
             SongPowerData data = byPlayer(player);
             data.disableAllPower();

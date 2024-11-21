@@ -116,16 +116,21 @@ public class SowConfig extends AutoInitConfigContainer {
         public final IConfigEntry<Double> protearmorExhaustion = new DoubleEntry("config.sow.power.protearmor.exhaustion", 2.0 / 10, 0, Integer.MAX_VALUE).json("protearmor.exhaustion");
         public final IConfigEntry<Double> protearmorMaxReduceDamage = new DoubleEntry("config.sow.power.protearmor.maxReduceDamage", 20, 0, Integer.MAX_VALUE).json("protearmor.maxReduceDamage");
         public final SeparatorEntry s1 = new SeparatorEntry();
+        public final IConfigEntry<Integer> protebarrierPrimaryCooldown = new IntegerEntry("config.sow.power.protebarrier.cooldown.primary", 100, 0, Integer.MAX_VALUE).json("protebarrier.cooldown.primary");
+        public final IConfigEntry<Integer> protebarrierSecondaryCooldown = new IntegerEntry("config.sow.power.protebarrier.cooldown.secondary", 200, 0, Integer.MAX_VALUE).json("protebarrier.cooldown.secondary");
+        public final IConfigEntry<Double> protebarrierExhaustion = new DoubleEntry("config.sow.power.protebarrier.exhaustion", 5, 0, Integer.MAX_VALUE).json("protebarrier.exhaustion");
+        public final IConfigEntry<Integer> protebarrierExistTime = new IntegerEntry("config.sow.power.protebarrier.existTime", 3, 0, Integer.MAX_VALUE).json("protebarrier.existTime");
+        public final SeparatorEntry s2 = new SeparatorEntry();
         public final IConfigEntry<Integer> proteclonePrimaryCooldown = new IntegerEntry("config.sow.power.proteclone.cooldown.primary", 60, 0, Integer.MAX_VALUE).json("proteclone.cooldown.primary");
         public final IConfigEntry<Integer> protecloneSecondaryCooldown = new IntegerEntry("config.sow.power.proteclone.cooldown.secondary", 100, 0, Integer.MAX_VALUE).json("proteclone.cooldown.secondary");
         public final IConfigEntry<Double> protecloneExhaustion = new DoubleEntry("config.sow.power.proteclone.exhaustion", 4, 0, Integer.MAX_VALUE).json("proteclone.exhaustion");
-        public final SeparatorEntry s2 = new SeparatorEntry();
+        public final SeparatorEntry s3 = new SeparatorEntry();
         public final IConfigEntry<Integer> protehealPrimaryCooldown = new IntegerEntry("config.sow.power.proteheal.cooldown.primary", 100, 0, Integer.MAX_VALUE).json("proteheal.cooldown.primary");
         public final IConfigEntry<Integer> protehealSecondaryCooldown = new IntegerEntry("config.sow.power.proteheal.cooldown.secondary", 200, 0, Integer.MAX_VALUE).json("proteheal.cooldown.secondary");
         public final IConfigEntry<Double> protehealExhaustion = new DoubleEntry("config.sow.power.proteheal.exhaustion", 2, 0, Integer.MAX_VALUE).json("proteheal.exhaustion");
-        public final SeparatorEntry s3 = new SeparatorEntry();
-        public final IConfigEntry<Double> protepointExhaustion = new DoubleEntry("config.sow.power.protepoint.exhaustion", 1.0 / 10, 0, Integer.MAX_VALUE).json("protepoint.exhaustion");
         public final SeparatorEntry s4 = new SeparatorEntry();
+        public final IConfigEntry<Double> protepointExhaustion = new DoubleEntry("config.sow.power.protepoint.exhaustion", 1.0 / 10, 0, Integer.MAX_VALUE).json("protepoint.exhaustion");
+        public final SeparatorEntry s5 = new SeparatorEntry();
         public final IConfigEntry<Double> protesphereExhaustion = new DoubleEntry("config.sow.power.protesphere.exhaustion", 2.0 / 10, 0, Integer.MAX_VALUE).json("protesphere.exhaustion");
 
         public ProtisiumPowerConfig() {

@@ -5,6 +5,9 @@ import com.iafenvoy.sow.util.Serializable;
 import com.iafenvoy.sow.util.SowMath;
 import com.iafenvoy.sow.util.Tickable;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.Box;
@@ -58,6 +61,8 @@ public class MobiliBurstComponent implements Serializable, Tickable {
                 Vec3d dir = entity.getPos().subtract(this.player.getPos()).add(this.player.getVelocity());
                 entity.setVelocity(SowMath.toUnit(dir.add(0, 0.5, 0)).multiply(this.player.getVelocity().length()));
                 entity.velocityModified = true;
+                if (entity instanceof LivingEntity living)
+                    living.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 2 * 20, 0), this.player);
             });
         }
         if (this.tick == 0) {

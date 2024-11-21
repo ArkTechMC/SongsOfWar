@@ -7,6 +7,6 @@ import net.minecraft.entity.player.PlayerEntity;
 
 public class ComponentManagerImpl {
     public static SongPowerData getSongPowerData(PlayerEntity player) {
-        return player.getCapability(SongPowerDataProvider.CAPABILITY).resolve().map(SongPowerDataStorage::getData).orElse(null);
+        return player.getCapability(SongPowerDataProvider.CAPABILITY).resolve().map(SongPowerDataStorage::getData).orElse(new SongPowerData(player));
     }
 }

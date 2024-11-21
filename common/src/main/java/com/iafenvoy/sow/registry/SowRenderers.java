@@ -201,6 +201,8 @@ public final class SowRenderers {
     }
 
     public static void registerRenderType() {
+        RenderTypeRegistry.register(RenderLayer.getCutout(), SowBlocks.PEAS.get());
         RenderTypeRegistry.register(RenderLayer.getTranslucent(), SowBlocks.MOBILIBOUNCE_PLATFORM.get());
+        RenderTypeRegistry.register(RenderLayer.getTranslucent(), SowBlocks.PROTE_BARRIER.get());
     }
 }
