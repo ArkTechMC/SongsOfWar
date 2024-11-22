@@ -9,5 +9,6 @@
     "sow:too_cold"
   ],
   "icon": "minecraft:magma_block",
-  "impact": 3
+  "impact": 3,
+  "order": 3
 }

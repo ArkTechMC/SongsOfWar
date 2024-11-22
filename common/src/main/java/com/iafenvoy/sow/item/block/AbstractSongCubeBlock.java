@@ -76,4 +76,12 @@ public abstract class AbstractSongCubeBlock extends BlockWithEntity {
         if (world.getBlockEntity(pos) instanceof AbstractSongCubeBlockEntity blockEntity)
             blockEntity.setPower(this.getPower(itemStack));
     }
+
+    @Override
+    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+        ItemStack stack = super.getPickStack(world, pos, state);
+        if (world.getBlockEntity(pos) instanceof AbstractSongCubeBlockEntity blockEntity)
+            blockEntity.getPower().appendNbt(stack);
+        return stack;
+    }
 }

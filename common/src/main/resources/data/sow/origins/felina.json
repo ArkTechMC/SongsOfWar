@@ -3,8 +3,10 @@
     "sow:climbing",
     "sow:agile",
     "sow:fall_invulnerable",
-    "sow:afraid_water"
+    "sow:afraid_water",
+    "sow:felina_no_armor"
   ],
   "icon": "minecraft:cod",
-  "impact": 2
+  "impact": 2,
+  "order": 2
 }

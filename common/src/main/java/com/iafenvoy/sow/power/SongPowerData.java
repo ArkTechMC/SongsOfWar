@@ -17,6 +17,7 @@ import net.minecraft.nbt.NbtElement;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -128,7 +129,8 @@ public class SongPowerData implements Serializable, Tickable {
         this.byType.values().forEach(SinglePowerData::disable);
     }
 
-    public static SongPowerData byPlayer(PlayerEntity player) {
+    public static SongPowerData byPlayer(@Nullable PlayerEntity player) {
+        if(player==null) return new SongPowerData(null);
         return ComponentManager.getSongPowerData(player);
     }
 

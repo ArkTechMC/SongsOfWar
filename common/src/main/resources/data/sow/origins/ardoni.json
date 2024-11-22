@@ -3,8 +3,10 @@
     "sow:songs",
     "sow:health_boost_10",
     "sow:potion_invulnerable",
-    "sow:prevent_redstone"
+    "sow:prevent_redstone",
+    "sow:ardoni_no_armor"
   ],
   "icon": "sow:aggressium_song",
-  "impact": 3
+  "impact": 3,
+  "order": 1
 }

@@ -48,6 +48,7 @@ public class SongChunkData implements Serializable {
     }
 
     public static SongChunkData byChunk(WorldChunk chunk) {
+        if (chunk == null) return new SongChunkData();
         return ComponentManager.getSongChunkData(chunk);
     }
 }

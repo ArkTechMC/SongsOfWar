@@ -8,13 +8,14 @@ import com.iafenvoy.sow.power.SongPowerData;
 import com.iafenvoy.sow.world.song.SongChunkData;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.chunk.WorldChunk;
+import org.jetbrains.annotations.NotNull;
 
 public class ComponentManagerImpl {
-    public static SongPowerData getSongPowerData(PlayerEntity player) {
+    public static SongPowerData getSongPowerData(@NotNull PlayerEntity player) {
         return player.getCapability(SongPowerDataProvider.CAPABILITY).resolve().map(SongPowerDataStorage::getData).orElse(new SongPowerData(player));
     }
 
-    public static SongChunkData getSongChunkData(WorldChunk chunk) {
+    public static SongChunkData getSongChunkData(@NotNull WorldChunk chunk) {
         return chunk.getCapability(SongChunkDataProvider.CAPABILITY).resolve().map(SongChunkDataStorage::getData).orElse(new SongChunkData());
     }
 }
