@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "NNN",
+    " N ",
     "NSN",
-    "NNN"
+    " N "
   ],
   "key": {
     "S": {
       "item": "sow:song_stone"
     },
     "N": {
-      "item": "sow:green_note"
+      "item": "sow:yellow_note"
     }
   },
   "result": {
-    "item": "sow:supportium_song_stone"
+    "item": "sow:mobilium_song_stone"
   }
 }

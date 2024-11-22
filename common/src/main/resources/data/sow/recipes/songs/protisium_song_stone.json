@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " N ",
+    "NSN",
+    " N "
+  ],
+  "key": {
+    "S": {
+      "item": "sow:song_stone"
+    },
+    "N": {
+      "item": "sow:blue_note"
+    }
+  },
+  "result": {
+    "item": "sow:protisium_song_stone"
+  }
+}

@@ -9,6 +9,7 @@
     "EntityMixin",
     "GrindstoneScreenHandlerMixin",
     "LivingEntityMixin",
+    "NoteBlockMixin",
     "PlayerEntityMixin",
     "ServerPlayerEntityMixin",
     "StructureTemplateAccessor",

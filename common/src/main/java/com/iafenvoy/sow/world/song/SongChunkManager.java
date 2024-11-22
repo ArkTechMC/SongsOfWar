@@ -1,8 +1,10 @@
-package com.iafenvoy.sow.world;
+package com.iafenvoy.sow.world.song;
 
+import com.iafenvoy.sow.config.SowConfig;
 import com.iafenvoy.sow.power.PowerCategory;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.StructureWorldAccess;
+import net.minecraft.world.chunk.WorldChunk;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
@@ -13,7 +15,8 @@ public class SongChunkManager {
     }
 
     public static boolean isSongChunk(StructureWorldAccess serverWorld, PowerCategory category, ChunkPos pos) {
-        return new Random(serverWorld.getSeed() + category.getRandomOffset() + pos.x * 0x5AC0DBL + pos.z * 0x5F24FL).nextInt(256) == 0;
+        WorldChunk chunk = serverWorld.getChunkManager().getWorldChunk(pos.x, pos.z);
+        return !SongChunkData.byChunk(chunk).isEmpty() && new Random(serverWorld.getSeed() + category.getRandomOffset() + pos.x * 24523L + pos.z * 89L).nextInt(SowConfig.INSTANCE.common.songChunkRarity.getValue()) == 0;
     }
 
     @Nullable
@@ -22,5 +25,16 @@ public class SongChunkManager {
             if (isSongChunk(serverWorld, category, pos))
                 return category;
         return null;
+    }
+
+    public static boolean reduce(StructureWorldAccess serverWorld, ChunkPos pos) {
+        WorldChunk chunk = serverWorld.getChunkManager().getWorldChunk(pos.x, pos.z);
+        if (chunk == null) return false;
+        SongChunkData data = SongChunkData.byChunk(chunk);
+        if (!data.isFulfilled()) {
+            data.setFulfilled(true);
+            data.setRemainNotes(serverWorld.getRandom().nextBetween(3, 6));
+        }
+        return data.reduceRemainNotes();
     }
 }

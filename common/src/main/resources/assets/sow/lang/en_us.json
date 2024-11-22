@@ -73,6 +73,8 @@
   "config.sow.category.power.protisium": "Protisium",
   "config.sow.category.power.supportium": "Supportium",
   "config.sow.common.enableBeaconTp": "Enable Beacon Teleport",
+  "config.sow.common.songChunkDetectRange": "Song Chunk Detect Range",
+  "config.sow.common.songChunkRarity": "Song Chunk Generate Rarity",
   "config.sow.config.server.title": "Songs of Power Server Settings",
   "config.sow.config.title": "Songs of Power Settings",
   "config.sow.power.aggrobeam.damage": "Aggrobeam Damage",

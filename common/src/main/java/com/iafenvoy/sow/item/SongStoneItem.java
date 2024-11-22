@@ -3,7 +3,7 @@ package com.iafenvoy.sow.item;
 import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.power.SongPowerData;
 import com.iafenvoy.sow.registry.SowItemGroups;
-import com.iafenvoy.sow.world.SongChunkManager;
+import com.iafenvoy.sow.world.song.SongChunkManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

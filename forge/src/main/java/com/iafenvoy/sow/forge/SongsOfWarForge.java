@@ -3,12 +3,16 @@ package com.iafenvoy.sow.forge;
 import com.iafenvoy.neptune.forge.component.CapabilitySyncHelper;
 import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.SongsOfWarClient;
+import com.iafenvoy.sow.forge.component.SongChunkDataProvider;
 import com.iafenvoy.sow.forge.component.SongPowerDataProvider;
 import com.iafenvoy.sow.power.SongPowerData;
 import dev.architectury.platform.Platform;
 import dev.architectury.platform.forge.EventBuses;
 import dev.architectury.utils.Env;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.chunk.WorldChunk;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.server.ServerStoppingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -37,6 +41,11 @@ public class SongsOfWarForge {
         @SubscribeEvent
         public static void onServerStop(ServerStoppingEvent event) {
             SongPowerData.stop(event.getServer());
+        }
+
+        @SubscribeEvent
+        public static void attachChunkData(AttachCapabilitiesEvent<WorldChunk> event) {
+            event.addCapability(new Identifier(SongsOfWar.MOD_ID, "song_chunk"), new SongChunkDataProvider());
         }
     }
 }

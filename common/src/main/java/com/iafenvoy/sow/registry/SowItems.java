@@ -39,10 +39,10 @@ public final class SowItems {
     public static final RegistrySupplier<Item> MOBILIUM_SONG_STONE = REGISTRY.register("mobilium_song_stone", () -> new AdjustedSongStoneItem(PowerCategory.MOBILIUM));
     public static final RegistrySupplier<Item> PROTISIUM_SONG_STONE = REGISTRY.register("protisium_song_stone", () -> new AdjustedSongStoneItem(PowerCategory.PROTISIUM));
     public static final RegistrySupplier<Item> SUPPORTIUM_SONG_STONE = REGISTRY.register("supportium_song_stone", () -> new AdjustedSongStoneItem(PowerCategory.SUPPORTIUM));
-    public static final RegistrySupplier<Item> RED_NOTE = REGISTRY.register("red_note", () -> new Item(new Item.Settings().maxCount(16).rarity(Rarity.UNCOMMON).arch$tab(SowItemGroups.ITEMS)));
-    public static final RegistrySupplier<Item> YELLOW_NOTE = REGISTRY.register("yellow_note", () -> new Item(new Item.Settings().maxCount(16).rarity(Rarity.UNCOMMON).arch$tab(SowItemGroups.ITEMS)));
-    public static final RegistrySupplier<Item> BLUE_NOTE = REGISTRY.register("blue_note", () -> new Item(new Item.Settings().maxCount(16).rarity(Rarity.UNCOMMON).arch$tab(SowItemGroups.ITEMS)));
-    public static final RegistrySupplier<Item> GREEN_NOTE = REGISTRY.register("green_note", () -> new Item(new Item.Settings().maxCount(16).rarity(Rarity.UNCOMMON).arch$tab(SowItemGroups.ITEMS)));
+    public static final RegistrySupplier<Item> RED_NOTE = REGISTRY.register("red_note", () -> new NoteItem(PowerCategory.AGGRESSIUM));
+    public static final RegistrySupplier<Item> YELLOW_NOTE = REGISTRY.register("yellow_note", () -> new NoteItem(PowerCategory.MOBILIUM));
+    public static final RegistrySupplier<Item> BLUE_NOTE = REGISTRY.register("blue_note", () -> new NoteItem(PowerCategory.PROTISIUM));
+    public static final RegistrySupplier<Item> GREEN_NOTE = REGISTRY.register("green_note", () -> new NoteItem(PowerCategory.SUPPORTIUM));
 
     public static final RegistrySupplier<ShrineDebugItem> SHRINE_DEBUG = REGISTRY.register("shrine_debug", ShrineDebugItem::new);
     //Fake Items, should not use in game without song power.

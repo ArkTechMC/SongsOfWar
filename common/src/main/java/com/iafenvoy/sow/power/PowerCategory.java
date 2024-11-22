@@ -1,6 +1,7 @@
 package com.iafenvoy.sow.power;
 
 import com.iafenvoy.neptune.util.Color4i;
+import com.iafenvoy.neptune.util.RandomHelper;
 import com.iafenvoy.sow.power.type.AbstractSongPower;
 import com.iafenvoy.sow.power.type.DummySongPower;
 import net.minecraft.text.MutableText;
@@ -50,6 +51,10 @@ public enum PowerCategory {
 
     public AbstractSongPower<?> getPowerById(String id) {
         return this.powers.stream().filter(x -> x.getId().equals(id)).findFirst().orElse(DummySongPower.EMPTY);
+    }
+
+    public AbstractSongPower<?> randomOne() {
+        return RandomHelper.randomOne(this.powers);
     }
 
     public static Optional<PowerCategory> byId(String id) {

@@ -42,6 +42,24 @@ Add almost all characters in animation. Also, every ardoni have their own class 
 
 Restore song power in animation.
 
+<details> <summary>Obtain</summary>
+
+**You need to have access to song abilities/`Ardoni Origin` to use `Song Stones`!**
+
+There are chunks named `Song Chunk` in the world. Craft a `Song Stone` and when you in a song chunk, the color will
+change.
+
+Also, you can upgrade with `Notes` to detect specific song chunk. The color will half change if you near a song chunk (
+default 2 chunks).
+
+Ones you found a song chunk, you can place a note block and play it. It will drop `Notes`.
+
+The count of `Notes` is 3-6. Ones all of them are dig out, the chunk is no longer a song chunk.
+
+Finally, you can craft songs with `Notes`. Its power will randomize.
+
+</details>
+
 <details> <summary>Usage</summary>
 
 #### Admin command (Or single player)

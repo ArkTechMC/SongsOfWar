@@ -21,6 +21,8 @@ public class SowConfig extends AutoInitConfigContainer {
 
     public static class CommonConfig extends AutoInitConfigCategoryBase {
         public final IConfigEntry<Boolean> enableBeaconTp = new BooleanEntry("config.sow.common.enableBeaconTp", true).json("enableBeaconTp");
+        public final IConfigEntry<Integer> songChunkRarity = new IntegerEntry("config.sow.common.songChunkRarity", 64, 1, Integer.MAX_VALUE).json("songChunkRarity");
+        public final IConfigEntry<Integer> songChunkDetectRange = new IntegerEntry("config.sow.common.songChunkDetectRange", 2, 0, 10).json("songChunkDetectRange");
         public final IConfigEntry<IConfigEnumEntry> anniversary = new EnumEntry("???", Anniversary.InvokeType.NORMAL).json("anniversary");
 
         public CommonConfig() {

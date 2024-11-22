@@ -27,13 +27,14 @@
     "modmenu": [
       "com.iafenvoy.sow.fabric.ModMenu"
     ],
-    "cardinal-components-entity": [
+    "cardinal-components": [
       "com.iafenvoy.sow.fabric.component.ModComponentEntry"
     ]
   },
   "custom": {
     "cardinal-components": [
-      "sow:song_power"
+      "sow:song_power",
+      "sow:song_chunk"
     ]
   },
   "mixins": [

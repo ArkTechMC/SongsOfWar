@@ -7,6 +7,7 @@ import com.iafenvoy.sow.power.type.DummySongPower;
 import com.iafenvoy.sow.power.type.PersistSongPower;
 import com.iafenvoy.sow.util.Serializable;
 import com.iafenvoy.sow.util.Tickable;
+import com.iafenvoy.sow.world.song.SongChunkManager;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
@@ -277,8 +278,9 @@ public class SongPowerData implements Serializable, Tickable {
         }
 
         public void cooldown() {
-            this.primaryCooldown = this.activePower.getPrimaryCooldown(this);
-            this.secondaryCooldown = this.activePower.getSecondaryCooldown(this);
+            double ratio = this.getPlayer().getWorld() instanceof ServerWorld world ? SongChunkManager.isSongChunk(world, this.getType(), this.getPlayer().getChunkPos()) ? 0.75 : 1 : 1;
+            this.primaryCooldown = (int) (this.activePower.getPrimaryCooldown(this) * ratio);
+            this.secondaryCooldown = (int) (this.activePower.getSecondaryCooldown(this) * ratio);
         }
     }
 

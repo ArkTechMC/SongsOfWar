@@ -46,10 +46,13 @@ public sealed abstract class AbstractSongPower<T extends AbstractSongPower<T>> p
         }
     }
 
-    public ItemStack getStack() {
-        ItemStack stack = new ItemStack(AbstractSongCubeBlock.SONGS.getOrDefault(this.category, Items.AIR));
+    public ItemStack appendNbt(ItemStack stack) {
         stack.getOrCreateNbt().putString(AbstractSongCubeBlock.POWER_TYPE_KEY, this.id);
         return stack;
+    }
+
+    public ItemStack getStack() {
+        return this.appendNbt(new ItemStack(AbstractSongCubeBlock.SONGS.getOrDefault(this.category, Items.AIR)));
     }
 
     public String getId() {

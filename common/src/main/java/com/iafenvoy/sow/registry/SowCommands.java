@@ -3,10 +3,12 @@ package com.iafenvoy.sow.registry;
 import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.item.block.AbstractSongCubeBlock;
 import com.iafenvoy.sow.power.SongPowerData;
+import com.iafenvoy.sow.world.song.SongChunkData;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import dev.architectury.event.events.common.CommandRegistrationEvent;
 import net.minecraft.command.argument.EntityArgumentType;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.command.CommandManager;
@@ -27,6 +29,17 @@ public final class SowCommands {
                                 .then(CommandManager.literal("enable").executes(SowCommands::enableSong))
                                 .then(CommandManager.literal("disable").executes(SowCommands::disableSong))
                         )
+                ));
+        CommandRegistrationEvent.EVENT.register((dispatcher, registry, selection) -> dispatcher
+                .register(CommandManager.literal("songchunk")
+                        .requires(ServerCommandSource::isExecutedByPlayer)
+                        .requires(source -> source.hasPermissionLevel(source.getServer().isDedicated() ? 4 : 0))
+                        .executes(ctx -> {
+                            ServerCommandSource source = ctx.getSource();
+                            PlayerEntity player = source.getPlayerOrThrow();
+                            source.sendFeedback(() -> Text.of("Remain notes: " + SongChunkData.byChunk(player.getWorld().getWorldChunk(player.getBlockPos())).getRemainNotes()), false);
+                            return 1;
+                        })
                 ));
     }
 

@@ -1,6 +1,7 @@
 package com.iafenvoy.sow.item;
 
 import com.iafenvoy.sow.registry.SowItemGroups;
+import dev.architectury.platform.Platform;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
@@ -20,7 +21,7 @@ public class PeasDelightItem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        if (!FabricLoader.getInstance().isModLoaded("farmersdelight"))
+        if (!Platform.isModLoaded("farmersdelight"))
             tooltip.add(Text.translatable("item.sow.tooltip.require.delight"));
     }
 }
