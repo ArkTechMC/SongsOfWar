@@ -1,0 +1,20 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "sow:item/stone/song_stone"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "sow:near_song": 0.5
+      },
+      "model": "sow:item/song_stone_light_blue"
+    },
+    {
+      "predicate": {
+        "sow:near_song": 1.0
+      },
+      "model": "sow:item/song_stone_blue"
+    }
+  ]
+}

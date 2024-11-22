@@ -13,10 +13,6 @@ import java.util.List;
 import java.util.function.Function;
 
 public class PeasDelightItem extends Item {
-    public PeasDelightItem() {
-        this(p -> p);
-    }
-
     public PeasDelightItem(Function<Settings, Settings> settings) {
         super(settings.apply(new Settings().arch$tab(SowItemGroups.PEAS_DELIGHT)));
     }

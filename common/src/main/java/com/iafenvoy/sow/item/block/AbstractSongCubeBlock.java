@@ -13,7 +13,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
@@ -66,7 +65,7 @@ public abstract class AbstractSongCubeBlock extends BlockWithEntity {
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         super.appendTooltip(stack, world, tooltip, options);
         AbstractSongPower<?> power = this.getPower(stack);
-        tooltip.add(Text.translatable(power.getTranslateKey()).fillStyle(Style.EMPTY.withColor(this.category.getColor().getIntValue())));
+        tooltip.add(this.category.appendColor(Text.translatable(power.getTranslateKey())));
         if (power.isExperimental())
             tooltip.add(Text.translatable("item.sow.song.experimental"));
     }

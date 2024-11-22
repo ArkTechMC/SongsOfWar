@@ -3,6 +3,7 @@ package com.iafenvoy.sow.registry;
 import com.iafenvoy.neptune.render.CommonPlayerLikeEntityRenderer;
 import com.iafenvoy.neptune.render.CommonPlayerLikeWithMarkerEntityRenderer;
 import com.iafenvoy.neptune.render.SkullRenderRegistry;
+import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.entity.GrimEntity;
 import com.iafenvoy.sow.entity.ardoni.*;
 import com.iafenvoy.sow.entity.felina.*;
@@ -12,6 +13,9 @@ import com.iafenvoy.sow.entity.necromancer.NecrolordEntity;
 import com.iafenvoy.sow.entity.necromancer.XariaEntity;
 import com.iafenvoy.sow.entity.netharan.ChronosEntity;
 import com.iafenvoy.sow.entity.netharan.PythusEntity;
+import com.iafenvoy.sow.item.AdjustedSongStoneItem;
+import com.iafenvoy.sow.item.SongStoneItem;
+import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.render.block.SongCubeBlockEntityRenderer;
 import com.iafenvoy.sow.render.entity.ArdoniEntityRenderer;
 import com.iafenvoy.sow.render.particle.AggroblastParticle;
@@ -22,9 +26,12 @@ import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.client.particle.ParticleProviderRegistry;
 import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
 import dev.architectury.registry.client.rendering.RenderTypeRegistry;
+import dev.architectury.registry.item.ItemPropertiesRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.nbt.NbtElement;
+import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public final class SowRenderers {
@@ -204,5 +211,10 @@ public final class SowRenderers {
         RenderTypeRegistry.register(RenderLayer.getCutout(), SowBlocks.PEAS.get());
         RenderTypeRegistry.register(RenderLayer.getTranslucent(), SowBlocks.MOBILIBOUNCE_PLATFORM.get());
         RenderTypeRegistry.register(RenderLayer.getTranslucent(), SowBlocks.PROTE_BARRIER.get());
+    }
+
+    public static void registerModelPredicate() {
+        ItemPropertiesRegistry.registerGeneric(new Identifier(SongsOfWar.MOD_ID, SongStoneItem.POWER_KEY), (stack, world, entity, seed) -> (stack.hasNbt() && stack.getOrCreateNbt().contains(SongStoneItem.POWER_KEY, NbtElement.STRING_TYPE) ? PowerCategory.byId(stack.getOrCreateNbt().getString(SongStoneItem.POWER_KEY)).map(Enum::ordinal).orElse(-1) + 1.0F : 0.0F) / PowerCategory.values().length);
+        ItemPropertiesRegistry.registerGeneric(new Identifier(SongsOfWar.MOD_ID, AdjustedSongStoneItem.NEAR_KEY), (stack, world, entity, seed) -> stack.hasNbt() ? stack.getOrCreateNbt().getFloat(AdjustedSongStoneItem.NEAR_KEY) : 0);
     }
 }

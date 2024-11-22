@@ -1,0 +1,32 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "sow:item/stone/song_stone"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "sow:song_power": 0.25
+      },
+      "model": "sow:item/song_stone_red"
+    },
+    {
+      "predicate": {
+        "sow:song_power": 0.5
+      },
+      "model": "sow:item/song_stone_yellow"
+    },
+    {
+      "predicate": {
+        "sow:song_power": 0.75
+      },
+      "model": "sow:item/song_stone_blue"
+    },
+    {
+      "predicate": {
+        "sow:song_power": 1.0
+      },
+      "model": "sow:item/song_stone_green"
+    }
+  ]
+}

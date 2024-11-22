@@ -3,10 +3,9 @@ package com.iafenvoy.sow.registry;
 import com.iafenvoy.neptune.render.glint.GlintManager;
 import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.data.EnchantmentFragmentInfo;
-import com.iafenvoy.sow.item.EnchantmentFragmentItem;
-import com.iafenvoy.sow.item.EnderKnightArmorItem;
-import com.iafenvoy.sow.item.ShrineDebugItem;
+import com.iafenvoy.sow.item.*;
 import com.iafenvoy.sow.item.impl.ProtepointShieldItem;
+import com.iafenvoy.sow.power.PowerCategory;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.item.ArmorItem;
@@ -34,6 +33,16 @@ public final class SowItems {
     public static final RegistrySupplier<Item> ENDER_KNIGHT_CHESTPLATE = REGISTRY.register("ender_knight_chestplate", () -> new EnderKnightArmorItem(ArmorItem.Type.CHESTPLATE));
     public static final RegistrySupplier<Item> ENDER_KNIGHT_LEGGINGS = REGISTRY.register("ender_knight_leggings", () -> new EnderKnightArmorItem(ArmorItem.Type.LEGGINGS));
     public static final RegistrySupplier<Item> ENDER_KNIGHT_BOOTS = REGISTRY.register("ender_knight_boots", () -> new EnderKnightArmorItem(ArmorItem.Type.BOOTS));
+
+    public static final RegistrySupplier<Item> SONG_STONE = REGISTRY.register("song_stone", SongStoneItem::new);
+    public static final RegistrySupplier<Item> AGGRESSIUM_SONG_STONE = REGISTRY.register("aggressium_song_stone", () -> new AdjustedSongStoneItem(PowerCategory.AGGRESSIUM));
+    public static final RegistrySupplier<Item> MOBILIUM_SONG_STONE = REGISTRY.register("mobilium_song_stone", () -> new AdjustedSongStoneItem(PowerCategory.MOBILIUM));
+    public static final RegistrySupplier<Item> PROTISIUM_SONG_STONE = REGISTRY.register("protisium_song_stone", () -> new AdjustedSongStoneItem(PowerCategory.PROTISIUM));
+    public static final RegistrySupplier<Item> SUPPORTIUM_SONG_STONE = REGISTRY.register("supportium_song_stone", () -> new AdjustedSongStoneItem(PowerCategory.SUPPORTIUM));
+    public static final RegistrySupplier<Item> RED_NOTE = REGISTRY.register("red_note", () -> new Item(new Item.Settings().maxCount(16).rarity(Rarity.UNCOMMON).arch$tab(SowItemGroups.ITEMS)));
+    public static final RegistrySupplier<Item> YELLOW_NOTE = REGISTRY.register("yellow_note", () -> new Item(new Item.Settings().maxCount(16).rarity(Rarity.UNCOMMON).arch$tab(SowItemGroups.ITEMS)));
+    public static final RegistrySupplier<Item> BLUE_NOTE = REGISTRY.register("blue_note", () -> new Item(new Item.Settings().maxCount(16).rarity(Rarity.UNCOMMON).arch$tab(SowItemGroups.ITEMS)));
+    public static final RegistrySupplier<Item> GREEN_NOTE = REGISTRY.register("green_note", () -> new Item(new Item.Settings().maxCount(16).rarity(Rarity.UNCOMMON).arch$tab(SowItemGroups.ITEMS)));
 
     public static final RegistrySupplier<ShrineDebugItem> SHRINE_DEBUG = REGISTRY.register("shrine_debug", ShrineDebugItem::new);
     //Fake Items, should not use in game without song power.

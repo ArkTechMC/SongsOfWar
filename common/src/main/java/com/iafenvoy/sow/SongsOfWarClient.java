@@ -25,6 +25,7 @@ public class SongsOfWarClient {
         SowRenderers.registerSkull();
         SowRenderers.registerBlockEntityRenderer();
         SowRenderers.registerRenderType();
+        SowRenderers.registerModelPredicate();
         Static.songCubeSoundManager = new ClientSongCubeSoundManager();
         ClientTickEvent.CLIENT_POST.register(client -> Static.songCubeSoundManager.tick());
         ReloadListenerRegistry.register(ResourceType.CLIENT_RESOURCES, new ArdoniMarkerReloader(), new Identifier(SongsOfWar.MOD_ID, "ardoni_marker"));
