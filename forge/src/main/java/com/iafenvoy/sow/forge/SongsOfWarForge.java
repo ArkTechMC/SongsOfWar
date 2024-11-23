@@ -45,7 +45,7 @@ public class SongsOfWarForge {
 
         @SubscribeEvent
         public static void attachChunkData(AttachCapabilitiesEvent<WorldChunk> event) {
-            event.addCapability(new Identifier(SongsOfWar.MOD_ID, "song_chunk"), new SongChunkDataProvider());
+            event.addCapability(new Identifier(SongsOfWar.MOD_ID, "song_chunk_data"), new SongChunkDataProvider());
         }
     }
 }

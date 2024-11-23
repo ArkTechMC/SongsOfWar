@@ -17,31 +17,20 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 @Environment(EnvType.CLIENT)
-public class ClientSongCubeSoundManager implements SongCubeSoundManager {
+public enum ClientSongCubeSoundManager implements SongCubeSoundManager {
+    INSTANCE;
     private static final Map<BlockPos, SongCubeSoundInstance> INSTANCES = new HashMap<>();
     private static final int MAX_DISTANCE = 10;
 
     @Override
-    public boolean nearEnough(BlockPos pos) {
-        assert MinecraftClient.getInstance().player != null;
-        return MinecraftClient.getInstance().player.getBlockPos().getSquaredDistance(pos) < MAX_DISTANCE * MAX_DISTANCE;
-    }
-
-    @Override
     public void startPlaying(BlockPos pos, PowerCategory category) {
         if (category == null) return;
-        if (!this.nearEnough(pos)) {
-            this.stopPlaying(pos);
+        if (farEnough(pos)) {
+            this.destroy(pos);
             return;
         }
         if (!INSTANCES.containsKey(pos)) INSTANCES.put(pos, new SongCubeSoundInstance(pos, category));
         INSTANCES.get(pos).start();
-    }
-
-    @Override
-    public void stopPlaying(BlockPos pos) {
-        if (!INSTANCES.containsKey(pos)) return;
-        INSTANCES.get(pos).stop();
     }
 
     @Override
@@ -53,8 +42,13 @@ public class ClientSongCubeSoundManager implements SongCubeSoundManager {
     @Override
     public void tick() {
         for (BlockPos pos : INSTANCES.keySet())
-            if (!this.nearEnough(pos))
-                this.stopPlaying(pos);
+            if (farEnough(pos))
+                this.destroy(pos);
+    }
+
+    public static boolean farEnough(BlockPos pos) {
+        assert MinecraftClient.getInstance().player != null;
+        return MinecraftClient.getInstance().player.getBlockPos().getSquaredDistance(pos) > MAX_DISTANCE * MAX_DISTANCE;
     }
 
     private static class SongCubeSoundInstance extends AbstractSoundInstance implements TickableSoundInstance {

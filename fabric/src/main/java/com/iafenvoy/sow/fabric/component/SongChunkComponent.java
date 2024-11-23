@@ -11,7 +11,7 @@ import net.minecraft.world.chunk.Chunk;
 import org.jetbrains.annotations.NotNull;
 
 public class SongChunkComponent implements ComponentV3 {
-    public static final ComponentKey<SongChunkComponent> SONG_CHUNK_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(SongsOfWar.MOD_ID, "song_chunk"), SongChunkComponent.class);
+    public static final ComponentKey<SongChunkComponent> SONG_CHUNK_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(SongsOfWar.MOD_ID, "song_chunk_data"), SongChunkComponent.class);
 
     private final Chunk chunk;
     private final SongChunkData data;

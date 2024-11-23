@@ -8,6 +8,7 @@
     "BeaconBlockMixin",
     "EntityMixin",
     "GrindstoneScreenHandlerMixin",
+    "ServerWorldMixin",
     "LivingEntityMixin",
     "NoteBlockMixin",
     "PlayerEntityMixin",

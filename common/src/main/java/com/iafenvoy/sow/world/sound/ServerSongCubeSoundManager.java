@@ -3,18 +3,11 @@ package com.iafenvoy.sow.world.sound;
 import com.iafenvoy.sow.power.PowerCategory;
 import net.minecraft.util.math.BlockPos;
 
-public class ServerSongCubeSoundManager implements SongCubeSoundManager {
-    @Override
-    public boolean nearEnough(BlockPos pos) {
-        return false;
-    }
+public enum ServerSongCubeSoundManager implements SongCubeSoundManager {
+    INSTANCE;
 
     @Override
     public void startPlaying(BlockPos pos, PowerCategory category) {
-    }
-
-    @Override
-    public void stopPlaying(BlockPos pos) {
     }
 
     @Override

@@ -7,25 +7,36 @@ import net.minecraft.world.chunk.WorldChunk;
 
 public class SongChunkData implements Serializable {
     private boolean fulfilled = false;
+    private int maxNotes;
     private int remainNotes;
 
     @Override
     public void encode(NbtCompound nbt) {
         nbt.putBoolean("fulfilled", this.isFulfilled());
+        nbt.putInt("max_notes", this.getMaxNotes());
         nbt.putInt("remain_notes", this.getRemainNotes());
     }
 
     @Override
     public void decode(NbtCompound nbt) {
         this.setFulfilled(nbt.getBoolean("fulfilled"));
+        this.setMaxNotes(nbt.getInt("max_notes"));
         this.setRemainNotes(nbt.getInt("remain_notes"));
+    }
+
+    private int getMaxNotes() {
+        return this.maxNotes;
+    }
+
+    private void setMaxNotes(int maxNotes) {
+        this.maxNotes = maxNotes;
     }
 
     public int getRemainNotes() {
         return this.remainNotes;
     }
 
-    public void setRemainNotes(int remainNotes) {
+    private void setRemainNotes(int remainNotes) {
         this.remainNotes = remainNotes;
     }
 
@@ -33,14 +44,28 @@ public class SongChunkData implements Serializable {
         return this.fulfilled;
     }
 
-    public void setFulfilled(boolean fulfilled) {
+    private void setFulfilled(boolean fulfilled) {
         this.fulfilled = fulfilled;
     }
 
-    public boolean reduceRemainNotes() {
+    public void initialize(int remainNotes) {
+        if (this.isFulfilled()) return;
+        this.setFulfilled(true);
+        this.setMaxNotes(remainNotes);
+        this.setRemainNotes(remainNotes);
+    }
+
+    public boolean decreaseRemainNotes() {
+        if (!this.isFulfilled()) return false;
         if (this.remainNotes <= 0) return false;
         this.remainNotes--;
         return true;
+    }
+
+    public void increaseRemainNotes() {
+        if (!this.isFulfilled()) return;
+        if (this.remainNotes >= this.maxNotes) return;
+        this.remainNotes++;
     }
 
     public boolean isEmpty() {

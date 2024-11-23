@@ -75,6 +75,7 @@
   "config.sow.common.enableBeaconTp": "Enable Beacon Teleport",
   "config.sow.common.songChunkDetectRange": "Song Chunk Detect Range (Use Adjusted)",
   "config.sow.common.songChunkRarity": "Song Chunk Generate Rarity",
+  "config.sow.common.songChunkRegen": "Song Chunk Regeneration",
   "config.sow.config.server.title": "Songs of Power Server Settings",
   "config.sow.config.title": "Songs of Power Settings",
   "config.sow.power.aggrobeam.damage": "Aggrobeam Damage",

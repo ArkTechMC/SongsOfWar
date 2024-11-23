@@ -31,10 +31,7 @@ public class SongChunkManager {
         WorldChunk chunk = serverWorld.getChunkManager().getWorldChunk(pos.x, pos.z);
         if (chunk == null) return false;
         SongChunkData data = SongChunkData.byChunk(chunk);
-        if (!data.isFulfilled()) {
-            data.setFulfilled(true);
-            data.setRemainNotes(serverWorld.getRandom().nextBetween(3, 6));
-        }
-        return data.reduceRemainNotes();
+        if (!data.isFulfilled()) data.initialize(serverWorld.getRandom().nextBetween(3, 6));
+        return data.decreaseRemainNotes();
     }
 }

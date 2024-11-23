@@ -58,6 +58,8 @@ The count of `Notes` is 3-6. Ones all of them are dig out, the chunk is no longe
 
 Finally, you can craft songs with `Notes`. Its power will randomize.
 
+**The song chunk will regenerate with 1 note per day (Invoke at midnight/18000 ticks).**
+
 </details>
 
 <details> <summary>Usage</summary>

@@ -130,7 +130,7 @@ public class SongPowerData implements Serializable, Tickable {
     }
 
     public static SongPowerData byPlayer(@Nullable PlayerEntity player) {
-        if(player==null) return new SongPowerData(null);
+        if (player == null) return new SongPowerData(null);
         return ComponentManager.getSongPowerData(player);
     }
 

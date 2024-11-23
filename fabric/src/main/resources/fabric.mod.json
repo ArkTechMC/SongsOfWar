@@ -34,7 +34,7 @@
   "custom": {
     "cardinal-components": [
       "sow:song_power",
-      "sow:song_chunk"
+      "sow:song_chunk_data"
     ]
   },
   "mixins": [
