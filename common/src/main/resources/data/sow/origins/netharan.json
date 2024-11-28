@@ -2,7 +2,8 @@
   "powers": [
     "sow:fire_invulnerable",
     "sow:afraid_water",
-    "sow:too_cold"
+    "sow:too_cold",
+    "sow:prevent_elytra"
   ],
   "icon": "minecraft:netherrack",
   "impact": 1,

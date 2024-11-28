@@ -4,7 +4,8 @@
     "sow:health_boost_10",
     "sow:potion_invulnerable",
     "sow:prevent_redstone",
-    "sow:ardoni_no_armor"
+    "sow:ardoni_no_armor",
+    "sow:prevent_elytra"
   ],
   "icon": "sow:aggressium_song",
   "impact": 3,

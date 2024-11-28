@@ -6,7 +6,8 @@
     "sow:defense_boost_10",
     "sow:lava_speed_boost",
     "sow:water_wither",
-    "sow:too_cold"
+    "sow:too_cold",
+    "sow:prevent_elytra"
   ],
   "icon": "minecraft:magma_block",
   "impact": 3,

@@ -623,6 +623,8 @@
   "power.sow.lava_speed_boost.name": "岩浆游泳加速",
   "power.sow.potion_invulnerable.description": "免疫所有药水效果。",
   "power.sow.potion_invulnerable.name": "药水免疫",
+  "power.sow.prevent_elytra.description": "你太重了，无法使用鞘翅飞行。",
+  "power.sow.prevent_elytra.name": "无法使用鞘翅",
   "power.sow.prevent_redstone.description": "用不了红石元件。",
   "power.sow.prevent_redstone.name": "亲近自然",
   "power.sow.songs.description": "可以使用歌之力",

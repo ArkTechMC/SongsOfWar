@@ -623,6 +623,8 @@
   "power.sow.lava_speed_boost.name": "Lava Speed Boost",
   "power.sow.potion_invulnerable.description": "Invulnerable to potions.",
   "power.sow.potion_invulnerable.name": "Potion Invulnerable",
+  "power.sow.prevent_elytra.description": "You are too heavy to flight with elytra.",
+  "power.sow.prevent_elytra.name": "Cannot use elytra",
   "power.sow.prevent_redstone.description": "You cannot use redstone things.",
   "power.sow.prevent_redstone.name": "Prevent Redstone",
   "power.sow.songs.description": "You can use Song Abilities.",
