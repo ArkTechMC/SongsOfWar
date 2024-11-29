@@ -11,7 +11,7 @@ public class AggressiumSongCubeBlockEntity extends AbstractSongCubeBlockEntity {
     }
 
     @Override
-    protected PowerCategory getCategory() {
+    public PowerCategory getCategory() {
         return PowerCategory.AGGRESSIUM;
     }
 }

@@ -1,11 +1,13 @@
 package com.iafenvoy.sow.item.block.entity;
 
+import com.iafenvoy.neptune.network.ClientNetworkHelper;
 import com.iafenvoy.sow.data.ArdoniType;
 import com.iafenvoy.sow.item.block.ArdoniGraveBlock;
 import com.iafenvoy.sow.registry.SowBlockEntities;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.BlockPos;
 
@@ -13,6 +15,7 @@ public class ArdoniGraveBlockEntity extends BlockEntity {
     private long seed;
     private boolean fixed;
     private ArdoniType ardoniType = ArdoniType.NONE;
+    private boolean fulfulled = false;
 
     public ArdoniGraveBlockEntity(BlockPos pos, BlockState state) {
         super(SowBlockEntities.ARDONI_GRAVE.get(), pos, state);
@@ -32,11 +35,7 @@ public class ArdoniGraveBlockEntity extends BlockEntity {
         nbt.putLong("seed", this.getSeed());
         nbt.putBoolean("fixed", this.isFixed());
         nbt.putString("type", this.getArdoniType().id());
-    }
-
-    @Override
-    public void setStackNbt(ItemStack stack) {
-        super.setStackNbt(stack);
+        this.fulfulled = true;
     }
 
     public boolean isFixed() {
@@ -63,7 +62,9 @@ public class ArdoniGraveBlockEntity extends BlockEntity {
         return this.ardoniType;
     }
 
+    @Environment(EnvType.CLIENT)
     public float getRotationDegree() {
+        if (!this.fulfulled) ClientNetworkHelper.requestBlockEntityData(this.pos);
         return -this.getCachedState().get(ArdoniGraveBlock.FACING).asRotation() + 180;
     }
 }

@@ -1,5 +1,6 @@
 package com.iafenvoy.sow.item.block;
 
+import com.iafenvoy.sow.Static;
 import com.iafenvoy.sow.item.block.entity.AbstractSongCubeBlockEntity;
 import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.power.type.AbstractSongPower;
@@ -8,6 +9,8 @@ import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -83,5 +86,13 @@ public abstract class AbstractSongCubeBlock extends BlockWithEntity {
         if (world.getBlockEntity(pos) instanceof AbstractSongCubeBlockEntity blockEntity)
             blockEntity.getPower().appendNbt(stack);
         return stack;
+    }
+
+    @Override
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return (world1, pos, state1, blockEntity) -> {
+            if (blockEntity instanceof AbstractSongCubeBlockEntity songCubeBlockEntity)
+                Static.songCubeSoundManager.startPlaying(pos, songCubeBlockEntity.getCategory());
+        };
     }
 }

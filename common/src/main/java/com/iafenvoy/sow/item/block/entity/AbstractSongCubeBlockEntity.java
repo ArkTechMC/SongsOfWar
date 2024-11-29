@@ -44,9 +44,5 @@ public abstract class AbstractSongCubeBlockEntity extends BlockEntity {
         Static.songCubeSoundManager.destroy(this.pos);
     }
 
-    protected abstract PowerCategory getCategory();
-
-    public static void tick(World world, BlockPos pos, BlockState state, AbstractSongCubeBlockEntity blockEntity) {
-        Static.songCubeSoundManager.startPlaying(pos, blockEntity.getCategory());
-    }
+    public abstract PowerCategory getCategory();
 }

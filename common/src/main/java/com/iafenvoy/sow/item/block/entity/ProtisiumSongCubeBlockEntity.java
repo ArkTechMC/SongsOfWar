@@ -11,7 +11,7 @@ public class ProtisiumSongCubeBlockEntity extends AbstractSongCubeBlockEntity {
     }
 
     @Override
-    protected PowerCategory getCategory() {
+    public PowerCategory getCategory() {
         return PowerCategory.PROTISIUM;
     }
 }
