@@ -1,16 +1,13 @@
 package com.iafenvoy.sow.network;
 
-import com.iafenvoy.neptune.network.PacketBufferUtils;
 import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.Static;
-import com.iafenvoy.sow.item.block.entity.AbstractSongCubeBlockEntity;
 import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.power.SongPowerData;
 import com.iafenvoy.sow.power.component.MobiliWingsComponent;
 import com.iafenvoy.sow.registry.power.MobiliumPowers;
 import dev.architectury.networking.NetworkManager;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 
 public class ServerNetworkHelper {
@@ -42,14 +39,6 @@ public class ServerNetworkHelper {
                     if (SongPowerData.byPlayer(player).getComponent(MobiliWingsComponent.ID) instanceof MobiliWingsComponent component)
                         component.speedUp();
                 });
-        });
-        NetworkManager.registerReceiver(NetworkManager.Side.C2S, Static.SONG_CUBE_DATA_SYNC, (buf, context) -> {
-            BlockPos pos = buf.readBlockPos();
-            PlayerEntity player = context.getPlayer();
-            context.queue(() -> {
-                if (player instanceof ServerPlayerEntity serverPlayer && serverPlayer.getEntityWorld().getBlockEntity(pos) instanceof AbstractSongCubeBlockEntity blockEntity)
-                    NetworkManager.sendToPlayer(serverPlayer, Static.SONG_CUBE_DATA_SYNC, PacketBufferUtils.create().writeBlockPos(pos).writeString(blockEntity.getPower().getId()));
-            });
         });
     }
 }

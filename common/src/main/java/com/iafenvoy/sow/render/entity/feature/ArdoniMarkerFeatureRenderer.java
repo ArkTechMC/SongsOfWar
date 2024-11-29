@@ -3,7 +3,7 @@ package com.iafenvoy.sow.render.entity.feature;
 import com.iafenvoy.neptune.util.Color4i;
 import com.iafenvoy.sow.entity.ardoni.AbstractArdoniEntity;
 import com.iafenvoy.sow.entity.ardoni.random.ArdoniEntity;
-import com.iafenvoy.sow.render.entity.util.ArdoniMarkerGenerator;
+import com.iafenvoy.sow.render.util.ArdoniMarkerGenerator;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.OverlayTexture;
@@ -32,7 +32,7 @@ public class ArdoniMarkerFeatureRenderer extends FeatureRenderer<AbstractArdoniE
         else if (entity instanceof ArdoniEntity ardoni) {
             ArdoniMarkerGenerator generator = ArdoniMarkerGenerator.getOrCreate(ardoni.getMarkerSeed());
             Color4i color = entity.getColor();
-            model.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityTranslucentEmissive(generator.generate())), light, OverlayTexture.DEFAULT_UV, color.getR(), color.getG(), color.getB(), 1);
+            model.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityTranslucentEmissive(generator.getForSkin())), light, OverlayTexture.DEFAULT_UV, color.getR(), color.getG(), color.getB(), 1);
         }
     }
 }

@@ -16,6 +16,7 @@ import com.iafenvoy.sow.entity.netharan.PythusEntity;
 import com.iafenvoy.sow.item.AdjustedSongStoneItem;
 import com.iafenvoy.sow.item.SongStoneItem;
 import com.iafenvoy.sow.power.PowerCategory;
+import com.iafenvoy.sow.render.block.ArdoniGraveBlockEntityRenderer;
 import com.iafenvoy.sow.render.block.SongCubeBlockEntityRenderer;
 import com.iafenvoy.sow.render.entity.ArdoniEntityRenderer;
 import com.iafenvoy.sow.render.particle.AggroblastParticle;
@@ -201,6 +202,7 @@ public final class SowRenderers {
     }
 
     public static void registerBlockEntityRenderer() {
+        BlockEntityRendererRegistry.register(SowBlockEntities.ARDONI_GRAVE.get(), ArdoniGraveBlockEntityRenderer::new);
         BlockEntityRendererRegistry.register(SowBlockEntities.AGGRESSIUM_SONG_TYPE.get(), SongCubeBlockEntityRenderer.AggressiumSongCubeBlockEntityRenderer::new);
         BlockEntityRendererRegistry.register(SowBlockEntities.MOBILIUM_SONG_TYPE.get(), SongCubeBlockEntityRenderer.MobiliumSongCubeBlockEntityRenderer::new);
         BlockEntityRendererRegistry.register(SowBlockEntities.PROTISIUM_SONG_TYPE.get(), SongCubeBlockEntityRenderer.ProtisiumSongCubeBlockEntityRenderer::new);

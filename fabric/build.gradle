@@ -30,8 +30,7 @@ dependencies {
     // Cardinal Components API
     // Don't need this. Trinkets has embedded version 5.2.0.
 
-    // Neptune cross-platform library
-    modImplementation "maven.modrinth:neptune:AoaXlYhX"
+    modImplementation "maven.modrinth:neptune:NztAXzNA"
     modImplementation "maven.modrinth:jupiter:nhqjUZZy"
 
     modApi(include("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}"))

@@ -1,7 +1,7 @@
 package com.iafenvoy.sow.item.block.entity;
 
 import com.iafenvoy.sow.Static;
-import com.iafenvoy.sow.network.ClientNetworkHelper;
+import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.power.type.AbstractSongPower;
 import com.iafenvoy.sow.power.type.DummySongPower;
 import net.minecraft.block.BlockState;
@@ -44,13 +44,9 @@ public abstract class AbstractSongCubeBlockEntity extends BlockEntity {
         Static.songCubeSoundManager.destroy(this.pos);
     }
 
+    protected abstract PowerCategory getCategory();
+
     public static void tick(World world, BlockPos pos, BlockState state, AbstractSongCubeBlockEntity blockEntity) {
-        if (!world.isClient) return;
-        //Sound system should only be used on client
-        if (blockEntity.power.isEmpty()) {
-            ClientNetworkHelper.request(pos);
-            return;
-        }
-        Static.songCubeSoundManager.startPlaying(pos, blockEntity.power.getCategory());
+        Static.songCubeSoundManager.startPlaying(pos, blockEntity.getCategory());
     }
 }

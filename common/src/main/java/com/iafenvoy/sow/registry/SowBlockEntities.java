@@ -13,6 +13,8 @@ import java.util.function.Supplier;
 public final class SowBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> REGISTRY = DeferredRegister.create(SongsOfWar.MOD_ID, RegistryKeys.BLOCK_ENTITY_TYPE);
     //Block Entity
+    public static final RegistrySupplier<BlockEntityType<ArdoniGraveBlockEntity>> ARDONI_GRAVE = register("ardoni_grave", () -> BlockEntityType.Builder.create(ArdoniGraveBlockEntity::new, SowBlocks.ARDONI_GRAVE.get()).build(null));
+
     public static final RegistrySupplier<BlockEntityType<AggressiumSongCubeBlockEntity>> AGGRESSIUM_SONG_TYPE = register("aggressium_song", () -> BlockEntityType.Builder.create(AggressiumSongCubeBlockEntity::new, SowBlocks.AGGRESSIUM_SONG.get()).build(null));
     public static final RegistrySupplier<BlockEntityType<MobiliumSongCubeBlockEntity>> MOBILIUM_SONG_TYPE = register("mobilium_song", () -> BlockEntityType.Builder.create(MobiliumSongCubeBlockEntity::new, SowBlocks.MOBILIUM_SONG.get()).build(null));
     public static final RegistrySupplier<BlockEntityType<ProtisiumSongCubeBlockEntity>> PROTISIUM_SONG_TYPE = register("protisium_song", () -> BlockEntityType.Builder.create(ProtisiumSongCubeBlockEntity::new, SowBlocks.PROTISIUM_SONG.get()).build(null));

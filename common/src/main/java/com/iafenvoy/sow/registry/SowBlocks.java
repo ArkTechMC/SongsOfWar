@@ -22,7 +22,8 @@ public final class SowBlocks {
 
     public static final RegistrySupplier<PeasBlock> PEAS = register("peas", PeasBlock::new, block -> new BlockItem(block, new Item.Settings().arch$tab(SowItemGroups.PEAS_DELIGHT)));
     public static final RegistrySupplier<Block> WALLS_OF_TIME = register("walls_of_time", () -> new Block(AbstractBlock.Settings.create()), block -> new BlockItem(block, new Item.Settings().arch$tab(SowItemGroups.ITEMS)));
-    //Block
+    public static final RegistrySupplier<ArdoniGraveBlock> ARDONI_GRAVE = register("ardoni_grave", ArdoniGraveBlock::new, block -> new BlockItem(block, new Item.Settings().arch$tab(SowItemGroups.ITEMS)));
+
     public static final RegistrySupplier<AggressiumSongCubeBlock> AGGRESSIUM_SONG = register("aggressium_song", AggressiumSongCubeBlock::new, SongCubeItem::new);
     public static final RegistrySupplier<MobiliumSongCubeBlock> MOBILIUM_SONG = register("mobilium_song", MobiliumSongCubeBlock::new, SongCubeItem::new);
     public static final RegistrySupplier<ProtisiumSongCubeBlock> PROTISIUM_SONG = register("protisium_song", ProtisiumSongCubeBlock::new, SongCubeItem::new);
