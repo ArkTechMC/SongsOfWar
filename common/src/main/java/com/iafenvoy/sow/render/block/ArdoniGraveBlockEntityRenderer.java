@@ -27,7 +27,7 @@ public class ArdoniGraveBlockEntityRenderer implements BlockEntityRenderer<Ardon
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(entity.getRotationDegree()));
         matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(180));
         part.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityCutout(RenderConstants.STONE_TEXTURE)), light, overlay);
-        Color4i color = entity.getArdoniType().getColor(seed);
+        Color4i color = entity.activated() ? entity.getArdoniType().getColor(seed) : new Color4i(0x20, 0x20, 0x20, 0xFF);
         part.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityTranslucentEmissive(texture)), light, overlay, color.getR(), color.getG(), color.getB(), color.getA());
         matrices.pop();
     }

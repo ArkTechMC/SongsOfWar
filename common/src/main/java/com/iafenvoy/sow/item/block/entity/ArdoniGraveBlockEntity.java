@@ -62,6 +62,10 @@ public class ArdoniGraveBlockEntity extends BlockEntity {
         return this.ardoniType;
     }
 
+    public boolean activated() {
+        return this.getCachedState().get(ArdoniGraveBlock.ACTIVATED);
+    }
+
     @Environment(EnvType.CLIENT)
     public float getRotationDegree() {
         if (!this.fulfulled) ClientNetworkHelper.requestBlockEntityData(this.pos);

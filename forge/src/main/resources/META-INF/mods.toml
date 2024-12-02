@@ -7,7 +7,7 @@ modId = "sow"
 version = "${version}"
 displayName = "Songs Of War"
 logoFile = "logo_2.jpg"
-authors = "IAFEnvoy, HF_ColdWind"
+authors = "IAFEnvoy, HF_ColdWind, Sildarflame"
 description = '''
 The Songs of War Animation Mod
 '''
