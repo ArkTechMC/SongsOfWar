@@ -45,6 +45,7 @@ public final class ProtisiumPowers {
                 return amount;
             }));
     public static final InstantSongPower PROTEBARRIER = new InstantSongPower("protebarrier", PowerCategory.PROTISIUM)
+            .setApplySound(SowSounds.PROTEBARRIER)
             .setPrimaryCooldown(holder -> SowConfig.INSTANCE.protisium.protebarrierPrimaryCooldown.getValue())
             .setSecondaryCooldown(holder -> SowConfig.INSTANCE.protisium.protebarrierSecondaryCooldown.getValue())
             .setExhaustion(holder -> SowConfig.INSTANCE.protisium.protebarrierExhaustion.getValue())
@@ -62,8 +63,8 @@ public final class ProtisiumPowers {
                     }
             });
     public static final DelaySongPower PROTECLONE = new DelaySongPower("proteclone", PowerCategory.PROTISIUM)
-            .setDelay(12)
             .setApplySound(SowSounds.PROTECLONE)
+            .setDelay(12)
             .setPrimaryCooldown(holder -> SowConfig.INSTANCE.protisium.proteclonePrimaryCooldown.getValue())
             .setSecondaryCooldown(holder -> SowConfig.INSTANCE.protisium.protecloneSecondaryCooldown.getValue())
             .setExhaustion(holder -> SowConfig.INSTANCE.protisium.protecloneExhaustion.getValue())
@@ -78,6 +79,7 @@ public final class ProtisiumPowers {
                 }
             });
     public static final IntervalSongPower PROTEHEAL = new IntervalSongPower("proteheal", PowerCategory.PROTISIUM)
+            .setApplySound(SowSounds.PROTEHEAL)
             .setInterval(10)
             .setTimes(10)
             .setPrimaryCooldown(holder -> SowConfig.INSTANCE.protisium.protehealPrimaryCooldown.getValue())

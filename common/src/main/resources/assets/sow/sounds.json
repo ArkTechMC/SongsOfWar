@@ -15,6 +15,14 @@
       }
     ]
   },
+  "aggroblast": {
+    "sounds": [
+      {
+        "name": "sow:aggroblast",
+        "stream": false
+      }
+    ]
+  },
   "aggrodetonate": {
     "sounds": [
       {
@@ -47,10 +55,26 @@
       }
     ]
   },
+  "aggrostorm": {
+    "sounds": [
+      {
+        "name": "sow:aggrostorm",
+        "stream": false
+      }
+    ]
+  },
   "mobilibounce": {
     "sounds": [
       {
         "name": "sow:mobilibounce",
+        "stream": false
+      }
+    ]
+  },
+  "mobiliburst": {
+    "sounds": [
+      {
+        "name": "sow:mobiliburst",
         "stream": false
       }
     ]
@@ -63,10 +87,34 @@
       }
     ]
   },
+  "mobiliglide": {
+    "sounds": [
+      {
+        "name": "sow:mobiliglide",
+        "stream": false
+      }
+    ]
+  },
+  "mobilileap": {
+    "sounds": [
+      {
+        "name": "sow:mobilileap",
+        "stream": false
+      }
+    ]
+  },
   "mobilium": {
     "sounds": [
       {
         "name": "sow:mobilium",
+        "stream": false
+      }
+    ]
+  },
+  "mobiliwings": {
+    "sounds": [
+      {
+        "name": "sow:mobiliwings",
         "stream": false
       }
     ]
@@ -87,10 +135,26 @@
       }
     ]
   },
+  "protebarrier": {
+    "sounds": [
+      {
+        "name": "sow:protebarrier",
+        "stream": false
+      }
+    ]
+  },
   "proteclone": {
     "sounds": [
       {
         "name": "sow:proteclone",
+        "stream": false
+      }
+    ]
+  },
+  "proteheal": {
+    "sounds": [
+      {
+        "name": "sow:proteheal",
         "stream": false
       }
     ]
@@ -131,6 +195,38 @@
     "sounds": [
       {
         "name": "sow:supportium",
+        "stream": false
+      }
+    ]
+  },
+  "supporekesis": {
+    "sounds": [
+      {
+        "name": "sow:supporekesis",
+        "stream": false
+      }
+    ]
+  },
+  "supporoform": {
+    "sounds": [
+      {
+        "name": "sow:supporoform",
+        "stream": false
+      }
+    ]
+  },
+  "supporolift": {
+    "sounds": [
+      {
+        "name": "sow:supporolift",
+        "stream": false
+      }
+    ]
+  },
+  "supporospike": {
+    "sounds": [
+      {
+        "name": "sow:supporospike",
         "stream": false
       }
     ]

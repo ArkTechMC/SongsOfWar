@@ -57,7 +57,9 @@ public final class AggressiumPowers {
                 for (EntityHitResult r : results)
                     r.getEntity().damage(source, holder.processDamage(SowConfig.INSTANCE.aggressium.aggrobeamDamage.getValue().floatValue()));
             });
-    public static final InstantSongPower AGGROBLAST = new InstantSongPower("aggroblast", PowerCategory.AGGRESSIUM)
+    public static final DelaySongPower AGGROBLAST = new DelaySongPower("aggroblast", PowerCategory.AGGRESSIUM)
+            .setApplySound(SowSounds.AGGROBLAST)
+            .setDelay(8)
             .setPrimaryCooldown(holder -> SowConfig.INSTANCE.aggressium.aggroblastPrimaryCooldown.getValue())
             .setSecondaryCooldown(holder -> SowConfig.INSTANCE.aggressium.aggroblastSecondaryCooldown.getValue())
             .setExhaustion(holder -> SowConfig.INSTANCE.aggressium.aggroblastExhaustion.getValue())
@@ -167,6 +169,7 @@ public final class AggressiumPowers {
                 }
             });
     public static final PersistSongPower AGGROSTORM = new PersistSongPower("aggrostorm", PowerCategory.AGGRESSIUM).experimental()
+            .setApplySound(SowSounds.AGGROSTORM)
             .setExhaustion(holder -> SowConfig.INSTANCE.aggressium.aggrostormExhaustion.getValue())
             .onTick(holder -> {
                 PlayerEntity player = holder.getPlayer();

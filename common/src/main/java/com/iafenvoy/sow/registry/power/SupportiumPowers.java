@@ -5,9 +5,11 @@ import com.iafenvoy.sow.config.SowConfig;
 import com.iafenvoy.sow.entity.power.SupporekesisControllable;
 import com.iafenvoy.sow.entity.power.SupporoSpikeEntity;
 import com.iafenvoy.sow.power.PowerCategory;
+import com.iafenvoy.sow.power.type.DelaySongPower;
 import com.iafenvoy.sow.power.type.InstantSongPower;
 import com.iafenvoy.sow.registry.SowEntities;
 import com.iafenvoy.sow.registry.SowItems;
+import com.iafenvoy.sow.registry.SowSounds;
 import com.iafenvoy.sow.util.RecipeUtils;
 import com.iafenvoy.sow.world.WorldUtil;
 import it.unimi.dsi.fastutil.doubles.Double2FloatFunction;
@@ -30,7 +32,9 @@ import java.util.Objects;
 
 @SuppressWarnings("unused")
 public final class SupportiumPowers {
-    public static final InstantSongPower SUPPOREKESIS = new InstantSongPower("supporekesis", PowerCategory.SUPPORTIUM)
+    public static final DelaySongPower SUPPOREKESIS = new DelaySongPower("supporekesis", PowerCategory.SUPPORTIUM)
+            .setApplySound(SowSounds.SUPPOREKESIS)
+            .setDelay(20)
             .setPrimaryCooldown(holder -> SowConfig.INSTANCE.supportium.supporekesisPrimaryCooldown.getValue())
             .setSecondaryCooldown(holder -> SowConfig.INSTANCE.supportium.supporekesisSecondaryCooldown.getValue())
             .setExhaustion(holder -> SowConfig.INSTANCE.supportium.supporekesisExhaustion.getValue())
@@ -43,10 +47,12 @@ public final class SupportiumPowers {
                     if (c instanceof Ownable ownable && ownable.getOwner() != null && Objects.equals(ownable.getOwner().getUuid(), player.getUuid()) && !SowConfig.INSTANCE.supportium.supporekesisControlSelf.getValue())
                         continue;
                     if (c instanceof SupporekesisControllable controllable)
-                        controllable.setDisappearCd(10, true);
+                        controllable.setDisappearCd(70, true);
                 }
             });
-    public static final InstantSongPower SUPPOROFORM = new InstantSongPower("supporoform", PowerCategory.SUPPORTIUM)
+    public static final DelaySongPower SUPPOROFORM = new DelaySongPower("supporoform", PowerCategory.SUPPORTIUM)
+            .setApplySound(SowSounds.SUPPOROFORM)
+            .setDelay(20)
             .setPrimaryCooldown(holder -> SowConfig.INSTANCE.supportium.supporoformPrimaryCooldown.getValue())
             .setSecondaryCooldown(holder -> SowConfig.INSTANCE.supportium.supporoformSecondaryCooldown.getValue())
             .setExhaustion(holder -> SowConfig.INSTANCE.supportium.supporoformExhaustion.getValue())
@@ -67,11 +73,12 @@ public final class SupportiumPowers {
                             case 4 -> new ItemStack(SowItems.ENDER_KNIGHT_BOOTS.get());
                             default -> ItemStack.EMPTY;
                         };
-                    if (stack1.isEmpty()) stack1 = RecipeUtils.findSmeltResult(serverWorld, stack, player).copy();
+                    if (stack1.isEmpty()) stack1 = RecipeUtils.findSmeltResult(serverWorld, stack).copy();
                     if (!stack1.isEmpty()) player.getInventory().setStack(i, stack1);
                 }
             });
     public static final InstantSongPower SUPPOROLIFT = new InstantSongPower("supporolift", PowerCategory.SUPPORTIUM)
+            .setApplySound(SowSounds.SUPPOROLIFT)
             .setPrimaryCooldown(holder -> SowConfig.INSTANCE.supportium.supporoliftPrimaryCooldown.getValue())
             .setSecondaryCooldown(holder -> SowConfig.INSTANCE.supportium.supporoliftSecondaryCooldown.getValue())
             .setExhaustion(holder -> SowConfig.INSTANCE.supportium.supporoliftExhaustion.getValue())
@@ -85,6 +92,7 @@ public final class SupportiumPowers {
                 } else holder.cancel();
             });
     public static final InstantSongPower SUPPOROSPIKE = new InstantSongPower("supporospike", PowerCategory.SUPPORTIUM)
+            .setApplySound(SowSounds.SUPPOROSPIKE)
             .setPrimaryCooldown(holder -> SowConfig.INSTANCE.supportium.supporospikePrimaryCooldown.getValue())
             .setSecondaryCooldown(holder -> SowConfig.INSTANCE.supportium.supporospikeSecondaryCooldown.getValue())
             .setExhaustion(holder -> SowConfig.INSTANCE.supportium.supporospikeExhaustion.getValue())

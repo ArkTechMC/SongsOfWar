@@ -167,7 +167,7 @@ public class SongPowerData implements Serializable, Tickable {
             this.enabled = nbt.getBoolean("enabled");
             this.primaryCooldown = nbt.getInt("primaryCooldown");
             this.secondaryCooldown = nbt.getInt("secondaryCooldown");
-            this.activePower = AbstractSongPower.BY_ID.getOrDefault(nbt.getString("activePower"), DummySongPower.EMPTY);
+            this.activePower = AbstractSongPower.byId(nbt.getString("activePower"));
         }
 
         @Override

@@ -41,7 +41,9 @@ public final class MobiliumPowers {
                 player.setVelocity(0, 0, 0);
                 player.velocityModified = true;
             });
-    public static final InstantSongPower MOBILIBURST = new InstantSongPower("mobiliburst", PowerCategory.MOBILIUM)
+    public static final DelaySongPower MOBILIBURST = new DelaySongPower("mobiliburst", PowerCategory.MOBILIUM)
+            .setApplySound(SowSounds.MOBILIBURST)
+            .setDelay(28)
             .setPrimaryCooldown(holder -> SowConfig.INSTANCE.mobilium.mobiliburstPrimaryCooldown.getValue())
             .setSecondaryCooldown(holder -> SowConfig.INSTANCE.mobilium.mobiliburstSecondaryCooldown.getValue())
             .setExhaustion(holder -> SowConfig.INSTANCE.mobilium.mobiliburstExhaustion.getValue())
@@ -70,6 +72,7 @@ public final class MobiliumPowers {
                 player.velocityModified = true;
             });
     public static final PersistSongPower MOBILIGLIDE = new PersistSongPower("mobiliglide", PowerCategory.MOBILIUM)
+            .setApplySound(SowSounds.MOBILIGLIDE)
             .setExhaustion(holder -> SowConfig.INSTANCE.mobilium.mobiliglideExhaustion.getValue())
             .onApply(holder -> {//GRAVITY attribute not available before 1.20.5
                 EntityAttributeInstance instance = holder.getPlayer().getAttributes().getCustomInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
@@ -84,9 +87,10 @@ public final class MobiliumPowers {
                 if (instance != null) instance.removeModifier(Static.MOBILIGLIDE_UUID);
             });
     public static final PersistSongPower MOBILILEAP = new PersistSongPower("mobilileap", PowerCategory.MOBILIUM)
+            .setApplySound(SowSounds.MOBILILEAP)
             .setExhaustion(holder -> SowConfig.INSTANCE.mobilium.mobilileapExhaustion.getValue());
     public static final PersistSongPower MOBILIWINGS = new PersistSongPower("mobiliwings", PowerCategory.MOBILIUM)
-            .setApplySound(() -> SoundEvents.ITEM_ARMOR_EQUIP_ELYTRA)
+            .setApplySound(SowSounds.MOBILIWINGS)
             .setExhaustion(holder -> SowConfig.INSTANCE.mobilium.mobiliwingsExhaustion.getValue())
             .onApply(holder -> {
                 PlayerEntity player = holder.getPlayer();

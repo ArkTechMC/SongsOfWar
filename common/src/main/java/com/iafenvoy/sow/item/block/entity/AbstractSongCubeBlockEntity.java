@@ -9,7 +9,6 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 
 public abstract class AbstractSongCubeBlockEntity extends BlockEntity {
     private AbstractSongPower<?> power = DummySongPower.EMPTY;
@@ -21,7 +20,7 @@ public abstract class AbstractSongCubeBlockEntity extends BlockEntity {
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
-        this.power = AbstractSongPower.BY_ID.getOrDefault(nbt.getString("songPower"), DummySongPower.EMPTY);
+        this.power = AbstractSongPower.byId(nbt.getString("songPower"));
     }
 
     @Override

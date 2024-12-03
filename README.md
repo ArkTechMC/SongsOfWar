@@ -131,9 +131,9 @@ If everything is correct, the song cube will start spawning particles. After an 
 **HotKey: N**
 
 - Supporekesis: Stop all entities related to aggressium songs in 20 blocks and explode them. (No damage)
-- Supporoform: Spend experience to smelt items. Also, this is the only way to gain ender knight armors in survival.
+- Supporoform: Smelt items. Also, this is the only way to gain ender knight armors in survival.
 - Supporolift: Pull the entity you are looking at in 20 blocks.
-- Supporospike: Smelt things in inventory with experience. Also this is the only way to obtain obsidian armor.
+- Supporospike: Push the entity you are looking at up.
 
 </details>
 

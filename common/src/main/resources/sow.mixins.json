@@ -8,11 +8,11 @@
     "BeaconBlockMixin",
     "EntityMixin",
     "GrindstoneScreenHandlerMixin",
-    "ServerWorldMixin",
     "LivingEntityMixin",
     "NoteBlockMixin",
     "PlayerEntityMixin",
     "ServerPlayerEntityMixin",
+    "ServerWorldMixin",
     "StructureTemplateAccessor",
     "integration.ModPacketsC2SMixin"
   ],

@@ -23,7 +23,7 @@ import java.util.function.ToIntFunction;
 
 public sealed abstract class AbstractSongPower<T extends AbstractSongPower<T>> permits DelaySongPower, DummySongPower, InstantSongPower, IntervalSongPower, PersistSongPower {
     public static final List<AbstractSongPower<?>> POWERS = new ArrayList<>();
-    public static final Map<String, AbstractSongPower<?>> BY_ID = new HashMap<>();
+    private static final Map<String, AbstractSongPower<?>> BY_ID = new HashMap<>();
     private final String id;
     private final PowerCategory category;
     private Consumer<AbstractSongPower<?>> init = self -> {
@@ -166,6 +166,10 @@ public sealed abstract class AbstractSongPower<T extends AbstractSongPower<T>> p
     protected static void playSound(SongPowerDataHolder holder, @Nullable Supplier<SoundEvent> sound) {
         if (sound != null)
             SoundUtil.playSound(holder.getWorld(), holder.getPlayer().getX(), holder.getPlayer().getY(), holder.getPlayer().getZ(), sound.get().getId(), 0.5f, 1);
+    }
+
+    public static AbstractSongPower<?> byId(String id) {
+        return BY_ID.getOrDefault(id, DummySongPower.EMPTY);
     }
 
     public T experimental() {
