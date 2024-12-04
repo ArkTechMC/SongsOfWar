@@ -202,7 +202,7 @@ public final class SowRenderers {
     }
 
     public static void registerBlockEntityRenderer() {
-        BlockEntityRendererRegistry.register(SowBlockEntities.ARDONI_GRAVE.get(), ArdoniGraveBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.register(SowBlockEntities.ARDONI_GRAVE.get(), ctx -> new ArdoniGraveBlockEntityRenderer());
         BlockEntityRendererRegistry.register(SowBlockEntities.AGGRESSIUM_SONG_TYPE.get(), SongCubeBlockEntityRenderer.AggressiumSongCubeBlockEntityRenderer::new);
         BlockEntityRendererRegistry.register(SowBlockEntities.MOBILIUM_SONG_TYPE.get(), SongCubeBlockEntityRenderer.MobiliumSongCubeBlockEntityRenderer::new);
         BlockEntityRendererRegistry.register(SowBlockEntities.PROTISIUM_SONG_TYPE.get(), SongCubeBlockEntityRenderer.ProtisiumSongCubeBlockEntityRenderer::new);

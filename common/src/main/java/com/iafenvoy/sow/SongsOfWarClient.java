@@ -3,7 +3,7 @@ package com.iafenvoy.sow;
 import com.iafenvoy.sow.compat.LitematicaHelper;
 import com.iafenvoy.sow.registry.SowKeybindings;
 import com.iafenvoy.sow.registry.SowRenderers;
-import com.iafenvoy.sow.render.util.ArdoniMarkerReloader;
+import com.iafenvoy.sow.render.util.ArdoniTextureReloader;
 import com.iafenvoy.sow.world.sound.ClientSongCubeSoundManager;
 import dev.architectury.event.events.client.ClientTickEvent;
 import dev.architectury.registry.ReloadListenerRegistry;
@@ -27,7 +27,7 @@ public class SongsOfWarClient {
         SowRenderers.registerModelPredicate();
         Static.songCubeSoundManager = ClientSongCubeSoundManager.INSTANCE;
         ClientTickEvent.CLIENT_POST.register(client -> Static.songCubeSoundManager.tick());
-        ReloadListenerRegistry.register(ResourceType.CLIENT_RESOURCES, new ArdoniMarkerReloader(), new Identifier(SongsOfWar.MOD_ID, "ardoni_marker"));
+        ReloadListenerRegistry.register(ResourceType.CLIENT_RESOURCES, new ArdoniTextureReloader(), new Identifier(SongsOfWar.MOD_ID, "ardoni_marker"));
         LitematicaHelper.extractFile();
     }
 }

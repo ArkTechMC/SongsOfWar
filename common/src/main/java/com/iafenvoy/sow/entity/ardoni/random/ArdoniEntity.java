@@ -10,7 +10,6 @@ import com.iafenvoy.sow.item.block.entity.ArdoniGraveBlockEntity;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
@@ -93,12 +92,6 @@ public abstract class ArdoniEntity extends AbstractArdoniEntity {
         return data;
     }
 
-    @Override
-    protected void dropLoot(DamageSource damageSource, boolean causedByPlayer) {
-        super.dropLoot(damageSource, causedByPlayer);
-        this.dropStack(this.toGrave());
-    }
-
     public long getMarkerSeed() {
         return this.dataTracker.get(MARKER_SEED);
     }
@@ -124,7 +117,8 @@ public abstract class ArdoniEntity extends AbstractArdoniEntity {
         this.dataTracker.set(FEMALE, female);
     }
 
+    @Override
     public ItemStack toGrave() {
-        return ArdoniGraveBlockEntity.buildGrave(this.getMarkerSeed(), false, this.getArdoniType());
+        return ArdoniGraveBlockEntity.buildGrave(this.getMarkerSeed(), this.getArdoniType());
     }
 }

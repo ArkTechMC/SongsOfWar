@@ -3,6 +3,7 @@ package com.iafenvoy.sow.entity.ardoni;
 import com.iafenvoy.neptune.object.entity.MonsterEntityBase;
 import com.iafenvoy.neptune.util.Color4i;
 import com.iafenvoy.sow.data.ArdoniType;
+import com.iafenvoy.sow.item.block.entity.ArdoniGraveBlockEntity;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -13,6 +14,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
@@ -57,6 +59,12 @@ public abstract class AbstractArdoniEntity extends MonsterEntityBase {
         return super.isInvulnerableTo(damageSource);
     }
 
+    @Override
+    protected void dropLoot(DamageSource damageSource, boolean causedByPlayer) {
+        super.dropLoot(damageSource, causedByPlayer);
+        this.dropStack(this.toGrave());
+    }
+
     public abstract Identifier getSkinTexture();
 
     public abstract Optional<Identifier> getMarkerTexture();
@@ -64,6 +72,10 @@ public abstract class AbstractArdoniEntity extends MonsterEntityBase {
     public abstract Color4i getColor();
 
     public abstract ArdoniType getArdoniType();
+
+    public ItemStack toGrave() {
+        return this.getMarkerTexture().map(ArdoniGraveBlockEntity::buildGrave).orElse(ItemStack.EMPTY);
+    }
 
     public boolean isFemale() {
         return false;
@@ -73,4 +85,5 @@ public abstract class AbstractArdoniEntity extends MonsterEntityBase {
     public boolean canImmediatelyDespawn(double distanceSquared) {
         return false;
     }
+
 }

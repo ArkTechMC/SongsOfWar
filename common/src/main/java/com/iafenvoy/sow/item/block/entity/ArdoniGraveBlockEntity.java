@@ -11,11 +11,15 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+
+import java.util.Locale;
 
 public class ArdoniGraveBlockEntity extends BlockEntity {
     private long seed;
     private boolean fixed;
+    private Identifier texturePath = new Identifier("");
     private ArdoniType ardoniType = ArdoniType.NONE;
     private boolean fulfulled = false;
 
@@ -29,6 +33,7 @@ public class ArdoniGraveBlockEntity extends BlockEntity {
         this.setSeed(nbt.getLong("seed"));
         this.setFixed(nbt.getBoolean("fixed"));
         this.setArdoniType(ArdoniType.byId(nbt.getString("type")));
+        this.setTexturePath(new Identifier(nbt.getString("texturePath").toLowerCase(Locale.ROOT)));
     }
 
     @Override
@@ -37,6 +42,7 @@ public class ArdoniGraveBlockEntity extends BlockEntity {
         nbt.putLong("seed", this.getSeed());
         nbt.putBoolean("fixed", this.isFixed());
         nbt.putString("type", this.getArdoniType().id());
+        nbt.putString("texturePath", this.getTexturePath().toString());
         this.fulfulled = true;
     }
 
@@ -60,8 +66,16 @@ public class ArdoniGraveBlockEntity extends BlockEntity {
         this.seed = seed;
     }
 
+    public void setTexturePath(Identifier texturePath) {
+        this.texturePath = texturePath;
+    }
+
     public ArdoniType getArdoniType() {
         return this.ardoniType;
+    }
+
+    public Identifier getTexturePath() {
+        return this.texturePath;
     }
 
     public boolean activated() {
@@ -74,11 +88,20 @@ public class ArdoniGraveBlockEntity extends BlockEntity {
         return -this.getCachedState().get(ArdoniGraveBlock.FACING).asRotation() + 180;
     }
 
-    public static ItemStack buildGrave(long seed, boolean fixed, ArdoniType type) {
+    public static ItemStack buildGrave(long seed, ArdoniType type) {
         NbtCompound nbt = new NbtCompound();
         nbt.putLong("seed", seed);
-        nbt.putBoolean("fixed", fixed);
+        nbt.putBoolean("fixed", false);
         nbt.putString("type", type.id());
+        ItemStack stack = new ItemStack(SowBlocks.ARDONI_GRAVE.get());
+        stack.setSubNbt("BlockEntityTag", nbt);
+        return stack;
+    }
+
+    public static ItemStack buildGrave(Identifier texture) {
+        NbtCompound nbt = new NbtCompound();
+        nbt.putBoolean("fixed", true);
+        nbt.putString("texturePath", texture.toString());
         ItemStack stack = new ItemStack(SowBlocks.ARDONI_GRAVE.get());
         stack.setSubNbt("BlockEntityTag", nbt);
         return stack;
