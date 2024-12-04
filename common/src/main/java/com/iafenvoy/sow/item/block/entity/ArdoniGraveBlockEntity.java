@@ -4,10 +4,12 @@ import com.iafenvoy.neptune.network.ClientNetworkHelper;
 import com.iafenvoy.sow.data.ArdoniType;
 import com.iafenvoy.sow.item.block.ArdoniGraveBlock;
 import com.iafenvoy.sow.registry.SowBlockEntities;
+import com.iafenvoy.sow.registry.SowBlocks;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.BlockPos;
 
@@ -70,5 +72,15 @@ public class ArdoniGraveBlockEntity extends BlockEntity {
     public float getRotationDegree() {
         if (!this.fulfulled) ClientNetworkHelper.requestBlockEntityData(this.pos);
         return -this.getCachedState().get(ArdoniGraveBlock.FACING).asRotation() + 180;
+    }
+
+    public static ItemStack buildGrave(long seed, boolean fixed, ArdoniType type) {
+        NbtCompound nbt = new NbtCompound();
+        nbt.putLong("seed", seed);
+        nbt.putBoolean("fixed", fixed);
+        nbt.putString("type", type.id());
+        ItemStack stack = new ItemStack(SowBlocks.ARDONI_GRAVE.get());
+        stack.setSubNbt("BlockEntityTag", nbt);
+        return stack;
     }
 }
