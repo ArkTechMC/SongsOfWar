@@ -1,6 +1,7 @@
 package com.iafenvoy.sow;
 
 import com.iafenvoy.sow.compat.LitematicaHelper;
+import com.iafenvoy.sow.network.ClientNetworkHelper;
 import com.iafenvoy.sow.registry.SowKeybindings;
 import com.iafenvoy.sow.registry.SowRenderers;
 import com.iafenvoy.sow.render.util.ArdoniTextureReloader;
@@ -29,5 +30,6 @@ public class SongsOfWarClient {
         ClientTickEvent.CLIENT_POST.register(client -> Static.songCubeSoundManager.tick());
         ReloadListenerRegistry.register(ResourceType.CLIENT_RESOURCES, new ArdoniTextureReloader(), new Identifier(SongsOfWar.MOD_ID, "ardoni_marker"));
         LitematicaHelper.extractFile();
+        ClientNetworkHelper.init();
     }
 }
