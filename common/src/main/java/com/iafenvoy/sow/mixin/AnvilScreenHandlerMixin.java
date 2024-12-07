@@ -35,9 +35,9 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
         if (weapon.getNbt() != null && weapon.getNbt().contains("enchantment_fragment")) return;
         if ((weapon.getItem() instanceof SwordItem || weapon.getItem() instanceof AxeItem) && stone.getItem() instanceof EnchantmentFragmentItem fragment) {
             this.repairItemUsage = 1;
-            this.levelCost.set(fragment.getInfo().getLevelCost());
+            this.levelCost.set(1);
             ItemStack result = weapon.copy();
-            fragment.getInfo().apply(result);
+            fragment.applyToStack(result);
             this.output.setStack(0, result);
             this.sendContentUpdates();
             ci.cancel();

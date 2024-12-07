@@ -41,7 +41,7 @@ public class SowSongStoneRecipePlugin implements EmiPlugin {
         private Item lastWeapon = Items.AIR;
 
         private SowAnvilRecipe(EnchantmentFragmentItem fragment) {
-            this.id = new Identifier(SongsOfWar.MOD_ID, "sow_anvil_" + fragment.getInfo().getId());
+            this.id = new Identifier(SongsOfWar.MOD_ID, "sow_anvil_" + fragment.getGlint().id());
             this.fragment = fragment;
         }
 
@@ -86,7 +86,7 @@ public class SowSongStoneRecipePlugin implements EmiPlugin {
             widgets.addTexture(EmiTexture.EMPTY_ARROW, 75, 1);
             widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofItems(this.lastWeapon = RandomHelper.randomOne(r, allWeapons))), this.unique, 0, 0);
             widgets.addSlot(EmiIngredient.of(Ingredient.ofItems(this.fragment)), 49, 0);
-            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(this.fragment.getInfo().apply(new ItemStack(this.lastWeapon)))), this.unique, 107, 0).recipeContext(this);
+            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(this.fragment.applyToStack(new ItemStack(this.lastWeapon)))), this.unique, 107, 0).recipeContext(this);
         }
     }
 
@@ -99,7 +99,7 @@ public class SowSongStoneRecipePlugin implements EmiPlugin {
 
         public SowGrindstoneRecipe(EnchantmentFragmentItem fragment) {
             this.fragment = fragment;
-            this.id = new Identifier(SongsOfWar.MOD_ID, "sow_grindstone_" + fragment.getInfo().getId());
+            this.id = new Identifier(SongsOfWar.MOD_ID, "sow_grindstone_" + fragment.getGlint().id());
         }
 
         @Override
@@ -140,7 +140,7 @@ public class SowSongStoneRecipePlugin implements EmiPlugin {
         @Override
         public void addWidgets(WidgetHolder widgets) {
             widgets.addTexture(BACKGROUND, 0, 0, 116, 56, 30, 15);
-            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(this.fragment.getInfo().apply(new ItemStack(this.lastWeapon = RandomHelper.randomOne(r, allWeapons))))), this.unique, 18, 3).drawBack(false);
+            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(this.fragment.applyToStack(new ItemStack(this.lastWeapon = RandomHelper.randomOne(r, allWeapons))))), this.unique, 18, 3).drawBack(false);
             widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(new ItemStack(this.lastWeapon))), this.unique, 98, 18).drawBack(false).recipeContext(this);
         }
     }
