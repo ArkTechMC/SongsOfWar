@@ -35,14 +35,13 @@ public class EnchantmentFragmentInfo {
 
     private static EntityAttributeModifier buildByUuid(EntityAttribute attribute, Multimap<EntityAttribute, EntityAttributeModifier> map, double additional) {
         UUID uuid = map.get(attribute).stream().findFirst().map(EntityAttributeModifier::getId).orElse(MODIFIER_UUID);
-        return new EntityAttributeModifier(uuid, "enchantment_fragment", map.get(attribute).stream().filter(x -> x.getId().equals(uuid)).reduce(additional, (p, c) -> p + c.getValue(), Double::sum), EntityAttributeModifier.Operation.ADDITION);
+        return new EntityAttributeModifier(uuid, "Enchantment fragment", map.get(attribute).stream().filter(x -> x.getId().equals(uuid)).reduce(additional, (p, c) -> p + c.getValue(), Double::sum), EntityAttributeModifier.Operation.ADDITION);
     }
 
     public static ItemStack unapply(ItemStack stack) {
         GlintManager.removeGlint(stack);
         stack.getOrCreateNbt().remove("Enchantments");
         stack.getOrCreateNbt().remove("AttributeModifiers");
-        stack.getOrCreateNbt().remove("enchantment_fragment");
         stack.removeCustomName();
         return stack;
     }

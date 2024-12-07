@@ -1,6 +1,5 @@
-package com.iafenvoy.sow.render.particle;
+package com.iafenvoy.sow.particle;
 
-import com.iafenvoy.sow.particle.LaserParticleBuilder;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;

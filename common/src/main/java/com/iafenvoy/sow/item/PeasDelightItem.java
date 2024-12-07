@@ -2,7 +2,6 @@ package com.iafenvoy.sow.item;
 
 import com.iafenvoy.sow.registry.SowItemGroups;
 import dev.architectury.platform.Platform;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

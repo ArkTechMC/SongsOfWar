@@ -4,7 +4,6 @@ import com.iafenvoy.sow.power.SongPowerData;
 import com.iafenvoy.sow.world.song.SongChunkData;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.WorldChunk;
 import org.jetbrains.annotations.NotNull;
 

@@ -71,12 +71,8 @@ public class ArdoniGraveBlockEntityRenderer implements BlockEntityRenderer<Ardon
             NativeImage nativeImage = textureData.getImage();
             NativeImage image = new NativeImage(nativeImage.getWidth(), nativeImage.getHeight(), true);
             fill(nativeImage, image);
-            this.upload(image, false, false);
-        }
-
-        private void upload(NativeImage image, boolean blur, boolean clamp) {
             TextureUtil.prepareImage(this.getGlId(), 0, image.getWidth(), image.getHeight());
-            image.upload(0, 0, 0, 0, 0, image.getWidth(), image.getHeight(), blur, clamp, false, true);
+            image.upload(0, 0, 0, 0, 0, image.getWidth(), image.getHeight(), false, false, false, true);
         }
 
         private static void fill(NativeImage origin, NativeImage target) {
