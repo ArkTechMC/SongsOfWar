@@ -180,6 +180,7 @@
   "death.attack.aggrosphere.player": "%1$s died from aggrosphere whilst trying to escape %2$s",
   "death.attack.aggrostorm": "%1$s died from aggrostorm",
   "death.attack.aggrostorm.player": "%1$s died from aggrostorm whilst trying to escape %2$s",
+  "emi.category.sow.song_recipe": "Song Crafting",
   "entity.sow.abbigail": "Abbigail",
   "entity.sow.adventurer_folk": "Adventurer Folk",
   "entity.sow.aegus": "Aegus",

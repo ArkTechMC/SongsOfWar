@@ -23,7 +23,7 @@
       "com.iafenvoy.sow.fabric.SongsOfWarFabricClient"
     ],
     "emi": [
-      "com.iafenvoy.sow.compat.SowSongStoneRecipePlugin"
+      "com.iafenvoy.sow.compat.emi.SowRecipePlugin"
     ],
     "modmenu": [
       "com.iafenvoy.sow.fabric.ModMenu"

@@ -1,11 +1,9 @@
-package com.iafenvoy.sow.compat;
+package com.iafenvoy.sow.compat.emi;
 
 import com.iafenvoy.neptune.util.RandomHelper;
 import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.item.EnchantmentFragmentItem;
 import dev.emi.emi.EmiUtil;
-import dev.emi.emi.api.EmiEntrypoint;
-import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
 import dev.emi.emi.api.recipe.EmiRecipe;
 import dev.emi.emi.api.recipe.EmiRecipeCategory;
@@ -21,13 +19,11 @@ import net.minecraft.util.Identifier;
 
 import java.util.List;
 
-@EmiEntrypoint
-public class SowSongStoneRecipePlugin implements EmiPlugin {
+public class SongStoneRecipeHelper {
     private static final List<Item> allWeapons = Registries.ITEM.stream().filter(x -> x instanceof SwordItem || x instanceof AxeItem).toList();
     private static final List<EnchantmentFragmentItem> allStones = Registries.ITEM.stream().filter(x -> x instanceof EnchantmentFragmentItem).map(x -> (EnchantmentFragmentItem) x).toList();
 
-    @Override
-    public void register(EmiRegistry registry) {
+    public static void register(EmiRegistry registry) {
         for (EnchantmentFragmentItem fragment : allStones) {
             registry.addRecipe(new SowAnvilRecipe(fragment));
             registry.addRecipe(new SowGrindstoneRecipe(fragment));
@@ -41,7 +37,7 @@ public class SowSongStoneRecipePlugin implements EmiPlugin {
         private Item lastWeapon = Items.AIR;
 
         private SowAnvilRecipe(EnchantmentFragmentItem fragment) {
-            this.id = new Identifier(SongsOfWar.MOD_ID, "sow_anvil_" + fragment.getInfo().getId());
+            this.id = new Identifier(SongsOfWar.MOD_ID, "/song_stone_anvil/" + fragment.getInfo().getId());
             this.fragment = fragment;
         }
 
