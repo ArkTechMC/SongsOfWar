@@ -1,4 +1,4 @@
-package com.iafenvoy.sow.render.particle;
+package com.iafenvoy.sow.particle;
 
 import com.iafenvoy.neptune.util.RandomHelper;
 import net.fabricmc.api.EnvType;
@@ -11,19 +11,18 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.DefaultParticleType;
 
 @Environment(EnvType.CLIENT)
-public class SongEffectParticle extends SpriteBillboardParticle {
+public class AggroblastParticle extends SpriteBillboardParticle {
     private final SpriteProvider spriteSet;
 
-    protected SongEffectParticle(ClientWorld clientWorld, double d, double e, double f, double g, double h, double i, SpriteProvider sprite) {
+    protected AggroblastParticle(ClientWorld clientWorld, double d, double e, double f, double g, double h, double i, SpriteProvider sprite) {
         super(clientWorld, d, e, f);
         this.spriteSet = sprite;
-        this.setVelocity(RandomHelper.nextDouble(-0.1, 0.1), RandomHelper.nextDouble(-0.1, 0.1), RandomHelper.nextDouble(-0.1, 0.1));
+        this.setVelocity(g + RandomHelper.nextDouble(-0.5, 0.5), h + RandomHelper.nextDouble(-0.5, 0.5), i + RandomHelper.nextDouble(-0.5, 0.5));
         this.setSpriteForAge(sprite);
         this.setBoundingBoxSpacing(0.2F, 0.2F);
         this.maxAge = 14 + this.random.nextInt(42);
         this.gravityStrength = 0.0F;
         this.collidesWithWorld = false;
-        this.setColor((float) g, (float) h, (float) i);
     }
 
     @Override
@@ -34,11 +33,11 @@ public class SongEffectParticle extends SpriteBillboardParticle {
     @Override
     public void tick() {
         super.tick();
-        if (!this.dead) this.setSprite(this.spriteSet.getSprite(this.age / 2 % 10, 9));
+        if (!this.dead) this.setSprite(this.spriteSet.getSprite(this.age / 2 % 7, 6));
     }
 
     public static ParticleFactory<DefaultParticleType> create(SpriteProvider sprite) {
-        return (parameters, world, x, y, z, r, g, b) -> new SongEffectParticle(world, x, y, z, r, g, b, sprite);
+        return (parameters, world, x, y, z, r, g, b) -> new AggroblastParticle(world, x, y, z, r, g, b, sprite);
     }
 
     @Override

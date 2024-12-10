@@ -5,7 +5,6 @@ import com.iafenvoy.neptune.util.Color4i;
 import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.config.Anniversary;
 import com.iafenvoy.sow.data.ArdoniType;
-import com.iafenvoy.sow.registry.SowBlocks;
 import com.iafenvoy.sow.registry.SowDelight;
 import com.iafenvoy.sow.registry.SowWeapons;
 import net.minecraft.entity.EntityType;
