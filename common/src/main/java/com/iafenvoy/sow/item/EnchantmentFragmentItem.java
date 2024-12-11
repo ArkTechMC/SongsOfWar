@@ -5,7 +5,6 @@ import com.iafenvoy.neptune.render.glint.GlintManager;
 import com.iafenvoy.sow.SongsOfWar;
 import com.iafenvoy.sow.registry.SowItemGroups;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -15,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Rarity;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -50,7 +50,6 @@ public class EnchantmentFragmentItem extends Item {
 
     public ItemStack applyToStack(ItemStack stack) {
         this.glint.apply(stack, true);
-        stack.addEnchantment(Enchantments.UNBREAKING, 1);
         Multimap<EntityAttribute, EntityAttributeModifier> attributes = stack.getItem().getAttributeModifiers(EquipmentSlot.MAINHAND);
         stack.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE, buildByUuid(EntityAttributes.GENERIC_ATTACK_DAMAGE, attributes, 3), EquipmentSlot.MAINHAND);
         stack.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_SPEED, buildByUuid(EntityAttributes.GENERIC_ATTACK_SPEED, attributes, 0.5), EquipmentSlot.MAINHAND);
@@ -67,5 +66,13 @@ public class EnchantmentFragmentItem extends Item {
     private static String formatNumber(double number) {
         if (number > 0) return "+" + ItemStack.MODIFIER_FORMAT.format(number);
         return "-" + ItemStack.MODIFIER_FORMAT.format(-number);
+    }
+
+    public static ItemStack removeFromStack(ItemStack stack) {
+        GlintManager.removeGlint(stack);
+        stack.removeSubNbt("AttributeModifiers");
+        if (stack.getName() instanceof MutableText mutableText)
+            stack.setCustomName(mutableText.fillStyle(Style.EMPTY.withItalic(false)).formatted(Formatting.WHITE));//TODO: Bad code, should mixin renderer
+        return stack;
     }
 }

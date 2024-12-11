@@ -1,6 +1,6 @@
 package com.iafenvoy.sow.item.block;
 
-import com.iafenvoy.sow.Static;
+import com.iafenvoy.sow.Constants;
 import com.iafenvoy.sow.item.block.entity.AbstractSongCubeBlockEntity;
 import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.power.type.AbstractSongPower;
@@ -92,7 +92,7 @@ public abstract class AbstractSongCubeBlock extends BlockWithEntity {
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return (world1, pos, state1, blockEntity) -> {
             if (blockEntity instanceof AbstractSongCubeBlockEntity songCubeBlockEntity)
-                Static.songCubeSoundManager.startPlaying(pos, songCubeBlockEntity.getCategory());
+                Constants.songCubeSoundManager.startPlaying(pos, songCubeBlockEntity.getCategory());
         };
     }
 }

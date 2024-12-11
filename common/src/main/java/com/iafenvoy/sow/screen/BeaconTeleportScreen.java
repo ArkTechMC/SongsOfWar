@@ -1,7 +1,7 @@
 package com.iafenvoy.sow.screen;
 
 import com.iafenvoy.neptune.network.PacketBufferUtils;
-import com.iafenvoy.sow.Static;
+import com.iafenvoy.sow.Constants;
 import com.iafenvoy.sow.data.BeaconData;
 import dev.architectury.networking.NetworkManager;
 import net.fabricmc.api.EnvType;
@@ -58,7 +58,7 @@ public class BeaconTeleportScreen extends Screen {
                 PacketByteBuf buf = PacketBufferUtils.create();
                 buf.writeBlockPos(this.pos);
                 buf.writeBlockPos(d.pos());
-                NetworkManager.sendToServer(Static.BEACON_TELEPORT, buf);
+                NetworkManager.sendToServer(Constants.BEACON_TELEPORT, buf);
                 this.close();
             }).dimensions(middleX - 50, middleY + (i - 2) * 25, 100, 20).build());
         }

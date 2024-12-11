@@ -20,11 +20,11 @@ import net.minecraft.util.Identifier;
 import java.util.List;
 
 public class SongStoneRecipeHelper {
-    private static final List<Item> allWeapons = Registries.ITEM.stream().filter(x -> x instanceof SwordItem || x instanceof AxeItem).toList();
-    private static final List<EnchantmentFragmentItem> allStones = Registries.ITEM.stream().filter(x -> x instanceof EnchantmentFragmentItem).map(x -> (EnchantmentFragmentItem) x).toList();
+    private static final List<Item> ALL_WEAPONS = Registries.ITEM.stream().filter(x -> x instanceof SwordItem || x instanceof AxeItem).toList();
+    private static final List<EnchantmentFragmentItem> ALL_STONES = Registries.ITEM.stream().filter(x -> x instanceof EnchantmentFragmentItem).map(x -> (EnchantmentFragmentItem) x).toList();
 
     public static void register(EmiRegistry registry) {
-        for (EnchantmentFragmentItem fragment : allStones) {
+        for (EnchantmentFragmentItem fragment : ALL_STONES) {
             registry.addRecipe(new SowAnvilRecipe(fragment));
             registry.addRecipe(new SowGrindstoneRecipe(fragment));
         }
@@ -37,7 +37,7 @@ public class SongStoneRecipeHelper {
         private Item lastWeapon = Items.AIR;
 
         private SowAnvilRecipe(EnchantmentFragmentItem fragment) {
-            this.id = new Identifier(SongsOfWar.MOD_ID, "/song_stone_anvil/" + fragment.getInfo().getId());
+            this.id = new Identifier(SongsOfWar.MOD_ID, "/song_stone_anvil/" + fragment.getGlint().id());
             this.fragment = fragment;
         }
 
@@ -53,7 +53,7 @@ public class SongStoneRecipeHelper {
 
         @Override
         public List<EmiIngredient> getInputs() {
-            return List.of(EmiIngredient.of(allWeapons.stream().map(Ingredient::ofItems).map(EmiIngredient::of).toList()), EmiIngredient.of(Ingredient.ofItems(this.fragment)));
+            return List.of(EmiIngredient.of(ALL_WEAPONS.stream().map(Ingredient::ofItems).map(EmiIngredient::of).toList()), EmiIngredient.of(Ingredient.ofItems(this.fragment)));
         }
 
         @Override
@@ -80,9 +80,9 @@ public class SongStoneRecipeHelper {
         public void addWidgets(WidgetHolder widgets) {
             widgets.addTexture(EmiTexture.PLUS, 27, 3);
             widgets.addTexture(EmiTexture.EMPTY_ARROW, 75, 1);
-            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofItems(this.lastWeapon = RandomHelper.randomOne(r, allWeapons))), this.unique, 0, 0);
+            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofItems(this.lastWeapon = RandomHelper.randomOne(r, ALL_WEAPONS))), this.unique, 0, 0);
             widgets.addSlot(EmiIngredient.of(Ingredient.ofItems(this.fragment)), 49, 0);
-            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(this.fragment.getInfo().apply(new ItemStack(this.lastWeapon)))), this.unique, 107, 0).recipeContext(this);
+            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(this.fragment.applyToStack(new ItemStack(this.lastWeapon)))), this.unique, 107, 0).recipeContext(this);
         }
     }
 
@@ -95,7 +95,7 @@ public class SongStoneRecipeHelper {
 
         public SowGrindstoneRecipe(EnchantmentFragmentItem fragment) {
             this.fragment = fragment;
-            this.id = new Identifier(SongsOfWar.MOD_ID, "sow_grindstone_" + fragment.getInfo().getId());
+            this.id = new Identifier(SongsOfWar.MOD_ID, "/sow_grindstone_" + fragment.getGlint().id());
         }
 
         @Override
@@ -136,7 +136,7 @@ public class SongStoneRecipeHelper {
         @Override
         public void addWidgets(WidgetHolder widgets) {
             widgets.addTexture(BACKGROUND, 0, 0, 116, 56, 30, 15);
-            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(this.fragment.getInfo().apply(new ItemStack(this.lastWeapon = RandomHelper.randomOne(r, allWeapons))))), this.unique, 18, 3).drawBack(false);
+            widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(this.fragment.applyToStack(new ItemStack(this.lastWeapon = RandomHelper.randomOne(r, ALL_WEAPONS))))), this.unique, 18, 3).drawBack(false);
             widgets.addGeneratedSlot(r -> EmiIngredient.of(Ingredient.ofStacks(new ItemStack(this.lastWeapon))), this.unique, 98, 18).drawBack(false).recipeContext(this);
         }
     }

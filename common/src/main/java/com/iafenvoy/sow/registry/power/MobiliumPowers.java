@@ -1,6 +1,6 @@
 package com.iafenvoy.sow.registry.power;
 
-import com.iafenvoy.sow.Static;
+import com.iafenvoy.sow.Constants;
 import com.iafenvoy.sow.config.SowConfig;
 import com.iafenvoy.sow.item.block.TemporaryTransparentBlock;
 import com.iafenvoy.sow.power.PowerCategory;
@@ -76,14 +76,14 @@ public final class MobiliumPowers {
             .onApply(holder -> {//GRAVITY attribute not available before 1.20.5
                 EntityAttributeInstance instance = holder.getPlayer().getAttributes().getCustomInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
                 if (instance != null)
-                    instance.addTemporaryModifier(new EntityAttributeModifier(Static.MOBILIGLIDE_UUID, "mobiliglide", 1, EntityAttributeModifier.Operation.ADDITION));
+                    instance.addTemporaryModifier(new EntityAttributeModifier(Constants.MOBILIGLIDE_UUID, "mobiliglide", 1, EntityAttributeModifier.Operation.ADDITION));
             })
             .onTick(holder -> {
                 if (holder.getPlayer().isOnGround() || holder.getPlayer().getAbilities().flying) holder.cancel();
             })
             .onUnapply(holder -> {
                 EntityAttributeInstance instance = holder.getPlayer().getAttributes().getCustomInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
-                if (instance != null) instance.removeModifier(Static.MOBILIGLIDE_UUID);
+                if (instance != null) instance.removeModifier(Constants.MOBILIGLIDE_UUID);
             });
     public static final PersistSongPower MOBILILEAP = new PersistSongPower("mobilileap", PowerCategory.MOBILIUM)
             .setApplySound(SowSounds.MOBILILEAP)

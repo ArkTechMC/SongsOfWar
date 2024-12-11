@@ -2,7 +2,7 @@ package com.iafenvoy.sow.registry;
 
 import com.iafenvoy.neptune.network.PacketBufferUtils;
 import com.iafenvoy.sow.SongsOfWar;
-import com.iafenvoy.sow.Static;
+import com.iafenvoy.sow.Constants;
 import com.iafenvoy.sow.power.PowerCategory;
 import dev.architectury.event.events.client.ClientTickEvent;
 import dev.architectury.networking.NetworkManager;
@@ -38,14 +38,14 @@ public final class SowKeybindings {
         ClientTickEvent.CLIENT_POST.register(client -> KEY_BINDINGS.forEach(KeyBindingHolder::tick));
         ClientTickEvent.CLIENT_POST.register(client -> JUMP.tick());
         JUMP.registerPressCallback(x -> {
-            if (x) NetworkManager.sendToServer(Static.JUMP_PRESS, PacketBufferUtils.create());
+            if (x) NetworkManager.sendToServer(Constants.JUMP_PRESS, PacketBufferUtils.create());
         });
         for (PowerCategory type : PowerCategory.values())
             KEY_BINDINGS.get(type.ordinal()).registerPressCallback(press -> {
                 if (press) {
                     PacketByteBuf buf = PacketBufferUtils.create();
                     buf.writeEnumConstant(type);
-                    NetworkManager.sendToServer(Static.POWER_KEYBINDING_SYNC, buf);
+                    NetworkManager.sendToServer(Constants.POWER_KEYBINDING_SYNC, buf);
                 }
             });
     }

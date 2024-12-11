@@ -166,7 +166,6 @@ Peas! Comes from the countryside!
 
 #### Future plan
 
-- Add peas wild generate.
 - Placeable :)
 
 ## Mods Relations

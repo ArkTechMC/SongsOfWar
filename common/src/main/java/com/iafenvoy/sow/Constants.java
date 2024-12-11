@@ -6,7 +6,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.UUID;
 
-public class Static {
+public class Constants {
     public static final Identifier BEACON_TELEPORT = new Identifier(SongsOfWar.MOD_ID, "beacon_teleport");
     public static final Identifier POWER_KEYBINDING_SYNC = new Identifier(SongsOfWar.MOD_ID, "keybinding_sync");
     public static final Identifier JUMP_PRESS = new Identifier(SongsOfWar.MOD_ID, "jump_press");
