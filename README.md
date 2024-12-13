@@ -49,8 +49,8 @@ Restore song power in animation.
 There are chunks named `Song Chunk` in the world. Craft a `Song Stone` and when you in a song chunk, the color will
 change.
 
-Also, you can upgrade with `Notes` to detect specific song chunk. The color will half change if you near a song chunk (
-default 2 chunks).
+Also, you can upgrade with `Notes` to detect specific song chunk. The color will half change if you near a song chunk
+(default 2 chunks).
 
 Ones you found a song chunk, you can place a note block and play it. It will drop `Notes`.
 
@@ -66,7 +66,7 @@ Finally, you can craft songs with `Notes`. Its power will randomize.
 
 #### Admin command (Or single player)
 
-`/songpower enable/disable <player>` to enable/disable access to song abilities.
+`/sow power enable/disable <player>` to enable/disable access to song abilities.
 
 #### Combine song cube
 

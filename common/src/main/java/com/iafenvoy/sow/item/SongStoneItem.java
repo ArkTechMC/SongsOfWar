@@ -20,7 +20,6 @@ public class SongStoneItem extends Item {
         super(new Settings().rarity(Rarity.UNCOMMON).maxCount(1).arch$tab(SowItemGroups.ITEMS));
     }
 
-    @SuppressWarnings("all")
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         super.inventoryTick(stack, world, entity, slot, selected);

@@ -21,26 +21,25 @@ import java.util.Collection;
 public final class SowCommands {
     public static void init() {
         CommandRegistrationEvent.EVENT.register((dispatcher, registry, selection) -> dispatcher
-                .register(CommandManager.literal("songpower")
-                        .requires(ServerCommandSource::isExecutedByPlayer)
-                        .requires(source -> source.hasPermissionLevel(source.getServer().isDedicated() ? 4 : 0))
-                        .then(CommandManager.argument("players", EntityArgumentType.players())
-                                .then(CommandManager.literal("use").executes(SowCommands::useSong))
-                                .then(CommandManager.literal("enable").executes(SowCommands::enableSong))
-                                .then(CommandManager.literal("disable").executes(SowCommands::disableSong))
-                        )
-                ));
-        CommandRegistrationEvent.EVENT.register((dispatcher, registry, selection) -> dispatcher
-                .register(CommandManager.literal("songchunk")
-                        .requires(ServerCommandSource::isExecutedByPlayer)
-                        .requires(source -> source.hasPermissionLevel(source.getServer().isDedicated() ? 4 : 0))
-                        .executes(ctx -> {
-                            ServerCommandSource source = ctx.getSource();
-                            PlayerEntity player = source.getPlayerOrThrow();
-                            source.sendFeedback(() -> Text.of("Remain notes: " + SongChunkData.byChunk(player.getWorld().getWorldChunk(player.getBlockPos())).getRemainNotes()), false);
-                            return 1;
-                        })
-                ));
+                .register(CommandManager.literal("sow")
+                        .then(CommandManager.literal("power")
+                                .requires(ServerCommandSource::isExecutedByPlayer)
+                                .requires(source -> source.hasPermissionLevel(source.getServer().isDedicated() ? 4 : 0))
+                                .then(CommandManager.argument("players", EntityArgumentType.players())
+                                        .then(CommandManager.literal("use").executes(SowCommands::useSong))
+                                        .then(CommandManager.literal("enable").executes(SowCommands::enableSong))
+                                        .then(CommandManager.literal("disable").executes(SowCommands::disableSong))
+                                ))
+                        .then(CommandManager.literal("chunk")
+                                .requires(ServerCommandSource::isExecutedByPlayer)
+                                .requires(source -> source.hasPermissionLevel(source.getServer().isDedicated() ? 4 : 0))
+                                .executes(ctx -> {
+                                    ServerCommandSource source = ctx.getSource();
+                                    PlayerEntity player = source.getPlayerOrThrow();
+                                    source.sendFeedback(() -> Text.of("Remain notes: " + SongChunkData.byChunk(player.getWorld().getWorldChunk(player.getBlockPos())).getRemainNotes()), false);
+                                    return 1;
+                                })
+                        )));
     }
 
     public static int useSong(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
