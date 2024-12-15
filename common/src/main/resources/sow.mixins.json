@@ -17,7 +17,9 @@
     "integration.ModPacketsC2SMixin"
   ],
   "client": [
+    "BufferBuilderStorageMixin",
     "InGameHudMixin",
+    "ItemRendererMixin",
     "PlayerEntityRendererMixin",
     "WorldAccessor"
   ],
