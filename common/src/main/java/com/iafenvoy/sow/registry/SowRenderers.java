@@ -15,13 +15,13 @@ import com.iafenvoy.sow.entity.netharan.ChronosEntity;
 import com.iafenvoy.sow.entity.netharan.PythusEntity;
 import com.iafenvoy.sow.item.AdjustedSongStoneItem;
 import com.iafenvoy.sow.item.SongStoneItem;
+import com.iafenvoy.sow.particle.AggroblastParticle;
+import com.iafenvoy.sow.particle.LaserParticle;
+import com.iafenvoy.sow.particle.SongEffectParticle;
 import com.iafenvoy.sow.power.PowerCategory;
 import com.iafenvoy.sow.render.block.ArdoniGraveBlockEntityRenderer;
 import com.iafenvoy.sow.render.block.SongCubeBlockEntityRenderer;
 import com.iafenvoy.sow.render.entity.ArdoniEntityRenderer;
-import com.iafenvoy.sow.particle.AggroblastParticle;
-import com.iafenvoy.sow.particle.LaserParticle;
-import com.iafenvoy.sow.particle.SongEffectParticle;
 import com.iafenvoy.sow.render.power.*;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.client.particle.ParticleProviderRegistry;
@@ -210,7 +210,7 @@ public final class SowRenderers {
     }
 
     public static void registerRenderType() {
-        RenderTypeRegistry.register(RenderLayer.getCutout(), SowBlocks.PEAS.get());
+        RenderTypeRegistry.register(RenderLayer.getCutout(), SowBlocks.PEAS.get(), SowDelight.PEAS_STEAMED_STUFFED_BUN_BLOCK.get(), SowDelight.FOOD_PLATE.get());
         RenderTypeRegistry.register(RenderLayer.getTranslucent(), SowBlocks.MOBILIBOUNCE_PLATFORM.get());
         RenderTypeRegistry.register(RenderLayer.getTranslucent(), SowBlocks.PROTE_BARRIER.get());
     }

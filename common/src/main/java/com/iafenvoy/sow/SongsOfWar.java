@@ -29,7 +29,8 @@ public class SongsOfWar {
         SowBlocks.REGISTRY.register();
         SowBlocks.ITEM_REGISTRY.register();
         SowBlockEntities.REGISTRY.register();
-        SowDelight.REGISTRY.register();
+        SowDelight.BLOCK_REGISTRY.register();
+        SowDelight.ITEM_REGISTRY.register();
         SowEntities.REGISTRY.register();
         SowItemGroups.REGISTRY.register();
         SowItems.REGISTRY.register();
