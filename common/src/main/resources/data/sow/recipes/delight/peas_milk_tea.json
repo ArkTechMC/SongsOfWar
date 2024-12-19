@@ -10,6 +10,7 @@
       "item": "sow:peas"
     }
   ],
+  "recipe_book_tab": "drinks",
   "result": {
     "item": "sow:peas_milk_tea"
   }

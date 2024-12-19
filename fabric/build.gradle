@@ -24,12 +24,7 @@ dependencies {
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
 
-    // Trinkets
     modImplementation "dev.emi:trinkets:${trinkets_version}"
-
-    // Cardinal Components API
-    // Don't need this. Trinkets has embedded version 5.2.0.
-
     modImplementation "maven.modrinth:neptune:NztAXzNA"
     modImplementation "maven.modrinth:jupiter:nhqjUZZy"
 
@@ -39,7 +34,6 @@ dependencies {
     modImplementation(include("com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"))
 
     // Optional
-    // EMI
     modImplementation "dev.emi:emi-fabric:${emi_version}"
     modImplementation "com.github.apace100:origins-fabric:${project.origins_version}"
     modApi "com.terraformersmc:modmenu:7.2.2"
