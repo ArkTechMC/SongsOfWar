@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "bites=0": {
+      "model": "sow:block/peas_pie"
+    },
+    "bites=1": {
+      "model": "sow:block/peas_pie_1"
+    },
+    "bites=2": {
+      "model": "sow:block/peas_pie_2"
+    },
+    "bites=3": {
+      "model": "sow:block/peas_pie_3"
+    }
+  }
+}

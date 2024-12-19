@@ -6,7 +6,7 @@
         "facing": "north"
       },
       "apply": {
-        "model": "sow:block/food_plate",
+        "model": "sow:block/wooden_food_plate",
         "y": 0
       }
     },
@@ -16,7 +16,7 @@
         "facing": "east"
       },
       "apply": {
-        "model": "sow:block/food_plate",
+        "model": "sow:block/wooden_food_plate",
         "y": 90
       }
     },
@@ -26,7 +26,7 @@
         "facing": "south"
       },
       "apply": {
-        "model": "sow:block/food_plate",
+        "model": "sow:block/wooden_food_plate",
         "y": 180
       }
     },
@@ -36,7 +36,7 @@
         "facing": "west"
       },
       "apply": {
-        "model": "sow:block/food_plate",
+        "model": "sow:block/wooden_food_plate",
         "y": 270
       }
     }
@@ -152,6 +152,70 @@
     },
     "food_type=peas_flour_cake,item_count=4,facing=west": {
       "model": "sow:block/peas_flour_cake_4",
+      "y":270
+    },
+    "food_type=peas_stewie,item_count=1,facing=north": {
+      "model": "sow:block/peas_stewie_1",
+      "y":0
+    },
+    "food_type=peas_stewie,item_count=1,facing=east": {
+      "model": "sow:block/peas_stewie_1",
+      "y":90
+    },
+    "food_type=peas_stewie,item_count=1,facing=south": {
+      "model": "sow:block/peas_stewie_1",
+      "y":180
+    },
+    "food_type=peas_stewie,item_count=1,facing=west": {
+      "model": "sow:block/peas_stewie_1",
+      "y":270
+    },
+    "food_type=peas_stewie,item_count=2,facing=north": {
+      "model": "sow:block/peas_stewie_2",
+      "y":0
+    },
+    "food_type=peas_stewie,item_count=2,facing=east": {
+      "model": "sow:block/peas_stewie_2",
+      "y":90
+    },
+    "food_type=peas_stewie,item_count=2,facing=south": {
+      "model": "sow:block/peas_stewie_2",
+      "y":180
+    },
+    "food_type=peas_stewie,item_count=2,facing=west": {
+      "model": "sow:block/peas_stewie_2",
+      "y":270
+    },
+    "food_type=peas_stewie,item_count=3,facing=north": {
+      "model": "sow:block/peas_stewie_3",
+      "y":0
+    },
+    "food_type=peas_stewie,item_count=3,facing=east": {
+      "model": "sow:block/peas_stewie_3",
+      "y":90
+    },
+    "food_type=peas_stewie,item_count=3,facing=south": {
+      "model": "sow:block/peas_stewie_3",
+      "y":180
+    },
+    "food_type=peas_stewie,item_count=3,facing=west": {
+      "model": "sow:block/peas_stewie_3",
+      "y":270
+    },
+    "food_type=peas_stewie,item_count=4,facing=north": {
+      "model": "sow:block/peas_stewie_4",
+      "y":0
+    },
+    "food_type=peas_stewie,item_count=4,facing=east": {
+      "model": "sow:block/peas_stewie_4",
+      "y":90
+    },
+    "food_type=peas_stewie,item_count=4,facing=south": {
+      "model": "sow:block/peas_stewie_4",
+      "y":180
+    },
+    "food_type=peas_stewie,item_count=4,facing=west": {
+      "model": "sow:block/peas_stewie_4",
       "y":270
     }
   }

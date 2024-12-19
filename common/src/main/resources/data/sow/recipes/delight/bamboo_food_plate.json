@@ -5,11 +5,11 @@
   ],
   "key": {
     "L": {
-      "tag": "minecraft:logs"
+      "item": "minecraft:bamboo_block"
     }
   },
   "result": {
-    "item": "sow:food_plate",
+    "item": "sow:bamboo_food_plate",
     "count": 4
   }
 }

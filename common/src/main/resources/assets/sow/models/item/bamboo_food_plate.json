@@ -1,6 +1,6 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "sow:block/food_plate",
+	"parent": "sow:block/bamboo_food_plate",
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [75, 45, 0],

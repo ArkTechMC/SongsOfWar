@@ -1,0 +1,190 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "food_type": "none",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "sow:block/bamboo_food_plate",
+        "y": 0
+      }
+    },
+    {
+      "when": {
+        "food_type": "none",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "sow:block/bamboo_food_plate",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "food_type": "none",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "sow:block/bamboo_food_plate",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "food_type": "none",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "sow:block/bamboo_food_plate",
+        "y": 270
+      }
+    }
+  ],
+  "variants": {
+    "food_type=peas_steamed_stuffed_bun,item_count=1,facing=north": {
+      "model": "sow:block/peas_steamed_stuffed_bun_1",
+      "y": 0
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=1,facing=east": {
+      "model": "sow:block/peas_steamed_stuffed_bun_1",
+      "y": 90
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=1,facing=south": {
+      "model": "sow:block/peas_steamed_stuffed_bun_1",
+      "y": 180
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=1,facing=west": {
+      "model": "sow:block/peas_steamed_stuffed_bun_1",
+      "y": 270
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=2,facing=north": {
+      "model": "sow:block/peas_steamed_stuffed_bun_2",
+      "y": 0
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=2,facing=east": {
+      "model": "sow:block/peas_steamed_stuffed_bun_2",
+      "y": 90
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=2,facing=south": {
+      "model": "sow:block/peas_steamed_stuffed_bun_2",
+      "y": 180
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=2,facing=west": {
+      "model": "sow:block/peas_steamed_stuffed_bun_2",
+      "y": 270
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=3,facing=north": {
+      "model": "sow:block/peas_steamed_stuffed_bun_3",
+      "y": 0
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=3,facing=east": {
+      "model": "sow:block/peas_steamed_stuffed_bun_3",
+      "y": 90
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=3,facing=south": {
+      "model": "sow:block/peas_steamed_stuffed_bun_3",
+      "y": 180
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=3,facing=west": {
+      "model": "sow:block/peas_steamed_stuffed_bun_3",
+      "y": 270
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=4,facing=north": {
+      "model": "sow:block/peas_steamed_stuffed_bun_4",
+      "y": 0
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=4,facing=east": {
+      "model": "sow:block/peas_steamed_stuffed_bun_4",
+      "y": 90
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=4,facing=south": {
+      "model": "sow:block/peas_steamed_stuffed_bun_4",
+      "y": 180
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=4,facing=west": {
+      "model": "sow:block/peas_steamed_stuffed_bun_4",
+      "y": 270
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=5,facing=north": {
+      "model": "sow:block/peas_steamed_stuffed_bun_5",
+      "y": 0
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=5,facing=east": {
+      "model": "sow:block/peas_steamed_stuffed_bun_5",
+      "y": 90
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=5,facing=south": {
+      "model": "sow:block/peas_steamed_stuffed_bun_5",
+      "y": 180
+    },
+    "food_type=peas_steamed_stuffed_bun,item_count=5,facing=west": {
+      "model": "sow:block/peas_steamed_stuffed_bun_5",
+      "y": 270
+    },
+    "food_type=peas_pastry,item_count=1,facing=north": {
+      "model": "sow:block/peas_pastry_1",
+      "y": 0
+    },
+    "food_type=peas_pastry,item_count=1,facing=east": {
+      "model": "sow:block/peas_pastry_1",
+      "y": 90
+    },
+    "food_type=peas_pastry,item_count=1,facing=south": {
+      "model": "sow:block/peas_pastry_1",
+      "y": 180
+    },
+    "food_type=peas_pastry,item_count=1,facing=west": {
+      "model": "sow:block/peas_pastry_1",
+      "y": 270
+    },
+    "food_type=peas_pastry,item_count=2,facing=north": {
+      "model": "sow:block/peas_pastry_2",
+      "y": 0
+    },
+    "food_type=peas_pastry,item_count=2,facing=east": {
+      "model": "sow:block/peas_pastry_2",
+      "y": 90
+    },
+    "food_type=peas_pastry,item_count=2,facing=south": {
+      "model": "sow:block/peas_pastry_2",
+      "y": 180
+    },
+    "food_type=peas_pastry,item_count=2,facing=west": {
+      "model": "sow:block/peas_pastry_2",
+      "y": 270
+    },
+    "food_type=peas_pastry,item_count=3,facing=north": {
+      "model": "sow:block/peas_pastry_3",
+      "y": 0
+    },
+    "food_type=peas_pastry,item_count=3,facing=east": {
+      "model": "sow:block/peas_pastry_3",
+      "y": 90
+    },
+    "food_type=peas_pastry,item_count=3,facing=south": {
+      "model": "sow:block/peas_pastry_3",
+      "y": 180
+    },
+    "food_type=peas_pastry,item_count=3,facing=west": {
+      "model": "sow:block/peas_pastry_3",
+      "y": 270
+    },
+    "food_type=peas_pastry,item_count=4,facing=north": {
+      "model": "sow:block/peas_pastry_4",
+      "y": 0
+    },
+    "food_type=peas_pastry,item_count=4,facing=east": {
+      "model": "sow:block/peas_pastry_4",
+      "y": 90
+    },
+    "food_type=peas_pastry,item_count=4,facing=south": {
+      "model": "sow:block/peas_pastry_4",
+      "y": 180
+    },
+    "food_type=peas_pastry,item_count=4,facing=west": {
+      "model": "sow:block/peas_pastry_4",
+      "y": 270
+    }
+  }
+}

@@ -210,7 +210,7 @@ public final class SowRenderers {
     }
 
     public static void registerRenderType() {
-        RenderTypeRegistry.register(RenderLayer.getCutout(), SowBlocks.PEAS.get(), SowDelight.PEAS_STEAMED_STUFFED_BUN_BLOCK.get(), SowDelight.FOOD_PLATE.get());
+        RenderTypeRegistry.register(RenderLayer.getCutout(), SowBlocks.PEAS.get(), SowDelight.WOODEN_FOOD_PLATE.get(), SowDelight.BAMBOO_FOOD_PLATE.get());
         RenderTypeRegistry.register(RenderLayer.getTranslucent(), SowBlocks.MOBILIBOUNCE_PLATFORM.get());
         RenderTypeRegistry.register(RenderLayer.getTranslucent(), SowBlocks.PROTE_BARRIER.get());
     }
